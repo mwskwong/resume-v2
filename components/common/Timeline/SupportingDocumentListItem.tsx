@@ -24,7 +24,6 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ suppo
               alt={`Thumbnail of ${name}`}
               width={102}
               height={68}
-              placeholder="blur"
               style={thumbnailStyle}
             />
           )}

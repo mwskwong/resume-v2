@@ -26,7 +26,6 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
               alt={`Picture of ${firstName} ${lastName}`}
               width={200}
               height={200}
-              placeholder="blur"
               style={imageStyle}
             />
           </div>
