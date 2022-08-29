@@ -51,7 +51,8 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
       <Container>
         <Stack spacing={6}>
           <SectionHeading heading="Contact" />
-          <form name="contact" data-netlify="true" onSubmit={handleSubmit(handleFormSubmit)}>
+          {/* @ts-ignore */}
+          <form name="contact" netlify onSubmit={handleSubmit(handleFormSubmit)}>
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
