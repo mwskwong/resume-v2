@@ -1,6 +1,6 @@
 const jobTitles = [
-  "System DBA",
-  "Front-end Developer"
+  "Frontend Engineer",
+  "System DBA"
 ];
 
 export default jobTitles;

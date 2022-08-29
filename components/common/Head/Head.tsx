@@ -7,6 +7,8 @@ import { firstName, lastName } from "constants/name";
 import { ABOUT } from "constants/nav";
 import { FC } from "react";
 import NextHead from "next/head";
+import icon from "assets/images/icon.svg";
+import iconDark from "assets/images/icon-dark.svg";
 import jobTitles from "constants/jobTitles";
 import ogImage from "assets/images/og_image.png";
 import selfIntro from "constants/selfIntro";
@@ -82,6 +84,9 @@ const Head: FC<HeadProps> = ({ title }) => {
       <title>{siteTitle}</title>
 
       <meta name="author" content={fullName} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href={icon.src} type="image/svg+xml" />
+      <link rel="icon" href={iconDark.src} type="image/svg+xml" media="(prefers-color-scheme: dark)" />
 
       <meta name="title" property="og:title" content={siteTitle} />
       <meta name="description" property="og:description" content={selfIntro} />

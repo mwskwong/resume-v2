@@ -5,3 +5,9 @@ declare namespace NodeJS {
     readonly ANALYZE_BUNDLE: 1 | 0
   }
 }
+
+declare module "*.pdf" {
+  const content: string;
+
+  export default content;
+}
