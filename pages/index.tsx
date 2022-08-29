@@ -1,6 +1,4 @@
 import About from "components/index/About";
-import Education from "components/index/Education";
-import Experience from "components/index/Experience";
 import Footer from "components/common/Footer";
 import FooterDivider from "components/common/dividers/Footer";
 import Head from "components/common/Head";
@@ -17,6 +15,8 @@ import WaveSmooth from "components/common/dividers/WaveSmooth";
 import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
 import dynamic from "next/dynamic";
 
+const Experience = dynamic(() => import("components/index/Experience"), { suspense: true });
+const Education = dynamic(() => import("components/index/Education"), { suspense: true });
 const Contact = dynamic(() => import("components/index/Contact"), { suspense: true });
 
 const bgcolors: Record<string, keyof TypeBackground> = {
@@ -74,9 +74,13 @@ const Home: NextPage = () => {
         <WaveSmooth sx={sx.waveSmooth} />
         <About sx={sx.about} />
         <WaveRough sx={sx.waveRough} />
-        <Experience sx={sx.experience} />
+        <Suspense>
+          <Experience sx={sx.experience} />
+        </Suspense>
         <WaveSmooth2 sx={sx.waveSmooth2} />
-        <Education sx={sx.education} />
+        <Suspense>
+          <Education sx={sx.education} />
+        </Suspense>
         <WaveRoaring sx={sx.waveRoaring} />
         <Suspense>
           <Contact />
