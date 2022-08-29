@@ -1,12 +1,12 @@
-import SupportDocument from "./SupportDocument";
+import SupportingDocument from "./SupportingDocument";
 
 type TimelineItemData = {
-  from?: string,
-  to?: string | null,
+  from?: Date,
+  to?: Date | "Present",
   title?: string,
   subtitle?: string,
-  contents?: readonly (string | null)[] | null,
-  supportDocuments?: readonly SupportDocument[] | null
+  contents?: string[]
+  supportingDocuments?: SupportingDocument[]
 }
 
 export default TimelineItemData;

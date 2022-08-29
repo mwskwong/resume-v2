@@ -9,7 +9,7 @@ import {
   TimelineSeparator
 } from "@mui/lab";
 
-import SupportDocumentListItem from "./SupportDocumentListItem";
+import SupportingDocumentListItem from "./SupportingDocumentListItem";
 import TimelineItemData from "./TimelineItemData";
 import dateTimeFormat from "utils/dateTimeFormat";
 import useSx from "./useTImelineItemSx";
@@ -20,11 +20,9 @@ type TimelineItemProps = {
 
 const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
   const sx = useSx();
-  const from = data.from ? dateTimeFormat.format(new Date(data.from)) : "";
-  const to = data.to ? dateTimeFormat.format(new Date(data.to)) : "Present";
+  const from = data.from && dateTimeFormat.format(data.from);
+  const to = data.to instanceof Date ? dateTimeFormat.format(data.to) : data.to;
   const period = `${from} — ${to}`;
-  const contents = data.contents || [];
-  const supportDocuments = data.supportDocuments || [];
 
   return (
     <MuiTimelineItem>
@@ -46,7 +44,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           {data.subtitle}
         </Typography>
         <List disablePadding component="ol">
-          {contents.map((content, index) => (
+          {data.contents && data.contents.map((content, index) => (
             <ListItem key={index} disableGutters>
               <ListItemIcon sx={sx.listItemIcon}>
                 <Typography component="span" sx={sx.listItemNumber}>
@@ -58,10 +56,10 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           ))}
         </List>
         <List disablePadding>
-          {supportDocuments.map((supportDocument, index) => (
-            <SupportDocumentListItem
+          {data.supportingDocuments && data.supportingDocuments.map((supportingDocument, index) => (
+            <SupportingDocumentListItem
               key={index}
-              supportDocument={supportDocument}
+              supportingDocument={supportingDocument}
             />
           ))}
         </List>

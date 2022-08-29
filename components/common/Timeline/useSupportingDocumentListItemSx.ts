@@ -5,7 +5,6 @@ const useSx: UseSx = () => ({
     pl: 0
   },
   avatar: {
-    minWIdth: "initial",
     pr: "16px"
   }
 });

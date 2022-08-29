@@ -78,6 +78,9 @@ const getThemedComponents: GetThemedComponents = theme => ({
           },
           paddingTop: theme.spacing(10),
           paddingBottom: theme.spacing(10)
+        },
+        img: {
+          display: "block"
         }
       }
     },

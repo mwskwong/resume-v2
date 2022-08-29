@@ -1,15 +1,15 @@
 import { CSSProperties, FC } from "react";
 import { ListItem, ListItemAvatar, ListItemButton, ListItemText, useTheme } from "@mui/material";
 
-import Image from "next/image";
-import SupportDocument from "./SupportDocument";
-import useSx from "./useSupportDocumentListItemSx";
+import Image from "next/future/image";
+import SupportingDocument from "./SupportingDocument";
+import useSx from "./useSupportingDocumentListItemSx";
 
-type SupportDocumentListItemProps = {
-  supportDocument: SupportDocument
+type SupportingDocumentListItemProps = {
+  supportingDocument: SupportingDocument
 }
 
-const SupportDocumentListItem: FC<SupportDocumentListItemProps> = ({ supportDocument: { title, url, thumbnail } }) => {
+const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ supportingDocument: { name, url, thumbnail } }) => {
   const sx = useSx();
   const theme = useTheme();
   const thumbnailStyle: CSSProperties = { borderRadius: theme.shape.borderRadius };
@@ -21,18 +21,20 @@ const SupportDocumentListItem: FC<SupportDocumentListItemProps> = ({ supportDocu
           {thumbnail && (
             <Image
               src={thumbnail}
-              alt={`Thumbnail of ${title}`}
+              alt={`Thumbnail of ${name}`}
+              width={102}
+              height={68}
               style={thumbnailStyle}
             />
           )}
         </ListItemAvatar>
-        <ListItemText primary={title} />
+        <ListItemText primary={name} />
       </ListItemButton>
     </ListItem>
   );
 
 };
 
-if (process.env.NODE_ENV === "development") SupportDocumentListItem.whyDidYouRender = true;
+if (process.env.NODE_ENV === "development") SupportingDocumentListItem.whyDidYouRender = true;
 
-export default SupportDocumentListItem;
+export default SupportingDocumentListItem;

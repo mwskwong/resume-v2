@@ -20,7 +20,10 @@ const nextConfig = {
     return config;
   },
   experimental: {
-    runtime: "experimental-edge"
+    runtime: "experimental-edge",
+    images: {
+      allowFutureImage: true
+    }
   }
 };
 
