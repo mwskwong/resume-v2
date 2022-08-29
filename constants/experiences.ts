@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/future/image";
+import SupportingDocument from "components/common/Timeline/SupportingDocument";
 import hkuEngTaRefLetter from "assets/documents/hku_eng_ta.pdf";
 import hkuEngTaRefLetterThumbnail from "assets/images/hku_eng_ta_thumbnail.jpg";
 import hkuMedRaRefLetter from "assets/documents/hku_med_ra.pdf";
@@ -12,11 +12,7 @@ type Experience = {
   jobTitle: string,
   company: string,
   jobDuties?: string[]
-  supportingDocuments?: {
-    name: string,
-    url: string,
-    thumbnail: StaticImageData
-  }[]
+  supportingDocuments?: SupportingDocument[]
 }
 
 const experiences: Experience[] = [

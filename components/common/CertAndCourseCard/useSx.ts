@@ -1,9 +1,17 @@
+import { Palette } from "@mui/material";
 import { UseSx } from "types";
 
-const useSx: UseSx = () => ({
+type UseCertAndCourseCardSx = (organization: string) => ReturnType<UseSx>
+
+const useSx: UseCertAndCourseCardSx = organization => ({
   cardContent: {
     display: "flex",
     alignItems: "center"
+  },
+  organization: {
+    typography: "body2",
+    color: `${organization}.main`,
+    textTransform: "capitalize"
   },
   icon: {
     mr: "16px"

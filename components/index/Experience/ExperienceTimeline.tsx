@@ -7,11 +7,10 @@ const ExperienceTimeline: FC = () => {
 
 
   const data = experiences
-    .map(({ jobTitle, company, jobDuties, supportingDocuments, ...node }) => ({
+    .map(({ jobTitle, company, jobDuties, ...node }) => ({
       title: jobTitle,
       subtitle: company,
       contents: jobDuties,
-      supportingDocuments,
       ...node
     }));
 

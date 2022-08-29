@@ -10,7 +10,7 @@ const simpleIcons = (sx?: SxProps<Theme>): SxProps<Theme> => ({
 const useSx: UseSx = sx => ({
   simpleIcons: simpleIcons(sx),
   enterpriseDb: {
-    color: "enterpriseDb.main",
+    color: "enterpriseDB.main",
     ...simpleIcons(sx)
   },
   microsoft: {
@@ -18,7 +18,7 @@ const useSx: UseSx = sx => ({
     ...simpleIcons(sx)
   },
   mongoDb: {
-    color: "mongoDb.main",
+    color: "mongoDB.main",
     ...simpleIcons(sx)
   },
   oracle: {

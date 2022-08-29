@@ -10,7 +10,7 @@ type Certification = {
 const certifications: Certification[] = [
   {
     name: "MongoDB Certified DBA Associate",
-    organization: "MongoDB",
+    organization: "mongoDB",
     issuedDate: "In Progress"
   }
 ];

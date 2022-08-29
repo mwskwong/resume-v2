@@ -1,4 +1,5 @@
 import About from "components/index/About";
+import Education from "components/index/Education";
 import Experience from "components/index/Experience";
 import Head from "components/common/Head";
 import Hero from "components/index/Hero";
@@ -9,6 +10,7 @@ import { TypeBackground } from "@mui/material";
 import { UseSx } from "types";
 import WaveRough from "components/common/dividers/WaveRough";
 import WaveSmooth from "components/common/dividers/WaveSmooth";
+import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
 
 const bgcolors: Record<string, keyof TypeBackground> = {
   hero: "default",
@@ -66,6 +68,8 @@ const Home: NextPage = () => {
         <About sx={sx.about} />
         <WaveRough sx={sx.waveRough} />
         <Experience sx={sx.experience} />
+        <WaveSmooth2 sx={sx.waveSmooth2} />
+        <Education sx={sx.education} />
       </main>
       <ScrollToTopFab />
     </>

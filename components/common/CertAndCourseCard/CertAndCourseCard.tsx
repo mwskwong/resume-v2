@@ -6,7 +6,6 @@ import Microsoft from "../icons/Microsoft";
 import MongoDB from "../icons/MongoDB";
 import Oracle from "../icons/Oracle";
 import Udemy from "../icons/Udemy";
-import camelCase from "camelcase";
 import useSx from "./useSx";
 
 type CertAndCourseCardProps = CardProps & {
@@ -20,20 +19,19 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
   microsoft: Microsoft,
   oracle: Oracle,
   udemy: Udemy,
-  enterpriseDb: EnterpriseDB,
-  mongoDb: MongoDB
+  enterpriseDB: EnterpriseDB,
+  mongoDB: MongoDB
 };
 
 const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, status, certificationUrl, ...props }) => {
-  const sx = useSx();
-  const organizationCamelCase = camelCase(organization);
-  const Icon = Icons[organizationCamelCase];
+  const sx = useSx(organization);
+  const Icon = Icons[organization];
   const cardContent = (
     <CardContent sx={sx.cardContent}>
       {Icon && <Icon fontSize="large" sx={sx.icon} />}
       <div>
         <Typography>{name}</Typography>
-        <Typography variant="body2" color={`${organizationCamelCase}.main`}>{organization}</Typography>
+        <Typography sx={sx.organization}>{organization}</Typography>
         {status && <Typography variant="body2" sx={sx.status}>{status}</Typography>}
       </div>
     </CardContent>

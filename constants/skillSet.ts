@@ -6,10 +6,10 @@ export const frontend = [
   "MUI",
   "Redux",
   "Emotion",
-  "JavaFX",
-  "React Hook Form",
   "React Router",
-  "styled-components"
+  "React Hook Form",
+  "styled-components",
+  "JavaFX"
 ];
 
 export const database = [

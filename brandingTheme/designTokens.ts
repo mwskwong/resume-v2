@@ -9,16 +9,16 @@ declare module "@mui/material/styles/createPalette" {
     microsoft: PaletteColor
     oracle: PaletteColor
     udemy: PaletteColor
-    enterpriseDb: PaletteColor
-    mongoDb: PaletteColor
+    enterpriseDB: PaletteColor
+    mongoDB: PaletteColor
   }
 
   interface PaletteOptions {
     microsoft: PaletteColorOptions
     oracle: PaletteColorOptions
     udemy: PaletteColorOptions
-    enterpriseDb: PaletteColorOptions
-    mongoDb: PaletteColorOptions
+    enterpriseDB: PaletteColorOptions
+    mongoDB: PaletteColorOptions
   }
 
   interface TypeBackground {
@@ -69,10 +69,10 @@ const designTokens: Omit<ThemeOptions, "components"> = {
     success: {
       main: "#1AA251"
     },
-    enterpriseDb: {
+    enterpriseDB: {
       main: darken(`#${siEnterprisedb.hex}`, .19)
     },
-    mongoDb: {
+    mongoDB: {
       main: darken(`#${siMongodb.hex}`, .23)
     },
     microsoft: {

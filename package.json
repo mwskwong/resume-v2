@@ -15,7 +15,6 @@
     "@mui/icons-material": "^5.10.2",
     "@mui/lab": "^5.0.0-alpha.96",
     "@mui/material": "^5.10.2",
-    "camelcase": "^7.0.0",
     "mdi-material-ui": "^7.5.0",
     "next": "^12.2.5",
     "react": "^18.2.0",
