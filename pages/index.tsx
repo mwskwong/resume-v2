@@ -1,7 +1,6 @@
 import Footer from "components/common/Footer";
 import FooterDivider from "components/common/dividers/Footer";
 import Head from "components/common/Head";
-import Hero from "components/index/Hero";
 import NavBar from "components/common/NavBar";
 import { NextPage } from "next";
 import ScrollToTopFab from "components/common/ScrollToTopFab";
@@ -14,6 +13,7 @@ import WaveSmooth from "components/common/dividers/WaveSmooth";
 import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
 import dynamic from "next/dynamic";
 
+const Hero = dynamic(() => import("components/index/Hero"), { suspense: true });
 const About = dynamic(() => import("components/index/About"), { suspense: true });
 const Experience = dynamic(() => import("components/index/Experience"), { suspense: true });
 const Education = dynamic(() => import("components/index/Education"), { suspense: true });
@@ -70,7 +70,9 @@ const Home: NextPage = () => {
       <Head />
       <NavBar />
       <main>
-        <Hero />
+        <Suspense>
+          <Hero />
+        </Suspense>
         <WaveSmooth sx={sx.waveSmooth} />
         <Suspense>
           <About sx={sx.about} />
