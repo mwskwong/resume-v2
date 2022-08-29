@@ -7,8 +7,6 @@ import { firstName, lastName } from "constants/name";
 import { ABOUT } from "constants/nav";
 import { FC } from "react";
 import NextHead from "next/head";
-import icon from "assets/images/icon.svg";
-import iconDark from "assets/images/icon-dark.svg";
 import jobTitles from "constants/jobTitles";
 import ogImage from "assets/images/og_image.png";
 import selfIntro from "constants/selfIntro";
@@ -82,8 +80,16 @@ const Head: FC<HeadProps> = ({ title }) => {
   return (
     <NextHead>
       <title>{siteTitle}</title>
-      <link rel="icon" href={icon.src} type="image/svg+xml" />
-      <link rel="icon" href={iconDark.src} type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+      <link rel="icon" type="image/x-icon" href="/favicon.dark.ico" media="(prefers-color-scheme: dark)" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.dark.png" media="(prefers-color-scheme: dark)" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.dark.png" media="(prefers-color-scheme: dark)" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.dark.png" media="(prefers-color-scheme: dark)" />
 
       <meta name="author" content={fullName} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
