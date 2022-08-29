@@ -1,6 +1,9 @@
 import About from "components/index/About";
+import Contact from "components/index/Contact";
 import Education from "components/index/Education";
 import Experience from "components/index/Experience";
+import Footer from "components/common/Footer";
+import FooterDivider from "components/common/dividers/Footer";
 import Head from "components/common/Head";
 import Hero from "components/index/Hero";
 import NavBar from "components/common/NavBar";
@@ -8,6 +11,7 @@ import { NextPage } from "next";
 import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { TypeBackground } from "@mui/material";
 import { UseSx } from "types";
+import WaveRoaring from "components/common/dividers/WaveRoaring";
 import WaveRough from "components/common/dividers/WaveRough";
 import WaveSmooth from "components/common/dividers/WaveSmooth";
 import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
@@ -70,7 +74,11 @@ const Home: NextPage = () => {
         <Experience sx={sx.experience} />
         <WaveSmooth2 sx={sx.waveSmooth2} />
         <Education sx={sx.education} />
+        <WaveRoaring sx={sx.waveRoaring} />
+        <Contact />
       </main>
+      <FooterDivider sx={sx.footerDivider} />
+      <Footer sx={sx.footer} />
       <ScrollToTopFab />
     </>
   );
