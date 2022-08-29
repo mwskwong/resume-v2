@@ -1,3 +1,5 @@
+import Footer from "components/common/Footer";
+import FooterDivider from "components/common/dividers/Footer";
 import Head from "components/common/Head";
 import NavBar from "components/common/NavBar";
 import { NextPage } from "next";
@@ -5,19 +7,17 @@ import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { Suspense } from "react";
 import { TypeBackground } from "@mui/material";
 import { UseSx } from "types";
+import WaveRoaring from "components/common/dividers/WaveRoaring";
+import WaveRough from "components/common/dividers/WaveRough";
+import WaveSmooth from "components/common/dividers/WaveSmooth";
+import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
 import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("components/index/Hero"), { suspense: true });
-const WaveSmooth = dynamic(() => import("components/common/dividers/WaveSmooth"), { suspense: true });
 const About = dynamic(() => import("components/index/About"), { suspense: true });
-const WaveRough = dynamic(() => import("components/common/dividers/WaveRough"), { suspense: true });
 const Experience = dynamic(() => import("components/index/Experience"), { suspense: true });
-const WaveSmooth2 = dynamic(() => import("components/common/dividers/WaveSmooth2"), { suspense: true });
 const Education = dynamic(() => import("components/index/Education"), { suspense: true });
-const WaveRoaring = dynamic(() => import("components/common/dividers/WaveRoaring"), { suspense: true });
 const Contact = dynamic(() => import("components/index/Contact"), { suspense: true });
-const FooterDivider = dynamic(() => import("components/common/dividers/Footer"), { suspense: true });
-const Footer = dynamic(() => import("components/common/Footer"), { suspense: true });
 
 const bgcolors: Record<string, keyof TypeBackground> = {
   hero: "default",
@@ -73,27 +73,25 @@ const Home: NextPage = () => {
         <Suspense>
           <Hero />
         </Suspense>
+        <WaveSmooth sx={sx.waveSmooth} />
         <Suspense>
-          <WaveSmooth sx={sx.waveSmooth} />
           <About sx={sx.about} />
         </Suspense>
+        <WaveRough sx={sx.waveRough} />
         <Suspense>
-          <WaveRough sx={sx.waveRough} />
           <Experience sx={sx.experience} />
         </Suspense>
+        <WaveSmooth2 sx={sx.waveSmooth2} />
         <Suspense>
-          <WaveSmooth2 sx={sx.waveSmooth2} />
           <Education sx={sx.education} />
         </Suspense>
+        <WaveRoaring sx={sx.waveRoaring} />
         <Suspense>
-          <WaveRoaring sx={sx.waveRoaring} />
           <Contact />
         </Suspense>
       </main>
-      <Suspense>
-        <FooterDivider sx={sx.footerDivider} />
-        <Footer sx={sx.footer} />
-      </Suspense>
+      <FooterDivider sx={sx.footerDivider} />
+      <Footer sx={sx.footer} />
       <ScrollToTopFab />
     </>
   );
