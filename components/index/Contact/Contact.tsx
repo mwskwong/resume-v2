@@ -35,7 +35,9 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     setSendEmailStatus("loading");
 
     const searchParams = new URLSearchParams();
-    Object.entries(data).forEach(([field, value]) => searchParams.set(field, value));
+    for (let field in data) {
+      searchParams.set(field, data[field]);
+    }
 
     fetch("/", {
       method: "POST",
@@ -51,7 +53,6 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
       <Container>
         <Stack spacing={6}>
           <SectionHeading heading="Contact" />
-          {/* @ts-ignore */}
           <form name="contact" netlify onSubmit={handleSubmit(handleFormSubmit)}>
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
