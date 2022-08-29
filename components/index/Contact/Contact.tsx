@@ -12,7 +12,6 @@ import SectionHeading from "components/common/SectionHeading";
 import { SectionProps } from "types";
 import TextField from "./TextField";
 import { nopeResolver } from "@hookform/resolvers/nope";
-import submitContactForm from "./submitContactForm";
 import useSx from "./useContactSx";
 
 const schema = object().shape({
