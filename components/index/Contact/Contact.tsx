@@ -34,15 +34,18 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
 
   const handleFormSubmit: SubmitHandler<FormValues> = data => {
     setSendEmailStatus("loading");
-    submitContactForm(data)
-      .then(result => {
-        if (result.response?.ok) {
-          setSendEmailStatus("success");
-          reset();
-        } else {
-          throw new Error();
-        }
-      })
+
+    const searchParams = new URLSearchParams();
+    for (let field in data) {
+      searchParams.set(field, data[field]);
+    }
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: searchParams.toString()
+    })
+      .then(() => setSendEmailStatus("success"))
       .catch(() => setSendEmailStatus("error"));
   };
 
@@ -51,7 +54,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
       <Container>
         <Stack spacing={6}>
           <SectionHeading heading="Contact" />
-          <form onSubmit={handleSubmit(handleFormSubmit)}>
+          <form name="contact" netlify onSubmit={handleSubmit(handleFormSubmit)}>
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
