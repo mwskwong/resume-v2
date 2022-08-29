@@ -19,7 +19,7 @@ const Head: FC<HeadProps> = ({ title }) => {
   const siteUrl = process.env.NEXT_PUBLIC_URL;
   const fullName = `${firstName} ${lastName}`;
   const jobTitle = jobTitles.join(" & ");
-  const siteTitle = `${fullName} - ${jobTitle}`;
+  const siteTitle = title ? `${title} | ${fullName}` : `${fullName} - ${jobTitle}`;
   const socialMediaLinks = Object.values(socialMedia);
 
   const personSchema: Person = {

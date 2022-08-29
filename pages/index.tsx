@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 
-import { Head } from "components/index";
+import Head from "components/common/Head";
 import { Typography } from "@mui/material";
 
 const Home: NextPage = () => {
