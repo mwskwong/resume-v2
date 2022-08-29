@@ -82,11 +82,12 @@ const Head: FC<HeadProps> = ({ title }) => {
   return (
     <NextHead>
       <title>{siteTitle}</title>
+      <link rel="icon" href={icon.src} type="image/svg+xml" />
+      <link rel="icon" href={iconDark.src} type="image/svg+xml" media="(prefers-color-scheme: dark)" />
 
       <meta name="author" content={fullName} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href={icon.src} type="image/svg+xml" />
-      <link rel="icon" href={iconDark.src} type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+      <meta name="theme-color" content="#fff" />
 
       <meta name="title" property="og:title" content={siteTitle} />
       <meta name="description" property="og:description" content={selfIntro} />
@@ -96,7 +97,6 @@ const Head: FC<HeadProps> = ({ title }) => {
       {socialMediaLinks.map(link =>
         <meta key={link} property="og:see_also" content={link} />
       )}
-
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={siteTitle} />
