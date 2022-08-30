@@ -17,9 +17,7 @@ const NavBar: FC = () => {
   const sx = useSx();
 
   useEffect(() => {
-    if (mdUp) {
-      setMenuOpen(false);
-    }
+    if (mdUp) setMenuOpen(false);
   }, [mdUp]);
 
   const handleMenuToggle = () => setMenuOpen(menuOpen => !menuOpen);

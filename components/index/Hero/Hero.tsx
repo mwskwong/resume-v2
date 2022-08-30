@@ -12,7 +12,7 @@ import useSx from "./useHeroSx";
 
 const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
   const sx = useSx(sxProp);
-  const preferReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const motion = useMediaQuery("(prefers-reduced-motion: no-preference)");
   const typeItRef = useRef();
 
   const strings = useMemo(() => [
@@ -21,7 +21,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
   ], []);
 
   useEffect(() => {
-    if (!preferReducedMotion) {
+    if (motion) {
       const delays = {
         beforeTyping: 375,
         afterTyping: 1500
@@ -49,7 +49,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
 
       return () => typeIt.destroy();
     }
-  }, [preferReducedMotion, strings]);
+  }, [motion, strings]);
 
   return (
     <Container component="section" sx={sx.container} id={HOME.id}>
