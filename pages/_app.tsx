@@ -1,4 +1,4 @@
-import "scripts/wdyr";
+import "utils/wdyr";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
