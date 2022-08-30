@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
-import { FC, memo } from "react";
 
+import { FC } from "react";
 import { SectionId } from "types";
 import useSx from "./useNavButtonSx";
 
@@ -23,4 +23,4 @@ const NavButton: FC<NavButtonProps> = ({ label, id, active }) => {
 
 if (process.env.NODE_ENV === "development") NavButton.whyDidYouRender = true;
 
-export default memo(NavButton);
+export default NavButton;

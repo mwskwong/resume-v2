@@ -1,6 +1,6 @@
-import { FC, memo } from "react";
 import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 
+import { FC } from "react";
 import { SectionId } from "types";
 import useSx from "./useNavListItemSx";
 
@@ -27,4 +27,4 @@ const NavListItem: FC<NavListItemProps> = ({ label, id, active }) => {
 };
 if (process.env.NODE_ENV === "development") NavListItem.whyDidYouRender = true;
 
-export default memo(NavListItem);
+export default NavListItem;

@@ -1,5 +1,5 @@
+import { FC, MouseEvent, useState } from "react";
 import { Unstable_Grid2 as Grid, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
-import React, { FC, MouseEvent, memo, useState } from "react";
 import courses, { categories } from "constants/courses";
 
 import CertAndCourseCard from "components/common/CertAndCourseCard";
@@ -51,4 +51,4 @@ const Courses: FC = () => {
 
 if (process.env.NODE_ENV === "development") Courses.whyDidYouRender = true;
 
-export default memo(Courses);
+export default Courses;

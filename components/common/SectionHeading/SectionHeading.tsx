@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { FC, memo } from "react";
 
+import { FC } from "react";
 import { AcUnitRounded as Snow } from "@mui/icons-material";
 import useSx from "./useSx";
 
@@ -27,4 +27,4 @@ const SectionHeading: FC<SectionHeadingProps> = ({ heading }) => {
 
 if (process.env.NODE_ENV === "development") SectionHeading.whyDidYouRender = true;
 
-export default memo(SectionHeading);
+export default SectionHeading;

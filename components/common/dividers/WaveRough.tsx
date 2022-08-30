@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-
 import { BoxProps } from "@mui/material";
 import DividerSvg from "./DividerSvg";
+import { FC } from "react";
 
 const WaveRough: FC<BoxProps<"svg">> = props => (
   <DividerSvg {...props} viewBox="0 0 1920 240" xmlns="http://www.w3.org/2000/svg">

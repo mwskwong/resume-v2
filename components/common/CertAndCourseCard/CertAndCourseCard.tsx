@@ -1,5 +1,5 @@
 import { Card, CardActionArea, CardContent, CardProps, SvgIconProps, Typography } from "@mui/material";
-import { ElementType, FC, memo } from "react";
+import { ElementType, FC } from "react";
 
 import EnterpriseDB from "../icons/EnterpriseDB";
 import Microsoft from "../icons/Microsoft";
@@ -53,4 +53,4 @@ const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, sta
 
 if (process.env.NODE_ENV === "development") CertAndCourseCard.whyDidYouRender = true;
 
-export default memo(CertAndCourseCard);
+export default CertAndCourseCard;

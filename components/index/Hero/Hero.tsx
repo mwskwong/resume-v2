@@ -1,5 +1,5 @@
 import { Box, Button, Container, Typography, useMediaQuery } from "@mui/material";
-import { FC, memo, useEffect, useMemo, useRef } from "react";
+import { FC, useEffect, useMemo, useRef } from "react";
 import { firstName, lastName } from "constants/name";
 
 import { HOME } from "constants/nav";
@@ -78,4 +78,4 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
 
 if (process.env.NODE_ENV === "development") Hero.whyDidYouRender = true;
 
-export default memo(Hero);
+export default Hero;

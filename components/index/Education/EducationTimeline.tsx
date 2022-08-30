@@ -1,5 +1,4 @@
-import React, { FC, memo } from "react";
-
+import { FC } from "react";
 import Timeline from "components/common/Timeline";
 import education from "constants/education";
 
@@ -17,4 +16,4 @@ const EducationTimeline: FC = () => {
 
 if (process.env.NODE_ENV === "development") EducationTimeline.whyDidYouRender = true;
 
-export default memo(EducationTimeline);
+export default EducationTimeline;

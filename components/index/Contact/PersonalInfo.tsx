@@ -2,7 +2,6 @@ import * as contact from "constants/contact";
 
 import { Box, Stack, Typography } from "@mui/material";
 import { EmailRounded as Email, LocationOnRounded as Location, SmartphoneRounded as Mobile } from "@mui/icons-material";
-import React, { memo } from "react";
 
 import useSx from "./usePersonalInfoSx";
 
@@ -58,4 +57,4 @@ const PersonalInfo = () => {
 
 if (process.env.NODE_ENV === "development") PersonalInfo.whyDidYouRender = true;
 
-export default memo(PersonalInfo);
+export default PersonalInfo;

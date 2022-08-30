@@ -1,4 +1,3 @@
-import { FC, memo } from "react";
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import {
   TimelineItem as MuiTimelineItem,
@@ -9,6 +8,7 @@ import {
   TimelineSeparator
 } from "@mui/lab";
 
+import { FC } from "react";
 import SupportingDocumentListItem from "./SupportingDocumentListItem";
 import TimelineItemData from "./TimelineItemData";
 import dateTimeFormat from "utils/dateTimeFormat";
@@ -70,4 +70,4 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
 
 if (process.env.NODE_ENV === "development") TimelineItem.whyDidYouRender = true;
 
-export default memo(TimelineItem);
+export default TimelineItem;

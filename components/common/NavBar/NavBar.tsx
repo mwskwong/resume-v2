@@ -1,6 +1,6 @@
 import { AppBar, Box, Collapse, Container, IconButton, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
 import { CloseRounded as Close, MenuRounded as Menu } from "@mui/icons-material";
-import { FC, memo, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { ClickAwayListener } from "@mui/base";
 import Logo from "./Logo";
@@ -76,4 +76,4 @@ const NavBar: FC = () => {
 if (process.env.NODE_ENV === "development") NavBar.whyDidYouRender = true;
 
 
-export default memo(NavBar);
+export default NavBar;

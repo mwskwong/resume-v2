@@ -1,5 +1,5 @@
 import { Box, Container, Stack } from "@mui/material";
-import { CSSProperties, FC, memo } from "react";
+import { CSSProperties, FC } from "react";
 import { firstName, lastName } from "constants/name";
 
 import { ABOUT } from "constants/nav";
@@ -39,4 +39,4 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
 
 if (process.env.NODE_ENV === "development") About.whyDidYouRender = true;
 
-export default memo(About);
+export default About;

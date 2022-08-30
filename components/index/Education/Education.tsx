@@ -1,5 +1,5 @@
 import { Box, Container, Stack } from "@mui/material";
-import React, { FC, memo } from "react";
+import { FC } from "react";
 
 import Courses from "./Courses";
 import { EDUCATION } from "constants/nav";
@@ -26,4 +26,4 @@ const Education: FC<SectionProps> = ({ sx: sxProp }) => {
 
 if (process.env.NODE_ENV === "development") Education.whyDidYouRender = true;
 
-export default memo(Education);
+export default Education;

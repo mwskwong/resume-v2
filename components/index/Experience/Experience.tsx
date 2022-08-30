@@ -1,9 +1,9 @@
 import { Box, Container, Stack } from "@mui/material";
-import React, { FC, memo } from "react";
 
 import Certifications from "./Certifications";
 import { EXPERIENCE } from "constants/nav";
 import ExperienceTimeline from "./ExperienceTimeline";
+import { FC } from "react";
 import SectionHeading from "components/common/SectionHeading";
 import { SectionProps } from "types";
 import useSx from "./useSx";
@@ -26,4 +26,4 @@ const Experience: FC<SectionProps> = ({ sx: sxProp }) => {
 
 if (process.env.NODE_ENV === "development") Experience.whyDidYouRender = true;
 
-export default memo(Experience);
+export default Experience;

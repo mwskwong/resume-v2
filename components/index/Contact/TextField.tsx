@@ -1,6 +1,6 @@
 import { Control, useController } from "react-hook-form";
+import { FC, useId } from "react";
 import { FilledInput, FormControl, FormHelperText, InputLabel, TextFieldProps as MuiTextFieldProps } from "@mui/material";
-import React, { FC, memo, useId } from "react";
 
 import FormValues from "./FormValues";
 
@@ -46,4 +46,4 @@ const TextField: FC<TextFieldProps> = ({ name, control, label, autoComplete, mul
 
 if (process.env.NODE_ENV === "development") TextField.whyDidYouRender = true;
 
-export default memo(TextField);
+export default TextField;

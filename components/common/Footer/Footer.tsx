@@ -1,7 +1,7 @@
 import { Box, Container, Unstable_Grid2 as Grid } from "@mui/material";
-import React, { FC, memo } from "react";
 import { firstName, lastName, middleName } from "constants/name";
 
+import { FC } from "react";
 import { FavoriteRounded as Favorite } from "@mui/icons-material";
 import { SectionProps } from "types";
 import SocialMedia from "components/common/SocialMedia";
@@ -38,4 +38,4 @@ const Footer: FC<SectionProps> = ({ sx: sxProp }) => {
 
 if (process.env.NODE_ENV === "development") Footer.whyDidYouRender = true;
 
-export default memo(Footer);
+export default Footer;

@@ -1,7 +1,7 @@
 import { Unstable_Grid2 as Grid, Stack, Typography } from "@mui/material";
-import React, { FC, memo } from "react";
 
 import CertAndCourseCard from "components/common/CertAndCourseCard";
+import { FC } from "react";
 import certifications from "constants/certifications";
 import dateTimeFormat from "utils/dateTimeFormat";
 import useSx from "./useCertificationsSx";
@@ -45,4 +45,4 @@ const Certifications: FC = () => {
 
 if (process.env.NODE_ENV === "development") Certifications.whyDidYouRender = true;
 
-export default memo(Certifications);
+export default Certifications;

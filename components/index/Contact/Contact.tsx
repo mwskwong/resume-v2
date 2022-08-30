@@ -1,6 +1,6 @@
 import { Box, Container, Unstable_Grid2 as Grid, Stack, Theme, useMediaQuery } from "@mui/material";
 import { ErrorRounded as ErrorIcon, SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
-import React, { FC, memo, useState } from "react";
+import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { object, string } from "nope-validator";
 
@@ -123,4 +123,4 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
 
 if (process.env.NODE_ENV === "development") Contact.whyDidYouRender = true;
 
-export default memo(Contact);
+export default Contact;

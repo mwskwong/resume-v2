@@ -1,4 +1,4 @@
-import { CSSProperties, FC, memo } from "react";
+import { CSSProperties, FC } from "react";
 import { Fab, Zoom } from "@mui/material";
 
 import { KeyboardArrowUpRounded as ArrowUp } from "@mui/icons-material";
@@ -20,4 +20,4 @@ const ScrollToTopFab: FC = () => {
 
 if (process.env.NODE_ENV === "development") ScrollToTopFab.whyDidYouRender = true;
 
-export default memo(ScrollToTopFab);
+export default ScrollToTopFab;
