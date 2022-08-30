@@ -1,3 +1,9 @@
+# *
 User-agent: *
 Allow: /
-Disallow: /_next/static/media/ha_sc3_ref.*.pdf
+
+# Host
+Host: https://mwskwong.com
+
+# Sitemaps
+Sitemap: https://mwskwong.com/sitemap.xml
