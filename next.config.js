@@ -62,10 +62,7 @@ const nextConfig = {
         { key: "Referrer-Policy", value: "no-referrer-when-downgrade" }
       ]
     }
-  ],
-  experimental: {
-    runtime: "experimental-edge"
-  }
+  ]
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
