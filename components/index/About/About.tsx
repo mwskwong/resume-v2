@@ -3,7 +3,7 @@ import { CSSProperties, FC } from "react";
 import { firstName, lastName } from "constants/name";
 
 import { ABOUT } from "constants/nav";
-import Image from "next/image";
+import Image from "next/future/image";
 import Message from "./Message";
 import SectionHeading from "components/common/SectionHeading";
 import { SectionProps } from "types";

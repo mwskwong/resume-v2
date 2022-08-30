@@ -1,7 +1,7 @@
 import { CSSProperties, FC } from "react";
 import { ListItem, ListItemAvatar, ListItemButton, ListItemText, useTheme } from "@mui/material";
 
-import Image from "next/image";
+import Image from "next/future/image";
 import SupportingDocument from "./SupportingDocument";
 import useSx from "./useSupportingDocumentListItemSx";
 

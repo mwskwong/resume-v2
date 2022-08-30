@@ -62,7 +62,13 @@ const nextConfig = {
         { key: "Referrer-Policy", value: "no-referrer-when-downgrade" }
       ]
     }
-  ]
+  ],
+  experimental: {
+    runtime: "experimental-edge",
+    images: {
+      allowFutureImage: true
+    }
+  }
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
