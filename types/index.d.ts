@@ -1,5 +1,3 @@
-/// <reference types="@welldone-software/why-did-you-render" />
-
 import { SxProps, Theme } from "@mui/material";
 
 export type SectionId = "home" | "about" | "experience" | "education" | "contact"
