@@ -42,11 +42,11 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
         <Stack spacing={6}>
           <SectionHeading heading="Contact" />
           <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
-            <Grid container spacing={6} disableEqualOverflow>
+            <Grid container spacing={6} sx={sx.gridForm} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
               </Grid>
-              <Grid container spacing={2} xs={12} md>
+              <Grid container spacing={2} xs={12} md={8}>
                 <Grid xs={12} sm={6}>
                   <TextField
                     name="name"
@@ -82,12 +82,14 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                   />
                 </Grid>
               </Grid>
+              <Grid xs={12} md={8} sx={sx.errorMessagesContainer}>
+                <Stack spacing={1}>
+                  {formState.errors.map(({ code, message }) => (
+                    <Alert key={code} severity="error">{message}</Alert>
+                  ))}
+                </Stack>
+              </Grid>
             </Grid>
-            <Stack spacing={1} sx={sx.errorMessagesContainer}>
-              {formState.errors.map(({ code, message }) => (
-                <Alert key={code} severity="error">{message}</Alert>
-              ))}
-            </Stack>
             <LoadingButton
               loading={formState.submitting}
               loadingPosition="end"

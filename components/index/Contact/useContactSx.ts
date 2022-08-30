@@ -2,8 +2,11 @@ import { UseSx } from "types";
 
 const useSx: UseSx = sx => ({
   root: sx,
+  gridForm: {
+    justifyContent: "flex-end"
+  },
   errorMessagesContainer: {
-    mt: 1
+    pt: 2
   },
   errorMessage: {
     typography: "body2",
