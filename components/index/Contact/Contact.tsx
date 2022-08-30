@@ -1,4 +1,4 @@
-import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
+import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, Theme, useMediaQuery } from "@mui/material";
 import { FC, useEffect } from "react";
 import { SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
 import { object, string } from "nope-validator";
@@ -12,7 +12,7 @@ import { SectionProps } from "types";
 import TextField from "./TextField";
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { useForm } from "react-hook-form";
-import { useForm as useFormspree } from "@formspree/react";
+import useFormspree from "./useFormspree";
 import useSx from "./useContactSx";
 
 const schema = object().shape({
@@ -29,7 +29,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     mode: "onChange",
     defaultValues: { name: "", email: "", subject: "", message: "" }
   });
-  const [formState, handleFormspreeSubmit] = useFormspree(process.env.NEXT_PUBLIC_FORM, { debug: process.env.NODE_ENV === "development" });
+  const [formState, handleFormspreeSubmit] = useFormspree(process.env.NEXT_PUBLIC_FORM);
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   useEffect(() => {
@@ -42,11 +42,11 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
         <Stack spacing={6}>
           <SectionHeading heading="Contact" />
           <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
-            <Grid container spacing={6} disableEqualOverflow>
+            <Grid container spacing={6} sx={sx.gridForm} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
               </Grid>
-              <Grid container spacing={2} xs={12} md>
+              <Grid container spacing={2} xs={12} md={8}>
                 <Grid xs={12} sm={6}>
                   <TextField
                     name="name"
@@ -82,12 +82,14 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                   />
                 </Grid>
               </Grid>
+              <Grid xs={12} md={8} sx={sx.errorMessagesContainer}>
+                <Stack spacing={1}>
+                  {formState.errors.map(({ code, message }) => (
+                    <Alert key={code} severity="error">{message}</Alert>
+                  ))}
+                </Stack>
+              </Grid>
             </Grid>
-            <Stack spacing={1} sx={sx.errorMessagesContainer}>
-              {formState.errors.map(({ code, message }) => (
-                <Alert key={code} severity="error">{message}</Alert>
-              ))}
-            </Stack>
             <LoadingButton
               loading={formState.submitting}
               loadingPosition="end"
