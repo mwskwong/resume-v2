@@ -16,11 +16,11 @@ const useSx: UseSx = sx => ({
   },
   title: {
     textAlign: "center",
-    "@media (max-width: 659px)": {
-      height: theme => `${Number(theme.typography.h1.lineHeight) * 2}em`
+    "@media (max-width: 648px)": {
+      minHeight: theme => `${Number(theme.typography.h1.lineHeight) * 2}em`
     },
-    "@media (max-width: 396px)": {
-      height: theme => `${Number(theme.typography.h1.lineHeight) * 3}em`
+    "@media (max-width: 378px)": {
+      minHeight: theme => `${Number(theme.typography.h1.lineHeight) * 3}em`
     },
     width: "100%"
   },
