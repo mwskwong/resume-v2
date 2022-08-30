@@ -62,7 +62,6 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                     name="name"
                     control={control}
                     label="Name"
-                    autoComplete="name"
                     disabled={sendEmailStatus === "loading"}
                   />
                 </Grid>
@@ -71,7 +70,6 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                     name="email"
                     control={control}
                     label="Email"
-                    autoComplete="email"
                     disabled={sendEmailStatus === "loading"}
                   />
                 </Grid>
