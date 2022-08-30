@@ -64,6 +64,7 @@ const nextConfig = {
     }
   ],
   experimental: {
+    runtime: "experimental-edge",
     images: {
       allowFutureImage: true
     }
