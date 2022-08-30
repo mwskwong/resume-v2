@@ -4,6 +4,7 @@ declare global {
   declare namespace NodeJS {
     interface ProcessEnv {
       readonly NEXT_PUBLIC_URL: string
+      readonly NEXT_PUBLIC_FORM: string
       readonly ANALYZE_BUNDLE: 1 | 0
     }
   }

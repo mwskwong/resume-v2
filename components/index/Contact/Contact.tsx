@@ -1,7 +1,6 @@
-import { Box, Container, Unstable_Grid2 as Grid, Stack, Theme, useMediaQuery } from "@mui/material";
-import { ErrorRounded as ErrorIcon, SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
-import { FC, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
+import { FC, useEffect } from "react";
+import { SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
 import { object, string } from "nope-validator";
 
 import { CONTACT } from "constants/nav";
@@ -12,7 +11,8 @@ import SectionHeading from "components/common/SectionHeading";
 import { SectionProps } from "types";
 import TextField from "./TextField";
 import { nopeResolver } from "@hookform/resolvers/nope";
-import submitContactForm from "./submitContactForm";
+import { useForm } from "react-hook-form";
+import { useForm as useFormspree } from "@formspree/react";
 import useSx from "./useContactSx";
 
 const schema = object().shape({
@@ -29,29 +29,19 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     mode: "onChange",
     defaultValues: { name: "", email: "", subject: "", message: "" }
   });
+  const [formState, handleFormspreeSubmit] = useFormspree(process.env.NEXT_PUBLIC_FORM, { debug: process.env.NODE_ENV === "development" });
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const [sendEmailStatus, setSendEmailStatus] = useState<"loading" | "success" | "error">();
 
-  const handleFormSubmit: SubmitHandler<FormValues> = data => {
-    setSendEmailStatus("loading");
-    submitContactForm(data)
-      .then(result => {
-        if (result.response?.ok) {
-          setSendEmailStatus("success");
-          reset();
-        } else {
-          throw new Error();
-        }
-      })
-      .catch(() => setSendEmailStatus("error"));
-  };
+  useEffect(() => {
+    if (formState.succeeded) reset();
+  }, [formState.succeeded, reset]);
 
   return (
     <Box sx={sx.root} component="section" id={CONTACT.id}>
       <Container>
         <Stack spacing={6}>
           <SectionHeading heading="Contact" />
-          <form onSubmit={handleSubmit(handleFormSubmit)}>
+          <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
@@ -62,7 +52,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                     name="name"
                     control={control}
                     label="Name"
-                    disabled={sendEmailStatus === "loading"}
+                    disabled={formState.submitting}
                   />
                 </Grid>
                 <Grid xs={12} sm={6}>
@@ -70,7 +60,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                     name="email"
                     control={control}
                     label="Email"
-                    disabled={sendEmailStatus === "loading"}
+                    disabled={formState.submitting}
                   />
                 </Grid>
                 <Grid xs={12}>
@@ -78,7 +68,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                     name="subject"
                     control={control}
                     label="Subject"
-                    disabled={sendEmailStatus === "loading"}
+                    disabled={formState.submitting}
                   />
                 </Grid>
                 <Grid xs={12}>
@@ -88,22 +78,21 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                     label="Message"
                     multiline
                     rows={9}
-                    disabled={sendEmailStatus === "loading"}
+                    disabled={formState.submitting}
                   />
                 </Grid>
               </Grid>
             </Grid>
+            <Stack spacing={1} sx={sx.errorMessagesContainer}>
+              {formState.errors.map(({ code, message }) => (
+                <Alert key={code} severity="error">{message}</Alert>
+              ))}
+            </Stack>
             <LoadingButton
-              loading={sendEmailStatus === "loading"}
+              loading={formState.submitting}
               loadingPosition="end"
-              color={sendEmailStatus === "loading" ? undefined : sendEmailStatus}
-              endIcon={
-                sendEmailStatus === "success"
-                  ? <SuccessIcon />
-                  : sendEmailStatus === "error"
-                    ? <ErrorIcon />
-                    : <SendIcon />
-              }
+              color={formState.succeeded ? "success" : "primary"}
+              endIcon={formState.succeeded ? <SuccessIcon /> : <SendIcon />}
               sx={sx.submitButton}
               type="submit"
               variant="contained"
