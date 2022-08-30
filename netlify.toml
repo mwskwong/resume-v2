@@ -1,3 +1,0 @@
-[build.environment]
-NODE_VERSION = 18
-NEXT_USE_NETLIFY_EDGE = "true"
