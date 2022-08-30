@@ -1,4 +1,4 @@
-import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
+import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, Theme, useMediaQuery } from "@mui/material";
 import { FC, useEffect } from "react";
 import { SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
 import { object, string } from "nope-validator";
@@ -12,7 +12,7 @@ import { SectionProps } from "types";
 import TextField from "./TextField";
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { useForm } from "react-hook-form";
-import { useForm as useFormspree } from "@formspree/react";
+import useFormspree from "./useFormspree";
 import useSx from "./useContactSx";
 
 const schema = object().shape({
@@ -29,7 +29,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     mode: "onChange",
     defaultValues: { name: "", email: "", subject: "", message: "" }
   });
-  const [formState, handleFormspreeSubmit] = useFormspree(process.env.NEXT_PUBLIC_FORM, { debug: process.env.NODE_ENV === "development" });
+  const [formState, handleFormspreeSubmit] = useFormspree(process.env.NEXT_PUBLIC_FORM);
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   useEffect(() => {
