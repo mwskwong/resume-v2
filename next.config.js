@@ -17,6 +17,20 @@ const nextConfig = {
       test: /\.pdf$/,
       type: "asset/resource"
     });
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            typescript: true,
+            ext: "tsx"
+          }
+        }
+      ]
+    });
+
     return config;
   },
   headers: async () => [
