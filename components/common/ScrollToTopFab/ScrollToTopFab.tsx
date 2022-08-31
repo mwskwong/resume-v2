@@ -1,17 +1,17 @@
-import { CSSProperties, FC } from "react";
 import { Fab, Zoom } from "@mui/material";
 
 import { KeyboardArrowUpRounded as ArrowUp } from "@mui/icons-material";
+import { FC } from "react";
 import { HOME } from "constants/nav";
+import styles from "./scrollToTop.module.css";
 import useShowScrollToTopFab from "hooks/useShowScrollToTopFab";
 
 const ScrollToTopFab: FC = () => {
   const show = useShowScrollToTopFab();
-  const zoomStyle: CSSProperties = { transformOrigin: "bottom right" };
 
   return (
-    <Zoom in={show} mountOnEnter unmountOnExit style={zoomStyle}>
-      <Fab aria-label="scroll to top" href={`#${HOME.id}`}>
+    <Zoom in={show} mountOnEnter unmountOnExit >
+      <Fab aria-label="scroll to top" href={`#${HOME.id}`} className={styles.zoom}>
         <ArrowUp />
       </Fab>
     </Zoom>
