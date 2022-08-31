@@ -25,13 +25,7 @@
 Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see how I created my own personal site here.
 
 ## To Do
-1. Migrate to CSS Variables 
-    
-    Too early currently. The documentation is not comprehensive enough.
-    
-    https://mui.com/experimental-api/css-variables/
-
-2. Add tags to PDF files
+1. Add tags to PDF files
     
     > For PDF files, we recommend embedding an image of the PDF with alternative text, and providing a link to download a tagged PDF.
     
