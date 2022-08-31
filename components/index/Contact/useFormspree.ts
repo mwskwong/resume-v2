@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { FormError } from "@formspree/core/forms";
 import FormValues from "./FormValues";
@@ -53,6 +53,17 @@ const useFormspree: UseFormSpree = formKey => {
 
     return response;
   }, [url]);
+
+  useEffect(() => {
+    if (formState.succeeded) {
+      const resetTimeout = setTimeout(
+        () => setFormState(prevFormState => ({ ...prevFormState, succeeded: false })),
+        5000
+      );
+
+      return () => clearTimeout(resetTimeout);
+    }
+  }, [formState.succeeded]);
 
   return [formState, handleFormspreeSubmit];
 };
