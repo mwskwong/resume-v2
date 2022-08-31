@@ -18,7 +18,7 @@ const useSx: UseSx = () => ({
     mr: "-8px"
   },
   list: {
-    mx: "8px"
+    mx: "-12px"
   }
 });
 

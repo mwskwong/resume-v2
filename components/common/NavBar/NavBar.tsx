@@ -51,21 +51,21 @@ const NavBar: FC = () => {
             {menuOpen ? <Close /> : <Menu />}
           </IconButton>
         </Toolbar>
+        <Collapse in={menuOpen} timeout="auto" unmountOnExit>
+          <ClickAwayListener onClickAway={handleMenuClickAway}>
+            <List dense component="nav" sx={sx.list} aria-label="nav list">
+              {Object.values(nav).map(({ id, name }) => (
+                <NavListItem
+                  key={id}
+                  id={id}
+                  label={name}
+                  active={activeSectionId === id}
+                />
+              ))}
+            </List>
+          </ClickAwayListener>
+        </Collapse>
       </Container>
-      <Collapse in={menuOpen} timeout="auto" unmountOnExit>
-        <ClickAwayListener onClickAway={handleMenuClickAway}>
-          <List dense component="nav" sx={sx.list} aria-label="nav list">
-            {Object.values(nav).map(({ id, name }) => (
-              <NavListItem
-                key={id}
-                id={id}
-                label={name}
-                active={activeSectionId === id}
-              />
-            ))}
-          </List>
-        </ClickAwayListener>
-      </Collapse>
     </AppBar>
   );
 };
