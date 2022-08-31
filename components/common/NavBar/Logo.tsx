@@ -11,6 +11,7 @@ const Logo: FC = () => {
   return (
     <Button
       sx={sx.root}
+      color="inherit"
       startIcon={<LogoSvg width={35} />}
       href={`#${HOME.id}`}
       aria-label="to home"
