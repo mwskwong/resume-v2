@@ -1,10 +1,6 @@
 <p align="center">
   <a href="https://mwskwong.com" rel="noopener" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://mwskwong.com/favicon-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://mwskwong.com/favicon.svg">
-      <img src="https://mwskwong.com/favicon.svg" alt="mwskwomg.com logo" width="150">
-    </picture>
+    <img src="https://mwskwong.com/favicon.svg" alt="mwskwomg.com logo" width="150"/>
   </a>
 </p>
 
