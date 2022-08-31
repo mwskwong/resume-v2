@@ -1,17 +1,18 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { FormError } from "@formspree/core/forms";
 import FormValues from "./FormValues";
+import { SubmitHandler } from "react-hook-form";
 
 type FormState = {
   submitting: boolean
   succeeded: boolean
   errors: FormError[]
 }
-type HandleFormspreeSubmit = (data: FormValues) => Promise<Response>
+
 type UseFormSpree = (formKey: string) => [
   FormState,
-  HandleFormspreeSubmit
+  SubmitHandler<FormValues>
 ]
 
 /**
@@ -26,7 +27,7 @@ const useFormspree: UseFormSpree = formKey => {
     errors: []
   });
 
-  const handleFormspreeSubmit = useCallback<HandleFormspreeSubmit>(async data => {
+  const handleFormspreeSubmit = useCallback<SubmitHandler<FormValues>>(async data => {
     setFormState(prevFormState => ({ ...prevFormState, submitting: true }));
 
     const response = await fetch(url, {
@@ -35,7 +36,10 @@ const useFormspree: UseFormSpree = formKey => {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        ...data,
+        subject: `[${process.env.NEXT_PUBLIC_URL}] ${data.subject}`
+      })
     });
 
     if (response.ok) {
@@ -49,6 +53,17 @@ const useFormspree: UseFormSpree = formKey => {
 
     return response;
   }, [url]);
+
+  useEffect(() => {
+    if (formState.succeeded) {
+      const resetTimeout = setTimeout(
+        () => setFormState(prevFormState => ({ ...prevFormState, succeeded: false })),
+        5000
+      );
+
+      return () => clearTimeout(resetTimeout);
+    }
+  }, [formState.succeeded]);
 
   return [formState, handleFormspreeSubmit];
 };
