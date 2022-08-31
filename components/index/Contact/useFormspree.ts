@@ -35,7 +35,10 @@ const useFormspree: UseFormSpree = formKey => {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        ...data,
+        subject: `[${process.env.NEXT_PUBLIC_URL}] ${data.subject}`
+      })
     });
 
     if (response.ok) {
