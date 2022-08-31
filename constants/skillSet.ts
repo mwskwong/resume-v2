@@ -5,9 +5,9 @@ export const frontend = [
   "Gatsby",
   "MUI",
   "Redux",
-  "Emotion",
   "React Router",
   "React Hook Form",
+  "Emotion",
   "styled-components",
   "JavaFX"
 ];
