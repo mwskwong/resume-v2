@@ -2,16 +2,17 @@ import { useCallback, useState } from "react";
 
 import { FormError } from "@formspree/core/forms";
 import FormValues from "./FormValues";
+import { SubmitHandler } from "react-hook-form";
 
 type FormState = {
   submitting: boolean
   succeeded: boolean
   errors: FormError[]
 }
-type HandleFormspreeSubmit = (data: FormValues) => Promise<Response>
+
 type UseFormSpree = (formKey: string) => [
   FormState,
-  HandleFormspreeSubmit
+  SubmitHandler<FormValues>
 ]
 
 /**
@@ -26,7 +27,7 @@ const useFormspree: UseFormSpree = formKey => {
     errors: []
   });
 
-  const handleFormspreeSubmit = useCallback<HandleFormspreeSubmit>(async data => {
+  const handleFormspreeSubmit = useCallback<SubmitHandler<FormValues>>(async data => {
     setFormState(prevFormState => ({ ...prevFormState, submitting: true }));
 
     const response = await fetch(url, {
