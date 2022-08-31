@@ -1,8 +1,9 @@
-import { CSSProperties, FC } from "react";
 import { ListItem, ListItemAvatar, ListItemButton, ListItemText, useTheme } from "@mui/material";
 
+import { FC } from "react";
 import Image from "next/future/image";
 import SupportingDocument from "./SupportingDocument";
+import styles from "./supportingDocumentListItem.module.css";
 import useSx from "./useSupportingDocumentListItemSx";
 
 type SupportingDocumentListItemProps = {
@@ -12,7 +13,6 @@ type SupportingDocumentListItemProps = {
 const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ supportingDocument: { name, url, thumbnail } }) => {
   const sx = useSx();
   const theme = useTheme();
-  const thumbnailStyle: CSSProperties = { borderRadius: theme.vars.shape.borderRadius };
 
   return (
     <ListItem disablePadding>
@@ -24,7 +24,7 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ suppo
               alt={`Thumbnail of ${name}`}
               width={102}
               height={68}
-              style={thumbnailStyle}
+              className={styles.thumbnail}
             />
           )}
         </ListItemAvatar>
