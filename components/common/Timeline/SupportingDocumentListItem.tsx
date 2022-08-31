@@ -12,7 +12,7 @@ type SupportingDocumentListItemProps = {
 const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ supportingDocument: { name, url, thumbnail } }) => {
   const sx = useSx();
   const theme = useTheme();
-  const thumbnailStyle: CSSProperties = { borderRadius: theme.shape.borderRadius };
+  const thumbnailStyle: CSSProperties = { borderRadius: theme.vars.shape.borderRadius };
 
   return (
     <ListItem disablePadding>

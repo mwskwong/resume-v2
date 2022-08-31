@@ -1,4 +1,3 @@
-import { Palette } from "@mui/material";
 import { UseSx } from "types";
 
 type UseCertAndCourseCardSx = (organization: string) => ReturnType<UseSx>

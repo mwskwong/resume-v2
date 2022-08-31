@@ -1,16 +1,16 @@
 import "utils/wdyr";
 
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material";
 
 import { AppProps } from "next/app";
 import { FC } from "react";
 import brandingTheme from "brandingTheme";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
-  <ThemeProvider theme={brandingTheme}>
-    <CssBaseline enableColorScheme />
+  <CssVarsProvider theme={brandingTheme} disableTransitionOnChange>
+    <CssBaseline />
     <Component {...pageProps} />
-  </ThemeProvider>
+  </CssVarsProvider>
 );
 
 export default App;
