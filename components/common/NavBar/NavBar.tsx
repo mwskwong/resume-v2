@@ -51,9 +51,9 @@ const NavBar: FC = () => {
             {menuOpen ? <Close /> : <Menu />}
           </IconButton>
         </Toolbar>
-        <Collapse in={menuOpen} timeout="auto" unmountOnExit>
+        <Collapse in={menuOpen} timeout="auto" sx={sx.navList} unmountOnExit>
           <ClickAwayListener onClickAway={handleMenuClickAway}>
-            <List dense component="nav" sx={sx.list} aria-label="nav list">
+            <List dense component="nav" aria-label="nav list">
               {Object.values(nav).map(({ id, name }) => (
                 <NavListItem
                   key={id}

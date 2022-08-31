@@ -17,7 +17,7 @@ const useSx: UseSx = () => ({
     },
     mr: "-8px"
   },
-  list: {
+  navList: {
     mx: "-12px"
   }
 });
