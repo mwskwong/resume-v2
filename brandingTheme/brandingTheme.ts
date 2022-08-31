@@ -169,6 +169,9 @@ const brandingTheme = extendTheme({
   },
   components: {
     MuiAppBar: {
+      defaultProps: {
+        enableColorOnDark: true
+      },
       styleOverrides: {
         root: ({ theme }) => ({
           backgroundColor: `rgba(${theme.vars.palette.background.default}, .7)`,
