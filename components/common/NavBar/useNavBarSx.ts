@@ -14,7 +14,8 @@ const useSx: UseSx = () => ({
     display: {
       xs: "inline-flex",
       md: "none"
-    }
+    },
+    mr: "-8px"
   },
   list: {
     mx: "8px"
