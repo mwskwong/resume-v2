@@ -9,8 +9,20 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any monochrome"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any monochrome"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any monochrome"
     }
   ],
-  "theme_color": "#006edb",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff"
 }

@@ -92,6 +92,7 @@ const Head: FC<HeadProps> = ({ title }) => {
 
       <meta name="author" content={fullName} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#ffffff" />
 
       <meta name="title" property="og:title" content={siteTitle} />
       <meta name="description" property="og:description" content={selfIntro} />
