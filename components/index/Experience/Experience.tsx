@@ -6,6 +6,7 @@ import ExperienceTimeline from "./ExperienceTimeline";
 import type { FC } from "react";
 import SectionHeading from "components/common/SectionHeading";
 import type { SectionProps } from "types";
+import { WorkRounded as Work } from "@mui/icons-material";
 import useSx from "./useExperienceSx";
 
 const Experience: FC<SectionProps> = ({ sx: sxProp }) => {
@@ -15,7 +16,7 @@ const Experience: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sx.root} component="section" id={EXPERIENCE.id}>
       <Container>
         <Stack spacing={6}>
-          <SectionHeading heading="Experience" />
+          <SectionHeading heading="Experience" icon={<Work />} />
           <ExperienceTimeline />
           <Certifications />
         </Stack>

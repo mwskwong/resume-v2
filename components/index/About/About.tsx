@@ -5,6 +5,7 @@ import { ABOUT } from "constants/nav";
 import type { FC } from "react";
 import Image from "next/future/image";
 import Message from "./Message";
+import { PersonRounded as Person } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";
 import type { SectionProps } from "types";
 import SkillSet from "./SkillSet";
@@ -19,7 +20,7 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sx.root} component="section" id={ABOUT.id}>
       <Container>
         <Stack sx={sx.stack} spacing={6}>
-          <SectionHeading heading="About" />
+          <SectionHeading heading="About" icon={<Person />} />
           <Image
             src={personalPhoto}
             alt={`Picture of ${firstName} ${lastName}`}

@@ -7,6 +7,7 @@ import type { FC } from "react";
 import type FormValues from "./FormValues";
 import { LoadingButton } from "@mui/lab";
 import PersonalInfo from "./PersonalInfo";
+import { PhoneRounded as Phone } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";
 import type { SectionProps } from "types";
 import TextField from "./TextField";
@@ -42,7 +43,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sx.root} component="section" id={CONTACT.id}>
       <Container>
         <Stack spacing={6}>
-          <SectionHeading heading="Contact" />
+          <SectionHeading heading="Contact" icon={<Phone />} />
           <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
             <Grid container spacing={6} sx={sx.gridForm} disableEqualOverflow>
               <Grid xs={12} md={4}>

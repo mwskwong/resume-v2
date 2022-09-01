@@ -4,6 +4,7 @@ import Courses from "./Courses";
 import { EDUCATION } from "constants/nav";
 import EducationTimeline from "./EducationTimeline";
 import type { FC } from "react";
+import { SchoolRounded as School } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";
 import type { SectionProps } from "types";
 import useSx from "./useEducationSx";
@@ -15,7 +16,7 @@ const Education: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box component="section" id={EDUCATION.id} sx={sx.root}>
       <Container>
         <Stack spacing={6}>
-          <SectionHeading heading="Education" />
+          <SectionHeading heading="Education" icon={<School />} />
           <EducationTimeline />
           <Courses />
         </Stack>
