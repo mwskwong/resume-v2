@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { FormError } from "@formspree/core/forms";
-import FormValues from "./FormValues";
-import { SubmitHandler } from "react-hook-form";
+import type { FormError } from "@formspree/core/forms";
+import type FormValues from "./FormValues";
+import type { SubmitHandler } from "react-hook-form";
 
 type FormState = {
   submitting: boolean

@@ -1,16 +1,18 @@
-import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, Theme, useMediaQuery } from "@mui/material";
-import { FC, useEffect } from "react";
+import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, useMediaQuery } from "@mui/material";
 import { SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
 import { object, string } from "nope-validator";
 
 import { CONTACT } from "constants/nav";
-import FormValues from "./FormValues";
+import type { FC } from "react";
+import type FormValues from "./FormValues";
 import { LoadingButton } from "@mui/lab";
 import PersonalInfo from "./PersonalInfo";
 import SectionHeading from "components/common/SectionHeading";
-import { SectionProps } from "types";
+import type { SectionProps } from "types";
 import TextField from "./TextField";
+import type { Theme } from "@mui/material";
 import { nopeResolver } from "@hookform/resolvers/nope";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useFormspree from "./useFormspree";
 import useSx from "./useContactSx";

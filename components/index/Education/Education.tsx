@@ -1,11 +1,11 @@
 import { Box, Container, Stack } from "@mui/material";
-import { FC } from "react";
 
 import Courses from "./Courses";
 import { EDUCATION } from "constants/nav";
 import EducationTimeline from "./EducationTimeline";
+import type { FC } from "react";
 import SectionHeading from "components/common/SectionHeading";
-import { SectionProps } from "types";
+import type { SectionProps } from "types";
 import useSx from "./useEducationSx";
 
 const Education: FC<SectionProps> = ({ sx: sxProp }) => {

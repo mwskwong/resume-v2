@@ -3,8 +3,8 @@ import { Button, Container, Typography } from "@mui/material";
 import { KeyboardArrowLeftRounded as ArrowLeft } from "@mui/icons-material";
 import Head from "components/common/Head";
 import Link from "next/link";
-import { NextPage } from "next";
-import { UseSx } from "types";
+import type { NextPage } from "next";
+import type { UseSx } from "types";
 
 const useSx: UseSx = () => ({
   root: {

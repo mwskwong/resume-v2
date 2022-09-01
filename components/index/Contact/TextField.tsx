@@ -1,8 +1,10 @@
 import { Control, useController } from "react-hook-form";
-import { FC, useId } from "react";
-import { FilledInput, FormControl, FormHelperText, InputLabel, TextFieldProps as MuiTextFieldProps } from "@mui/material";
+import { FilledInput, FormControl, FormHelperText, InputLabel } from "@mui/material";
 
-import FormValues from "./FormValues";
+import type { FC } from "react";
+import type FormValues from "./FormValues";
+import type { TextFieldProps as MuiTextFieldProps } from "@mui/material";
+import { useId } from "react";
 
 type TextFieldProps = {
   name: keyof FormValues,

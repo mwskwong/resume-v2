@@ -1,4 +1,3 @@
-
 type Certification = {
   name: string,
   organization: string,

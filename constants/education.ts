@@ -1,4 +1,4 @@
-import SupportingDocument from "components/common/Timeline/SupportingDocument";
+import type { SupportingDocument } from "types";
 import hkuCsCert from "assets/documents/hku_cs.pdf";
 import hkuCsCertThumbnail from "assets/images/hku_cs_thumbnail.jpg";
 

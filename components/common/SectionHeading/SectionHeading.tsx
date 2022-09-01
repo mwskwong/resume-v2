@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
 
-import { FC } from "react";
+import type { FC } from "react";
 import { AcUnitRounded as Snow } from "@mui/icons-material";
 import useSx from "./useSx";
 

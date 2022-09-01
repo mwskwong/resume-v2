@@ -2,11 +2,11 @@ import { Box, Container, Stack } from "@mui/material";
 import { firstName, lastName } from "constants/name";
 
 import { ABOUT } from "constants/nav";
-import { FC } from "react";
+import type { FC } from "react";
 import Image from "next/future/image";
 import Message from "./Message";
 import SectionHeading from "components/common/SectionHeading";
-import { SectionProps } from "types";
+import type { SectionProps } from "types";
 import SkillSet from "./SkillSet";
 import personalPhoto from "assets/images/personal_photo.jpg";
 import styles from "./about.module.css";

@@ -1,4 +1,4 @@
-import { SectionId } from "types";
+import type { SectionId } from "types";
 
 type Section = {
   id: SectionId,

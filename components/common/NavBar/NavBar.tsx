@@ -1,11 +1,12 @@
-import { AppBar, Box, Collapse, Container, IconButton, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
+import { AppBar, ClickAwayListener, Collapse, Container, IconButton, List, Stack, Toolbar, useMediaQuery } from "@mui/material";
 import { CloseRounded as Close, MenuRounded as Menu } from "@mui/icons-material";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { ClickAwayListener } from "@mui/base";
+import type { FC } from "react";
 import Logo from "./Logo";
 import NavButton from "./NavButton";
 import NavListItem from "./NavListItem";
+import type { Theme } from "@mui/material";
 import nav from "constants/nav";
 import useActiveSectionId from "hooks/useActiveSectionId";
 import useSx from "./useNavBarSx";

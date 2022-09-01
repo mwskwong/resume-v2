@@ -3,10 +3,10 @@ import { Box, Container, Stack } from "@mui/material";
 import Certifications from "./Certifications";
 import { EXPERIENCE } from "constants/nav";
 import ExperienceTimeline from "./ExperienceTimeline";
-import { FC } from "react";
+import type { FC } from "react";
 import SectionHeading from "components/common/SectionHeading";
-import { SectionProps } from "types";
-import useSx from "./useSx";
+import type { SectionProps } from "types";
+import useSx from "./useExperienceSx";
 
 const Experience: FC<SectionProps> = ({ sx: sxProp }) => {
   const sx = useSx(sxProp);
