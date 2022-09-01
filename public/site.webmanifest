@@ -1,0 +1,16 @@
+{
+  "name": "Matthew Kwong",
+  "short_name": "Matthew",
+  "display": "standalone",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any monochrome"
+    }
+  ],
+  "theme_color": "#006edb",
+  "background_color": "#ffffff"
+}

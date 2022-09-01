@@ -22,16 +22,9 @@ const nextConfig = {
 
     // import SVG as component
     config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: "@svgr/webpack",
-          options: {
-            typescript: true,
-            ext: "tsx"
-          }
-        }
-      ]
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"]
     });
 
     // why-did-you-render setup
