@@ -1,14 +1,14 @@
 import { Box, Divider, Typography } from "@mui/material";
+import type { FC, ReactNode } from "react";
 
-import { FC } from "react";
-import { AcUnitRounded as Snow } from "@mui/icons-material";
 import useSx from "./useSx";
 
 type SectionHeadingProps = {
-  heading: string
+  heading: string,
+  icon?: ReactNode
 }
 
-const SectionHeading: FC<SectionHeadingProps> = ({ heading }) => {
+const SectionHeading: FC<SectionHeadingProps> = ({ heading, icon }) => {
   const sx = useSx();
 
   return (
@@ -18,7 +18,7 @@ const SectionHeading: FC<SectionHeadingProps> = ({ heading }) => {
       </Typography>
       <Box sx={sx.separatorContainer}>
         <Divider sx={sx.divider} />
-        <Snow />
+        {icon}
         <Divider sx={sx.divider} />
       </Box>
     </Box>

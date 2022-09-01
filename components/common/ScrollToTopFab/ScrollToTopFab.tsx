@@ -1,7 +1,7 @@
 import { Fab, Zoom } from "@mui/material";
 
 import { KeyboardArrowUpRounded as ArrowUp } from "@mui/icons-material";
-import { FC } from "react";
+import type { FC } from "react";
 import { HOME } from "constants/nav";
 import styles from "./scrollToTop.module.css";
 import useShowScrollToTopFab from "hooks/useShowScrollToTopFab";

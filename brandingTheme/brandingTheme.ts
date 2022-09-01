@@ -1,20 +1,11 @@
+import type { } from "@mui/material/themeCssVarsAugmentation";
+import type { } from "@mui/lab/themeAugmentation";
 import "@fontsource/rubik/variable.css";
-import "@mui/lab/themeAugmentation";
 
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
 import { siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
-import { Theme as MuiTheme } from "@mui/material/styles";
 import systemFonts from "./systemFonts";
-
-declare module "@mui/material/styles" {
-  interface Theme {
-    vars: Omit<
-      MuiTheme,
-      "typography" | "mixins" | "breakpoints" | "direction" | "transitions"
-    >
-  }
-}
 
 declare module "@mui/material/styles/createPalette" {
   interface Palette {
@@ -179,7 +170,6 @@ const brandingTheme = extendTheme({
           boxShadow: "none",
           backdropFilter: "blur(20px)",
           color: theme.vars.palette.text.primary
-
         })
       }
     },

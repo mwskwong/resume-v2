@@ -1,4 +1,4 @@
-import { UseSx } from "types";
+import type { UseSx } from "types";
 
 type UseNavButtonSx = (active: boolean) => ReturnType<UseSx>
 

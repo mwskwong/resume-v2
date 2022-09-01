@@ -1,6 +1,6 @@
-import { SxProps, Theme } from "@mui/material";
+import type { SxProps, Theme } from "@mui/material";
 
-import { UseSx } from "types";
+import type { UseSx } from "types";
 
 const simpleIcons = (sx?: SxProps<Theme>): SxProps<Theme> => ({
   p: "2px",

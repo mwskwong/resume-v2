@@ -3,10 +3,11 @@ import { Box, Container, Stack } from "@mui/material";
 import Certifications from "./Certifications";
 import { EXPERIENCE } from "constants/nav";
 import ExperienceTimeline from "./ExperienceTimeline";
-import { FC } from "react";
+import type { FC } from "react";
 import SectionHeading from "components/common/SectionHeading";
-import { SectionProps } from "types";
-import useSx from "./useSx";
+import type { SectionProps } from "types";
+import { WorkRounded as Work } from "@mui/icons-material";
+import useSx from "./useExperienceSx";
 
 const Experience: FC<SectionProps> = ({ sx: sxProp }) => {
   const sx = useSx(sxProp);
@@ -15,7 +16,7 @@ const Experience: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sx.root} component="section" id={EXPERIENCE.id}>
       <Container>
         <Stack spacing={6}>
-          <SectionHeading heading="Experience" />
+          <SectionHeading heading="Experience" icon={<Work />} />
           <ExperienceTimeline />
           <Certifications />
         </Stack>

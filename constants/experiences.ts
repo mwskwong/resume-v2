@@ -1,4 +1,4 @@
-import SupportingDocument from "components/common/Timeline/SupportingDocument";
+import type { SupportingDocument } from "types";
 import hkuEngTaRefLetter from "assets/documents/hku_eng_ta.pdf";
 import hkuEngTaRefLetterThumbnail from "assets/images/hku_eng_ta_thumbnail.jpg";
 import hkuMedRaRefLetter from "assets/documents/hku_med_ra.pdf";

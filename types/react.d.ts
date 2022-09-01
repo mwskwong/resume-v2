@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/no-typos
 import "react";
 
 // Add extra fields supported by MUI

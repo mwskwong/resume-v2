@@ -1,7 +1,7 @@
-import { BoxProps, useTheme } from "@mui/material";
-
+import type { BoxProps } from "@mui/material";
 import DividerSvg from "./DividerSvg";
-import { FC } from "react";
+import type { FC } from "react";
+import { useTheme } from "@mui/material";
 
 const Footer: FC<BoxProps<"svg">> = props => {
   const theme = useTheme();

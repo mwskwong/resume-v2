@@ -1,11 +1,10 @@
-import { Box, Container, Unstable_Grid2 as Grid } from "@mui/material";
+import { Box, Container, Unstable_Grid2 as Grid, Typography } from "@mui/material";
 import { firstName, lastName, middleName } from "constants/name";
 
-import { FC } from "react";
+import type { FC } from "react";
 import { FavoriteRounded as Favorite } from "@mui/icons-material";
-import { SectionProps } from "types";
+import type { SectionProps } from "types";
 import SocialMedia from "components/common/SocialMedia";
-import { Typography } from "@mui/material";
 import { address } from "constants/contact";
 import useSx from "./useFooterSx";
 

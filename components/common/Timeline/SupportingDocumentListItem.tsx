@@ -1,8 +1,8 @@
 import { ListItem, ListItemAvatar, ListItemButton, ListItemText, useTheme } from "@mui/material";
 
-import { FC } from "react";
+import type { FC } from "react";
 import Image from "next/future/image";
-import SupportingDocument from "./SupportingDocument";
+import type { SupportingDocument } from "types";
 import styles from "./supportingDocumentListItem.module.css";
 import useSx from "./useSupportingDocumentListItemSx";
 

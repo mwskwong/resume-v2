@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { FC } from "react";
+import type { FC } from "react";
 import { HOME } from "constants/nav";
 import LogoSvg from "assets/images/icon.svg";
 import { firstName } from "constants/name";

@@ -1,6 +1,6 @@
-import { SvgIcon, SvgIconProps } from "@mui/material";
-
-import { FC } from "react";
+import type { FC } from "react";
+import { SvgIcon } from "@mui/material";
+import type { SvgIconProps } from "@mui/material";
 import { siEnterprisedb } from "simple-icons/icons";
 import useSx from "./useThirdPartyIconSx";
 

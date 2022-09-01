@@ -1,7 +1,7 @@
 import { Unstable_Grid2 as Grid, Stack, Typography } from "@mui/material";
 
 import CertAndCourseCard from "components/common/CertAndCourseCard";
-import { FC } from "react";
+import type { FC } from "react";
 import certifications from "constants/certifications";
 import dateTimeFormat from "utils/dateTimeFormat";
 import useSx from "./useCertificationsSx";
