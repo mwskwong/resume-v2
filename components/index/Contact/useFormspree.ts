@@ -15,6 +15,11 @@ type UseFormSpree = (formKey: string) => [
   SubmitHandler<FormValues>
 ]
 
+const getErrorMessage = (error: unknown) => {
+  if (error instanceof Error) return error.message;
+  return String(error);
+};
+
 /**
  * This is a stripped down version of the useForm from @formspree/react
  * Only essential features for the contact form are kept.
@@ -30,28 +35,36 @@ const useFormspree: UseFormSpree = formKey => {
   const handleFormspreeSubmit = useCallback<SubmitHandler<FormValues>>(async data => {
     setFormState(prevFormState => ({ ...prevFormState, submitting: true }));
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        ...data,
-        subject: `[${process.env.NEXT_PUBLIC_URL}] ${data.subject}`
-      })
-    });
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          ...data,
+          subject: `[${process.env.NEXT_PUBLIC_URL}] ${data.subject}`
+        })
+      });
 
-    if (response.ok) {
-      setFormState(prevFormState => ({ ...prevFormState, succeeded: true }));
-    } else {
-      const { errors } = await response.json();
-      setFormState(prevFormState => ({ ...prevFormState, errors }));
+      if (response.ok) {
+        setFormState(prevFormState => ({ ...prevFormState, succeeded: true }));
+      } else {
+        const { errors } = await response.json();
+        setFormState(prevFormState => ({ ...prevFormState, errors }));
+      }
+
+      setFormState(prevFormState => ({ ...prevFormState, submitting: false }));
+
+      return response;
+    } catch (error) {
+      setFormState(prevFormState => ({
+        ...prevFormState,
+        errors: [{ message: getErrorMessage(error) }],
+        submitting: false
+      }));
     }
-
-    setFormState(prevFormState => ({ ...prevFormState, submitting: false }));
-
-    return response;
   }, [url]);
 
   useEffect(() => {

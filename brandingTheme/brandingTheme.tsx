@@ -5,6 +5,7 @@ import "@fontsource/rubik/variable.css";
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
 import { siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
+import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import systemFonts from "./systemFonts";
 
 declare module "@mui/material/styles/createPalette" {
@@ -159,6 +160,13 @@ const brandingTheme = extendTheme({
     }
   },
   components: {
+    MuiAlert: {
+      defaultProps: {
+        iconMapping: {
+          error: <ErrorOutline fontSize="inherit" />
+        }
+      }
+    },
     MuiAppBar: {
       defaultProps: {
         enableColorOnDark: true
