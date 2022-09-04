@@ -1,6 +1,8 @@
-import type { UseSx } from "types";
+import type { SxProps, Theme } from "@mui/material";
 
-const useSx: UseSx = sx => ({
+import asSxRecord from "utils/asSxRecord";
+
+const useSx = (sx?: SxProps<Theme>) => asSxRecord({
   root: {
     display: "block",
     bottom: "-1px",

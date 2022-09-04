@@ -5,12 +5,11 @@ import NavBar from "components/common/NavBar";
 import type { NextPage } from "next";
 import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { Suspense } from "react";
-import type { TypeBackground } from "@mui/material";
-import type { UseSx } from "types";
 import WaveRoaring from "components/common/dividers/WaveRoaring";
 import WaveRough from "components/common/dividers/WaveRough";
 import WaveSmooth from "components/common/dividers/WaveSmooth";
 import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
+import asSxRecord from "utils/asSxRecord";
 import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("components/index/Hero"), { suspense: true });
@@ -19,7 +18,7 @@ const Experience = dynamic(() => import("components/index/Experience"), { suspen
 const Education = dynamic(() => import("components/index/Education"), { suspense: true });
 const Contact = dynamic(() => import("components/index/Contact"), { suspense: true });
 
-const bgcolors: Record<string, keyof TypeBackground> = {
+const bgcolors = {
   hero: "default",
   about: "sectionPrimary",
   experience: "sectionSecondary",
@@ -28,7 +27,7 @@ const bgcolors: Record<string, keyof TypeBackground> = {
   footer: "sectionPrimary"
 };
 
-const useSx: UseSx = () => ({
+const useSx = () => asSxRecord({
   waveSmooth: {
     color: `background.${bgcolors.about}`
   },

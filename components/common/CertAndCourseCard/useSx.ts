@@ -1,8 +1,6 @@
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
-type UseCertAndCourseCardSx = (organization: string) => ReturnType<UseSx>
-
-const useSx: UseCertAndCourseCardSx = organization => ({
+const useSx = (organization: string) => asSxRecord({
   cardContent: {
     display: "flex",
     alignItems: "center"
