@@ -1,8 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 
-import type { FormError } from "@formspree/core/forms";
 import type FormValues from "./FormValues";
+import { FormError as FormspreeFormError } from "@formspree/core/forms";
 import type { SubmitHandler } from "react-hook-form";
+
+type FormError = Omit<FormspreeFormError, "code"> & {
+  code: FormspreeFormError["code"] | "FETCH_ERROR"
+}
 
 type FormState = {
   submitting: boolean
@@ -61,7 +65,10 @@ const useFormspree: UseFormSpree = formKey => {
     } catch (error) {
       setFormState(prevFormState => ({
         ...prevFormState,
-        errors: [{ message: getErrorMessage(error) }],
+        errors: [{
+          code: "FETCH_ERROR",
+          message: getErrorMessage(error)
+        }],
         submitting: false
       }));
     }
