@@ -1,6 +1,6 @@
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
-const useSx: UseSx = () => ({
+const useSx = () => asSxRecord({
   title: {
     typography: "subtitle2",
     color: "primary.main",

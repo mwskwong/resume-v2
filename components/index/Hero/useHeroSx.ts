@@ -1,6 +1,8 @@
-import type { UseSx } from "types";
+import type { SxProps, Theme } from "@mui/material";
 
-const useSx: UseSx = sx => ({
+import asSxRecord from "utils/asSxRecord";
+
+const useSx = (sx?: SxProps<Theme>) => asSxRecord({
   container: {
     display: "flex",
     flexDirection: "column",
@@ -26,7 +28,7 @@ const useSx: UseSx = sx => ({
   },
   typeIt: {
     color: "primary.main",
-    "--ti-cursor-color": theme => theme.palette.text.primary,
+    "--ti-cursor-color": theme => theme.vars.palette.text.primary,
     "--ti-cursor-margin-left": 0,
     "--ti-cursor-margin-right": 0
   },

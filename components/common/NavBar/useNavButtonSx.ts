@@ -1,8 +1,6 @@
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
-type UseNavButtonSx = (active: boolean) => ReturnType<UseSx>
-
-const useSx: UseNavButtonSx = active => ({
+const useSx = (active: boolean) => asSxRecord({
   active: {
     height: 6,
     width: 6,

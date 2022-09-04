@@ -1,4 +1,4 @@
-import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack, useMediaQuery } from "@mui/material";
+import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
 import { SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
 import { object, string } from "nope-validator";
 
@@ -11,7 +11,6 @@ import { PhoneRounded as Phone } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";
 import type { SectionProps } from "types";
 import TextField from "./TextField";
-import type { Theme } from "@mui/material";
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -33,7 +32,6 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     defaultValues: { name: "", email: "", subject: "", message: "" }
   });
   const [formState, handleFormspreeSubmit] = useFormspree(process.env.NEXT_PUBLIC_FORM);
-  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   useEffect(() => {
     if (formState.succeeded) reset();
@@ -45,7 +43,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
         <Stack spacing={6}>
           <SectionHeading heading="Contact" icon={<Phone />} />
           <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
-            <Grid container spacing={6} sx={sx.gridForm} disableEqualOverflow>
+            <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
               </Grid>
@@ -85,27 +83,28 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
                   />
                 </Grid>
               </Grid>
-              <Grid xs={12} md={8} sx={sx.errorMessagesContainer}>
+              <Grid xs={12} md={8} mdOffset={4} sx={sx.alertContainer}>
                 <Stack spacing={1}>
                   {formState.errors.map(({ code, message }) => (
                     <Alert key={code} severity="error">{message}</Alert>
                   ))}
                 </Stack>
               </Grid>
+              <Grid xs={12} sm="auto" smOffset="auto">
+                <LoadingButton
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  loading={formState.submitting}
+                  loadingPosition="end"
+                  color={formState.succeeded ? "success" : "primary"}
+                  endIcon={formState.succeeded ? <SuccessIcon /> : <SendIcon />}
+                >
+                  send message
+                </LoadingButton>
+              </Grid>
             </Grid>
-            <LoadingButton
-              loading={formState.submitting}
-              loadingPosition="end"
-              color={formState.succeeded ? "success" : "primary"}
-              endIcon={formState.succeeded ? <SuccessIcon /> : <SendIcon />}
-              sx={sx.submitButton}
-              type="submit"
-              variant="contained"
-              size="large"
-              fullWidth={smDown}
-            >
-              send message
-            </LoadingButton>
           </form>
         </Stack>
       </Container>

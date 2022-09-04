@@ -1,20 +1,11 @@
-import type { UseSx } from "types";
+import type { SxProps, Theme } from "@mui/material";
 
-const useSx: UseSx = sx => ({
+import asSxRecord from "utils/asSxRecord";
+
+const useSx = (sx?: SxProps<Theme>) => asSxRecord({
   root: sx,
-  gridForm: {
-    justifyContent: "flex-end"
-  },
-  errorMessagesContainer: {
+  alertContainer: {
     pt: 2
-  },
-  errorMessage: {
-    typography: "body2",
-    color: "error.main"
-  },
-  submitButton: {
-    float: "right",
-    mt: 4
   }
 });
 

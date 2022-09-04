@@ -4,9 +4,9 @@ import { KeyboardArrowLeftRounded as ArrowLeft } from "@mui/icons-material";
 import Head from "components/common/Head";
 import Link from "next/link";
 import type { NextPage } from "next";
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
-const useSx: UseSx = () => ({
+const useSx = () => asSxRecord({
   root: {
     display: "flex",
     flexDirection: "column",

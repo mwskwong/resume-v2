@@ -7,23 +7,18 @@ import type { FC } from "react";
 import { SchoolRounded as School } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";
 import type { SectionProps } from "types";
-import useSx from "./useEducationSx";
 
-const Education: FC<SectionProps> = ({ sx: sxProp }) => {
-  const sx = useSx(sxProp);
-
-  return (
-    <Box component="section" id={EDUCATION.id} sx={sx.root}>
-      <Container>
-        <Stack spacing={6}>
-          <SectionHeading heading="Education" icon={<School />} />
-          <EducationTimeline />
-          <Courses />
-        </Stack>
-      </Container>
-    </Box>
-  );
-};
+const Education: FC<SectionProps> = ({ sx }) => (
+  <Box component="section" id={EDUCATION.id} sx={sx}>
+    <Container>
+      <Stack spacing={6}>
+        <SectionHeading heading="Education" icon={<School />} />
+        <EducationTimeline />
+        <Courses />
+      </Stack>
+    </Container>
+  </Box>
+);
 
 if (process.env.NODE_ENV === "development") Education.whyDidYouRender = true;
 

@@ -5,8 +5,6 @@ export type SectionId = "home" | "about" | "experience" | "education" | "contact
 
 export type SectionProps = { sx?: SxProps<Theme> }
 
-export type UseSx = (sx?: SxProps<Theme>) => Record<string, SxProps<Theme> | typeof sx>
-
 export type SupportingDocument = {
   name?: string,
   url?: string,

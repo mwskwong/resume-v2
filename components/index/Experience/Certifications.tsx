@@ -15,7 +15,7 @@ const Certifications: FC = () => {
         Certifications
       </Typography>
       <div>
-        <Grid container spacing={2} disableEqualOverflow>
+        <Grid container spacing={2}>
           {certifications
             .map(({ name, organization, issuedDate, expirationDate, url }) => {
               const issued = issuedDate instanceof Date

@@ -31,7 +31,7 @@ const Courses: FC = () => {
         )}
       </ToggleButtonGroup>
       <div>
-        <Grid container spacing={2} disableEqualOverflow>
+        <Grid container spacing={2}>
           {courses
             .filter(({ category }) => categorySelected === "All" || category === categorySelected)
             .map(({ name, institution, certificationUrl }) => (

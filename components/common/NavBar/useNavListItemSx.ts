@@ -1,8 +1,6 @@
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
-type UseNavListItemSx = (active: boolean) => ReturnType<UseSx>
-
-const useSx: UseNavListItemSx = active => ({
+const useSx = (active: boolean) => asSxRecord({
   textPrimary: {
     typography: "button",
     color: active ? "primary.main" : undefined

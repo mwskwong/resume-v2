@@ -15,7 +15,7 @@ const Footer: FC<SectionProps> = ({ sx: sxProp }) => {
   return (
     <Box component="footer" sx={sx.root}>
       <Container>
-        <Grid sx={sx.gridContainer} container spacing={1} disableEqualOverflow>
+        <Grid container spacing={1} sx={sx.gridContainer}>
           <Grid xs={12} lg="auto">
             <Typography sx={sx.text} variant="body2">
               {`Copyright © ${year} ${lastName.toUpperCase()}, ${firstName} ${middleName}`}

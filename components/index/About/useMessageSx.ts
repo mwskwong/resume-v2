@@ -1,6 +1,6 @@
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
-const useSx: UseSx = () => ({
+const useSx = () => asSxRecord({
   hello: {
     textAlign: "center"
   },
@@ -32,4 +32,5 @@ const useSx: UseSx = () => ({
     textAlign: "center"
   }
 });
+
 export default useSx;

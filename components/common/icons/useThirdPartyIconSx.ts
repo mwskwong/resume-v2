@@ -1,13 +1,13 @@
 import type { SxProps, Theme } from "@mui/material";
 
-import type { UseSx } from "types";
+import asSxRecord from "utils/asSxRecord";
 
 const simpleIcons = (sx?: SxProps<Theme>): SxProps<Theme> => ({
   p: "2px",
   ...sx
 });
 
-const useSx: UseSx = sx => ({
+const useSx = (sx?: SxProps<Theme>) => asSxRecord({
   simpleIcons: simpleIcons(sx),
   enterpriseDb: {
     color: "enterpriseDB.main",
