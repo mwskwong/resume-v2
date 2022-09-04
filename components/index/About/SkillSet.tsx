@@ -37,7 +37,7 @@ const SkillSet: FC = () => {
       <Typography component="h3" sx={sx.title}>
         Skills
       </Typography>
-      <Grid container spacing={6} sx={sx.gridContainer} disableEqualOverflow>
+      <Grid container spacing={6} disableEqualOverflow>
         {skillSetGroupedSorted.map(([category, skills]) => {
           const Icon = Icons[category];
 

@@ -7,9 +7,6 @@ const useSx: UseSx = () => ({
     textAlign: "center",
     mb: 2
   },
-  gridContainer: {
-    justifyContent: "center"
-  },
   stack: {
     alignItems: "center"
   },
