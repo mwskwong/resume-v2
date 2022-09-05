@@ -8,7 +8,6 @@ jobs:
     container:
       image: cypress/browsers:node16.14.2-slim-chrome103-ff102
       options: --user 1001
-    needs: install
     strategy:
       fail-fast: false
       matrix:
