@@ -49,30 +49,16 @@ jobs:
             .next
             public
 
-      - name: Edge run
+      - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
         with:
-          project: .
-          browser: edge
-          build: npm run build
+          install: false
           start: npm run start
           wait-on: "http://localhost:3000"
+          browser: chrome
           record: true
           parallel: true
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Firefox run
-        uses: cypress-io/github-action@v4
-        with:
-          project: .
-          browser: firefox
-          build: npm run build
-          start: npm run start
-          wait-on: "http://localhost:3000"
-          record: true
-          parallel: true
+          group: "UI - Chrome"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
