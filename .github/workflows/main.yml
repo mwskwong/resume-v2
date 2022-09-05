@@ -1,0 +1,74 @@
+name: Cypress E2E
+
+on: [push]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v4
+        with:
+          runTests: false
+          build: npm run build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          if-no-files-found: error
+          path: |
+            .next
+            public
+
+  cypress:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:latest
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: |
+            .next
+            public
+
+      - name: Edge run
+        uses: cypress-io/github-action@v4
+        with:
+          project: .
+          browser: edge
+          build: npm run build
+          start: npm run start
+          wait-on: "http://localhost:3000"
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Firefox run
+        uses: cypress-io/github-action@v4
+        with:
+          project: .
+          browser: firefox
+          build: npm run build
+          start: npm run start
+          wait-on: "http://localhost:3000"
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
