@@ -38,3 +38,7 @@ next-env.d.ts
 # auto generated sitemap and robots.txt
 /public/sitemap.xml
 /public/robots.txt
+
+# cypress
+/cypress/screenshots
+/cypress/videos
