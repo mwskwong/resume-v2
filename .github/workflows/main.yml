@@ -4,6 +4,7 @@ on: [push, deployment, deployment_status]
 
 jobs:
   cypress:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node16.14.2-slim-chrome103-ff102
