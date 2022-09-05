@@ -1,6 +1,6 @@
 name: Cypress E2E
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   install:
