@@ -5,6 +5,10 @@ on: [push]
 jobs:
   install:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -12,11 +16,12 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v3
         with:
-          project: ./site
+          project: .
           browser: chrome
-          build: yarn build
-          start: yarn start
+          build: npm run build
+          start: npm run start
           wait-on: "http://localhost:3000"
           record: true
+          parallel: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
