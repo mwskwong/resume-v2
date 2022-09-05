@@ -1,6 +1,6 @@
 import asSxRecord from "utils/asSxRecord";
 
-const useSx = (active: boolean) => asSxRecord({
+const useSx = (active?: boolean) => asSxRecord({
   active: {
     height: 6,
     width: 6,

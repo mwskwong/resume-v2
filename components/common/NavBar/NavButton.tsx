@@ -7,7 +7,7 @@ import useSx from "./useNavButtonSx";
 type NavButtonProps = {
   label: string,
   id: SectionId,
-  active: boolean
+  active?: boolean
 }
 
 const NavButton: FC<NavButtonProps> = ({ label, id, active }) => {
