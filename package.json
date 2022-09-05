@@ -7,7 +7,8 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -35,6 +36,7 @@
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@welldone-software/why-did-you-render": "^7.0.1",
+    "cypress": "^10.7.0",
     "eslint": "^8.23.0",
     "eslint-config-next": "^12.2.5",
     "schema-dts": "^1.1.0",
