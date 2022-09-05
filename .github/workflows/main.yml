@@ -1,6 +1,6 @@
 name: Cypress E2E
 
-on: [deployment_status]
+on: [push, deployment, deployment_status]
 
 jobs:
   cypress:
@@ -18,11 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Download the build folders
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
         with:
@@ -36,3 +31,4 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: Asia/Hong_Kong
+          GITHUB_CONTEXT: ${{ toJson(github) }}
