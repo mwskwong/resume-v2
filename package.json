@@ -8,6 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
+    "cypress": "cypress open",
     "test": "start-server-and-test start http://localhost:3000 cypress"
   },
   "dependencies": {
