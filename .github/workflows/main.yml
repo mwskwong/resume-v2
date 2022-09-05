@@ -45,9 +45,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build
-          path: |
-            .next/
-            public/
+
+      - run: ls -al
 
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
