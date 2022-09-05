@@ -10,7 +10,7 @@ jobs:
       options: --user 1001
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Cypress install
         uses: cypress-io/github-action@v4
@@ -19,13 +19,13 @@ jobs:
           build: npm run build
 
       - name: Save build folder
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           if-no-files-found: error
           path: |
-            .next
-            public
+            .next/
+            public/
 
   cypress:
     runs-on: ubuntu-latest
@@ -39,15 +39,15 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Download the build folders
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: |
-            .next
-            public
+            .next/
+            public/
 
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
