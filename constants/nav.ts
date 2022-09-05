@@ -1,6 +1,6 @@
 import type { SectionId } from "types";
 
-type Section = {
+export type Section = {
   id: SectionId,
   name: string
 }
