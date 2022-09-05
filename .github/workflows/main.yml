@@ -4,7 +4,6 @@ on: [push, deployment, deployment_status]
 
 jobs:
   cypress:
-    if: github.event_name == "deployment_status" && github.event.deployment_status.state == "success"
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node16.14.2-slim-chrome103-ff102
@@ -15,6 +14,12 @@ jobs:
       matrix:
         containers: [1, 2, 3, 4, 5]
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -31,4 +36,3 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: Asia/Hong_Kong
-          GITHUB_CONTEXT: ${{ toJson(github) }}
