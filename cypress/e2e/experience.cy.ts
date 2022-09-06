@@ -39,13 +39,13 @@ describe("Experience", () => {
   });
 
   context("Certifications", () => {
-    it("opens certifications", () => {
+    it("opens certification", () => {
       cy.get("body").then($body => {
-        if ($body.find("[data-cy='certifications']").length > 0) {
-          cy.get("[data-cy='certifications']").then($anchors => {
+        if ($body.find("[data-cy='certification']").length > 0) {
+          cy.get("[data-cy='certification']").then($anchors => {
             const count = $anchors.length;
             for (let i = 0; i < count; i++) {
-              cy.get("[data-cy='certifications']")
+              cy.get("[data-cy='certification']")
                 .then($a => {
                   expect($a).have.attr("target", "_blank");
                   $a.attr("target", "_self");
