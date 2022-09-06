@@ -4,9 +4,13 @@ import nav from "constants/nav";
 const navigatesToSection = (section: Section) => {
   cy.get(`a:contains(${section.name})`).click();
   cy.location("hash").should("equal", `#${section.id}`);
-  if (section.id === nav.HOME.id) cy.window().its("scrollY").should("eq", 0);
-  else cy.get(`#${section.id}`)
-    .should(($elem: JQuery<HTMLElement>) => expect($elem[0].getClientRects()[0].top).gte(47).lte(65));
+  if (section.id === nav.HOME.id) {
+    cy.window().its("scrollY").should("eq", 0);
+  } else {
+    cy.get(`#${section.id}`)
+      // section scroll-margin-top is between 48px - 64px with +-1px margin of error
+      .should(($elem: JQuery<HTMLElement>) => expect($elem[0].getClientRects()[0].top).gte(47).lte(65));
+  }
 };
 
 describe("Navigation", () => {
