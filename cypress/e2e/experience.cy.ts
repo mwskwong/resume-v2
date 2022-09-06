@@ -8,22 +8,22 @@ describe("Experience", () => {
     });
 
     it("shows period on the opposite side on desktop", () => {
-      cy.get("[data-cy='timelinePeriodDesktop']").should("be.visible");
-      cy.get("[data-cy='timelinePeriodMobile']").should("not.be.visible");
+      cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodDesktop']`).should("be.visible");
+      cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodMobile']`).should("not.be.visible");
     });
 
     it("shows period on the same side on mobile", viewports.mobile, () => {
-      cy.get("[data-cy='timelinePeriodDesktop']").should("not.be.visible");
-      cy.get("[data-cy='timelinePeriodMobile']").should("be.visible");
+      cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodDesktop']`).should("not.be.visible");
+      cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodMobile']`).should("be.visible");
     });
 
     it("opens supporting documents", () => {
       cy.get("body").then($body => {
-        if ($body.find("[data-cy='supportingDocument']").length > 0) {
-          cy.get("[data-cy='supportingDocument']").then($anchors => {
+        if ($body.find(`#${EXPERIENCE.id} [data-cy='supportingDocument']`).length > 0) {
+          cy.get(`#${EXPERIENCE.id} [data-cy='supportingDocument']`).then($anchors => {
             const count = $anchors.length;
             for (let i = 0; i < count; i++) {
-              cy.get("[data-cy='supportingDocument']")
+              cy.get(`#${EXPERIENCE.id} [data-cy='supportingDocument']`)
                 .then($a => {
                   expect($a).have.attr("target", "_blank");
                   $a.attr("target", "_self");
