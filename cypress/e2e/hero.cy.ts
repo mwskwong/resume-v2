@@ -25,7 +25,7 @@ describe("Hero", () => {
           expect($a).have.attr("target", "_blank");
           $a.attr("target", "_self");
         })
-        .click({ scrollBehavior: false });
+        .click();
       cy.url().should("match", /resume\.[a-zA-Z0-9]+\.pdf$/i);
     });
   });

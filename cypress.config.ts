@@ -4,6 +4,7 @@ export default defineConfig({
   projectId: "bzfyrk",
   chromeWebSecurity: false,
   e2e: {
-    baseUrl: "http://localhost:3000"
+    baseUrl: "http://localhost:3000",
+    scrollBehavior: "nearest"
   }
 });
