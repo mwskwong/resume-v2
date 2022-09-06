@@ -32,7 +32,7 @@ describe("Navigation", () => {
   context("logo", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
-      cy.scrollTo("center", { duration: 500 });
+      cy.scrollTo("center", { duration: 1000 });
       cy.get("[data-cy='logo']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("eq", 0);
@@ -42,7 +42,7 @@ describe("Navigation", () => {
   context("scroll to top FAB", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
-      cy.scrollTo("center", { duration: 500 });
+      cy.scrollTo("center", { duration: 1000 });
       cy.get("[data-cy='scrollToTop']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("eq", 0);
