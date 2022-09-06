@@ -34,6 +34,7 @@ const NavBar: FC = () => {
             component="nav"
             spacing={1}
             direction="row"
+            data-cy="navButtons"
           >
             {Object.values(nav).map(({ id, name }) => (
               <NavButton
@@ -55,7 +56,7 @@ const NavBar: FC = () => {
         </Toolbar>
         <Collapse in={menuOpen} timeout="auto" sx={sx.navList} unmountOnExit>
           <ClickAwayListener onClickAway={handleMenuClickAway}>
-            <List dense component="nav" aria-label="nav list">
+            <List dense component="nav" aria-label="nav list" data-cy="navList">
               {Object.values(nav).map(({ id, name }) => (
                 <NavListItem
                   key={id}
