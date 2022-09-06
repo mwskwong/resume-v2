@@ -13,7 +13,8 @@ type CertAndCourseCardProps = CardProps & {
   name: string,
   organization: string,
   status?: string,
-  certificationUrl?: string
+  certificationUrl?: string,
+  "data-cy"?: string
 }
 
 const Icons: Record<string, ElementType<SvgIconProps>> = {
@@ -24,7 +25,7 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
   mongoDB: MongoDB
 };
 
-const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, status, certificationUrl, ...props }) => {
+const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, status, certificationUrl, "data-cy": dataCy, ...props }) => {
   const sx = useSx(organization);
   const Icon = Icons[organization];
   const cardContent = (
@@ -42,7 +43,7 @@ const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, sta
     <Card {...props}>
       {certificationUrl
         ? (
-          <CardActionArea href={certificationUrl} target="_blank">
+          <CardActionArea href={certificationUrl} target="_blank" data-cy={dataCy}>
             {cardContent}
           </CardActionArea>
         )

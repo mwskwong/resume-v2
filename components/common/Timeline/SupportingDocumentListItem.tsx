@@ -16,7 +16,7 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ suppo
 
   return (
     <ListItem disablePadding>
-      <ListItemButton component="a" href={url ?? undefined} target="_blank" sx={sx.button}>
+      <ListItemButton component="a" href={url ?? undefined} target="_blank" sx={sx.button} data-cy="supportingDocument">
         <ListItemAvatar sx={sx.avatar}>
           {thumbnail && (
             <Image
@@ -30,7 +30,7 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ suppo
         </ListItemAvatar>
         <ListItemText primary={name} />
       </ListItemButton>
-    </ListItem>
+    </ListItem >
   );
 
 };
