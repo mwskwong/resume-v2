@@ -3,7 +3,7 @@ import * as socialMedia from "constants/socialMedia";
 import { HOME } from "constants/nav";
 
 describe("Hero", () => {
-  context("social media", () => {
+  context("Social media", () => {
     beforeEach(() => cy.visit("/"));
 
     Object.entries(socialMedia).map(([name, link]) => it(
@@ -16,7 +16,7 @@ describe("Hero", () => {
     ));
   });
 
-  context("resume", () => {
+  context("Download resume", () => {
     beforeEach(() => cy.visit("/"));
 
     it("opens resume in a new tab", () => {
