@@ -48,6 +48,7 @@ const NavBar: FC = () => {
             sx={sx.menuButton}
             onClick={handleMenuToggle}
             aria-label={menuOpen ? "close menu" : "open menu"}
+            data-cy="menuButton"
           >
             {menuOpen ? <Close /> : <Menu />}
           </IconButton>
