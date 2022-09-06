@@ -30,7 +30,7 @@
     "typeit": "^8.7.0"
   },
   "devDependencies": {
-    "@formspree/core": "^2.7.2",
+    "@formspree/core": "^2.8.0",
     "@next/bundle-analyzer": "^12.2.5",
     "@svgr/webpack": "^6.3.1",
     "@types/node": "^18.7.15",
