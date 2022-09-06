@@ -33,6 +33,7 @@ const Certifications: FC = () => {
                     status={issued === "In Progress" ? issued : `${issued} — ${expire}`}
                     certificationUrl={url}
                     sx={sx.card}
+                    data-cy="certification"
                   />
                 </Grid>
               );

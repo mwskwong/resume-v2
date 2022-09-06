@@ -15,6 +15,7 @@ const Logo: FC = () => {
       startIcon={<LogoSvg width={35} />}
       href={`#${HOME.id}`}
       aria-label="to home"
+      data-cy="logo"
     >
       {firstName}
     </Button>

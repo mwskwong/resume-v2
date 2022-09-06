@@ -26,7 +26,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
 
   return (
     <MuiTimelineItem>
-      <TimelineOppositeContent sx={sx.periodDesktop}>
+      <TimelineOppositeContent sx={sx.periodDesktop} data-cy="timelinePeriodDesktop">
         {period}
       </TimelineOppositeContent>
       <TimelineSeparator>
@@ -34,7 +34,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent sx={sx.timelineContent}>
-        <Typography sx={sx.periodMobile} component="div" gutterBottom>
+        <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="timelinePeriodMobile">
           {period}
         </Typography>
         <Typography sx={sx.title} component="div" gutterBottom>
