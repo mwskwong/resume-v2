@@ -29,7 +29,7 @@ describe("Experience", () => {
                   $a.attr("target", "_self");
                 })
                 .eq(i)
-                .click();
+                .click({ scrollBehavior: "center" });
               cy.go("back");
             }
           });
