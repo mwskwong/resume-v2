@@ -10,8 +10,8 @@ const ScrollToTopFab: FC = () => {
   const show = useShowScrollToTopFab();
 
   return (
-    <Zoom in={show} mountOnEnter unmountOnExit >
-      <Fab aria-label="scroll to top" href={`#${HOME.id}`} className={styles.zoom}>
+    <Zoom in={show} mountOnEnter unmountOnExit>
+      <Fab aria-label="scroll to top" href={`#${HOME.id}`} className={styles.zoom} data-cy="scrollToTop">
         <ArrowUp />
       </Fab>
     </Zoom>

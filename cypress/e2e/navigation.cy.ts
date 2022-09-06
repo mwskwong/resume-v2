@@ -1,4 +1,3 @@
-import type { Section } from "constants/nav";
 import nav from "constants/nav";
 import viewports from "./viewports";
 
@@ -9,7 +8,7 @@ describe("Navigation", () => {
         cy.viewport(viewport);
         cy.visit("/");
         if (key === "mobile") {
-          cy.get("[data-cy=\"menuButton\"]").click();
+          cy.get("[data-cy='menuButton']").click();
         }
       });
 
@@ -29,4 +28,24 @@ describe("Navigation", () => {
       ));
     })
   ));
+
+  context("logo", () => {
+    it(`navigates to ${nav.HOME.name} section`, () => {
+      cy.visit("/");
+      cy.scrollTo("center", { duration: 500 });
+      cy.get("[data-cy='logo']").click();
+      cy.location("hash").should("equal", `#${nav.HOME.id}`);
+      cy.window().its("scrollY").should("eq", 0);
+    });
+  });
+
+  context("scroll to top FAB", () => {
+    it(`navigates to ${nav.HOME.name} section`, () => {
+      cy.visit("/");
+      cy.scrollTo("center", { duration: 500 });
+      cy.get("[data-cy='scrollToTop']").click();
+      cy.location("hash").should("equal", `#${nav.HOME.id}`);
+      cy.window().its("scrollY").should("eq", 0);
+    });
+  });
 });
