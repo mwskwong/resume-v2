@@ -70,6 +70,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
         component="a"
         href={resume}
         target="_blank"
+        data-cy="resume"
       >
         Download Resume
       </Button>

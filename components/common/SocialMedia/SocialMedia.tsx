@@ -28,7 +28,7 @@ const SocialMedia: FC<SocialMediaProps> = ({ sx: sxProp }) => {
         const Icon = Icons[name];
 
         return (
-          <IconButton key={name} color="inherit" href={link} target="_blank" aria-label={name}>
+          <IconButton key={name} color="inherit" href={link} target="_blank" aria-label={name} data-cy={name}>
             <Icon />
           </IconButton>
         );
