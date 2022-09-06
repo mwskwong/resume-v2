@@ -2,7 +2,7 @@ import type { Section } from "constants/nav";
 import nav from "constants/nav";
 
 const navigatesToSection = (section: Section) => {
-  cy.get(`a:contains(${section.name})`).click();
+  cy.get("a").contains(section.name).click();
   cy.location("hash").should("equal", `#${section.id}`);
   if (section.id === nav.HOME.id) {
     cy.window().its("scrollY").should("eq", 0);
