@@ -59,6 +59,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           {data.supportingDocuments && data.supportingDocuments.map((supportingDocument, index) => (
             <SupportingDocumentListItem
               key={index}
+              title={data.title}
               supportingDocument={supportingDocument}
             />
           ))}

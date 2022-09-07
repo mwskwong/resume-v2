@@ -1,4 +1,6 @@
 import { EXPERIENCE } from "constants/nav";
+import certifications from "constants/_certifications";
+import experiences from "constants/_experiences";
 import viewports from "./viewports";
 
 describe("Experience", () => {
@@ -17,46 +19,34 @@ describe("Experience", () => {
       cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodMobile']`).should("be.visible");
     });
 
-    it("opens supporting documents", () => {
-      cy.get("body").then($body => {
-        if ($body.find(`#${EXPERIENCE.id} [data-cy='supportingDocument']`).length > 0) {
-          cy.get(`#${EXPERIENCE.id} [data-cy='supportingDocument']`).then($anchors => {
-            const count = $anchors.length;
-            for (let i = 0; i < count; i++) {
-              cy.get(`#${EXPERIENCE.id} [data-cy='supportingDocument']`)
-                .then($a => {
-                  expect($a).have.attr("target", "_blank");
-                  $a.attr("target", "_self");
-                })
-                .eq(i)
-                .click({ scrollBehavior: "center" });
-              cy.go("back");
-            }
-          });
-        }
-      });
-    });
+    for (const { jobTitle, supportingDocuments } of experiences) {
+      for (const { name } of supportingDocuments ?? []) {
+        it(`opens ${name} of ${jobTitle}`, () => {
+          cy.get(`[data-cy='${jobTitle}-${name}']`)
+            .then($a => {
+              expect($a).have.attr("target", "_blank");
+              $a.attr("target", "_self");
+            })
+            .click();
+          cy.go("back");
+        });
+      }
+    }
   });
 
   context("Certifications", () => {
-    it("opens certification", () => {
-      cy.get("body").then($body => {
-        if ($body.find("[data-cy='certification']").length > 0) {
-          cy.get("[data-cy='certification']").then($anchors => {
-            const count = $anchors.length;
-            for (let i = 0; i < count; i++) {
-              cy.get("[data-cy='certification']")
-                .then($a => {
-                  expect($a).have.attr("target", "_blank");
-                  $a.attr("target", "_self");
-                })
-                .eq(i)
-                .click();
-              cy.go("back");
-            }
-          });
-        }
-      });
-    });
+    for (const { name, hasFile } of certifications) {
+      if (hasFile) {
+        it(`opens ${name}`, () => {
+          cy.get(`[data-cy='${name}'] a`)
+            .then($a => {
+              expect($a).have.attr("target", "_blank");
+              $a.attr("target", "_self");
+            })
+            .click();
+          cy.go("back");
+        });
+      }
+    }
   });
 });
