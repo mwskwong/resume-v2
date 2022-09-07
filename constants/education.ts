@@ -1,35 +1,26 @@
+import type { EducationConstants } from "./_education";
 import type { SupportingDocument } from "types";
+import educationConstants from "./_education";
 import hkuCsCert from "assets/documents/hku_cs.pdf";
 import hkuCsCertThumbnail from "assets/images/hku_cs_thumbnail.jpg";
 
-type Education = {
-  from: Date,
-  to: Date | "Present",
-  degree: string,
-  school: string,
-  supportingDocuments?: SupportingDocument[]
+type Education = EducationConstants & {
+  supportingDocuments?: Required<SupportingDocument>[]
 }
 
-const education: Education[] = [
-  {
-    from: new Date(2022, 7),
-    to: "Present",
-    degree: "MSc in Information Systems Management",
-    school: "Hong Kong University of Science and Technology"
-  },
-  {
-    from: new Date(2015, 8),
-    to: new Date(2019, 6),
-    degree: "BEng in Computer Science",
-    school: "The University of Hong Kong",
-    supportingDocuments: [
-      {
-        name: "Degree Certification",
-        url: hkuCsCert,
-        thumbnail: hkuCsCertThumbnail
-      }
-    ]
+const supportingDocuments: Record<string, Required<Omit<SupportingDocument, "name">>> = {
+  "BEng in Computer Science-Degree Certification": {
+    url: hkuCsCert,
+    thumbnail: hkuCsCertThumbnail
   }
-];
+};
+
+const education: Education[] = educationConstants.map(({ supportingDocuments: sd, ...education }) => ({
+  ...education,
+  supportingDocuments: sd?.map(({ name }) => ({
+    name,
+    ...supportingDocuments[`${education.degree}-${name}`]
+  }))
+}));
 
 export default education;

@@ -25,9 +25,11 @@ const Courses: FC = () => {
         exclusive
         aria-label="course categories"
       >
-        <ToggleButton value="All">All</ToggleButton>
+        <ToggleButton value="All" data-cy="All">All</ToggleButton>
         {categories.map(category =>
-          <ToggleButton key={category} value={category}>{category}</ToggleButton>
+          <ToggleButton key={category} value={category} data-cy={category}>
+            {category}
+          </ToggleButton>
         )}
       </ToggleButtonGroup>
       <div>
@@ -41,7 +43,6 @@ const Courses: FC = () => {
                   organization={institution}
                   certificationUrl={certificationUrl}
                   sx={sx.card}
-                  data-cy="course"
                 />
               </Grid>
             ))}

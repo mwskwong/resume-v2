@@ -1,4 +1,7 @@
+import courses, { categories } from "constants/_courses";
+
 import { EDUCATION } from "constants/nav";
+import education from "constants/_education";
 import viewports from "./viewports";
 
 describe("Education", () => {
@@ -17,44 +20,56 @@ describe("Education", () => {
       cy.get(`#${EDUCATION.id} [data-cy='timelinePeriodMobile']`).should("be.visible");
     });
 
-    it("opens supporting documents", () => {
-      cy.get("body").then($body => {
-        if ($body.find(`#${EDUCATION.id} [data-cy='supportingDocument']`).length > 0) {
-          cy.get(`#${EDUCATION.id} [data-cy='supportingDocument']`).then($anchors => {
-            const count = $anchors.length;
-            for (let i = 0; i < count; i++) {
-              cy.get(`#${EDUCATION.id} [data-cy='supportingDocument']`)
-                .then($a => {
-                  expect($a).have.attr("target", "_blank");
-                  $a.attr("target", "_self");
-                })
-                .eq(i)
-                .click({ scrollBehavior: "center" });
-              cy.go("back");
-            }
-          });
-        }
-      });
-    });
+    for (const { degree, supportingDocuments } of education) {
+      for (const { name } of supportingDocuments ?? []) {
+        it(`opens ${name} of ${degree}`, () => {
+          cy.get(`[data-cy='${degree}-${name}']`)
+            .then($a => {
+              expect($a).have.attr("target", "_blank");
+              $a.attr("target", "_self");
+            })
+            .click();
+          cy.go("back");
+        });
+      }
+    }
   });
 
   context("Courses", () => {
-    it("opens course", () => {
-      cy.get("body").then($body => {
-        if ($body.find("[data-cy='course']").length > 0) {
-          cy.get("[data-cy='course']").then($anchors => {
-            const count = $anchors.length;
-            for (let i = 0; i < count; i++) {
-              cy.get("[data-cy='course']")
-                .then($a => {
-                  expect($a).have.attr("target", "_blank");
-                  $a.attr("target", "_self");
-                })
-                .eq(i)
-                .click();
-              cy.go("back");
-            }
-          });
+    for (const { name, hasFile } of courses) {
+      if (hasFile) {
+        it(`opens ${name}`, () => {
+          cy.get(`[data-cy='${name}'] a`)
+            .then($a => {
+              expect($a).have.attr("target", "_blank");
+              $a.attr("target", "_self");
+            })
+            .click();
+          cy.go("back");
+        });
+      }
+    }
+
+    context("Filtering", () => {
+      for (const currentCategory of categories) {
+        it(`filters courses on ${currentCategory} category`, () => {
+          cy.get(`[data-cy='${currentCategory}']`).click();
+
+          for (const { name, category } of courses) {
+            cy.get(`[data-cy='${name}']`).should(
+              category === currentCategory
+                ? "exist"
+                : "not.exist"
+            );
+          }
+        });
+      }
+
+      it("shows all courses", () => {
+        cy.get("[data-cy='All']").click();
+
+        for (const { name } of courses) {
+          cy.get(`[data-cy='${name}']`).should("be.visible");
         }
       });
     });

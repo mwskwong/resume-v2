@@ -1,22 +1,23 @@
-import { ListItem, ListItemAvatar, ListItemButton, ListItemText, useTheme } from "@mui/material";
+import { ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
 
 import type { FC } from "react";
 import Image from "next/future/image";
 import type { SupportingDocument } from "types";
+import TimelineItemData from "./TimelineItemData";
 import styles from "./supportingDocumentListItem.module.css";
 import useSx from "./useSupportingDocumentListItemSx";
 
 type SupportingDocumentListItemProps = {
+  title: TimelineItemData["title"],
   supportingDocument: SupportingDocument
 }
 
-const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ supportingDocument: { name, url, thumbnail } }) => {
+const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ title, supportingDocument: { name, url, thumbnail } }) => {
   const sx = useSx();
-  const theme = useTheme();
 
   return (
     <ListItem disablePadding>
-      <ListItemButton component="a" href={url ?? undefined} target="_blank" sx={sx.button} data-cy="supportingDocument">
+      <ListItemButton component="a" href={url ?? undefined} target="_blank" sx={sx.button} data-cy={`${title}-${name}`}>
         <ListItemAvatar sx={sx.avatar}>
           {thumbnail && (
             <Image
