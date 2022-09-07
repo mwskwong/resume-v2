@@ -48,7 +48,7 @@ describe("Navigation", () => {
   context("Logo", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
-      cy.scrollTo("bottom").wait(500);
+      cy.scrollTo("bottom").wait(1000);
       cy.get("[data-cy='logo']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("eq", 0);
@@ -58,7 +58,7 @@ describe("Navigation", () => {
   context("Scroll to top FAB", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
-      cy.scrollTo("bottom").wait(500);
+      cy.scrollTo("bottom").wait(1000);
       cy.get("[data-cy='scrollToTop']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("eq", 0);
