@@ -49,7 +49,7 @@ describe("Navigation", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
       cy.scrollTo("bottom").wait(1000);
-      cy.get("[data-cy='logo']").click();
+      cy.get("[data-cy='logo']").click({ scrollBehavior: false });
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("eq", 0);
     });
@@ -59,7 +59,7 @@ describe("Navigation", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
       cy.scrollTo("bottom").wait(1000);
-      cy.get("[data-cy='scrollToTop']").click();
+      cy.get("[data-cy='scrollToTop']").click({ scrollBehavior: false });
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("eq", 0);
     });
