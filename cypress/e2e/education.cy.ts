@@ -36,18 +36,23 @@ describe("Education", () => {
   });
 
   context("Courses", () => {
-    for (const { name, hasFile } of courses) {
-      if (hasFile) {
-        it(`opens ${name}`, () => {
-          cy.get(`[data-cy='${name}'] a`)
-            .then($a => {
-              expect($a).have.attr("target", "_blank");
-              $a.attr("target", "_self");
-            })
-            .click();
-          cy.go("back");
-        });
-      }
+    for (const { name } of courses) {
+      it(`opens ${name}`, () => {
+        cy.get(`[data-cy='${name}']`)
+          .then($card => {
+            const a = $card.find("a");
+            if (a.length) {
+              cy.wrap(a).then($a => {
+                expect($a).have.attr("target", "_blank");
+                $a.attr("target", "_self");
+              })
+                .click();
+              cy.go("back");
+            } else {
+              cy.log(`${name} doesn't click to a certificate`);
+            }
+          });
+      });
     }
 
     context("Filtering", () => {

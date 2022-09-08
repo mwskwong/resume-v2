@@ -17,7 +17,7 @@ import openShift from "assets/documents/OpenShift for the Absolute Beginners - H
 import oracleDba from "assets/documents/Oracle DBA 11g 12c - Database Administration for Junior DBA.pdf";
 import oracleTuning from "assets/documents/Oracle SQL Performance Tuning Masterclass.pdf";
 
-type Course = Omit<CourseConstants, "hasFile"> & {
+type Course = CourseConstants & {
   certificationUrl?: string
 }
 
