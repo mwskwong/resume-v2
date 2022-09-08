@@ -45,20 +45,32 @@ describe("Navigation", () => {
   });
 
   context("Logo", () => {
-    it(`navigates to ${nav.HOME.name} section`, () => {
+    beforeEach(() => {
       cy.visit("/");
-      cy.scrollTo("bottom").wait(1000);
-      cy.get("[data-cy='logo']").click({ scrollBehavior: false });
+      cy.scrollTo("bottom")
+        .window()
+        .its("scrollY")
+        .should("not.equal", 0);
+    });
+
+    it(`navigates to ${nav.HOME.name} section`, () => {
+      cy.get("[data-cy='logo']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
     });
   });
 
   context("Scroll to top FAB", () => {
-    it(`navigates to ${nav.HOME.name} section`, () => {
+    beforeEach(() => {
       cy.visit("/");
-      cy.scrollTo("bottom");
-      cy.get("[data-cy='scrollToTop']").click({ scrollBehavior: false });
+      cy.scrollTo("bottom")
+        .window()
+        .its("scrollY")
+        .should("not.equal", 0);
+    });
+
+    it(`navigates to ${nav.HOME.name} section`, () => {
+      cy.get("[data-cy='scrollToTop']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
     });
