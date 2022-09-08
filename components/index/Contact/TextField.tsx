@@ -30,7 +30,7 @@ const TextField: FC<TextFieldProps> = ({ name, control, label, autoComplete, mul
   const helperTextId = useId();
 
   return (
-    <FormControl fullWidth error={Boolean(error)} disabled={disabled}>
+    <FormControl fullWidth error={Boolean(error)} disabled={disabled} data-cy={name}>
       <InputLabel htmlFor={inputId}>{label}</InputLabel>
       <FilledInput
         inputRef={ref}
@@ -41,7 +41,7 @@ const TextField: FC<TextFieldProps> = ({ name, control, label, autoComplete, mul
         multiline={multiline}
         rows={rows}
       />
-      <FormHelperText id={helperTextId}>{error?.message || " "}</FormHelperText>
+      <FormHelperText id={helperTextId}>{error?.message ?? "\u200B"}</FormHelperText>
     </FormControl>
   );
 };

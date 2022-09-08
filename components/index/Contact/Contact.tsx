@@ -42,7 +42,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
       <Container>
         <Stack spacing={6}>
           <SectionHeading heading="Contact" icon={<Phone />} />
-          <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
+          <form onSubmit={handleSubmit(handleFormspreeSubmit)} data-cy="contact">
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
