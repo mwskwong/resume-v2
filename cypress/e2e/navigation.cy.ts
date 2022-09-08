@@ -18,7 +18,7 @@ describe("Navigation", () => {
       cy.get("[data-cy='navList']").should("be.visible");
     });
 
-    Object.entries(viewports).map(([key, viewport]) => (
+    Object.entries(viewports).forEach(([key, viewport]) => (
       context(key, viewport, () => {
         before(() => {
           cy.visit("/");
@@ -27,20 +27,19 @@ describe("Navigation", () => {
           }
         });
 
-        Object.values(nav).map(section => it(
-          `navigates to ${section.name} section`,
-          () => {
-            cy.get("a").contains(section.name).click();
-            cy.location("hash").should("equal", `#${section.id}`);
-            if (section.id === nav.HOME.id) {
-              cy.window().its("scrollY").should("eq", 0);
+        Object.values(nav).forEach(({ name, id }) =>
+          it(`navigates to ${name} section`, () => {
+            cy.get("a").contains(name).click();
+            cy.location("hash").should("equal", `#${id}`);
+            if (id === nav.HOME.id) {
+              cy.window().its("scrollY").should("equal", 0);
             } else {
-              cy.get(`#${section.id}`)
+              cy.get(`#${id}`)
                 // section scroll-margin-top is between 48px - 64px with +-1px margin of error
                 .should(($elem: JQuery<HTMLElement>) => expect($elem[0].getClientRects()[0].top).gte(47).lte(65));
             }
-          }
-        ));
+          })
+        );
       })
     ));
   });
@@ -51,17 +50,17 @@ describe("Navigation", () => {
       cy.scrollTo("bottom").wait(1000);
       cy.get("[data-cy='logo']").click({ scrollBehavior: false });
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
-      cy.window().its("scrollY").should("eq", 0);
+      cy.window().its("scrollY").should("equal", 0);
     });
   });
 
   context("Scroll to top FAB", () => {
     it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
-      cy.scrollTo("bottom").wait(1000);
+      cy.scrollTo("bottom");
       cy.get("[data-cy='scrollToTop']").click({ scrollBehavior: false });
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
-      cy.window().its("scrollY").should("eq", 0);
+      cy.window().its("scrollY").should("equal", 0);
     });
   });
 });
