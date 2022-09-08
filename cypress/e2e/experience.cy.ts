@@ -35,10 +35,10 @@ describe("Experience", () => {
   });
 
   context("Certifications", () => {
-    for (const { name, hasFile } of certifications) {
-      if (hasFile) {
+    for (const { name, issuedDate } of certifications) {
+      if (issuedDate !== "In Progress") {
         it(`opens ${name}`, () => {
-          cy.get(`[data-cy='${name}'] a`)
+          cy.get(`[data-cy='${name}']`).find("a")
             .then($a => {
               expect($a).have.attr("target", "_blank");
               $a.attr("target", "_self");
