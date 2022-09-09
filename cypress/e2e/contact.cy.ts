@@ -4,16 +4,16 @@ import { CONTACT } from "constants/nav";
 
 describe("Contact", () => {
   context("Form", () => {
+    before(() => {
+      cy.visit(`/#${CONTACT.id}`)
+        .window()
+        .its("scrollY")
+        .should("not.equal", 0);
+      cy.get("[data-cy='contact']").submit().wait(1000);
+    });
+
     for (const field in validEmail) {
       context(`${field} field`, () => {
-        before(() => {
-          cy.visit(`/#${CONTACT.id}`)
-            .window()
-            .its("scrollY")
-            .should("not.equal", 0);
-          cy.get("[data-cy='contact']").submit().wait(1000);
-        });
-
         it("is required", () => {
           cy.get(`[data-cy='${field}']`)
             .children()
@@ -58,18 +58,14 @@ describe("Contact", () => {
     }
 
     context("Submission", () => {
-      beforeEach(() => {
-        for (const field in validEmail) {
+
+      context("Success", () => {
+        before(() => {
           cy.visit(`/#${CONTACT.id}`)
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-        }
-      });
-
-      context("Success", () => {
-        before(() => {
-          cy.intercept("POST", "https://formspree.io/f/*").as("formSubmission");
+          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true } }).as("formSubmission");
         });
 
         it("succeeds with valid data", () => {
@@ -97,9 +93,6 @@ describe("Contact", () => {
         });
 
         it("resets submit button success status after 5s", () => {
-          cy.get("[data-cy='contact']")
-            .find("[type='submit']")
-            .should("have.class", "MuiButton-containedSuccess");
           cy.wait(5000);
           cy.get("[data-cy='contact']")
             .find("[type='submit']")
@@ -109,6 +102,10 @@ describe("Contact", () => {
 
       context("Failure", () => {
         before(() => {
+          cy.visit(`/#${CONTACT.id}`)
+            .window()
+            .its("scrollY")
+            .should("not.equal", 0);
           cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true }).as("formSubmission");
         });
 

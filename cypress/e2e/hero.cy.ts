@@ -3,9 +3,9 @@ import * as socialMedia from "constants/socialMedia";
 import { HOME } from "constants/nav";
 
 describe("Hero", () => {
-  context("Social media", () => {
-    beforeEach(() => cy.visit("/"));
+  before(() => cy.visit("/"));
 
+  context("Social media", () => {
     Object.entries(socialMedia).map(([name, link]) => it(
       `opens ${name} in a new tab`,
       () => {
@@ -17,8 +17,6 @@ describe("Hero", () => {
   });
 
   context("Download resume", () => {
-    beforeEach(() => cy.visit("/"));
-
     it("opens resume in a new tab", () => {
       cy.get("[data-cy='resume']")
         .then($a => {

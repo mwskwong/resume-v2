@@ -45,15 +45,12 @@ describe("Navigation", () => {
   });
 
   context("Logo", () => {
-    beforeEach(() => {
+    it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
       cy.scrollTo("bottom")
         .window()
         .its("scrollY")
         .should("not.equal", 0);
-    });
-
-    it(`navigates to ${nav.HOME.name} section`, () => {
       cy.get("[data-cy='logo']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
@@ -61,15 +58,12 @@ describe("Navigation", () => {
   });
 
   context("Scroll to top FAB", () => {
-    beforeEach(() => {
+    it(`navigates to ${nav.HOME.name} section`, () => {
       cy.visit("/");
       cy.scrollTo("bottom")
         .window()
         .its("scrollY")
         .should("not.equal", 0);
-    });
-
-    it(`navigates to ${nav.HOME.name} section`, () => {
       cy.get("[data-cy='scrollToTop']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
