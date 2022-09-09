@@ -65,7 +65,8 @@ describe("Contact", () => {
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true } }).as("formSubmission");
+          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 500 })
+            .as("formSubmission");
         });
 
         it("succeeds with valid data", () => {
@@ -78,18 +79,18 @@ describe("Contact", () => {
           cy.get("[data-cy='contact']").submit();
           cy.get("[data-cy='contact']").find("[type='submit']").should("have.class", "MuiLoadingButton-loading");
 
-          cy.wait("@formSubmission").then(interception => {
-            expect(interception?.response?.body?.ok).be.true;
-            cy.get("[data-cy='contact']")
-              .find("[type='submit']")
-              .should("have.class", "MuiButton-containedSuccess");
-            for (const field in validEmail) {
-              cy.get(`[data-cy='${field}']`)
-                .find(":is(input, textarea)")
-                .filter(":visible")
-                .should("have.value", "");
-            }
-          });
+          cy.wait("@formSubmission").then(interception =>
+            expect(interception?.response?.body?.ok).be.true
+          );
+          cy.get("[data-cy='contact']")
+            .find("[type='submit']")
+            .should("have.class", "MuiButton-containedSuccess");
+          for (const field in validEmail) {
+            cy.get(`[data-cy='${field}']`)
+              .find(":is(input, textarea)")
+              .filter(":visible")
+              .should("have.value", "");
+          }
         });
 
         it("resets submit button success status after 5s", () => {
@@ -106,7 +107,8 @@ describe("Contact", () => {
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-          cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true }).as("formSubmission");
+          cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true, delay: 500 })
+            .as("formSubmission");
         });
 
         it("fails when offline", () => {
@@ -119,14 +121,13 @@ describe("Contact", () => {
           cy.get("[data-cy='contact']").submit();
           cy.get("[data-cy='contact']").find("[type='submit']").should("have.class", "MuiLoadingButton-loading");
 
-          cy.wait("@formSubmission").then(() => {
-            cy.get("[data-cy='contact']")
-              .find("[data-cy='alert']")
-              .contains("Failed to fetch");
-            cy.get("[data-cy='contact']")
-              .find("[type='submit']")
-              .should("not.have.class", "MuiButton-containedSuccess");
-          });
+          cy.wait("@formSubmission");
+          cy.get("[data-cy='contact']")
+            .find("[data-cy='alert']")
+            .contains("Failed to fetch");
+          cy.get("[data-cy='contact']")
+            .find("[type='submit']")
+            .should("not.have.class", "MuiButton-containedSuccess");
         });
       });
     });
