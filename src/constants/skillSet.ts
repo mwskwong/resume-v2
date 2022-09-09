@@ -2,6 +2,7 @@ export const frontend = [
   "React",
   "TypeScript",
   "Next.js",
+  "Cypress",
   "Gatsby",
   "MUI",
   "Redux",
