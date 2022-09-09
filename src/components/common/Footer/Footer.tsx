@@ -1,4 +1,4 @@
-import { Box, Container, Unstable_Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { firstName, lastName, middleName } from "constants/name";
 
 import type { FC } from "react";
@@ -14,22 +14,18 @@ const Footer: FC<SectionProps> = ({ sx: sxProp }) => {
 
   return (
     <Box component="footer" sx={sx.root}>
-      <Container>
-        <Grid container spacing={1} sx={sx.gridContainer}>
-          <Grid xs={12} lg="auto">
-            <Typography sx={sx.text} variant="body2">
-              {`Copyright © ${year} ${lastName.toUpperCase()}, ${firstName} ${middleName}`}
-            </Typography>
-            <Typography sx={sx.text} variant="caption">
-              {"Made with "}
-              <Favorite sx={sx.loveIcon} color="error" fontSize="inherit" />
-              {` in ${address}`}
-            </Typography>
-          </Grid>
-          <Grid xs={12} lg="auto">
-            <SocialMedia />
-          </Grid>
-        </Grid>
+      <Container sx={sx.container}>
+        <div>
+          <Typography sx={sx.text} variant="body2">
+            {`Copyright © ${year} ${lastName.toUpperCase()}, ${firstName} ${middleName}`}
+          </Typography>
+          <Typography sx={sx.text} variant="caption">
+            {"Made with "}
+            <Favorite sx={sx.loveIcon} color="error" fontSize="inherit" />
+            {` in ${address}`}
+          </Typography>
+        </div>
+        <SocialMedia />
       </Container>
     </Box>
   );

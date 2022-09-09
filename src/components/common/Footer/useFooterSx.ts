@@ -8,17 +8,22 @@ const useSx = (sx?: SxProps<Theme>) => asSxRecord({
     py: 4,
     ...sx
   },
-  gridContainer: {
+  container: {
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    "@media (min-width: 1300px)": {
+      flexDirection: "row"
+    }
   },
   text: {
     color: "inherit",
     fontWeight: "regular",
     width: "100%",
-    textAlign: {
-      xs: "center",
-      lg: "unset"
+    textAlign: "center",
+    "@media (min-width: 1300px)": {
+      textAlign: "unset"
     }
   },
   loveIcon: {
