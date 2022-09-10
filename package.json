@@ -24,7 +24,7 @@
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.34.2",
+    "react-hook-form": "^7.35.0",
     "sharp": "^0.31.0",
     "simple-icons": "^7.10.0",
     "typeit": "^8.7.0"
