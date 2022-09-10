@@ -24,7 +24,7 @@ const TextField: FC<TextFieldProps> = ({ name, control, label, autoComplete, mul
   const {
     field: { ref, ...field },
     fieldState: { error }
-  } = useController({ name, control });
+  } = useController<FormValues>({ name, control });
 
   const inputId = useId();
   const helperTextId = useId();
