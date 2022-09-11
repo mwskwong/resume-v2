@@ -119,6 +119,7 @@ describe("Contact", () => {
           });
 
           cy.get("[data-cy='contact']").submit();
+          cy.get("[data-cy='contact']").find("[type='submit']").should("have.class", "MuiLoadingButton-loading");
 
           cy.wait("@formSubmission");
           cy.get("[data-cy='contact']")
