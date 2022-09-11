@@ -17,13 +17,6 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           runTests: false
-      
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
 
   cypress-run:
     if: github.event.deployment_status.state == 'success'
@@ -39,12 +32,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
 
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
