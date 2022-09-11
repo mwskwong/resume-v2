@@ -65,7 +65,7 @@ describe("Contact", () => {
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 500 })
+          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 1000 })
             .as("formSubmission");
         });
 
@@ -107,7 +107,7 @@ describe("Contact", () => {
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-          cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true, delay: 500 })
+          cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true, delay: 1000 })
             .as("formSubmission");
         });
 
