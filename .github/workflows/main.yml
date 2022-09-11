@@ -6,9 +6,7 @@ jobs:
   cypress-install:
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.6.0-chrome105-ff104
-      options: --user 1001
+    container: cypress/browsers:node18.6.0-chrome105-ff104
     steps:
       - name: Checkout
         uses: actions/checkout@v2
