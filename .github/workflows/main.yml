@@ -13,18 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cache NPM and Cypress
-        id: cache-npm-and-cypress
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-            ~/.npm
-          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
       - name: Cypress install
-        if: ${{ steps.cache-npm-and-cypress.output.cache-hit != 'true' }}
         uses: cypress-io/github-action@v4
         with:
           runTests: false
@@ -44,19 +33,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cache NPM
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            ~/.npm
-          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
         with:
-          install: ${{ steps.cache-npm.output.cache-hit != 'true' }}
           headed: true
           browser: chrome
           record: true
