@@ -7,7 +7,7 @@ jobs:
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node16.14.2-slim-chrome103-ff102
+      image: cypress/browsers:node18.6.0-chrome105-ff104
       options: --user 1001
     strategy:
       fail-fast: false

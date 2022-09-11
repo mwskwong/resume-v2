@@ -65,7 +65,7 @@ describe("Contact", () => {
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 500 })
+          cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 1000 })
             .as("formSubmission");
         });
 
@@ -107,7 +107,7 @@ describe("Contact", () => {
             .window()
             .its("scrollY")
             .should("not.equal", 0);
-          cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true, delay: 500 })
+          cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true, delay: 1000 })
             .as("formSubmission");
         });
 
@@ -119,6 +119,7 @@ describe("Contact", () => {
           });
 
           cy.get("[data-cy='contact']").submit();
+          cy.get("[data-cy='contact']").find("[type='submit']").should("have.class", "MuiLoadingButton-loading");
 
           cy.wait("@formSubmission");
           cy.get("[data-cy='contact']")
