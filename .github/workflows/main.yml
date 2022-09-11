@@ -3,9 +3,8 @@ name: Cypress E2E
 on: [deployment_status]
 
 jobs:
-  if: github.event.deployment_status.state == 'success'
-
   cypress-install:
+    if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.6.0-chrome105-ff104
@@ -18,15 +17,9 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           runTests: false
-      
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
 
   cypress-run:
+    if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.6.0-chrome105-ff104
@@ -39,13 +32,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
 
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
