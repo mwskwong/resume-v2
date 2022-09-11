@@ -3,12 +3,28 @@ name: Cypress E2E
 on: [deployment_status]
 
 jobs:
-  cypress:
-    if: github.event.deployment_status.state == 'success'
+  cypress-install:
+    if: github.event.deployment_status.state == "success"
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node16.14.2-slim-chrome103-ff102
+      image: cypress/browsers:node18.6.0-chrome105-ff104
       options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v4
+        with:
+          runTests: false
+
+  cypress-run:
+    if: github.event.deployment_status.state == "success"
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.6.0-chrome105-ff104
+      options: --user 1001
+    needs: install
     strategy:
       fail-fast: false
       matrix:
@@ -20,6 +36,7 @@ jobs:
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
         with:
+          install: false
           headed: true
           browser: chrome
           record: true
