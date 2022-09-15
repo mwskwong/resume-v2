@@ -11,9 +11,11 @@
   ![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fmwskwong.com)
   ![Security Headers](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fmwskwong.com)
   ![Chromium HSTS preload](https://img.shields.io/hsts/preload/mwskwong.com?style=for-the-badge)
+
   ![Vercel](https://vercelbadge.vercel.app/api/mwskwong/resume-v2?style=for-the-badge)
   [![Resume](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/bzfyrk&style=for-the-badge&logo=cypress)](https://dashboard.cypress.io/projects/bzfyrk/runs)
-  ![GitHub](https://img.shields.io/github/license/mwskwong/resume?style=for-the-badge)    
+  ![GitHub](https://img.shields.io/github/license/mwskwong/resume?style=for-the-badge) 
+   
   ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/mwskwong/resume-v2/react?style=for-the-badge)
   ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/mwskwong/resume-v2/next?style=for-the-badge)
   ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/mwskwong/resume-v2/@mui/material?style=for-the-badge)
