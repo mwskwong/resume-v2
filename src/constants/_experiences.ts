@@ -11,8 +11,14 @@ export type ExperienceConstants = {
 
 const experiences: ExperienceConstants[] = [
   {
-    from: new Date(2022, 4),
+    from: new Date(2022, 9),
     to: "Present",
+    jobTitle: "Frontend Engineer",
+    company: "TecPal Ltd."
+  },
+  {
+    from: new Date(2022, 4),
+    to: new Date(2022, 8),
     jobTitle: "Programmer (Business and Administrative Systems)",
     company: "EDPS Limited | Seconded to Hospital Authority",
     jobDuties: [
