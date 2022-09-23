@@ -354,6 +354,4 @@ const brandingTheme = extendTheme({
 // @ts-ignore: TODO: handle missing dark theme
 delete brandingTheme.colorSchemes.dark;
 
-console.log(brandingTheme);
-
 export default brandingTheme;
