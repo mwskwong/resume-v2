@@ -2,6 +2,7 @@ import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import type { CardProps, SvgIconProps } from "@mui/material";
 import type { ElementType, FC } from "react";
 
+import Datacamp from "../icons/Datacamp";
 import EnterpriseDB from "../icons/EnterpriseDB";
 import Microsoft from "../icons/Microsoft";
 import MongoDB from "../icons/MongoDB";
@@ -21,7 +22,8 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
   oracle: Oracle,
   udemy: Udemy,
   enterpriseDB: EnterpriseDB,
-  mongoDB: MongoDB
+  mongoDB: MongoDB,
+  datacamp: Datacamp
 };
 
 const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, status, certificationUrl, ...props }) => {

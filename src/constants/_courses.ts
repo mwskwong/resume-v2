@@ -43,6 +43,11 @@ const courses: CourseConstants[] = [
     institution: "udemy"
   },
   {
+    name: "Introduction to NumPy",
+    category: "Development",
+    institution: "datacamp"
+  },
+  {
     name: "Linux Administration Bootcamp: Go from Beginner to Advanced",
     category: "IT Operations",
     institution: "udemy"

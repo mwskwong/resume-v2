@@ -3,7 +3,7 @@ import type { } from "@mui/lab/themeAugmentation";
 import "@fontsource/rubik/variable.css";
 
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
-import { siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
+import { siDatacamp, siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import systemFonts from "./systemFonts";
@@ -15,6 +15,7 @@ declare module "@mui/material/styles/createPalette" {
     udemy: PaletteColor
     enterpriseDB: PaletteColor
     mongoDB: PaletteColor
+    datacamp: PaletteColor
   }
 
   interface PaletteOptions {
@@ -23,6 +24,7 @@ declare module "@mui/material/styles/createPalette" {
     udemy: PaletteColorOptions
     enterpriseDB: PaletteColorOptions
     mongoDB: PaletteColorOptions
+    datacamp: PaletteColorOptions
   }
 
   interface TypeBackground {
@@ -69,11 +71,12 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDB: { main: darken(`#${siEnterprisedb.hex}`, .19) },
-        mongoDB: { main: darken(`#${siMongodb.hex}`, .23) },
+        enterpriseDB: { main: `#${siEnterprisedb.hex}` },
+        mongoDB: { main: `#${siMongodb.hex}` },
         microsoft: { main: `#${siMicrosoft.hex}` },
-        oracle: { main: darken(`#${siOracle.hex}`, .11) },
-        udemy: { main: darken(`#${siUdemy.hex}`, .03) },
+        oracle: { main: `#${siOracle.hex}` },
+        udemy: { main: `#${siUdemy.hex}` },
+        datacamp: { main: `#${siDatacamp.hex}` },
         grey,
         text: {
           primary: grey[900],
@@ -350,5 +353,7 @@ const brandingTheme = extendTheme({
 // dark theme is not needed
 // @ts-ignore: TODO: handle missing dark theme
 delete brandingTheme.colorSchemes.dark;
+
+console.log(brandingTheme);
 
 export default brandingTheme;
