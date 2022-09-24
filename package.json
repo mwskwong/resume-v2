@@ -24,7 +24,7 @@
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.36.0",
+    "react-hook-form": "^7.36.1",
     "sharp": "^0.31.0",
     "simple-icons": "^7.12.0",
     "typeit": "^8.7.0"
@@ -33,12 +33,12 @@
     "@formspree/core": "^2.8.0",
     "@next/bundle-analyzer": "^12.3.1",
     "@svgr/webpack": "^6.3.1",
-    "@types/node": "^18.7.18",
+    "@types/node": "^18.7.20",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "cypress": "^10.8.0",
-    "eslint": "^8.23.1",
+    "eslint": "^8.24.0",
     "eslint-config-next": "^12.3.1",
     "schema-dts": "^1.1.0",
     "typescript": "^4.8.3"
