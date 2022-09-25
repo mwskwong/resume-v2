@@ -7,7 +7,8 @@ const useSx = (organization: string) => asSxRecord({
   },
   organization: {
     typography: "body2",
-    textTransform: "capitalize"
+    textTransform: "capitalize",
+    color: `${organization}.dark`
   },
   icon: {
     mr: "16px"

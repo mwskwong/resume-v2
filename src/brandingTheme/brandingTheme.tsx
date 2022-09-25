@@ -71,12 +71,30 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDB: { main: `#${siEnterprisedb.hex}` },
-        mongoDB: { main: `#${siMongodb.hex}` },
-        microsoft: { main: `#${siMicrosoft.hex}` },
-        oracle: { main: `#${siOracle.hex}` },
-        udemy: { main: `#${siUdemy.hex}` },
-        datacamp: { main: `#${siDatacamp.hex}` },
+        enterpriseDB: {
+          main: `#${siEnterprisedb.hex}`,
+          dark: darken(`#${siEnterprisedb.hex}`, .45)
+        },
+        mongoDB: {
+          main: `#${siMongodb.hex}`,
+          dark: darken(`#${siMongodb.hex}`, .45)
+        },
+        microsoft: {
+          main: `#${siMicrosoft.hex}`,
+          dark: darken(`#${siMicrosoft.hex}`, .45)
+        },
+        oracle: {
+          main: `#${siOracle.hex}`,
+          dark: darken(`#${siOracle.hex}`, .45)
+        },
+        udemy: {
+          main: `#${siUdemy.hex}`,
+          dark: darken(`#${siUdemy.hex}`, .45)
+        },
+        datacamp: {
+          main: `#${siDatacamp.hex}`,
+          dark: darken(`#${siDatacamp.hex}`, .45)
+        },
         grey,
         text: {
           primary: grey[900],
