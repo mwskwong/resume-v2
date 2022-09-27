@@ -44,8 +44,6 @@ declare module "@mui/material/styles/createTypography" {
   }
 }
 
-type PxToRem = (size: number) => string
-
 const grey = {
   50: "#F3F6F9",
   100: "#E7EBF0",
@@ -59,7 +57,7 @@ const grey = {
   900: "#1A2027"
 };
 
-const pxToRem: PxToRem = size => `${(size / 16)}rem`;
+const pxToRem = (size: number) => `${(size / 16)}rem`;
 
 const brandingTheme = extendTheme({
   unstable_strictMode: true,
@@ -73,27 +71,27 @@ const brandingTheme = extendTheme({
         success: { main: "#1AA251" },
         enterpriseDB: {
           main: `#${siEnterprisedb.hex}`,
-          dark: darken(`#${siEnterprisedb.hex}`, .45)
+          dark: darken(`#${siEnterprisedb.hex}`, .19)
         },
         mongoDB: {
           main: `#${siMongodb.hex}`,
-          dark: darken(`#${siMongodb.hex}`, .45)
+          dark: darken(`#${siMongodb.hex}`, .23)
         },
         microsoft: {
           main: `#${siMicrosoft.hex}`,
-          dark: darken(`#${siMicrosoft.hex}`, .45)
+          dark: `#${siMicrosoft.hex}`
         },
         oracle: {
           main: `#${siOracle.hex}`,
-          dark: darken(`#${siOracle.hex}`, .45)
+          dark: darken(`#${siOracle.hex}`, .11)
         },
         udemy: {
           main: `#${siUdemy.hex}`,
-          dark: darken(`#${siUdemy.hex}`, .45)
+          dark: darken(`#${siUdemy.hex}`, .03)
         },
         datacamp: {
           main: `#${siDatacamp.hex}`,
-          dark: darken(`#${siDatacamp.hex}`, .45)
+          dark: darken(`#${siDatacamp.hex}`, .465)
         },
         grey,
         text: {
