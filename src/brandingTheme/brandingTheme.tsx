@@ -3,7 +3,7 @@ import type { } from "@mui/lab/themeAugmentation";
 import "@fontsource/rubik/variable.css";
 
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
-import { siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
+import { siDatacamp, siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import systemFonts from "./systemFonts";
@@ -15,6 +15,7 @@ declare module "@mui/material/styles/createPalette" {
     udemy: PaletteColor
     enterpriseDB: PaletteColor
     mongoDB: PaletteColor
+    datacamp: PaletteColor
   }
 
   interface PaletteOptions {
@@ -23,6 +24,7 @@ declare module "@mui/material/styles/createPalette" {
     udemy: PaletteColorOptions
     enterpriseDB: PaletteColorOptions
     mongoDB: PaletteColorOptions
+    datacamp: PaletteColorOptions
   }
 
   interface TypeBackground {
@@ -42,8 +44,6 @@ declare module "@mui/material/styles/createTypography" {
   }
 }
 
-type PxToRem = (size: number) => string
-
 const grey = {
   50: "#F3F6F9",
   100: "#E7EBF0",
@@ -57,7 +57,7 @@ const grey = {
   900: "#1A2027"
 };
 
-const pxToRem: PxToRem = size => `${(size / 16)}rem`;
+const pxToRem = (size: number) => `${(size / 16)}rem`;
 
 const brandingTheme = extendTheme({
   unstable_strictMode: true,
@@ -69,11 +69,30 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDB: { main: darken(`#${siEnterprisedb.hex}`, .19) },
-        mongoDB: { main: darken(`#${siMongodb.hex}`, .23) },
-        microsoft: { main: `#${siMicrosoft.hex}` },
-        oracle: { main: darken(`#${siOracle.hex}`, .11) },
-        udemy: { main: darken(`#${siUdemy.hex}`, .03) },
+        enterpriseDB: {
+          main: `#${siEnterprisedb.hex}`,
+          dark: darken(`#${siEnterprisedb.hex}`, .19)
+        },
+        mongoDB: {
+          main: `#${siMongodb.hex}`,
+          dark: darken(`#${siMongodb.hex}`, .23)
+        },
+        microsoft: {
+          main: `#${siMicrosoft.hex}`,
+          dark: `#${siMicrosoft.hex}`
+        },
+        oracle: {
+          main: `#${siOracle.hex}`,
+          dark: darken(`#${siOracle.hex}`, .11)
+        },
+        udemy: {
+          main: `#${siUdemy.hex}`,
+          dark: darken(`#${siUdemy.hex}`, .03)
+        },
+        datacamp: {
+          main: `#${siDatacamp.hex}`,
+          dark: darken(`#${siDatacamp.hex}`, .465)
+        },
         grey,
         text: {
           primary: grey[900],
@@ -168,9 +187,6 @@ const brandingTheme = extendTheme({
       }
     },
     MuiAppBar: {
-      defaultProps: {
-        enableColorOnDark: true
-      },
       styleOverrides: {
         root: ({ theme }) => ({
           backgroundColor: `rgba(${theme.vars.palette.background.default}, .7)`,

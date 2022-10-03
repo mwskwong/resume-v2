@@ -6,6 +6,7 @@ import agileCrashCourse from "assets/documents/Agile Crash Course Agile Project 
 import agileFundamentals from "assets/documents/Agile Fundamentals Including Scrum and Kanban.pdf";
 import citrix from "assets/documents/Citrix Application and Desktop Virtualization - 7.6.pdf";
 import docker from "assets/documents/Docker Crash Course for busy DevOps and Developers.pdf";
+import introToNumPy from "assets/documents/Introduction to NumPy.pdf";
 import iso from "assets/documents/Information Security Awareness-ISO 27001 2013.pdf";
 import linuxBootcamp from "assets/documents/Linux Administration Bootcamp Go from Beginner to Advanced.pdf";
 import linuxMastery from "assets/documents/Linux Mastery Master the Linux Command Line in 11.5 Hours.pdf";
@@ -28,6 +29,7 @@ const certifications: Record<string, string> = {
   "Citrix Application and Desktop Virtualization - 7.6": citrix,
   "Docker Crash Course for busy DevOps and Developers": docker,
   "Information Security Awareness-ISO 27001:2013": iso,
+  "Introduction to NumPy": introToNumPy,
   "Linux Administration Bootcamp: Go from Beginner to Advanced": linuxBootcamp,
   "Linux Administration with Troubleshooting Skills: Hands-On": linuxTroubleshoot,
   "Linux Mastery: Master the Linux Command Line in 11.5 Hours": linuxMastery,

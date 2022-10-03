@@ -28,6 +28,10 @@ const useSx = (sx?: SxProps<Theme>) => asSxRecord({
   udemy: {
     color: "udemy.main",
     ...simpleIcons(sx)
+  },
+  datacamp: {
+    color: "datacamp.main",
+    ...simpleIcons(sx)
   }
 });
 
