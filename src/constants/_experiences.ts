@@ -14,7 +14,10 @@ const experiences: ExperienceConstants[] = [
     from: new Date(2022, 9),
     to: "Present",
     jobTitle: "Frontend Engineer",
-    company: "TecPal Ltd."
+    company: "TecPal Ltd.",
+    jobDuties: [
+      "Decoupling Vue projects from WordPress API to standalone RESTful API service"
+    ]
   },
   {
     from: new Date(2022, 4),

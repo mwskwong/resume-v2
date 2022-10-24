@@ -1,5 +1,4 @@
 import { EXPERIENCE } from "constants/nav";
-import certifications from "constants/_certifications";
 import experiences from "constants/_experiences";
 import viewports from "./viewports";
 
@@ -23,22 +22,6 @@ describe("Experience", () => {
       for (const { name } of supportingDocuments ?? []) {
         it(`opens ${name} of ${jobTitle}`, () => {
           cy.get(`[data-cy='${jobTitle}-${name}']`)
-            .then($a => {
-              expect($a).have.attr("target", "_blank");
-              $a.attr("target", "_self");
-            })
-            .click();
-          cy.go("back");
-        });
-      }
-    }
-  });
-
-  context("Certifications", () => {
-    for (const { name, issuedDate } of certifications) {
-      if (issuedDate !== "In Progress") {
-        it(`opens ${name}`, () => {
-          cy.get(`[data-cy='${name}']`).find("a")
             .then($a => {
               expect($a).have.attr("target", "_blank");
               $a.attr("target", "_self");

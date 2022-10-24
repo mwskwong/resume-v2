@@ -1,6 +1,5 @@
 import { Box, Container, Stack } from "@mui/material";
 
-import Certifications from "./Certifications";
 import { EXPERIENCE } from "constants/nav";
 import ExperienceTimeline from "./ExperienceTimeline";
 import type { FC } from "react";
@@ -14,7 +13,6 @@ const Experience: FC<SectionProps> = ({ sx }) => (
       <Stack spacing={6}>
         <SectionHeading heading="Experience" icon={<Work />} />
         <ExperienceTimeline />
-        <Certifications />
       </Stack>
     </Container>
   </Box>
