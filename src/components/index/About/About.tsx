@@ -3,7 +3,7 @@ import { firstName, lastName } from "constants/name";
 
 import { ABOUT } from "constants/nav";
 import type { FC } from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 import Message from "./Message";
 import { PersonRounded as Person } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";

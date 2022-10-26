@@ -1,7 +1,7 @@
 import { ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
 
 import type { FC } from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 import type { SupportingDocument } from "types";
 import TimelineItemData from "./TimelineItemData";
 import styles from "./supportingDocumentListItem.module.css";

@@ -28,11 +28,13 @@
 Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see how I created my own personal site here.
 
 ## To Do
-1. Run Cypress on Safari (WebKit)
+1. Investigate Next.js 13 new features adaptation
+
+2. Run Cypress on Safari (WebKit)
 
     Known issue: `cy.intercept()`'s `forceNetworkError` option is disabled.
 
-2. Add tags to PDF files
+3. Add tags to PDF files
     
     > For PDF files, we recommend embedding an image of the PDF with alternative text, and providing a link to download a tagged PDF.
     
