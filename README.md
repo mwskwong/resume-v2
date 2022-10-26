@@ -32,7 +32,11 @@ Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see 
 
     Known issue: `cy.intercept()`'s `forceNetworkError` option is disabled.
 
-2. Add tags to PDF files
+2. Investigate whether `@next/font` can be used with MUI and Emotion.
+
+    Currently the font styles are injected AFTER MUI styles, causing the fonts to be ineffective
+
+3. Add tags to PDF files
     
     > For PDF files, we recommend embedding an image of the PDF with alternative text, and providing a link to download a tagged PDF.
     
