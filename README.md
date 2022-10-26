@@ -28,13 +28,11 @@
 Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see how I created my own personal site here.
 
 ## To Do
-1. Run Cypress on Safari (WebKit)
+1. Investigate Next.js 13 new features adaptation
+
+2. Run Cypress on Safari (WebKit)
 
     Known issue: `cy.intercept()`'s `forceNetworkError` option is disabled.
-
-2. Investigate whether `@next/font` can be used with MUI and Emotion.
-
-    Currently the font styles are injected AFTER MUI styles, causing the fonts to be ineffective
 
 3. Add tags to PDF files
     
