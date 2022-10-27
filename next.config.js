@@ -37,16 +37,6 @@ const nextConfig = {
         return entries;
       };
     }
-
-    // workaround when using edge runtime with Emotion
-    if (nextRuntime === "edge") {
-      if (!config.resolve.conditionNames) {
-        config.resolve.conditionNames = ["require", "node"];
-      }
-      if (!config.resolve.conditionNames.includes("worker")) {
-        config.resolve.conditionNames.push("worker");
-      }
-    }
     
     return config;
   },
@@ -62,10 +52,10 @@ const nextConfig = {
         { key: "Referrer-Policy", value: "no-referrer-when-downgrade" }
       ]
     }
-  ],
-  experimental: {
-    runtime: "experimental-edge"
-  }
+  ]
+  // experimental: {
+  //   runtime: "experimental-edge"
+  // }
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
