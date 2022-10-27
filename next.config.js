@@ -10,7 +10,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"]
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev, isServer, nextRuntime }) => {
     // import PDF as file url
     config.module.rules.push({
       test: /\.pdf$/,
@@ -38,6 +38,16 @@ const nextConfig = {
       };
     }
 
+    // workaround when using edge runtime with Emotion
+    if (nextRuntime === "edge") {
+      if (!config.resolve.conditionNames) {
+        config.resolve.conditionNames = ["require", "node"];
+      }
+      if (!config.resolve.conditionNames.includes("worker")) {
+        config.resolve.conditionNames.push("worker");
+      }
+    }
+    
     return config;
   },
   headers: async () => [
