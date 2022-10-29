@@ -1,12 +1,9 @@
-import "@fontsource/rubik/variable.css";
-
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
+import { Rubik } from "@next/font/google";
 import { siDatacamp, siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
-
-import systemFonts from "./systemFonts";
 
 declare module "@mui/material/styles/createPalette" {
   interface Palette {
@@ -44,6 +41,8 @@ declare module "@mui/material/styles/createTypography" {
   }
 }
 
+const pxToRem = (size: number) => `${(size / 16)}rem`;
+
 const grey = {
   50: "#F3F6F9",
   100: "#E7EBF0",
@@ -57,7 +56,7 @@ const grey = {
   900: "#1A2027"
 };
 
-const pxToRem = (size: number) => `${(size / 16)}rem`;
+const rubik = Rubik({ subsets: ["latin"] });
 
 const brandingTheme = extendTheme({
   unstable_strictMode: true,
@@ -118,7 +117,7 @@ const brandingTheme = extendTheme({
   spacing: 10,
   shape: { borderRadius: 10 },
   typography: {
-    fontFamily: systemFonts.join(","),
+    fontFamily: rubik.style.fontFamily,
     fontWeightExtraBold: 800,
     h1: {
       fontSize: "clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)",
