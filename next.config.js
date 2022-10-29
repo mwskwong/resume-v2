@@ -4,14 +4,13 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.e
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   compiler: {
     emotion: true
   },
   images: {
     formats: ["image/avif", "image/webp"]
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev, isServer, nextRuntime }) => {
     // import PDF as file url
     config.module.rules.push({
       test: /\.pdf$/,
@@ -38,7 +37,7 @@ const nextConfig = {
         return entries;
       };
     }
-
+    
     return config;
   },
   headers: async () => [
