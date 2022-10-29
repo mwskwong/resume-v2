@@ -56,7 +56,7 @@ const grey = {
   900: "#1A2027"
 };
 
-const rubik = Rubik({ subsets: ["latin"] });
+const rubik = Rubik({ subsets: ["latin"], display: "swap" });
 
 const brandingTheme = extendTheme({
   unstable_strictMode: true,
