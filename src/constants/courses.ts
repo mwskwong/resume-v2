@@ -1,6 +1,5 @@
-import coursesConstants, { categories } from "./_courses";
+import coursesConstants, { CourseConstants, categories } from "./_courses";
 
-import type { CourseConstants } from "./_courses";
 import adminASqlDbInfra from "assets/documents/Administering a SQL Database Infrastructure.pdf";
 import agileCrashCourse from "assets/documents/Agile Crash Course Agile Project Management Agile Delivery.pdf";
 import agileFundamentals from "assets/documents/Agile Fundamentals Including Scrum and Kanban.pdf";

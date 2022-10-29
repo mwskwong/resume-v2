@@ -2,9 +2,9 @@ import { Box, Container, Stack } from "@mui/material";
 
 import { EXPERIENCE } from "constants/nav";
 import ExperienceTimeline from "./ExperienceTimeline";
-import type { FC } from "react";
+import { FC } from "react";
 import SectionHeading from "components/common/SectionHeading";
-import type { SectionProps } from "types";
+import { SectionProps } from "types";
 import { WorkRounded as Work } from "@mui/icons-material";
 
 const Experience: FC<SectionProps> = ({ sx }) => (

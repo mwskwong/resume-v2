@@ -1,5 +1,5 @@
-import type { } from "@mui/material/themeCssVarsAugmentation";
-import type { } from "@mui/lab/themeAugmentation";
+import "@mui/material/themeCssVarsAugmentation";
+import "@mui/lab/themeAugmentation";
 import "@fontsource/rubik/variable.css";
 
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";

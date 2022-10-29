@@ -1,7 +1,7 @@
 import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 
-import type { FC } from "react";
-import type { SectionId } from "types";
+import { FC } from "react";
+import { SectionId } from "types";
 import useSx from "./useNavListItemSx";
 
 type NavListItemProps = {

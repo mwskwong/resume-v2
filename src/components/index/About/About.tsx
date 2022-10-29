@@ -2,12 +2,12 @@ import { Box, Container, Stack } from "@mui/material";
 import { firstName, lastName } from "constants/name";
 
 import { ABOUT } from "constants/nav";
-import type { FC } from "react";
+import { FC } from "react";
 import Image from "next/image";
 import Message from "./Message";
 import { PersonRounded as Person } from "@mui/icons-material";
 import SectionHeading from "components/common/SectionHeading";
-import type { SectionProps } from "types";
+import { SectionProps } from "types";
 import SkillSet from "./SkillSet";
 import personalPhoto from "assets/images/personal_photo.jpg";
 import styles from "./about.module.css";

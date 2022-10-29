@@ -1,5 +1,5 @@
 import { Box, Divider, Typography } from "@mui/material";
-import type { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import useSx from "./useSx";
 

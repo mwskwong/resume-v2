@@ -2,7 +2,7 @@ import Footer from "components/common/Footer";
 import FooterDivider from "components/common/dividers/Footer";
 import Head from "components/common/Head";
 import NavBar from "components/common/NavBar";
-import type { NextPage } from "next";
+import { NextPage } from "next";
 import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { Suspense } from "react";
 import WaveRoaring from "components/common/dividers/WaveRoaring";

@@ -1,4 +1,4 @@
-import type { FC, SVGProps } from "react";
+import { FC, SVGProps } from "react";
 
 declare global {
   declare namespace NodeJS {

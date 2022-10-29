@@ -1,6 +1,6 @@
-import type { ExperienceConstants } from "./_experiences";
-import type { SupportingDocument } from "types";
-import experiencesConstants from "./_experiences";
+import experiencesConstants, { ExperienceConstants } from "./_experiences";
+
+import { SupportingDocument } from "types";
 import hkuEngTaRefLetter from "assets/documents/hku_eng_ta.pdf";
 import hkuEngTaRefLetterThumbnail from "assets/images/hku_eng_ta_thumbnail.jpg";
 import hkuMedRaRefLetter from "assets/documents/hku_med_ra.pdf";

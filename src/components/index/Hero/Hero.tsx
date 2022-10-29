@@ -1,10 +1,9 @@
 import { Box, Button, Container, Typography, useMediaQuery } from "@mui/material";
+import { FC, useEffect, useMemo, useRef } from "react";
 import { firstName, lastName } from "constants/name";
-import { useEffect, useMemo, useRef } from "react";
 
-import type { FC } from "react";
 import { HOME } from "constants/nav";
-import type { SectionProps } from "types";
+import { SectionProps } from "types";
 import SocialMedia from "components/common/SocialMedia";
 import TypeIt from "typeit";
 import jobTitles from "constants/jobTitles";

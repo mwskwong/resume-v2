@@ -8,9 +8,9 @@ import {
   TimelineSeparator
 } from "@mui/lab";
 
-import type { FC } from "react";
+import { FC } from "react";
 import SupportingDocumentListItem from "./SupportingDocumentListItem";
-import type TimelineItemData from "./TimelineItemData";
+import TimelineItemData from "./TimelineItemData";
 import dateTimeFormat from "utils/dateTimeFormat";
 import useSx from "./useTimelineItemSx";
 

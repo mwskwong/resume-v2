@@ -1,7 +1,7 @@
 import nav, { HOME } from "constants/nav";
 import { useEffect, useState, useTransition } from "react";
 
-import type { SectionId } from "types";
+import { SectionId } from "types";
 
 const isSectionId = (value: string): value is SectionId => {
   const sectionIds = Object.values(nav).map(({ id }) => id as string);

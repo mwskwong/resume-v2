@@ -7,12 +7,10 @@ import {
   DevicesOtherRounded as DevicesOther,
   TerminalRounded as Terminal
 } from "@mui/icons-material";
-import { Box, Chip, Unstable_Grid2 as Grid, Stack, Typography } from "@mui/material";
-import type { ElementType, FC } from "react";
+import { Box, Chip, Unstable_Grid2 as Grid, Stack, SvgIconProps, Typography } from "@mui/material";
+import { ElementType, FC, useMemo } from "react";
 
 import { Database } from "mdi-material-ui";
-import type { SvgIconProps } from "@mui/material";
-import { useMemo } from "react";
 import useSx from "./useSkillSetSx";
 
 const Icons: Record<string, ElementType<SvgIconProps>> = {

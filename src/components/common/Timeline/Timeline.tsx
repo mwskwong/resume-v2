@@ -1,7 +1,7 @@
-import type { FC } from "react";
+import { FC } from "react";
 import { Timeline as MuiTimeline } from "@mui/lab";
 import TimelineItem from "./TimelineItem";
-import type TimelineItemProps from "./TimelineItemData";
+import TimelineItemProps from "./TimelineItemData";
 
 type TimelineProps = {
   data: TimelineItemProps[]

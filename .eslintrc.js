@@ -21,6 +21,9 @@ module.exports = {
     "semi": [
       "error",
       "always"
+    ],
+    "no-duplicate-imports": [
+      "error"
     ]
   }
 };

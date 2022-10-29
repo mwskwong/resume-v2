@@ -1,9 +1,8 @@
-import type { FC, MouseEvent } from "react";
+import { FC, MouseEvent, useState } from "react";
 import { Unstable_Grid2 as Grid, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import courses, { categories } from "constants/courses";
 
 import CertAndCourseCard from "components/common/CertAndCourseCard";
-import { useState } from "react";
 import useSx from "./useCoursesSx";
 
 const Courses: FC = () => {
