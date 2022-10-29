@@ -1,6 +1,6 @@
-import type { FC } from "react";
 import Timeline from "components/common/Timeline";
 import experiences from "constants/experiences";
+import { FC } from "react";
 
 const ExperienceTimeline: FC = () => {
 

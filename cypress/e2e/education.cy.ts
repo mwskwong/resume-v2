@@ -1,7 +1,7 @@
 import courses, { categories } from "constants/_courses";
-
-import { EDUCATION } from "constants/nav";
 import education from "constants/_education";
+import { EDUCATION } from "constants/nav";
+
 import viewports from "./viewports";
 
 describe("Education", () => {

@@ -1,15 +1,13 @@
-import * as socialMedia from "constants/socialMedia";
-
-import type { BreadcrumbList, Graph, Person, WebPage } from "schema-dts";
-import { address, email, phone } from "constants/contact";
-import { firstName, lastName } from "constants/name";
-
-import { ABOUT } from "constants/nav";
-import type { FC } from "react";
-import NextHead from "next/head";
-import jobTitles from "constants/jobTitles";
 import ogImage from "assets/images/og_image.png";
+import { address, email, phone } from "constants/contact";
+import jobTitles from "constants/jobTitles";
+import { firstName, lastName } from "constants/name";
+import { ABOUT } from "constants/nav";
 import selfIntro from "constants/selfIntro";
+import * as socialMedia from "constants/socialMedia";
+import NextHead from "next/head";
+import { FC } from "react";
+import { BreadcrumbList, Graph, Person, WebPage } from "schema-dts";
 
 type HeadProps = {
   title?: string

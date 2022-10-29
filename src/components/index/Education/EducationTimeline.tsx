@@ -1,6 +1,6 @@
-import type { FC } from "react";
 import Timeline from "components/common/Timeline";
 import education from "constants/education";
+import { FC } from "react";
 
 const EducationTimeline: FC = () => {
 

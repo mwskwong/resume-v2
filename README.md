@@ -27,7 +27,14 @@
 
 Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see how I created my own personal site here.
 
+## Deployment Platforms
+
+- Vercel: Web hosting
+- ImprovMX: Email forwarding
+- Formspree: Form backend
+
 ## To Do
+
 1. Investigate Next.js 13 new features adaptation
 
 2. Run Cypress on Safari (WebKit)

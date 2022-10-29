@@ -1,7 +1,7 @@
-import type { FC } from "react";
-import { SvgIcon } from "@mui/material";
-import type { SvgIconProps } from "@mui/material";
+import { SvgIcon, SvgIconProps } from "@mui/material";
+import { FC } from "react";
 import { siGithub } from "simple-icons/icons";
+
 import useSx from "./useThirdPartyIconSx";
 
 const GitHub: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {

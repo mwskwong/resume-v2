@@ -1,6 +1,7 @@
-import type { BoxProps } from "@mui/material";
+import { BoxProps } from "@mui/material";
+import { FC } from "react";
+
 import DividerSvg from "./DividerSvg";
-import type { FC } from "react";
 
 const WaveSmooth2: FC<BoxProps<"svg">> = props => (
   <DividerSvg {...props} viewBox="0 0 1920 157.327" xmlns="http://www.w3.org/2000/svg">

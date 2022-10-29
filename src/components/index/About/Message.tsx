@@ -1,10 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import { firstName, lastName } from "constants/name";
-
-import type { FC } from "react";
-import { Fragment } from "react";
 import jobTitles from "constants/jobTitles";
+import { firstName, lastName } from "constants/name";
 import selfIntro from "constants/selfIntro";
+import { FC, Fragment } from "react";
+
 import useSx from "./useMessageSx";
 
 const Message: FC = () => {

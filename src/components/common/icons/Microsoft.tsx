@@ -1,7 +1,7 @@
-import type { FC } from "react";
-import { SvgIcon } from "@mui/material";
-import type { SvgIconProps } from "@mui/material";
+import { SvgIcon, SvgIconProps } from "@mui/material";
+import { FC } from "react";
 import { siMicrosoft } from "simple-icons/icons";
+
 import useSx from "./useThirdPartyIconSx";
 
 const Microsoft: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {

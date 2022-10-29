@@ -1,5 +1,5 @@
-import type { SxProps, Theme } from "@mui/material";
-import type { StaticImageData } from "next/image";
+import { SxProps, Theme } from "@mui/material";
+import { StaticImageData } from "next/image";
 
 export type SectionId = "home" | "about" | "experience" | "education" | "contact"
 

@@ -1,21 +1,19 @@
-import { Alert, Box, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
-import { SendRounded as SendIcon, CheckCircleRounded as SuccessIcon } from "@mui/icons-material";
-import { object, string } from "nope-validator";
-
-import { CONTACT } from "constants/nav";
-import type { FC } from "react";
-import type FormValues from "./FormValues";
-import { LoadingButton } from "@mui/lab";
-import PersonalInfo from "./PersonalInfo";
-import { PhoneRounded as Phone } from "@mui/icons-material";
-import SectionHeading from "components/common/SectionHeading";
-import type { SectionProps } from "types";
-import TextField from "./TextField";
 import { nopeResolver } from "@hookform/resolvers/nope";
-import { useEffect } from "react";
+import { CheckCircleRounded as SuccessIcon,PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
+import { LoadingButton } from "@mui/lab";
+import { Alert, Box, Container, Stack,Unstable_Grid2 as Grid } from "@mui/material";
+import SectionHeading from "components/common/SectionHeading";
+import { CONTACT } from "constants/nav";
+import { object, string } from "nope-validator";
+import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import useFormspree from "./useFormspree";
+import { SectionProps } from "types";
+
+import FormValues from "./FormValues";
+import PersonalInfo from "./PersonalInfo";
+import TextField from "./TextField";
 import useSx from "./useContactSx";
+import useFormspree from "./useFormspree";
 
 const schema = object().shape({
   name: string().required(),

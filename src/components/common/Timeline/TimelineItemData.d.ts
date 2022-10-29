@@ -1,4 +1,4 @@
-import type SupportingDocument from "./SupportingDocument";
+import SupportingDocument from "./SupportingDocument";
 
 type TimelineItemData = {
   from?: Date,

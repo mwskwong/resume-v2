@@ -1,6 +1,5 @@
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import type { CardProps, SvgIconProps } from "@mui/material";
-import type { ElementType, FC } from "react";
+import { Card, CardActionArea, CardContent, CardProps, SvgIconProps, Typography } from "@mui/material";
+import { ElementType, FC } from "react";
 
 import Datacamp from "../icons/Datacamp";
 import EnterpriseDB from "../icons/EnterpriseDB";

@@ -1,7 +1,6 @@
-import * as contact from "constants/contact";
-
-import { Box, Stack, Typography } from "@mui/material";
 import { EmailRounded as Email, LocationOnRounded as Location, SmartphoneRounded as Mobile } from "@mui/icons-material";
+import { Box, Stack, Typography } from "@mui/material";
+import * as contact from "constants/contact";
 
 import useSx from "./usePersonalInfoSx";
 

@@ -1,8 +1,8 @@
-import type { EducationConstants } from "./_education";
-import type { SupportingDocument } from "types";
-import educationConstants from "./_education";
 import hkuCsCert from "assets/documents/hku_cs.pdf";
 import hkuCsCertThumbnail from "assets/images/hku_cs_thumbnail.jpg";
+import { SupportingDocument } from "types";
+
+import educationConstants, { EducationConstants } from "./_education";
 
 type Education = EducationConstants & {
   supportingDocuments?: Required<SupportingDocument>[]

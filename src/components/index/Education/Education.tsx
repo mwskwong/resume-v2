@@ -1,12 +1,12 @@
+import { SchoolRounded as School } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
+import SectionHeading from "components/common/SectionHeading";
+import { EDUCATION } from "constants/nav";
+import { FC } from "react";
+import { SectionProps } from "types";
 
 import Courses from "./Courses";
-import { EDUCATION } from "constants/nav";
 import EducationTimeline from "./EducationTimeline";
-import type { FC } from "react";
-import { SchoolRounded as School } from "@mui/icons-material";
-import SectionHeading from "components/common/SectionHeading";
-import type { SectionProps } from "types";
 
 const Education: FC<SectionProps> = ({ sx }) => (
   <Box component="section" id={EDUCATION.id} sx={sx}>

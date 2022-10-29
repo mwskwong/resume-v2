@@ -1,6 +1,6 @@
-import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contact.json";
-
 import { CONTACT } from "constants/nav";
+
+import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contact.json";
 
 describe("Contact", () => {
   context("Form", () => {
