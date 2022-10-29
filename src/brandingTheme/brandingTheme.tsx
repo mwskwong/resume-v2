@@ -1,9 +1,9 @@
-import "@mui/material/themeCssVarsAugmentation";
-import "@mui/lab/themeAugmentation";
 import "@fontsource/rubik/variable.css";
 
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
+import type { } from "@mui/lab/themeAugmentation";
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
+import type { } from "@mui/material/themeCssVarsAugmentation";
 import { siDatacamp, siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
 import systemFonts from "./systemFonts";
