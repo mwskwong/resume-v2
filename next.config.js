@@ -3,6 +3,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.e
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  swcMinify: true,
   reactStrictMode: true,
   compiler: {
     emotion: true
@@ -37,7 +38,7 @@ const nextConfig = {
         return entries;
       };
     }
-    
+
     return config;
   },
   headers: async () => [
@@ -52,7 +53,13 @@ const nextConfig = {
         { key: "Referrer-Policy", value: "no-referrer-when-downgrade" }
       ]
     }
-  ]
+  ],
+  experimental: {
+    runtime: "experimental-edge",
+    images: {
+      allowFutureImage: true
+    }
+  }
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

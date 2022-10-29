@@ -39,9 +39,11 @@ const NotFound: NextPage = () => {
         <Typography component="h1" sx={sx.notFound}>
           The page you were looking for does not exist.
         </Typography>
-        <Button variant="contained" size="large" startIcon={<ArrowLeft />} component={Link} href="/">
-          back to home
-        </Button>
+        <Link passHref href="/">
+          <Button variant="contained" size="large" startIcon={<ArrowLeft />}>
+            back to home
+          </Button>
+        </Link>
       </Container>
     </>
   );
