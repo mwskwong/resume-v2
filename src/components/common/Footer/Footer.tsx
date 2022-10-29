@@ -1,11 +1,11 @@
-import { Box, Container, Typography } from "@mui/material";
-import { firstName, lastName, middleName } from "constants/name";
-
-import { FC } from "react";
 import { FavoriteRounded as Favorite } from "@mui/icons-material";
-import { SectionProps } from "types";
+import { Box, Container, Typography } from "@mui/material";
 import SocialMedia from "components/common/SocialMedia";
 import { address } from "constants/contact";
+import { firstName, lastName, middleName } from "constants/name";
+import { FC } from "react";
+import { SectionProps } from "types";
+
 import useSx from "./useFooterSx";
 
 const Footer: FC<SectionProps> = ({ sx: sxProp }) => {

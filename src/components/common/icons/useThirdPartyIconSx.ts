@@ -1,5 +1,4 @@
 import { SxProps, Theme } from "@mui/material";
-
 import asSxRecord from "utils/asSxRecord";
 
 const simpleIcons = (sx?: SxProps<Theme>): SxProps<Theme> => ({

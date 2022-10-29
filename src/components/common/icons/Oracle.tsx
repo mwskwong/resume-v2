@@ -1,7 +1,7 @@
 import { SvgIcon, SvgIconProps } from "@mui/material";
-
 import { FC } from "react";
 import { siOracle } from "simple-icons/icons";
+
 import useSx from "./useThirdPartyIconSx";
 
 const Oracle: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {

@@ -1,10 +1,10 @@
 import { ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
-
-import { FC } from "react";
 import Image from "next/image";
+import { FC } from "react";
 import { SupportingDocument } from "types";
-import TimelineItemData from "./TimelineItemData";
+
 import styles from "./supportingDocumentListItem.module.css";
+import TimelineItemData from "./TimelineItemData";
 import useSx from "./useSupportingDocumentListItemSx";
 
 type SupportingDocumentListItemProps = {

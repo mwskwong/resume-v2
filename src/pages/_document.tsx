@@ -1,5 +1,4 @@
 import { Head, Html, Main, NextScript } from "next/document";
-
 import { FC } from "react";
 
 const Document: FC = () => (

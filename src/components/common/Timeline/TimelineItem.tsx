@@ -1,17 +1,17 @@
-import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import {
-  TimelineItem as MuiTimelineItem,
   TimelineConnector,
   TimelineContent,
   TimelineDot,
+  TimelineItem as MuiTimelineItem,
   TimelineOppositeContent,
   TimelineSeparator
 } from "@mui/lab";
-
+import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC } from "react";
+import dateTimeFormat from "utils/dateTimeFormat";
+
 import SupportingDocumentListItem from "./SupportingDocumentListItem";
 import TimelineItemData from "./TimelineItemData";
-import dateTimeFormat from "utils/dateTimeFormat";
 import useSx from "./useTimelineItemSx";
 
 type TimelineItemProps = {

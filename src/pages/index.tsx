@@ -1,16 +1,16 @@
-import Footer from "components/common/Footer";
 import FooterDivider from "components/common/dividers/Footer";
-import Head from "components/common/Head";
-import NavBar from "components/common/NavBar";
-import { NextPage } from "next";
-import ScrollToTopFab from "components/common/ScrollToTopFab";
-import { Suspense } from "react";
 import WaveRoaring from "components/common/dividers/WaveRoaring";
 import WaveRough from "components/common/dividers/WaveRough";
 import WaveSmooth from "components/common/dividers/WaveSmooth";
 import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
-import asSxRecord from "utils/asSxRecord";
+import Footer from "components/common/Footer";
+import Head from "components/common/Head";
+import NavBar from "components/common/NavBar";
+import ScrollToTopFab from "components/common/ScrollToTopFab";
+import { NextPage } from "next";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import asSxRecord from "utils/asSxRecord";
 
 const Hero = dynamic(() => import("components/index/Hero"), { suspense: true });
 const About = dynamic(() => import("components/index/About"), { suspense: true });

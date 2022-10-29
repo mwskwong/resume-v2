@@ -1,5 +1,6 @@
-import { FC } from "react";
 import { Timeline as MuiTimeline } from "@mui/lab";
+import { FC } from "react";
+
 import TimelineItem from "./TimelineItem";
 import TimelineItemProps from "./TimelineItemData";
 

@@ -1,9 +1,8 @@
-import { Button, Container, Typography } from "@mui/material";
-
 import { KeyboardArrowLeftRounded as ArrowLeft } from "@mui/icons-material";
+import { Button, Container, Typography } from "@mui/material";
 import Head from "components/common/Head";
-import Link from "next/link";
 import { NextPage } from "next";
+import Link from "next/link";
 import asSxRecord from "utils/asSxRecord";
 
 const useSx = () => asSxRecord({

@@ -1,8 +1,8 @@
+import { FormError as FormspreeFormError } from "@formspree/core";
 import { useCallback, useEffect, useState } from "react";
+import { SubmitHandler } from "react-hook-form";
 
 import FormValues from "./FormValues";
-import { FormError as FormspreeFormError } from "@formspree/core";
-import { SubmitHandler } from "react-hook-form";
 
 type FormError = Omit<FormspreeFormError, "code"> & {
   code: FormspreeFormError["code"] | "FETCH_ERROR"

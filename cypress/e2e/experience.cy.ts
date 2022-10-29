@@ -1,5 +1,6 @@
-import { EXPERIENCE } from "constants/nav";
 import experiences from "constants/_experiences";
+import { EXPERIENCE } from "constants/nav";
+
 import viewports from "./viewports";
 
 describe("Experience", () => {

@@ -1,6 +1,5 @@
 import nav, { HOME } from "constants/nav";
 import { useEffect, useState, useTransition } from "react";
-
 import { SectionId } from "types";
 
 const isSectionId = (value: string): value is SectionId => {

@@ -1,11 +1,11 @@
-import { Box, Container, Stack } from "@mui/material";
-
-import { EXPERIENCE } from "constants/nav";
-import ExperienceTimeline from "./ExperienceTimeline";
-import { FC } from "react";
-import SectionHeading from "components/common/SectionHeading";
-import { SectionProps } from "types";
 import { WorkRounded as Work } from "@mui/icons-material";
+import { Box, Container, Stack } from "@mui/material";
+import SectionHeading from "components/common/SectionHeading";
+import { EXPERIENCE } from "constants/nav";
+import { FC } from "react";
+import { SectionProps } from "types";
+
+import ExperienceTimeline from "./ExperienceTimeline";
 
 const Experience: FC<SectionProps> = ({ sx }) => (
   <Box sx={sx} component="section" id={EXPERIENCE.id}>
