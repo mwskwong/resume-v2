@@ -6,37 +6,56 @@ import { NextApiHandler, PageConfig } from "next";
 const font = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
   .then(res => res.arrayBuffer());
 
-const handler: NextApiHandler = async () => {
+const handler: NextApiHandler = async req => {
   try {
+    const { searchParams } = new URL(req.url ?? "");
+    const title = searchParams.get("title")?.slice(0, 100);
     const fontData = await font;
+
     return new ImageResponse(
       (
         <div
           style={{
             display: "flex",
+            flexDirection: title ? "column" : "row",
             background: "white",
             width: "100%",
             height: "100%",
             justifyContent: "center",
             alignItems: "center",
-            color: "#1a2027",
-            fontSize: 300
+            color: "#1a2027"
           }}
         >
           <Icon width={170} />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              fontSize: 98,
-              lineHeight: "100%",
-              textTransform: "uppercase",
-              marginLeft: 15
-            }}
-          >
-            <span>{firstName}</span>
-            <span style={{ color: "#006edb" }}>{lastName}</span>
-          </div>
+          {
+            title
+              ? (
+                <div
+                  style={{
+                    fontSize: 60,
+                    margin: "30px 120px",
+                    textAlign: "center"
+                  }}
+                >
+                  {title}
+                </div>
+              )
+              : (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    fontSize: 98,
+                    lineHeight: "100%",
+                    textTransform: "uppercase",
+                    marginLeft: 15
+                  }}
+                >
+                  <span>{firstName}</span>
+                  <span style={{ color: "#006edb" }}>{lastName}</span>
+                </div>
+              )
+          }
         </div>
       ),
       {
@@ -47,8 +66,7 @@ const handler: NextApiHandler = async () => {
             name: "Rubik Medium",
             data: fontData
           }
-        ],
-        debug: process.env.NODE_ENV === "development"
+        ]
       }
     );
   } catch (error) {
