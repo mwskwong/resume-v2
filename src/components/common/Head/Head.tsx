@@ -1,4 +1,3 @@
-import ogImage from "assets/images/og_image.png";
 import { address, email, phone } from "constants/contact";
 import jobTitles from "constants/jobTitles";
 import { firstName, lastName } from "constants/name";
@@ -31,7 +30,7 @@ const Head: FC<HeadProps> = ({ title }) => {
       addressRegion: address
     },
     email,
-    image: `${siteUrl}${ogImage.src}`,
+    image: `${siteUrl}/api/og`,
     telephone: phone,
     url: siteUrl,
     sameAs: socialMediaLinks
@@ -59,7 +58,7 @@ const Head: FC<HeadProps> = ({ title }) => {
     copyrightYear: 2020,
     description: selfIntro,
     headline: siteTitle,
-    image: `${siteUrl}${ogImage.src}`,
+    image: `${siteUrl}/api/og`,
     inLanguage: "en",
     mainEntityOfPage: selfIntro,
     name: siteTitle,
@@ -94,7 +93,7 @@ const Head: FC<HeadProps> = ({ title }) => {
       <meta name="description" property="og:description" content={selfIntro} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={siteUrl} />
-      <meta name="image" property="og:image" content={`${siteUrl}${ogImage.src}`} />
+      <meta name="image" property="og:image" content={`${siteUrl}/api/og`} />
       {socialMediaLinks.map(link =>
         <meta key={link} property="og:see_also" content={link} />
       )}
@@ -103,7 +102,7 @@ const Head: FC<HeadProps> = ({ title }) => {
       <meta property="twitter:title" content={siteTitle} />
       <meta property="twitter:description" content={selfIntro} />
       <meta property="twitter:url" content={siteUrl} />
-      <meta property="twitter:image" content={`${siteUrl}${ogImage.src}`} />
+      <meta property="twitter:image" content={`${siteUrl}/api/og`} />
 
       <script type="application/ld+json">{JSON.stringify(graph)}</script>
     </NextHead>
