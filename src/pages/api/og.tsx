@@ -3,14 +3,14 @@ import Icon from "assets/images/icon.svg";
 import { firstName, lastName } from "constants/name";
 import { NextApiHandler, PageConfig } from "next";
 
-const font = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
+const rubikMedium = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
   .then(res => res.arrayBuffer());
 
 const handler: NextApiHandler = async req => {
   try {
     const { searchParams } = new URL(req.url ?? "");
     const title = searchParams.get("title")?.slice(0, 100);
-    const fontData = await font;
+    const rubikMediumData = await rubikMedium;
 
     return new ImageResponse(
       (
@@ -23,6 +23,8 @@ const handler: NextApiHandler = async req => {
             height: "100%",
             justifyContent: "center",
             alignItems: "center",
+            fontFamily: "Rubik",
+            fontWeight: 500,
             color: "#1a2027"
           }}
         >
@@ -63,8 +65,9 @@ const handler: NextApiHandler = async req => {
         height: 640,
         fonts: [
           {
-            name: "Rubik Medium",
-            data: fontData
+            name: "Rubik",
+            data: rubikMediumData,
+            weight: 500
           }
         ]
       }
