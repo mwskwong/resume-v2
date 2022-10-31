@@ -36,10 +36,10 @@ Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see 
 ## To Do
 
 1. Investigate Next.js 13 new features adaptation
-    1. `app/` directory        
+    1. `app/` directory  
         Keep track on when CSS-in-JS is supported https://beta.nextjs.org/docs/styling/css-in-js
-    2. Turbopack
+    2. Turbopack  
         Currently having some features are not implemented
 
-2. Run Cypress on Safari (WebKit)
+2. Run Cypress on Safari (WebKit)  
     Known issue: `cy.intercept()`'s `forceNetworkError` option is disabled.
