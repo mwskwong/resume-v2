@@ -36,7 +36,7 @@
     "@formspree/core": "^2.8.0",
     "@next/bundle-analyzer": "^13.0.0",
     "@svgr/webpack": "^6.5.1",
-    "@types/node": "^18.11.7",
+    "@types/node": "^18.11.8",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@welldone-software/why-did-you-render": "^7.0.1",
