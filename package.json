@@ -23,7 +23,7 @@
     "@vercel/og": "^0.0.20",
     "mdi-material-ui": "^7.6.0",
     "next": "^13.0.0",
-    "next-sitemap": "^3.1.29",
+    "next-sitemap": "^3.1.30",
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
