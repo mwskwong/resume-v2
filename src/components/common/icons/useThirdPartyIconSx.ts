@@ -31,6 +31,10 @@ const useSx = (sx?: SxProps<Theme>) => asSxRecord({
   datacamp: {
     color: "datacamp.main",
     ...simpleIcons(sx)
+  },
+  google: {
+    color: "google.main",
+    ...simpleIcons(sx)
   }
 });
 

@@ -99,6 +99,11 @@ const courses: CourseConstants[] = [
     name: "The Complete Oracle SQL Certification Course",
     category: "Development",
     institution: "udemy"
+  },
+  {
+    name: "Fundamentals of digital marketing",
+    category: "Others",
+    institution: "google"
   }
 ];
 

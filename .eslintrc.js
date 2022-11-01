@@ -1,8 +1,13 @@
 module.exports = {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
   "plugins": [
     "simple-import-sort",
-    "import"
+    "import",
+    "unused-imports"
   ],
   "rules": {
     "comma-dangle": [
@@ -30,6 +35,7 @@ module.exports = {
     "simple-import-sort/exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
-    "import/no-duplicates": "error"
+    "import/no-duplicates": "error",
+    "unused-imports/no-unused-imports": "error"
   }
 };

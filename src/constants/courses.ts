@@ -15,7 +15,7 @@ import openShift from "assets/documents/OpenShift for the Absolute Beginners - H
 import oracleDba from "assets/documents/Oracle DBA 11g 12c - Database Administration for Junior DBA.pdf";
 import oracleTuning from "assets/documents/Oracle SQL Performance Tuning Masterclass.pdf";
 
-import coursesConstants, { categories,CourseConstants } from "./_courses";
+import coursesConstants, { categories, CourseConstants } from "./_courses";
 
 type Course = CourseConstants & {
   certificationUrl?: string
@@ -41,6 +41,12 @@ const certifications: Record<string, string> = {
 };
 
 const courses: Course[] = coursesConstants.map(course => ({ ...course, certificationUrl: certifications[course.name] }));
+
+courses.sort((c1, c2) => {
+  if (c1.name < c2.name) return -1;
+  if (c1.name > c2.name) return 1;
+  return 0;
+});
 
 export default courses;
 export { categories };

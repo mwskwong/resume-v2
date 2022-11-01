@@ -3,6 +3,7 @@ import { ElementType, FC } from "react";
 
 import Datacamp from "../icons/Datacamp";
 import EnterpriseDB from "../icons/EnterpriseDB";
+import Google from "../icons/Google";
 import Microsoft from "../icons/Microsoft";
 import MongoDB from "../icons/MongoDB";
 import Oracle from "../icons/Oracle";
@@ -22,7 +23,8 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
   udemy: Udemy,
   enterpriseDB: EnterpriseDB,
   mongoDB: MongoDB,
-  datacamp: Datacamp
+  datacamp: Datacamp,
+  google: Google
 };
 
 const CertAndCourseCard: FC<CertAndCourseCardProps> = ({ name, organization, status, certificationUrl, ...props }) => {

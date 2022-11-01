@@ -27,6 +27,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
         afterTyping: 1500
       };
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore: TypeIt is not working with TS yet
       const typeIt = new TypeIt(typeItRef.current, {
         startDelay: delays.afterTyping,

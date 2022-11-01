@@ -41,5 +41,4 @@ Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see 
     2. Turbopack  
         Currently some features are not implemented
 
-2. Run Cypress on Safari (WebKit)  
-    Known issue: `cy.intercept()`'s `forceNetworkError` option is disabled.
+2. Study for migrating from Cypress to Checkly + Puppeteer
