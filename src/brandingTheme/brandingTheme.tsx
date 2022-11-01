@@ -1,6 +1,6 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, lighten, rgbToHex } from "@mui/material";
+import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { Rubik } from "@next/font/google";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
@@ -369,7 +369,8 @@ const brandingTheme = extendTheme({
 });
 
 // dark theme is not needed
-// @ts-ignore: TODO: handle missing dark theme
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: dark theme is not needed
 delete brandingTheme.colorSchemes.dark;
 
 export default brandingTheme;
