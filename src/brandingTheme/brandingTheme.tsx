@@ -1,9 +1,9 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
+import { alpha, darken, experimental_extendTheme as extendTheme, lighten, rgbToHex } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { Rubik } from "@next/font/google";
-import { siDatacamp, siEnterprisedb, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
+import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
 declare module "@mui/material/styles/createPalette" {
   interface Palette {
@@ -13,6 +13,7 @@ declare module "@mui/material/styles/createPalette" {
     enterpriseDB: PaletteColor
     mongoDB: PaletteColor
     datacamp: PaletteColor
+    google: PaletteColor
   }
 
   interface PaletteOptions {
@@ -22,6 +23,7 @@ declare module "@mui/material/styles/createPalette" {
     enterpriseDB: PaletteColorOptions
     mongoDB: PaletteColorOptions
     datacamp: PaletteColorOptions
+    google: PaletteColorOptions
   }
 
   interface TypeBackground {
@@ -91,6 +93,10 @@ const brandingTheme = extendTheme({
         datacamp: {
           main: `#${siDatacamp.hex}`,
           dark: darken(`#${siDatacamp.hex}`, .465)
+        },
+        google: {
+          main: `#${siGoogle.hex}`,
+          dark: darken(`#${siGoogle.hex}`, .165)
         },
         grey,
         text: {
