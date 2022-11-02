@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.env.ANALYZE_BUNDLE === "true" });
 
@@ -10,7 +11,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"]
   },
-  webpack: (config, { dev, isServer, nextRuntime }) => {
+  webpack: (config, { dev, isServer }) => {
     // import PDF as file url
     config.module.rules.push({
       test: /\.pdf$/,
