@@ -1,7 +1,7 @@
 import { KeyboardArrowLeftRounded as ArrowLeft } from "@mui/icons-material";
 import { Button, Container, Typography } from "@mui/material";
 import Head from "components/common/Head";
-import { NextPage, PageConfig } from "next";
+import { NextPage } from "next";
 import Link from "next/link";
 import asSxRecord from "utils/asSxRecord";
 
@@ -44,10 +44,6 @@ const NotFound: NextPage = () => {
       </Container>
     </>
   );
-};
-
-export const config: PageConfig = {
-  runtime: "experimental-edge"
 };
 
 export default NotFound;
