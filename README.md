@@ -40,5 +40,3 @@ Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see 
         Keep track on when CSS-in-JS is supported https://beta.nextjs.org/docs/styling/css-in-js
     2. Turbopack  
         Currently some features are not implemented
-
-2. Study for migrating from Cypress to Checkly + Puppeteer
