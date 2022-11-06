@@ -2,9 +2,78 @@ import { ImageResponse } from "@vercel/og";
 import Icon from "assets/images/icon.svg";
 import { firstName, lastName } from "constants/name";
 import { NextApiHandler, PageConfig } from "next";
+import { FC } from "react";
 
 const rubikMedium = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
   .then(res => res.arrayBuffer());
+
+const LandingOGImage: FC = () => (
+  <div
+    style={{
+      display: "flex",
+      background: "white",
+      width: "100%",
+      height: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      fontFamily: "Rubik",
+      fontWeight: 500,
+      color: "#1a2027"
+    }}
+  >
+    <Icon width={170} />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        fontSize: 170 / 2 * 1.16,
+        lineHeight: "100%",
+        textTransform: "uppercase",
+        marginLeft: 15
+      }}
+    >
+      <span>{firstName}</span>
+      <span style={{ color: "#006edb" }}>{lastName}</span>
+    </div>
+  </div>
+);
+
+const OGImageWithTitle: FC<{ title: string }> = ({ title }) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      background: "white",
+      width: "100%",
+      height: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      fontFamily: "Rubik",
+      fontWeight: 500,
+      color: "#1a2027"
+    }}
+  >
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        fontSize: 60
+      }}
+    >
+      <Icon width={80} />
+      <span style={{ marginLeft: 16 }}>{firstName}</span>
+    </div>
+    <div
+      style={{
+        fontSize: 50,
+        margin: "50px 120px",
+        textAlign: "center"
+      }}
+    >
+      {title}
+    </div>
+  </div>
+);
 
 const handler: NextApiHandler = async req => {
   try {
@@ -13,53 +82,7 @@ const handler: NextApiHandler = async req => {
     const rubikMediumData = await rubikMedium;
 
     return new ImageResponse(
-      (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: title ? "column" : "row",
-            background: "white",
-            width: "100%",
-            height: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            fontFamily: "Rubik",
-            fontWeight: 500,
-            color: "#1a2027"
-          }}
-        >
-          <Icon width={170} />
-          {
-            title
-              ? (
-                <div
-                  style={{
-                    fontSize: 60,
-                    margin: "30px 120px",
-                    textAlign: "center"
-                  }}
-                >
-                  {title}
-                </div>
-              )
-              : (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    fontSize: 98,
-                    lineHeight: "100%",
-                    textTransform: "uppercase",
-                    marginLeft: 15
-                  }}
-                >
-                  <span>{firstName}</span>
-                  <span style={{ color: "#006edb" }}>{lastName}</span>
-                </div>
-              )
-          }
-        </div>
-      ),
+      title ? <OGImageWithTitle title={title} /> : <LandingOGImage />,
       {
         width: 1280,
         height: 640,
