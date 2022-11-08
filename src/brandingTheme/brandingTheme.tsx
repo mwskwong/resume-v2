@@ -2,8 +2,9 @@ import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
 import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
-import { Rubik } from "@next/font/google";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
+
+import rubik from "./rubik";
 
 declare module "@mui/material/styles/createPalette" {
   interface Palette {
@@ -58,7 +59,7 @@ const grey = {
   900: "#1A2027"
 };
 
-const rubik = Rubik({ subsets: ["latin"], display: "swap" });
+
 
 const brandingTheme = extendTheme({
   unstable_strictMode: true,
