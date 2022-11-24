@@ -1,7 +1,7 @@
 import { ImageResponse } from "@vercel/og";
 import Icon from "assets/images/icon.svg";
 import { firstName, lastName } from "constants/name";
-import { NextApiHandler } from "next";
+import { NextApiHandler, PageConfig } from "next";
 import { FC } from "react";
 
 const rubikMedium = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
@@ -101,6 +101,10 @@ const handler: NextApiHandler = async req => {
       status: 500
     });
   }
+};
+
+export const config: PageConfig = {
+  runtime: "experimental-edge"
 };
 
 export default handler;
