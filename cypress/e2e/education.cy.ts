@@ -5,11 +5,9 @@ import { EDUCATION } from "constants/nav";
 import viewports from "./viewports";
 
 describe("Education", () => {
+  beforeEach(() => cy.visit(`/#${EDUCATION.id}`));
+  
   context("Timeline", () => {
-    before(() => {
-      cy.visit(`/#${EDUCATION.id}`);
-    });
-
     it("shows period on the opposite side on desktop", () => {
       cy.get(`#${EDUCATION.id} [data-cy='timelinePeriodDesktop']`).should("be.visible");
       cy.get(`#${EDUCATION.id} [data-cy='timelinePeriodMobile']`).should("not.be.visible");
@@ -56,6 +54,8 @@ describe("Education", () => {
     }
 
     context("Filtering", () => {
+      beforeEach(() => cy.wait(50));
+
       for (const currentCategory of categories) {
         it(`filters courses on ${currentCategory} category`, () => {
           cy.get(`[data-cy='${currentCategory}']`).click();

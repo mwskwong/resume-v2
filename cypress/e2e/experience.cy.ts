@@ -4,11 +4,9 @@ import { EXPERIENCE } from "constants/nav";
 import viewports from "./viewports";
 
 describe("Experience", () => {
-  context("Timeline", () => {
-    before(() => {
-      cy.visit(`/#${EXPERIENCE.id}`);
-    });
+  beforeEach(() => cy.visit(`/#${EXPERIENCE.id}`));
 
+  context("Timeline", () => {
     it("shows period on the opposite side on desktop", () => {
       cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodDesktop']`).should("be.visible");
       cy.get(`#${EXPERIENCE.id} [data-cy='timelinePeriodMobile']`).should("not.be.visible");
