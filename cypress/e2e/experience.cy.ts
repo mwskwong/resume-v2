@@ -4,7 +4,10 @@ import { EXPERIENCE } from "constants/nav";
 import viewports from "./viewports";
 
 describe("Experience", () => {
-  beforeEach(() => cy.visit(`/#${EXPERIENCE.id}`));
+  beforeEach(() => {
+    cy.visit(`/#${EXPERIENCE.id}`);
+    cy.disableSmoothScroll();
+  });
 
   context("Timeline", () => {
     it("shows period on the opposite side on desktop", () => {

@@ -3,7 +3,10 @@ import nav from "constants/nav";
 import viewports from "./viewports";
 
 describe("Navigation", () => {
-  beforeEach(() => cy.visit("/"));
+  beforeEach(() => {
+    cy.visit("/");
+    cy.disableSmoothScroll();
+  });
 
   context("NavBar", () => {
     it("shows nav buttons and hide nav list on desktop", () => {
