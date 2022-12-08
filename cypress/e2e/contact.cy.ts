@@ -3,15 +3,15 @@ import { CONTACT } from "constants/nav";
 import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contact.json";
 
 describe("Contact", () => {
-  context("Form", () => {
-    before(() => {
-      cy.visit(`/#${CONTACT.id}`)
-        .window()
-        .its("scrollY")
-        .should("not.equal", 0);
-      cy.get("[data-cy='contact']").submit().wait(1000);
-    });
+  beforeEach(() => {
+    cy.visit(`/#${CONTACT.id}`)
+      .window()
+      .its("scrollY")
+      .should("not.equal", 0);
+    cy.get("[data-cy='contact']").submit();
+  });
 
+  context("Form", () => {
     for (const field in validEmail) {
       context(`${field} field`, () => {
         it("is required", () => {

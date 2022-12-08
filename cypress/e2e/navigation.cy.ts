@@ -3,11 +3,9 @@ import nav from "constants/nav";
 import viewports from "./viewports";
 
 describe("Navigation", () => {
-  context("NavBar", () => {
-    before(() => {
-      cy.visit("/");
-    });
+  beforeEach(() => cy.visit("/"));
 
+  context("NavBar", () => {
     it("shows nav buttons and hide nav list on desktop", () => {
       cy.get("[data-cy='navButtons']").should("be.visible");
       cy.get("[data-cy='navList']").should("not.exist"); // navList mountOnEnter and unmountOnExit
@@ -21,8 +19,7 @@ describe("Navigation", () => {
 
     Object.entries(viewports).forEach(([key, viewport]) => (
       context(key, viewport, () => {
-        before(() => {
-          cy.visit("/");
+        beforeEach(() => {
           if (key === "mobile") {
             cy.get("[data-cy='menuButton']").click();
           }
@@ -30,7 +27,7 @@ describe("Navigation", () => {
 
         Object.values(nav).forEach(({ name, id }) =>
           it(`navigates to ${name} section`, () => {
-            cy.get("a").contains(name).click();
+            cy.get(key === "mobile" ? "nav > li > a" : "nav > a").contains(name).click();
             cy.location("hash").should("equal", `#${id}`);
             if (id === nav.HOME.id) {
               cy.window().its("scrollY").should("equal", 0);

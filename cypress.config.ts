@@ -5,7 +5,7 @@ export default defineConfig({
   chromeWebSecurity: false,
   e2e: {
     baseUrl: "http://localhost:3000",
-    scrollBehavior: "nearest",
+    scrollBehavior: "center",
     viewportWidth: 1920,
     viewportHeight: 1080
   }

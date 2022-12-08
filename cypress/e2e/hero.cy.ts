@@ -2,7 +2,7 @@ import { HOME } from "constants/nav";
 import * as socialMedia from "constants/socialMedia";
 
 describe("Hero", () => {
-  before(() => cy.visit("/"));
+  beforeEach(() => cy.visit("/"));
 
   context("Social media", () => {
     Object.entries(socialMedia).map(([name, link]) => it(
