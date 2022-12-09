@@ -52,7 +52,7 @@ describe("Navigation", () => {
         .window()
         .its("scrollY")
         .should("not.equal", 0);
-      cy.wait(50);
+      cy.wait(100);
       cy.get("[data-cy='logo']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
@@ -66,7 +66,7 @@ describe("Navigation", () => {
         .window()
         .its("scrollY")
         .should("not.equal", 0);
-      cy.wait(50);
+      cy.wait(100);
       cy.get("[data-cy='scrollToTop']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
