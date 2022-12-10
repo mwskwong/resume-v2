@@ -8,6 +8,7 @@ describe("Contact", () => {
       .window()
       .its("scrollY")
       .should("not.equal", 0);
+    cy.disableSmoothScroll();
     cy.get("[data-cy='contact']").submit();
   });
 

@@ -36,4 +36,21 @@
 //   }
 // }
 
+/* eslint-disable @typescript-eslint/no-namespace */
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      disableSmoothScroll(): Chainable<void>
+    }
+  }
+}
+
+Cypress.Commands.add("disableSmoothScroll", () => {
+  cy.document().then(document => {
+    const node = document.createElement("style");
+    node.innerHTML = "html { scroll-behavior: inherit !important; }";
+    document.body.appendChild(node);
+  });
+});
+
 export { };

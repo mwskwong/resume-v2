@@ -3,7 +3,10 @@ import nav from "constants/nav";
 import viewports from "./viewports";
 
 describe("Navigation", () => {
-  beforeEach(() => cy.visit("/"));
+  beforeEach(() => {
+    cy.visit("/");
+    cy.disableSmoothScroll();
+  });
 
   context("NavBar", () => {
     it("shows nav buttons and hide nav list on desktop", () => {
@@ -49,6 +52,7 @@ describe("Navigation", () => {
         .window()
         .its("scrollY")
         .should("not.equal", 0);
+      cy.wait(500);
       cy.get("[data-cy='logo']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
@@ -62,6 +66,7 @@ describe("Navigation", () => {
         .window()
         .its("scrollY")
         .should("not.equal", 0);
+      cy.wait(500);
       cy.get("[data-cy='scrollToTop']").click();
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
