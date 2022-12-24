@@ -104,7 +104,7 @@ const handler: NextApiHandler = async req => {
 };
 
 export const config: PageConfig = {
-  runtime: "experimental-edge"
+  runtime: "edge"
 };
 
 export default handler;

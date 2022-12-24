@@ -52,8 +52,8 @@ describe("Navigation", () => {
         .window()
         .its("scrollY")
         .should("not.equal", 0);
-      cy.wait(1000);
       cy.get("[data-cy='logo']").click();
+      cy.wait(1000);
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
     });
@@ -66,8 +66,8 @@ describe("Navigation", () => {
         .window()
         .its("scrollY")
         .should("not.equal", 0);
-      cy.wait(1000);
       cy.get("[data-cy='scrollToTop']").click();
+      cy.wait(1000);
       cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
     });
