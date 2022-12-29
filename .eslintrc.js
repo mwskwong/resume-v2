@@ -4,6 +4,11 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals"
   ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
   "plugins": [
     "simple-import-sort",
     "import",
