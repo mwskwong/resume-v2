@@ -27,7 +27,7 @@
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.41.3",
+    "react-hook-form": "^7.41.5",
     "simple-icons": "^7.21.0",
     "typeit": "^8.7.1"
   },
@@ -40,7 +40,7 @@
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@welldone-software/why-did-you-render": "^7.0.1",
-    "cypress": "^12.2.0",
+    "cypress": "^12.3.0",
     "eslint": "^8.31.0",
     "eslint-config-next": "^13.1.1",
     "eslint-plugin-import": "^2.26.0",
