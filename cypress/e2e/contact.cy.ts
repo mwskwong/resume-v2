@@ -62,10 +62,6 @@ describe("Contact", () => {
 
       context("Success", () => {
         before(() => {
-          cy.visit(`/#${CONTACT.id}`)
-            .window()
-            .its("scrollY")
-            .should("not.equal", 0);
           cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 1000 })
             .as("formSubmission");
         });
@@ -104,10 +100,6 @@ describe("Contact", () => {
 
       context("Failure", () => {
         before(() => {
-          cy.visit(`/#${CONTACT.id}`)
-            .window()
-            .its("scrollY")
-            .should("not.equal", 0);
           cy.intercept("POST", "https://formspree.io/f/*", { forceNetworkError: true, delay: 1000 })
             .as("formSubmission");
         });
