@@ -6,7 +6,10 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.e
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    emotion: true
+    emotion: true,
+    removeConsole: {
+      exclude: ['error']
+    }
   },
   images: {
     formats: ["image/avif", "image/webp"]
