@@ -19,7 +19,7 @@
     "@mui/lab": "5.0.0-alpha.115",
     "@mui/material": "^5.11.4",
     "@next/font": "^13.1.2",
-    "@vercel/analytics": "^0.1.7",
+    "@vercel/analytics": "^0.1.8",
     "@vercel/og": "^0.0.27",
     "mdi-material-ui": "^7.6.0",
     "next": "^13.1.2",
@@ -27,7 +27,7 @@
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.41.5",
+    "react-hook-form": "^7.42.1",
     "simple-icons": "^7.21.0",
     "typeit": "^8.7.1"
   },
