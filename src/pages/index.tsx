@@ -2,7 +2,7 @@ import FooterDivider from "components/common/dividers/Footer";
 import WaveRoaring from "components/common/dividers/WaveRoaring";
 import WaveRough from "components/common/dividers/WaveRough";
 import WaveSmooth from "components/common/dividers/WaveSmooth";
-import WaveSmooth2 from "components/common/dividers/WaveSmooth2";
+import WaveSmoothFlat from "components/common/dividers/WaveSmoothFlat";
 import Footer from "components/common/Footer";
 import Head from "components/common/Head";
 import NavBar from "components/common/NavBar";
@@ -40,7 +40,7 @@ const useSx = () => asSxRecord({
   experience: {
     bgcolor: `background.${bgcolors.experience}`
   },
-  waveSmooth2: {
+  waveSmoothFlat: {
     bgcolor: `background.${bgcolors.experience}`,
     color: `background.${bgcolors.education}`
   },
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         <About sx={sx.about} />
         <WaveRough sx={sx.waveRough} />
         <Experience sx={sx.experience} />
-        <WaveSmooth2 sx={sx.waveSmooth2} />
+        <WaveSmoothFlat sx={sx.waveSmoothFlat} />
         <Education sx={sx.education} />
         <WaveRoaring sx={sx.waveRoaring} />
         <Contact />
