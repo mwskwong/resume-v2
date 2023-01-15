@@ -9,14 +9,13 @@ import NavBar from "components/common/NavBar";
 import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
 import asSxRecord from "utils/asSxRecord";
 
-const Hero = dynamic(() => import("components/index/Hero"), { suspense: true });
-const About = dynamic(() => import("components/index/About"), { suspense: true });
-const Experience = dynamic(() => import("components/index/Experience"), { suspense: true });
-const Education = dynamic(() => import("components/index/Education"), { suspense: true });
-const Contact = dynamic(() => import("components/index/Contact"), { suspense: true });
+const Hero = dynamic(() => import("components/index/Hero"));
+const About = dynamic(() => import("components/index/About"));
+const Experience = dynamic(() => import("components/index/Experience"));
+const Education = dynamic(() => import("components/index/Education"));
+const Contact = dynamic(() => import("components/index/Contact"));
 
 const bgcolors = {
   hero: "default",
@@ -69,25 +68,15 @@ const Home: NextPage = () => {
       <Head />
       <NavBar />
       <main>
-        <Suspense>
-          <Hero />
-        </Suspense>
+        <Hero />
         <WaveSmooth sx={sx.waveSmooth} />
-        <Suspense>
-          <About sx={sx.about} />
-        </Suspense>
+        <About sx={sx.about} />
         <WaveRough sx={sx.waveRough} />
-        <Suspense>
-          <Experience sx={sx.experience} />
-        </Suspense>
+        <Experience sx={sx.experience} />
         <WaveSmooth2 sx={sx.waveSmooth2} />
-        <Suspense>
-          <Education sx={sx.education} />
-        </Suspense>
+        <Education sx={sx.education} />
         <WaveRoaring sx={sx.waveRoaring} />
-        <Suspense>
-          <Contact />
-        </Suspense>
+        <Contact />
       </main>
       <FooterDivider sx={sx.footerDivider} />
       <Footer sx={sx.footer} />
