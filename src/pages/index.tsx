@@ -40,7 +40,7 @@ const useSx = () => asSxRecord({
   experience: {
     bgcolor: `background.${bgcolors.experience}`
   },
-  waveSmooth2: {
+  waveSmoothFlat: {
     bgcolor: `background.${bgcolors.experience}`,
     color: `background.${bgcolors.education}`
   },
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         <About sx={sx.about} />
         <WaveRough sx={sx.waveRough} />
         <Experience sx={sx.experience} />
-        <WaveSmoothFlat sx={sx.waveSmooth2} />
+        <WaveSmoothFlat sx={sx.waveSmoothFlat} />
         <Education sx={sx.education} />
         <WaveRoaring sx={sx.waveRoaring} />
         <Contact />
