@@ -16,7 +16,8 @@ const experiences: ExperienceConstants[] = [
     jobTitle: "Frontend Engineer",
     company: "TecPal Ltd.",
     jobDuties: [
-      "Decoupling Vue projects from WordPress API to standalone RESTful API service"
+      "Decoupled Vue web apps from WordPress API to standalone RESTful API service",
+      "Implemented Vue web apps features. e.g., Authorization system"
     ]
   },
   {
