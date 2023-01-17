@@ -8,7 +8,7 @@ const nextConfig = {
   compiler: {
     emotion: true,
     removeConsole: {
-      exclude: ['error']
+      exclude: ["error"]
     }
   },
   images: {
