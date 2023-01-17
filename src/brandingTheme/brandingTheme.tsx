@@ -298,12 +298,13 @@ const brandingTheme = extendTheme({
       }
     },
     MuiIconButton: {
-      defaultProps: {
-        centerRipple: false
-      },
+
       styleOverrides: {
         root: ({ theme }) => ({
-          borderRadius: theme.vars.shape.borderRadius
+          borderRadius: theme.vars.shape.borderRadius,
+          "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+            borderRadius: theme.vars.shape.borderRadius
+          }
         })
       }
     },
