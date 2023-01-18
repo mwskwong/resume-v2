@@ -1,7 +1,7 @@
 import { nopeResolver } from "@hookform/resolvers/nope";
-import { CheckCircleRounded as SuccessIcon,PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
+import { CheckCircleRounded as SuccessIcon, PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Alert, Box, Container, Stack,Unstable_Grid2 as Grid } from "@mui/material";
+import { Alert, Box, Container, Stack, Unstable_Grid2 as Grid } from "@mui/material";
 import SectionHeading from "components/common/SectionHeading";
 import { CONTACT } from "constants/nav";
 import { object, string } from "nope-validator";

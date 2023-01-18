@@ -5,7 +5,7 @@ import {
   DevicesOtherRounded as DevicesOther,
   TerminalRounded as Terminal
 } from "@mui/icons-material";
-import { Box, Chip, Stack, SvgIconProps, Typography,Unstable_Grid2 as Grid } from "@mui/material";
+import { Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import * as skillSet from "constants/skillSet";
 import { Database } from "mdi-material-ui";
 import { ElementType, FC, useMemo } from "react";
