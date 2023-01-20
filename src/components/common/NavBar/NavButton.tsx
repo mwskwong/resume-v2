@@ -1,6 +1,7 @@
 import { Box, Button } from "@mui/material";
 import { FC } from "react";
-import { SectionId } from "types";
+
+import { SectionId } from "@/types";
 
 import useSx from "./useNavButtonSx";
 

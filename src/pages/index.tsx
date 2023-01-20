@@ -1,22 +1,22 @@
-import FooterDivider from "components/common/dividers/Footer";
-import WaveRoaring from "components/common/dividers/WaveRoaring";
-import WaveRough from "components/common/dividers/WaveRough";
-import WaveSmooth from "components/common/dividers/WaveSmooth";
-import WaveSmoothFlat from "components/common/dividers/WaveSmoothFlat";
-import Footer from "components/common/Footer";
-import Head from "components/common/Head";
-import NavBar from "components/common/NavBar";
-import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 
+import FooterDivider from "@/components/common/dividers/Footer";
+import WaveRoaring from "@/components/common/dividers/WaveRoaring";
+import WaveRough from "@/components/common/dividers/WaveRough";
+import WaveSmooth from "@/components/common/dividers/WaveSmooth";
+import WaveSmoothFlat from "@/components/common/dividers/WaveSmoothFlat";
+import Footer from "@/components/common/Footer";
+import Head from "@/components/common/Head";
+import NavBar from "@/components/common/NavBar";
+import ScrollToTopFab from "@/components/common/ScrollToTopFab";
 import asSxRecord from "@/utils/asSxRecord";
 
-const Hero = dynamic(() => import("components/index/Hero"));
-const About = dynamic(() => import("components/index/About"));
-const Experience = dynamic(() => import("components/index/Experience"));
-const Education = dynamic(() => import("components/index/Education"));
-const Contact = dynamic(() => import("components/index/Contact"));
+const Hero = dynamic(() => import("@/components/index/Hero"));
+const About = dynamic(() => import("@/components/index/About"));
+const Experience = dynamic(() => import("@/components/index/Experience"));
+const Education = dynamic(() => import("@/components/index/Education"));
+const Contact = dynamic(() => import("@/components/index/Contact"));
 
 const bgcolors = {
   hero: "default",

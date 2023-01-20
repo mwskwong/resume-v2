@@ -2,13 +2,13 @@ import { nopeResolver } from "@hookform/resolvers/nope";
 import { CheckCircleRounded as SuccessIcon, PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import { Alert, Box, Container, Stack, Unstable_Grid2 as Grid } from "@mui/material";
-import SectionHeading from "components/common/SectionHeading";
 import { object, string } from "nope-validator";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { SectionProps } from "types";
 
+import SectionHeading from "@/components/common/SectionHeading";
 import { CONTACT } from "@/constants/nav";
+import { SectionProps } from "@/types";
 
 import FormValues from "./FormValues";
 import PersonalInfo from "./PersonalInfo";

@@ -1,8 +1,8 @@
 import { ImageResponse } from "@vercel/og";
-import Icon from "@/assets/images/icon.svg";
 import { NextApiHandler, PageConfig } from "next";
 import { FC } from "react";
 
+import Icon from "@/assets/images/icon.svg";
 import { firstName, lastName } from "@/constants/name";
 
 const rubikMedium = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
