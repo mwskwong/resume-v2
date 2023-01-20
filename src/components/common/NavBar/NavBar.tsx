@@ -1,8 +1,9 @@
 import { CloseRounded as Close, MenuRounded as Menu } from "@mui/icons-material";
 import { AppBar, ClickAwayListener, Collapse, Container, IconButton, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
-import nav from "constants/nav";
-import useActiveSectionId from "hooks/useActiveSectionId";
 import { FC, useEffect, useState } from "react";
+
+import nav from "@/constants/nav";
+import useActiveSectionId from "@/hooks/useActiveSectionId";
 
 import Logo from "./Logo";
 import NavButton from "./NavButton";

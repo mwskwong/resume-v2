@@ -1,4 +1,4 @@
-import asSxRecord from "utils/asSxRecord";
+import asSxRecord from "@/utils/asSxRecord";
 
 const useSx = () => asSxRecord({
   periodDesktop: {

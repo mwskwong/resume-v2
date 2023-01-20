@@ -8,7 +8,8 @@ import {
 } from "@mui/lab";
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC } from "react";
-import dateTimeFormat from "utils/dateTimeFormat";
+
+import dateTimeFormat from "@/utils/dateTimeFormat";
 
 import SupportingDocumentListItem from "./SupportingDocumentListItem";
 import TimelineItemData from "./TimelineItemData";

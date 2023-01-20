@@ -1,10 +1,10 @@
-import hkuEngTaRefLetter from "assets/documents/hku_eng_ta.pdf";
-import hkuMedRaRefLetter from "assets/documents/hku_med_ra.pdf";
-import lunchAndLearnCert from "assets/documents/lunch_and_learn.pdf";
-import hkuEngTaRefLetterThumbnail from "assets/images/hku_eng_ta_thumbnail.jpg";
-import hkuMedRaRefLetterThumbnail from "assets/images/hku_med_ra_thumbnail.jpg";
-import lunchAndLearnCertThumbnail from "assets/images/lunch_and_learn_thumbnail.jpg";
-import { SupportingDocument } from "types";
+import hkuEngTaRefLetter from "@/assets/documents/hku_eng_ta.pdf";
+import hkuMedRaRefLetter from "@/assets/documents/hku_med_ra.pdf";
+import lunchAndLearnCert from "@/assets/documents/lunch_and_learn.pdf";
+import hkuEngTaRefLetterThumbnail from "@/assets/images/hku_eng_ta_thumbnail.jpg";
+import hkuMedRaRefLetterThumbnail from "@/assets/images/hku_med_ra_thumbnail.jpg";
+import lunchAndLearnCertThumbnail from "@/assets/images/lunch_and_learn_thumbnail.jpg";
+import { SupportingDocument } from "@/types";
 
 import experiencesConstants, { ExperienceConstants } from "./_experiences";
 

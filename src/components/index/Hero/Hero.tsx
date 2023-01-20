@@ -1,12 +1,13 @@
 import { Box, Button, Container, Typography, useMediaQuery } from "@mui/material";
-import resume from "assets/documents/resume.pdf";
-import SocialMedia from "components/common/SocialMedia";
-import jobTitles from "constants/jobTitles";
-import { firstName, lastName } from "constants/name";
-import { HOME } from "constants/nav";
 import { FC, useEffect, useMemo, useRef } from "react";
 import TypeIt from "typeit";
-import { SectionProps } from "types";
+
+import resume from "@/assets/documents/resume.pdf";
+import SocialMedia from "@/components/common/SocialMedia";
+import jobTitles from "@/constants/jobTitles";
+import { firstName, lastName } from "@/constants/name";
+import { HOME } from "@/constants/nav";
+import { SectionProps } from "@/types";
 
 import useSx from "./useHeroSx";
 

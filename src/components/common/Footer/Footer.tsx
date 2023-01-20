@@ -1,10 +1,11 @@
 import { FavoriteRounded as Favorite } from "@mui/icons-material";
 import { Box, Container, Typography } from "@mui/material";
-import SocialMedia from "components/common/SocialMedia";
-import { address } from "constants/contact";
-import { firstName, lastName, middleName } from "constants/name";
 import { FC } from "react";
-import { SectionProps } from "types";
+
+import SocialMedia from "@/components/common/SocialMedia";
+import { address } from "@/constants/contact";
+import { firstName, lastName, middleName } from "@/constants/name";
+import { SectionProps } from "@/types";
 
 import useSx from "./useFooterSx";
 

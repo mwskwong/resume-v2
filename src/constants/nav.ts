@@ -1,4 +1,4 @@
-import { SectionId } from "types";
+import { SectionId } from "@/types";
 
 export type Section = {
   id: SectionId,

@@ -1,4 +1,4 @@
-import { SupportingDocument } from "types";
+import { SupportingDocument } from "@/types";
 
 export type EducationConstants = {
   from: Date,
