@@ -1,4 +1,4 @@
-import { rubik } from "brandingTheme";
+import rubik from "brandingTheme/rubik";
 import { Head, Html, Main, NextScript } from "next/document";
 import { FC } from "react";
 
