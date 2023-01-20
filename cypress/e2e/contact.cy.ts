@@ -1,3 +1,4 @@
+import { formHelperTextClasses } from "@mui/material";
 import { CONTACT } from "constants/nav";
 
 import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contact.json";
@@ -20,7 +21,7 @@ describe("Contact", () => {
             .children()
             .each($el => cy.wrap($el).should("have.class", "Mui-error"));
           cy.get(`[data-cy='${field}']`)
-            .find("> .MuiFormHelperText-root")
+            .find(`> .${formHelperTextClasses.root}`)
             .should("have.text", errorMessages.required);
         });
 
@@ -34,7 +35,7 @@ describe("Contact", () => {
               .children()
               .each($el => cy.wrap($el).should("have.class", "Mui-error"));
             cy.get(`[data-cy='${field}']`)
-              .find("> .MuiFormHelperText-root")
+              .find(`> .${formHelperTextClasses.root}`)
               .should("have.text", errorMessages.email);
           });
         }
@@ -52,7 +53,7 @@ describe("Contact", () => {
             .type(field === "email" ? validEmail.email : `This is the content of ${field}`);
           cy.get(`[data-cy='${field}']`).children().each($el => cy.wrap($el).should("not.have.class", "Mui-error"));
           cy.get(`[data-cy='${field}']`)
-            .find("> .MuiFormHelperText-root")
+            .find(`> .${formHelperTextClasses.root}`)
             .should("have.text", defaultHelperText);
         });
       });

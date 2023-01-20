@@ -1,6 +1,6 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, lighten } from "@mui/material";
+import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
@@ -283,10 +283,10 @@ const brandingTheme = extendTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           backgroundColor: theme.vars.palette.background.sectionPrimary,
-          "&:hover, &.Mui-focused": {
+          [`&:hover, &.${filledInputClasses.focused}`]: {
             backgroundColor: theme.vars.palette.background.sectionPrimary
           },
-          "&.Mui-disabled": {
+          [`&.${filledInputClasses.disabled}`]: {
             backgroundColor: theme.vars.palette.action.disabledBackground
           }
         })
@@ -298,11 +298,10 @@ const brandingTheme = extendTheme({
       }
     },
     MuiIconButton: {
-
       styleOverrides: {
         root: ({ theme }) => ({
           borderRadius: theme.vars.shape.borderRadius,
-          "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+          [`& .${touchRippleClasses.root} .${touchRippleClasses.child}`]: {
             borderRadius: theme.vars.shape.borderRadius
           }
         })
@@ -343,14 +342,14 @@ const brandingTheme = extendTheme({
       styleOverrides: {
         root: {
           flexWrap: "wrap",
-          justifyContent: "center",
-          "&.Mui-disabled": {
-            "border": 0
-          }
+          justifyContent: "center"
         },
         grouped: ({ theme }) => ({
+          margin: `${theme.spacing(.25)} ${theme.spacing(.5)}`,
           border: 0,
-          margin: `${theme.spacing(.25)} ${theme.spacing(.5)} `,
+          [`&.${toggleButtonGroupClasses.disabled}`]: {
+            border: 0
+          },
           "&:not(:first-of-type), &:first-of-type": {
             borderRadius: theme.vars.shape.borderRadius
           }
@@ -361,16 +360,10 @@ const brandingTheme = extendTheme({
       defaultProps: {
         color: "text.primary"
       }
-    },
-    MuiUseMediaQuery: {
-      defaultProps: {
-        noSsr: true
-      }
     }
   }
 });
 
-// dark theme is not needed
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: dark theme is not needed
 delete brandingTheme.colorSchemes.dark;
