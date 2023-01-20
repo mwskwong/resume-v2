@@ -1,6 +1,6 @@
 export const frontend = [
   "React",
-  "@/typescript",
+  "TypeScript",
   "Next.js",
   "Redux",
   "MUI",
