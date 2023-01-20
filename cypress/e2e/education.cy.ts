@@ -1,6 +1,6 @@
-import courses, { categories } from "constants/_courses";
-import education from "constants/_education";
-import { EDUCATION } from "constants/nav";
+import courses, { categories } from "@/constants/_courses";
+import education from "@/constants/_education";
+import { EDUCATION } from "@/constants/nav";
 
 import viewports from "./viewports";
 

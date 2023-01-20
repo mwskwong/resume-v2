@@ -3,11 +3,12 @@ import { CheckCircleRounded as SuccessIcon, PhoneRounded as Phone, SendRounded a
 import { LoadingButton } from "@mui/lab";
 import { Alert, Box, Container, Stack, Unstable_Grid2 as Grid } from "@mui/material";
 import SectionHeading from "components/common/SectionHeading";
-import { CONTACT } from "constants/nav";
 import { object, string } from "nope-validator";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { SectionProps } from "types";
+
+import { CONTACT } from "@/constants/nav";
 
 import FormValues from "./FormValues";
 import PersonalInfo from "./PersonalInfo";

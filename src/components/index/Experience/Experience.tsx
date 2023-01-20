@@ -1,9 +1,10 @@
 import { WorkRounded as Work } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import SectionHeading from "components/common/SectionHeading";
-import { EXPERIENCE } from "constants/nav";
 import { FC } from "react";
 import { SectionProps } from "types";
+
+import { EXPERIENCE } from "@/constants/nav";
 
 import ExperienceTimeline from "./ExperienceTimeline";
 

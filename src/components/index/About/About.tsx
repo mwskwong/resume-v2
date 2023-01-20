@@ -1,12 +1,13 @@
 import { PersonRounded as Person } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
-import personalPhoto from "assets/images/personal_photo.jpg";
+import personalPhoto from "@/assets/images/personal_photo.jpg";
 import SectionHeading from "components/common/SectionHeading";
-import { firstName, lastName } from "constants/name";
-import { ABOUT } from "constants/nav";
 import Image from "next/image";
 import { FC } from "react";
 import { SectionProps } from "types";
+
+import { firstName, lastName } from "@/constants/name";
+import { ABOUT } from "@/constants/nav";
 
 import styles from "./about.module.css";
 import Message from "./Message";

@@ -1,5 +1,5 @@
-import { HOME } from "constants/nav";
-import * as socialMedia from "constants/socialMedia";
+import { HOME } from "@/constants/nav";
+import * as socialMedia from "@/constants/socialMedia";
 
 describe("Hero", () => {
   beforeEach(() => {

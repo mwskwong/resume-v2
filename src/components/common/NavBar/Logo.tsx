@@ -1,8 +1,9 @@
 import { Button } from "@mui/material";
-import LogoSvg from "assets/images/icon.svg";
-import { firstName } from "constants/name";
-import { HOME } from "constants/nav";
 import { FC } from "react";
+
+import LogoSvg from "@/assets/images/icon.svg";
+import { firstName } from "@/constants/name";
+import { HOME } from "@/constants/nav";
 
 import useSx from "./useLogoSx";
 

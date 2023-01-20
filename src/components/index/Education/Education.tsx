@@ -1,9 +1,10 @@
 import { SchoolRounded as School } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import SectionHeading from "components/common/SectionHeading";
-import { EDUCATION } from "constants/nav";
 import { FC } from "react";
 import { SectionProps } from "types";
+
+import { EDUCATION } from "@/constants/nav";
 
 import Courses from "./Courses";
 import EducationTimeline from "./EducationTimeline";

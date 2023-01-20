@@ -3,7 +3,8 @@ import { Button, Container, Typography } from "@mui/material";
 import Head from "components/common/Head";
 import { NextPage } from "next";
 import Link from "next/link";
-import asSxRecord from "utils/asSxRecord";
+
+import asSxRecord from "@/utils/asSxRecord";
 
 const useSx = () => asSxRecord({
   root: {

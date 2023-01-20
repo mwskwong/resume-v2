@@ -9,7 +9,8 @@ import NavBar from "components/common/NavBar";
 import ScrollToTopFab from "components/common/ScrollToTopFab";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import asSxRecord from "utils/asSxRecord";
+
+import asSxRecord from "@/utils/asSxRecord";
 
 const Hero = dynamic(() => import("components/index/Hero"));
 const About = dynamic(() => import("components/index/About"));

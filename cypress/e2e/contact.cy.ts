@@ -1,5 +1,6 @@
 import { formHelperTextClasses } from "@mui/material";
-import { CONTACT } from "constants/nav";
+
+import { CONTACT } from "@/constants/nav";
 
 import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contact.json";
 

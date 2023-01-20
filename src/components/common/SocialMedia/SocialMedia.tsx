@@ -1,6 +1,7 @@
 import { IconButton, Stack, SxProps, Theme } from "@mui/material";
-import * as socialMedia from "constants/socialMedia";
 import { ElementType, FC } from "react";
+
+import * as socialMedia from "@/constants/socialMedia";
 
 import GitHub from "../icons/GitHub";
 import LinkedIn from "../icons/LinkedIn";
