@@ -1,20 +1,19 @@
-import { SxProps, Theme } from "@mui/material";
+import makeSx from "@/utils/makeSx";
 
-const useSx = () => {
-  const root: SxProps<Theme> = {
+const useSx = () => makeSx({
+  container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
     minHeight: "100vh"
-  };
-
-  const greetings: SxProps<Theme> = {
+  },
+  greetings: {
+    typography: "h5",
     mb: 2
-  };
-
-  const title: SxProps<Theme> = {
+  },
+  title: {
     textAlign: "center",
     "@media (max-width: 648px)": {
       minHeight: theme => `calc(${theme.typography.h1.lineHeight} * 2)`
@@ -23,27 +22,17 @@ const useSx = () => {
       minHeight: theme => `calc(${theme.typography.h1.lineHeight} * 3)`
     },
     width: "100%"
-  };
-
-  const typeIt: SxProps<Theme> = {
+  },
+  typeIt: {
     color: "primary.main",
     "--ti-cursor-color": theme => theme.vars.palette.text.primary,
     "--ti-cursor-margin-left": 0,
     "--ti-cursor-margin-right": 0
-  };
-
-  const socialMedia: SxProps<Theme> = {
+  },
+  socialMedia: {
     my: 4
-  };
-
-  return {
-    root,
-    greetings,
-    title,
-    typeIt,
-    socialMedia
-  };
-};
+  }
+});
 
 
 export default useSx;

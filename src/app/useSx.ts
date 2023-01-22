@@ -1,67 +1,49 @@
-import { SxProps, Theme } from "@mui/material";
 
-const useSx = () => {
-  const bgColors = {
-    hero: "background.default",
-    about: "background.sectionPrimary",
-    experience: "background.sectionSecondary",
-    education: "background.sectionPrimary",
-    contact: "background.default",
-    footer: "background.sectionPrimary"
-  };
+import makeSx from "@/utils/makeSx";
 
-  const waveSmooth: SxProps<Theme> = {
+const bgColors = {
+  hero: "background.default",
+  about: "background.sectionPrimary",
+  experience: "background.sectionSecondary",
+  education: "background.sectionPrimary",
+  contact: "background.default",
+  footer: "background.sectionPrimary"
+};
+
+const useSx = () => makeSx({
+  waveSmooth: {
     bgcolor: bgColors.hero,
     color: bgColors.about
-  };
-
-  const about: SxProps<Theme> = {
+  },
+  about: {
     bgcolor: bgColors.about
-  };
-
-  const waveRough: SxProps<Theme> = {
+  },
+  waveRough: {
     bgcolor: bgColors.about,
     color: bgColors.experience
-  };
-
-  const experience: SxProps<Theme> = {
+  },
+  experience: {
     bgcolor: bgColors.experience
-  };
-
-  const waveSmoothFlat: SxProps<Theme> = {
+  },
+  waveSmoothFlat: {
     bgcolor: bgColors.experience,
     color: bgColors.education
-  };
-
-  const education: SxProps<Theme> = {
+  },
+  education: {
     bgcolor: bgColors.education
-  };
-
-  const waveRoaring: SxProps<Theme> = {
+  },
+  waveRoaring: {
     bgcolor: bgColors.education,
     color: bgColors.contact
-  };
-
-  const footerDivider: SxProps<Theme> = {
+  },
+  footerDivider: {
     bgcolor: bgColors.contact,
     color: bgColors.footer
-  };
-
-  const footer: SxProps<Theme> = {
+  },
+  footer: {
     bgcolor: bgColors.footer
-  };
+  }
+});
 
-  return {
-    waveSmooth,
-    about,
-    waveRough,
-    experience,
-    waveSmoothFlat,
-    education,
-    waveRoaring,
-    footerDivider,
-    footer
-  };
-};
 
 export default useSx;

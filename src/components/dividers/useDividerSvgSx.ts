@@ -1,7 +1,8 @@
-import { SxProps, Theme } from "@mui/material";
 
-const useSx = () => {
-  const root: SxProps<Theme> = {
+import makeSx from "@/utils/makeSx";
+
+const useSx = () => makeSx({
+  root: {
     display: "block",
     bottom: "-1px",
     left: 0,
@@ -12,9 +13,7 @@ const useSx = () => {
     userSelect: "none",
     verticalAlign: "middle",
     overflow: "hidden"
-  };
-
-  return { root };
-};
+  }
+});
 
 export default useSx;
