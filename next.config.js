@@ -6,7 +6,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.e
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    emotion: true,
     removeConsole: {
       exclude: ["error"]
     }
@@ -56,7 +55,10 @@ const nextConfig = {
         { key: "Referrer-Policy", value: "no-referrer-when-downgrade" }
       ]
     }
-  ]
+  ],
+  experimental: {
+    appDir: true
+  }
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
