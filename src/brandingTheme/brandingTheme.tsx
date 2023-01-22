@@ -1,19 +1,19 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
+import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, PaletteColor, PaletteColorOptions, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
 
 import rubik from "./rubik";
 
-declare module "@mui/material/styles/createPalette" {
+declare module "@mui/material" {
   interface Palette {
     microsoft: PaletteColor
     oracle: PaletteColor
     udemy: PaletteColor
-    enterpriseDB: PaletteColor
-    mongoDB: PaletteColor
-    datacamp: PaletteColor
+    enterpriseDb: PaletteColor
+    mongoDb: PaletteColor
+    dataCamp: PaletteColor
     google: PaletteColor
   }
 
@@ -21,9 +21,9 @@ declare module "@mui/material/styles/createPalette" {
     microsoft: PaletteColorOptions
     oracle: PaletteColorOptions
     udemy: PaletteColorOptions
-    enterpriseDB: PaletteColorOptions
-    mongoDB: PaletteColorOptions
-    datacamp: PaletteColorOptions
+    enterpriseDb: PaletteColorOptions
+    mongoDb: PaletteColorOptions
+    dataCamp: PaletteColorOptions
     google: PaletteColorOptions
   }
 
@@ -71,11 +71,11 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDB: {
+        enterpriseDb: {
           main: `#${siEnterprisedb.hex}`,
           dark: darken(`#${siEnterprisedb.hex}`, .19)
         },
-        mongoDB: {
+        mongoDb: {
           main: `#${siMongodb.hex}`,
           dark: darken(`#${siMongodb.hex}`, .23)
         },
@@ -91,7 +91,7 @@ const brandingTheme = extendTheme({
           main: `#${siUdemy.hex}`,
           dark: darken(`#${siUdemy.hex}`, .03)
         },
-        datacamp: {
+        dataCamp: {
           main: `#${siDatacamp.hex}`,
           dark: darken(`#${siDatacamp.hex}`, .465)
         },

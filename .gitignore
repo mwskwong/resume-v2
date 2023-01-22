@@ -43,3 +43,6 @@ next-env.d.ts
 /cypress/screenshots
 /cypress/videos
 /cypress/downloads
+
+# migration
+/backup
