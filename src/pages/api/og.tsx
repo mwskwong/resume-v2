@@ -1,5 +1,5 @@
 import { ImageResponse } from "@vercel/og";
-import { NextApiHandler } from "next";
+import { NextApiHandler, PageConfig } from "next";
 import { FC } from "react";
 
 import Icon from "@/assets/images/icon.svg";
@@ -102,6 +102,10 @@ const handler: NextApiHandler = async req => {
       status: 500
     });
   }
+};
+
+export const config: PageConfig = {
+  runtime: "edge"
 };
 
 export default handler;
