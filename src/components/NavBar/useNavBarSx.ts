@@ -1,6 +1,6 @@
-import asSxRecord from "@/utils/makeSx";
+import makeSx from "@/utils/makeSx";
 
-const useSx = () => asSxRecord({
+const useSx = () => makeSx({
   toolbar: {
     justifyContent: "space-between"
   },

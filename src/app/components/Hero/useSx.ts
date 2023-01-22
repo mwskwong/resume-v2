@@ -1,7 +1,7 @@
 import makeSx from "@/utils/makeSx";
 
 const useSx = () => makeSx({
-  container: {
+  root: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

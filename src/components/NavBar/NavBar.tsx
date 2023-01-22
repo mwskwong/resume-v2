@@ -1,3 +1,5 @@
+"use client";
+
 import { CloseRounded as Close, MenuRounded as Menu } from "@mui/icons-material";
 import { AppBar, ClickAwayListener, Collapse, Container, IconButton, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
 import { FC, useEffect, useState } from "react";

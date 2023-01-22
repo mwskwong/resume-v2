@@ -1,6 +1,6 @@
-import asSxRecord from "@/utils/makeSx";
+import makeSx from "@/utils/makeSx";
 
-const useSx = (active?: boolean) => asSxRecord({
+const useSx = (active?: boolean) => makeSx({
   active: {
     height: 6,
     width: 6,

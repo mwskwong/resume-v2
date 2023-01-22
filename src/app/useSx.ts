@@ -35,13 +35,6 @@ const useSx = () => makeSx({
   waveRoaring: {
     bgcolor: bgColors.education,
     color: bgColors.contact
-  },
-  footerDivider: {
-    bgcolor: bgColors.contact,
-    color: bgColors.footer
-  },
-  footer: {
-    bgcolor: bgColors.footer
   }
 });
 
