@@ -1,6 +1,6 @@
 import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
-import { siEnterprisedb } from "simple-icons/icons";
+import { siEnterprisedb } from "simple-icons";
 
 import cx from "@/utils/cx";
 

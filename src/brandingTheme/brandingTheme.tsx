@@ -2,7 +2,7 @@ import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
 import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, PaletteColor, PaletteColorOptions, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
-import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons/icons";
+import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 
 import rubik from "./rubik";
 
