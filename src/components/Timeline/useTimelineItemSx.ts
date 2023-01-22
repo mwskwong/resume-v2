@@ -1,6 +1,6 @@
-import asSxRecord from "@/utils/makeSx";
+import makeSx from "@/utils/makeSx";
 
-const useSx = () => asSxRecord({
+const useSx = () => makeSx({
   periodDesktop: {
     typography: "body2",
     color: "text.secondary",
