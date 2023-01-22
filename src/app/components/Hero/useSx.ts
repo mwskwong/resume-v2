@@ -16,10 +16,10 @@ const useSx = () => makeSx({
   title: {
     textAlign: "center",
     "@media (max-width: 648px)": {
-      minHeight: theme => `calc(${theme.typography.h1.lineHeight} * 2)`
+      minHeight: theme => `calc(${theme.typography.h1.lineHeight}em * 2)`
     },
     "@media (max-width: 378px)": {
-      minHeight: theme => `calc(${theme.typography.h1.lineHeight} * 3)`
+      minHeight: theme => `calc(${theme.typography.h1.lineHeight}em * 3)`
     },
     width: "100%"
   },
