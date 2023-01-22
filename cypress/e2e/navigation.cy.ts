@@ -6,6 +6,7 @@ describe("Navigation", () => {
   beforeEach(() => {
     cy.visit("/");
     cy.disableSmoothScroll();
+    cy.wait(100);
   });
 
   context("NavBar", () => {
