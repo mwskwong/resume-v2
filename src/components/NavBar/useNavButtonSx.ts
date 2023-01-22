@@ -1,6 +1,6 @@
 import makeSx from "@/utils/makeSx";
 
-const useSx = (active?: boolean) => makeSx({
+const useSx = (params?: { active?: boolean }) => makeSx({
   active: {
     height: 6,
     width: 6,
@@ -9,7 +9,7 @@ const useSx = (active?: boolean) => makeSx({
     bottom: 0,
     left: "calc(50% - 3px)",
     borderRadius: "50%",
-    opacity: active ? 1 : 0
+    opacity: params?.active ? 1 : 0
   }
 });
 

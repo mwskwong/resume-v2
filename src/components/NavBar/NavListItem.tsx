@@ -1,18 +1,11 @@
 import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { FC } from "react";
 
-import { SectionId } from "@/types";
-
+import NavElementProps from "./NavElementProps";
 import useSx from "./useNavListItemSx";
 
-type NavListItemProps = {
-  label: string,
-  id: SectionId,
-  active: boolean
-}
-
-const NavListItem: FC<NavListItemProps> = ({ label, id, active }) => {
-  const sx = useSx(active);
+const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
+  const sx = useSx({ active });
   const primaryTypographyProps = { sx: sx.textPrimary };
 
   return (

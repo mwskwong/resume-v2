@@ -1,18 +1,11 @@
 import { Box, Button } from "@mui/material";
 import { FC } from "react";
 
-import { SectionId } from "@/types";
-
+import NavElementProps from "./NavElementProps";
 import useSx from "./useNavButtonSx";
 
-type NavButtonProps = {
-  label: string,
-  id: SectionId,
-  active?: boolean
-}
-
-const NavButton: FC<NavButtonProps> = ({ label, id, active }) => {
-  const sx = useSx(active);
+const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
+  const sx = useSx({ active });
 
   return (
     <Button color={active ? "primary" : "inherit"} href={`#${id}`}>
