@@ -59,8 +59,6 @@ const grey = {
   900: "#1A2027"
 };
 
-
-
 const brandingTheme = extendTheme({
   unstable_strictMode: true,
   colorSchemes: {

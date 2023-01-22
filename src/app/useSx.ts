@@ -6,8 +6,7 @@ const bgColors = {
   about: "background.sectionPrimary",
   experience: "background.sectionSecondary",
   education: "background.sectionPrimary",
-  contact: "background.default",
-  footer: "background.sectionPrimary"
+  contact: "background.default"
 };
 
 const useSx = () => makeSx({
