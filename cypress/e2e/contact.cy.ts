@@ -11,11 +11,14 @@ describe("Contact", () => {
       .its("scrollY")
       .should("not.equal", 0);
     cy.disableSmoothScroll();
-    cy.wait(300);
-    cy.get("[data-cy='contact']").submit();
   });
 
   context("Form", () => {
+    beforeEach(() => {
+      cy.wait(400);
+      cy.get("[data-cy='contact']").submit();
+    });
+
     for (const field in validEmail) {
       context(`${field} field`, () => {
         it("is required", () => {
@@ -62,7 +65,6 @@ describe("Contact", () => {
     }
 
     context("Submission", () => {
-
       context("Success", () => {
         before(() => {
           cy.intercept("POST", "https://formspree.io/f/*", { body: { ok: true }, delay: 1000 })
