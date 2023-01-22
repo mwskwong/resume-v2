@@ -57,7 +57,7 @@ describe("Education", () => {
     }
 
     context("Filtering", () => {
-      beforeEach(() => cy.wait(100));
+      beforeEach(() => cy.wait(200));
 
       for (const currentCategory of categories) {
         it(`filters courses on ${currentCategory} category`, () => {
