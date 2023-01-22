@@ -1,15 +1,17 @@
 import { Box, BoxProps } from "@mui/material";
 import { FC } from "react";
 
-import useStyles from "./useDividerSvgStyles";
+import cx from "@/utils/cx";
 
-const DividerSvg: FC<BoxProps<"svg">> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles();
+import useSx from "./useDividerSvgSx";
+
+const DividerSvg: FC<BoxProps<"svg">> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx();
 
   return (
     <Box
       component="svg"
-      className={cx(classes.root, className)}
+      sx={cx(sx.root, sxProp)}
       {...props}
     />
   );

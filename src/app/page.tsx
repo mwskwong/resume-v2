@@ -5,15 +5,15 @@ import { FC } from "react";
 import WaveSmooth from "@/components/dividers/WaveSmooth";
 
 import Hero from "./components/Hero";
-import useStyles from "./useStyles";
+import useSx from "./useSx";
 
 const Home: FC = () => {
-  const { classes } = useStyles();
+  const sx = useSx();
 
   return (
     <>
       <Hero />
-      <WaveSmooth className={classes.waveSmooth} />
+      <WaveSmooth sx={sx.waveSmooth} />
     </>
   );
 };

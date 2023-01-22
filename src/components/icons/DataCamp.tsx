@@ -2,13 +2,16 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siDatacamp } from "simple-icons/icons";
 
-import useStyles from "./useStyles";
+import cx from "@/utils/cx";
 
-const DataCamp: FC<SvgIconProps> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles({ color: "dataCamp" });
+import useSx from "./useSx";
+
+
+const DataCamp: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "dataCamp" });
 
   return (
-    <SvgIcon className={cx(classes.root, className)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
       <path d={siDatacamp.path} />
     </SvgIcon>
   );

@@ -2,13 +2,15 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siEnterprisedb } from "simple-icons/icons";
 
-import useStyles from "./useStyles";
+import cx from "@/utils/cx";
 
-const EnterpriseDb: FC<SvgIconProps> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles({ color: "enterpriseDb" });
+import useSx from "./useSx";
+
+const EnterpriseDb: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "enterpriseDb" });
 
   return (
-    <SvgIcon className={cx(classes.root, className)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
       <path d={siEnterprisedb.path} />
     </SvgIcon>
   );

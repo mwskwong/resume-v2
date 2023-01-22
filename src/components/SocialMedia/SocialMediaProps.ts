@@ -1,5 +1,7 @@
+import { SxProps, Theme } from "@mui/material";
+
 type SocialMediaProps = {
-  className?: string
+  sx?: SxProps<Theme>
 }
 
 export default SocialMediaProps;

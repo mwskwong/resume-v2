@@ -1,7 +1,7 @@
-import { makeStyles } from "tss-react/mui";
+import { SxProps, Theme } from "@mui/material";
 
-const useStyles = makeStyles()({
-  root: {
+const useSx = () => {
+  const root: SxProps<Theme> = {
     display: "block",
     bottom: "-1px",
     left: 0,
@@ -12,7 +12,9 @@ const useStyles = makeStyles()({
     userSelect: "none",
     verticalAlign: "middle",
     overflow: "hidden"
-  }
-});
+  };
 
-export default useStyles;
+  return { root };
+};
+
+export default useSx;

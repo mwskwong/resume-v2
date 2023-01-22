@@ -2,13 +2,15 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siOracle } from "simple-icons/icons";
 
-import useStyles from "./useStyles";
+import cx from "@/utils/cx";
 
-const Oracle: FC<SvgIconProps> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles({ color: "oracle" });
+import useSx from "./useSx";
+
+const Oracle: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "oracle" });
 
   return (
-    <SvgIcon className={cx(classes.root, className)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
       <path d={siOracle.path} />
     </SvgIcon>
   );

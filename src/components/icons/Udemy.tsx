@@ -2,13 +2,15 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siUdemy } from "simple-icons/icons";
 
-import useStyles from "./useStyles";
+import cx from "@/utils/cx";
 
-const Udemy: FC<SvgIconProps> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles({ color: "udemy" });
+import useSx from "./useSx";
+
+const Udemy: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "udemy" });
 
   return (
-    <SvgIcon className={cx(classes.root, className)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
       <path d={siUdemy.path} />
     </SvgIcon>
   );

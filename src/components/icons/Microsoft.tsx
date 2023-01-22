@@ -2,13 +2,16 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siMicrosoft } from "simple-icons/icons";
 
-import useStyles from "./useStyles";
+import cx from "@/utils/cx";
 
-const Microsoft: FC<SvgIconProps> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles({ color: "microsoft" });
+import useSx from "./useSx";
+
+
+const Microsoft: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "microsoft" });
 
   return (
-    <SvgIcon className={cx(classes.root, className)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
       <path d={siMicrosoft.path} />
     </SvgIcon>
   );

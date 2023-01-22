@@ -5,26 +5,27 @@ import resume from "@/assets/documents/resume.pdf";
 import SocialMedia from "@/components/SocialMedia";
 import { HOME } from "@/constants/nav";
 import { SectionProps } from "@/types";
+import cx from "@/utils/cx";
 
-import useStyles from "./useStyles";
+import useSx from "./useSx";
 import useTypewriterTitle from "./useTypewriterTitle";
 
-const Hero: FC<SectionProps> = ({ className }) => {
-  const { classes, cx } = useStyles();
+const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
+  const sx = useSx();
   const { ref, strings } = useTypewriterTitle();
 
   return (
-    <Container component="section" id={HOME.id} className={cx(classes.root, className)}>
-      <Typography variant="h5" component="div" className={classes.greetings}>
+    <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
+      <Typography variant="h5" component="div" sx={sx.greetings}>
         Greetings
       </Typography>
-      <Typography variant="h1" className={classes.title}>
+      <Typography variant="h1" sx={sx.title}>
         {"I Am "}
-        <Box ref={ref} component="span" className={classes.typeIt}>
+        <Box ref={ref} component="span" sx={sx.typeIt}>
           {strings[strings.length - 1]}
         </Box>
       </Typography>
-      <SocialMedia className={classes.socialMedia} />
+      <SocialMedia sx={sx.socialMedia} />
       <Button
         variant="contained"
         size="large"

@@ -2,13 +2,15 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siStackoverflow } from "simple-icons/icons";
 
-import useStyles from "./useStyles";
+import cx from "@/utils/cx";
 
-const StackOverflow: FC<SvgIconProps> = ({ className, ...props }) => {
-  const { classes, cx } = useStyles();
+import useSx from "./useSx";
+
+const StackOverflow: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx();
 
   return (
-    <SvgIcon className={cx(classes.root, className)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
       <path d={siStackoverflow.path} />
     </SvgIcon>
   );
