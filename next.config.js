@@ -50,6 +50,10 @@ const nextConfig = {
       preventFullImport: true,
       skipDefaultConversion: true
     },
+    "@mui/lab": {
+      transform: "@mui/lab/{{member}}",
+      preventFullImport: true
+    },
     "@mui/icons-material": {
       transform: "@mui/icons-material/{{member}}",
       preventFullImport: true
