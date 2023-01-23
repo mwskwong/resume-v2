@@ -49,6 +49,14 @@ const nextConfig = {
       transform: "simple-icons/icons",
       preventFullImport: true,
       skipDefaultConversion: true
+    },
+    "@mui/icons-material": {
+      transform: "@mui/icons-material/{{member}}",
+      preventFullImport: true
+    },
+    "mdi-material-ui": {
+      transform: "mdi-material-ui/{{member}}",
+      preventFullImport: true
     }
   },
   headers: async () => [
