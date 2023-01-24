@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
     "@fontsource/rubik": "4.5.14",
     "@hookform/resolvers": "^2.9.10",
@@ -30,7 +29,6 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
     "simple-icons": "^8.3.0",
-    "tss-react": "^4.5.2",
     "typeit": "^8.7.1"
   },
   "devDependencies": {

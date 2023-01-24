@@ -1,5 +1,4 @@
 import { FC, PropsWithChildren } from "react";
-import { NextAppDirEmotionCacheProvider } from "tss-react/next";
 
 import rubik from "@/brandingTheme/rubik";
 import Footer from "@/components/Footer";
@@ -8,19 +7,20 @@ import ScrollToTopFab from "@/components/ScrollToTopFab";
 
 import Analytics from "./components/Analytics";
 import MuiProvider from "./components/MuiProvider";
+import RootStyleRegistry from "./components/RootStyleRegistry";
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (
   <html lang="en" className={rubik.className}>
     <head />
     <body>
-      <NextAppDirEmotionCacheProvider options={{ key: "css" }}>
+      <RootStyleRegistry>
         <MuiProvider>
           <NavBar />
           {children}
           <Footer />
           <ScrollToTopFab />
         </MuiProvider>
-      </NextAppDirEmotionCacheProvider>
+      </RootStyleRegistry>
       <Analytics />
     </body>
   </html>
