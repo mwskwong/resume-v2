@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { FC } from "react";
 import { BreadcrumbList, Graph, Person, WebPage } from "schema-dts";
 
@@ -100,8 +101,12 @@ const Head: FC = () => {
       <meta property="twitter:url" content={siteUrl} />
       <meta property="twitter:image" content={`${siteUrl}/api/og`} />
 
-      {/* TODO: application/ld+json doesn't seem to be accepted by Next.js */}
-      {/* <script type="application/ld+json">{JSON.stringify(graph)}</script> */}
+      {/* FIXME: application/ld+json + native <script> doesn't seem to be accepted by Next.js */}
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
     </>
   );
 };
