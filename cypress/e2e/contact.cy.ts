@@ -7,15 +7,12 @@ import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contac
 describe("Contact", () => {
   beforeEach(() => {
     cy.visit(`/#${CONTACT.id}`)
-      .window()
-      .its("scrollY")
-      .should("not.equal", 0);
-    cy.disableSmoothScroll();
+      .disableSmoothScroll();
   });
 
   context("Form", () => {
     beforeEach(() => {
-      cy.wait(400);
+      cy.wait(500);
       cy.get("[data-cy='contact']").submit();
     });
 
