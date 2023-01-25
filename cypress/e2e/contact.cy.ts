@@ -7,10 +7,7 @@ import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contac
 describe("Contact", () => {
   beforeEach(() => {
     cy.visit(`/#${CONTACT.id}`)
-      .window()
-      .its("scrollY")
-      .should("not.equal", 0);
-    cy.disableSmoothScroll();
+      .disableSmoothScroll();
   });
 
   context("Form", () => {

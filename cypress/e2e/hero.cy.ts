@@ -3,8 +3,8 @@ import * as socialMedia from "@/constants/socialMedia";
 
 describe("Hero", () => {
   beforeEach(() => {
-    cy.visit("/");
-    cy.disableSmoothScroll();
+    cy.visit("/")
+      .disableSmoothScroll();
   });
 
   context("Social media", () => {

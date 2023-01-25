@@ -6,8 +6,8 @@ import viewports from "./viewports";
 
 describe("Education", () => {
   beforeEach(() => {
-    cy.visit(`/#${EDUCATION.id}`);
-    cy.disableSmoothScroll();
+    cy.visit(`/#${EDUCATION.id}`)
+      .disableSmoothScroll();
   });
 
   context("Timeline", () => {

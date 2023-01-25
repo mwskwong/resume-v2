@@ -4,8 +4,8 @@ import viewports from "./viewports";
 
 describe("Navigation", () => {
   beforeEach(() => {
-    cy.visit("/");
-    cy.disableSmoothScroll();
+    cy.visit("/")
+      .disableSmoothScroll();
     cy.wait(100);
   });
 
