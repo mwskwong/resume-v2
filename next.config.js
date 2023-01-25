@@ -2,14 +2,17 @@
 const path = require("path");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.env.ANALYZE_BUNDLE === "true" });
 
-console.log(process.env);
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
+    // FIXME: until emotion option supports /app dir
+    // emotion: true,
     removeConsole: {
       exclude: ["error"]
+    },
+    reactRemoveProperties: process.env.VERCEL_ENV === "production" && {
+      properties: ["^data-cy$"]
     }
   },
   images: {

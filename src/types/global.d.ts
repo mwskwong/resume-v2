@@ -3,9 +3,10 @@ import { FC, SVGProps } from "react";
 declare global {
   declare namespace NodeJS {
     interface ProcessEnv {
-      readonly NEXT_PUBLIC_URL: string
-      readonly NEXT_PUBLIC_FORM: string
-      readonly ANALYZE_BUNDLE: 1 | 0
+      NEXT_PUBLIC_URL: string
+      NEXT_PUBLIC_FORM: string
+      ANALYZE_BUNDLE: 1 | 0
+      VERCEL_ENV: "preview" | "production" | "development"
     }
   }
 
