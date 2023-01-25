@@ -15,7 +15,7 @@ describe("Contact", () => {
 
   context("Form", () => {
     beforeEach(() => {
-      cy.wait(400);
+      cy.wait(500);
       cy.get("[data-cy='contact']").submit();
     });
 
