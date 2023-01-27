@@ -1,48 +1,10 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, PaletteColor, PaletteColorOptions, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
+import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 
 import rubik from "./rubik";
-
-declare module "@mui/material" {
-  interface Palette {
-    microsoft: PaletteColor
-    oracle: PaletteColor
-    udemy: PaletteColor
-    enterpriseDb: PaletteColor
-    mongoDb: PaletteColor
-    dataCamp: PaletteColor
-    google: PaletteColor
-  }
-
-  interface PaletteOptions {
-    microsoft: PaletteColorOptions
-    oracle: PaletteColorOptions
-    udemy: PaletteColorOptions
-    enterpriseDb: PaletteColorOptions
-    mongoDb: PaletteColorOptions
-    dataCamp: PaletteColorOptions
-    google: PaletteColorOptions
-  }
-
-  interface TypeBackground {
-    sectionPrimary: string,
-    sectionSecondary: string,
-    sectionTertiary: string
-  }
-}
-
-declare module "@mui/material/styles/createTypography" {
-  interface TypographyOptions {
-    fontWeightExtraBold?: number;
-  }
-
-  interface Typography {
-    fontWeightExtraBold: number;
-  }
-}
 
 const pxToRem = (size: number) => `${(size / 16)}rem`;
 

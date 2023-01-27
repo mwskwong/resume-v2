@@ -1,4 +1,4 @@
-import "react";
+import type { } from "react";
 
 // Add extra fields supported by MUI
 declare module "react" {

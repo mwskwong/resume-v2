@@ -36,15 +36,6 @@
 //   }
 // }
 
-/* eslint-disable @typescript-eslint/no-namespace */
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      disableSmoothScroll(): Chainable<void>
-    }
-  }
-}
-
 Cypress.Commands.add("disableSmoothScroll", () => {
   cy.document().then(document => {
     const node = document.createElement("style");
