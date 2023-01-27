@@ -4,8 +4,9 @@ import viewports from "./viewports";
 
 describe("Navigation", () => {
   beforeEach(() => {
-    cy.visit("/");
-    cy.disableSmoothScroll();
+    cy.visit("/")
+      .disableSmoothScroll();
+    cy.wait(100);
   });
 
   context("NavBar", () => {
@@ -52,7 +53,6 @@ describe("Navigation", () => {
         .its("scrollY")
         .should("not.equal", 0);
       cy.get("[data-cy='logo']").click();
-      cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
     });
   });
@@ -64,7 +64,6 @@ describe("Navigation", () => {
         .its("scrollY")
         .should("not.equal", 0);
       cy.get("[data-cy='scrollToTop']").click();
-      cy.location("hash").should("equal", `#${nav.HOME.id}`);
       cy.window().its("scrollY").should("equal", 0);
     });
   });

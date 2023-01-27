@@ -105,8 +105,7 @@ const handler: NextApiHandler = async req => {
 };
 
 export const config: PageConfig = {
-  // FIXME: Change to edge when the bug of using edge runtime in src/pages is fixed
-  runtime: "experimental-edge"
+  runtime: "edge"
 };
 
 export default handler;

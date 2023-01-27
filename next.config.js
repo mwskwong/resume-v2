@@ -6,9 +6,13 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.e
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    emotion: true,
+    // FIXME: until emotion option supports /app dir
+    // emotion: true,
     removeConsole: {
       exclude: ["error"]
+    },
+    reactRemoveProperties: process.env.VERCEL_ENV === "production" && {
+      properties: ["^data-cy$"]
     }
   },
   images: {
@@ -44,6 +48,26 @@ const nextConfig = {
 
     return config;
   },
+  modularizeImports: {
+    // FIXME: until simple-icons tree shaking works again 
+    "simple-icons": {
+      transform: "simple-icons/icons",
+      preventFullImport: true,
+      skipDefaultConversion: true
+    },
+    "@mui/lab": {
+      transform: "@mui/lab/{{member}}",
+      preventFullImport: true
+    },
+    "@mui/icons-material": {
+      transform: "@mui/icons-material/{{member}}",
+      preventFullImport: true
+    },
+    "mdi-material-ui": {
+      transform: "mdi-material-ui/{{member}}",
+      preventFullImport: true
+    }
+  },
   headers: async () => [
     {
       source: "/:path*",
@@ -56,7 +80,10 @@ const nextConfig = {
         { key: "Referrer-Policy", value: "no-referrer-when-downgrade" }
       ]
     }
-  ]
+  ],
+  experimental: {
+    appDir: true
+  }
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
