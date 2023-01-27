@@ -6,8 +6,8 @@ import viewports from "./viewports";
 
 describe("Education", () => {
   beforeEach(() => {
-    cy.visit(`/#${EDUCATION.id}`);
-    cy.disableSmoothScroll();
+    cy.visit(`/#${EDUCATION.id}`)
+      .disableSmoothScroll();
   });
 
   context("Timeline", () => {
@@ -57,7 +57,7 @@ describe("Education", () => {
     }
 
     context("Filtering", () => {
-      beforeEach(() => cy.wait(300));
+      beforeEach(() => cy.wait(400));
 
       for (const currentCategory of categories) {
         it(`filters courses on ${currentCategory} category`, () => {
