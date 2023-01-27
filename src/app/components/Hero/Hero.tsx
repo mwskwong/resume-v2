@@ -1,29 +1,26 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import resume from "@/assets/documents/resume.pdf";
 import SocialMedia from "@/components/SocialMedia";
+import jobTitles from "@/constants/jobTitles";
 import { HOME } from "@/constants/nav";
 import { SectionProps } from "@/types";
 import cx from "@/utils/cx";
 
 import useSx from "./useSx";
-import useTypewriterTitle from "./useTypewriterTitle";
 
 const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
   const sx = useSx();
-  const { ref, strings } = useTypewriterTitle();
+
 
   return (
     <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
-      <Typography variant="h5" component="div" sx={sx.greetings}>
-        Greetings
+      <Typography variant="h1" sx={sx.title} gutterBottom>
+        Matthew Kwong
       </Typography>
-      <Typography variant="h1" sx={sx.title}>
-        {"I Am "}
-        <Box ref={ref} component="span" sx={sx.typeIt}>
-          {strings[strings.length - 1]}
-        </Box>
+      <Typography variant="h6" component="p">
+        {jobTitles.join(" & ")}
       </Typography>
       <SocialMedia sx={sx.socialMedia} />
       <Button

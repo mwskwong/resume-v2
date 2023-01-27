@@ -9,11 +9,6 @@ const useSx = () => makeSx({
   },
   occupationContainer: {
     display: "flex",
-    flexDirection: {
-      xs: "column",
-      sm: "row"
-    },
-    alignItems: "center",
     justifyContent: "center",
     my: 2
   },
