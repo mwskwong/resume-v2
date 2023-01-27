@@ -4,7 +4,7 @@ on: [deployment_status]
 
 jobs:
   cypress:
-    if: ${{ github.event.deployment_status.state == 'success' && github.ref != 'refs/heads/main' }}
+    if: ${{ github.event.deployment_status.state == 'success' }}
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome107
@@ -15,7 +15,7 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: GitHub Ref Debug
-        run: echo "::debug ${{  github.ref  }}"
+        run: echo "::debug ${{  github.event.deployment_status.environment  }}"
 
       - name: Checkout
         uses: actions/checkout@v3
