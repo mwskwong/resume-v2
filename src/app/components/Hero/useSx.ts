@@ -10,11 +10,9 @@ const useSx = () => makeSx({
     minHeight: "100vh",
     textAlign: "center"
   },
-  greetings: {
-    typography: "h5"
-  },
   title: {
-    color: "primary.main"
+    color: "primary.main",
+    mb: 1
   },
   socialMedia: {
     my: 4
