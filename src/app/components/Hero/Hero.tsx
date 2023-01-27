@@ -13,7 +13,6 @@ import useSx from "./useSx";
 const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
   const sx = useSx();
 
-
   return (
     <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
       <Typography variant="h1" sx={sx.title} gutterBottom>
