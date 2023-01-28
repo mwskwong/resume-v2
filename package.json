@@ -28,8 +28,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
-    "simple-icons": "^8.3.0",
-    "typeit": "^8.7.1"
+    "simple-icons": "^8.3.0"
   },
   "devDependencies": {
     "@formspree/core": "^2.8.1",

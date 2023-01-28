@@ -1,5 +1,5 @@
 const jobTitles = [
-  "Frontend Engineer",
+  "Frontend Dev",
   "System DBA"
 ];
 

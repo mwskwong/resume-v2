@@ -21,4 +21,10 @@ declare global {
 
     export default ReactComponent;
   }
+
+  namespace Cypress {
+    interface Chainable {
+      disableSmoothScroll(): Chainable<void>
+    }
+  }
 }
