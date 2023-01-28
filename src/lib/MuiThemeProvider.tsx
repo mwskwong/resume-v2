@@ -5,11 +5,11 @@ import { FC, PropsWithChildren } from "react";
 
 import brandingTheme from "@/brandingTheme";
 
-const MuiProvider: FC<PropsWithChildren> = ({ children }) => (
+const MuiThemeProvider: FC<PropsWithChildren> = ({ children }) => (
   <CssVarsProvider theme={brandingTheme} disableTransitionOnChange>
     <CssBaseline />
     {children}
   </CssVarsProvider>
 );
 
-export default MuiProvider;
+export default MuiThemeProvider;

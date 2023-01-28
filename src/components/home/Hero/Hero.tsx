@@ -6,7 +6,7 @@ import SocialMedia from "@/components/shared/SocialMedia";
 import jobTitles from "@/constants/jobTitles";
 import { HOME } from "@/constants/nav";
 import { SectionProps } from "@/types";
-import cx from "@/utils/cx";
+import cx from "@/lib/cx";
 
 import useSx from "./useSx";
 

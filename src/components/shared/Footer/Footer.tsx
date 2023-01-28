@@ -9,7 +9,7 @@ import SocialMedia from "@/components/shared/SocialMedia";
 import { address } from "@/constants/contact";
 import { firstName, lastName, middleName } from "@/constants/name";
 import { SectionProps } from "@/types";
-import cx from "@/utils/cx";
+import cx from "@/lib/cx";
 
 import useSx from "./useSx";
 

@@ -1,4 +1,4 @@
-import makeSx from "@/utils/makeSx";
+import makeSx from "@/lib/makeSx";
 
 const useSx = () => makeSx({
   toolbar: {
