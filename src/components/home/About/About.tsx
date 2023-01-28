@@ -1,3 +1,5 @@
+"use client";
+
 import { PersonRounded as Person } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import Image from "next/image";

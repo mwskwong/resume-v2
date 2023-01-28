@@ -1,3 +1,5 @@
+"use client";
+
 import { WorkRounded as Work } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import { FC } from "react";

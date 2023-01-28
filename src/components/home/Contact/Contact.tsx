@@ -1,3 +1,5 @@
+"use client";
+
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { CheckCircleRounded as SuccessIcon, PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
