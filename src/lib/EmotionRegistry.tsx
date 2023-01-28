@@ -6,7 +6,7 @@ import { useServerInsertedHTML } from "next/navigation";
 import { FC, PropsWithChildren, useState } from "react";
 
 // Workaround until Emotion supports Next.js /app dir properly
-const RootStyleRegistry: FC<PropsWithChildren> = ({ children }) => {
+const EmotionRegistry: FC<PropsWithChildren> = ({ children }) => {
   const [cache] = useState(() => {
     const cache = createCache({ key: "css" });
     cache.compat = true;
@@ -29,4 +29,4 @@ const RootStyleRegistry: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default RootStyleRegistry;
+export default EmotionRegistry;

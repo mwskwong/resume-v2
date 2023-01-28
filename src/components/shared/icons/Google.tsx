@@ -2,7 +2,7 @@ import { SvgIcon, SvgIconProps } from "@mui/material";
 import { FC } from "react";
 import { siGoogle } from "simple-icons";
 
-import cx from "@/utils/cx";
+import cx from "@/lib/cx";
 
 import useSx from "./useSx";
 
