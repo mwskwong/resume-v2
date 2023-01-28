@@ -11,8 +11,7 @@ const useSx = () => makeSx({
     textAlign: "center"
   },
   title: {
-    color: "primary.main",
-    mb: 1
+    color: "primary.main"
   },
   socialMedia: {
     my: 4
