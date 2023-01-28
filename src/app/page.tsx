@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { FC } from "react";
 
-import Hero from "@/components/home/Hero";
 import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
 import WaveRough from "@/components/shared/dividers/WaveRough";
 import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
@@ -9,6 +8,7 @@ import WaveSmoothFlat from "@/components/shared/dividers/WaveSmoothFlat";
 
 import useSx from "./useSx";
 
+const Hero = dynamic(() => import("@/components/home/Hero"));
 const About = dynamic(() => import("@/components/home/About"));
 const Experience = dynamic(() => import("@/components/home/Experience"));
 const Education = dynamic(() => import("@/components/home/Education"));
