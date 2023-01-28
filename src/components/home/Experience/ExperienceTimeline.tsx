@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Timeline from "@/components/Timeline";
+import Timeline from "@/components/shared/Timeline";
 import experiences from "@/constants/experiences";
 
 const ExperienceTimeline: FC = () => {

@@ -5,8 +5,8 @@ declare module "@mui/material" {
     microsoft: PaletteColor
     oracle: PaletteColor
     udemy: PaletteColor
-    enterpriseDb: PaletteColor
-    mongoDb: PaletteColor
+    enterpriseDB: PaletteColor
+    mongoDB: PaletteColor
     dataCamp: PaletteColor
     google: PaletteColor
   }
@@ -15,8 +15,8 @@ declare module "@mui/material" {
     microsoft: PaletteColorOptions
     oracle: PaletteColorOptions
     udemy: PaletteColorOptions
-    enterpriseDb: PaletteColorOptions
-    mongoDb: PaletteColorOptions
+    enterpriseDB: PaletteColorOptions
+    mongoDB: PaletteColorOptions
     dataCamp: PaletteColorOptions
     google: PaletteColorOptions
   }

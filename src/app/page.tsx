@@ -3,18 +3,18 @@
 import dynamic from "next/dynamic";
 import { FC } from "react";
 
-import WaveRoaring from "@/components/dividers/WaveRoaring";
-import WaveRough from "@/components/dividers/WaveRough";
-import WaveSmooth from "@/components/dividers/WaveSmooth";
-import WaveSmoothFlat from "@/components/dividers/WaveSmoothFlat";
+import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
+import WaveRough from "@/components/shared/dividers/WaveRough";
+import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
+import WaveSmoothFlat from "@/components/shared/dividers/WaveSmoothFlat";
 
 import useSx from "./useSx";
 
-const Hero = dynamic(() => import("./components/Hero"));
-const About = dynamic(() => import("./components/About"));
-const Experience = dynamic(() => import("./components/Experience"));
-const Education = dynamic(() => import("./components/Education"));
-const Contact = dynamic(() => import("./components/Contact"));
+const Hero = dynamic(() => import("@/components/home/Hero"));
+const About = dynamic(() => import("@/components/home/About"));
+const Experience = dynamic(() => import("@/components/home/Experience"));
+const Education = dynamic(() => import("@/components/home/Education"));
+const Contact = dynamic(() => import("@/components/home/Contact"));
 
 const Home: FC = () => {
   const sx = useSx();

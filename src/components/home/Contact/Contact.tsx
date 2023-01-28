@@ -6,7 +6,7 @@ import { object, string } from "nope-validator";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/shared/SectionHeading";
 import { CONTACT } from "@/constants/nav";
 import { SectionProps } from "@/types";
 

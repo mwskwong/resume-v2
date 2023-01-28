@@ -2,7 +2,7 @@ import { WorkRounded as Work } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import { FC } from "react";
 
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/shared/SectionHeading";
 import { EXPERIENCE } from "@/constants/nav";
 import { SectionProps } from "@/types";
 

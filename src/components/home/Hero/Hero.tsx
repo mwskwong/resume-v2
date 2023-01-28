@@ -2,7 +2,7 @@ import { Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import resume from "@/assets/documents/resume.pdf";
-import SocialMedia from "@/components/SocialMedia";
+import SocialMedia from "@/components/shared/SocialMedia";
 import jobTitles from "@/constants/jobTitles";
 import { HOME } from "@/constants/nav";
 import { SectionProps } from "@/types";

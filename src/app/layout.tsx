@@ -1,13 +1,13 @@
 import { FC, PropsWithChildren } from "react";
 
 import rubik from "@/brandingTheme/rubik";
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
-import ScrollToTopFab from "@/components/ScrollToTopFab";
+import Footer from "@/components/shared/Footer";
+import NavBar from "@/components/shared/NavBar";
+import ScrollToTopFab from "@/components/shared/ScrollToTopFab";
 
-import Analytics from "./components/Analytics";
-import MuiProvider from "./components/MuiProvider";
-import RootStyleRegistry from "./components/RootStyleRegistry";
+import Analytics from "./analytics";
+import MuiProvider from "./mui-provider";
+import RootStyleRegistry from "./root-style-registry";
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (
   <html lang="en" className={rubik.className}>

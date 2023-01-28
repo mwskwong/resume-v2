@@ -2,10 +2,10 @@ import { Card, CardActionArea, CardContent, CardProps, SvgIconProps, Typography 
 import { ElementType, FC } from "react";
 
 import DataCamp from "../icons/DataCamp";
-import EnterpriseDb from "../icons/EnterpriseDb";
+import EnterpriseDB from "../icons/EnterpriseDB";
 import Google from "../icons/Google";
 import Microsoft from "../icons/Microsoft";
-import MongoDb from "../icons/MongoDb";
+import MongoDB from "../icons/MongoDB";
 import Oracle from "../icons/Oracle";
 import Udemy from "../icons/Udemy";
 import useSx from "./useSx";
@@ -21,8 +21,8 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
   microsoft: Microsoft,
   oracle: Oracle,
   udemy: Udemy,
-  enterpriseDb: EnterpriseDb,
-  mongoDb: MongoDb,
+  enterpriseDB: EnterpriseDB,
+  mongoDB: MongoDB,
   dataCamp: DataCamp,
   google: Google
 };
