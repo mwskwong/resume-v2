@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import personalPhoto from "@/assets/images/personal_photo.jpg";
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/shared/SectionHeading";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
 import { SectionProps } from "@/types";

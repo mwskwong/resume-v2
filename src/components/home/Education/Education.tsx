@@ -2,7 +2,7 @@ import { SchoolRounded as School } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import { FC } from "react";
 
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/shared/SectionHeading";
 import { EDUCATION } from "@/constants/nav";
 import { SectionProps } from "@/types";
 

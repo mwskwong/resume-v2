@@ -31,11 +31,11 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDb: {
+        enterpriseDB: {
           main: `#${siEnterprisedb.hex}`,
           dark: darken(`#${siEnterprisedb.hex}`, .19)
         },
-        mongoDb: {
+        mongoDB: {
           main: `#${siMongodb.hex}`,
           dark: darken(`#${siMongodb.hex}`, .23)
         },

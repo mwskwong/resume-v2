@@ -1,7 +1,7 @@
 
 import makeSx from "@/utils/makeSx";
 
-type IconColor = "enterpriseDb" | "microsoft" | "mongoDb" | "oracle" | "udemy" | "dataCamp" | "google"
+type IconColor = "enterpriseDB" | "microsoft" | "mongoDB" | "oracle" | "udemy" | "dataCamp" | "google"
 
 const useSx = (params?: { color?: IconColor }) => makeSx({
   root: {

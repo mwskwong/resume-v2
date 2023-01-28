@@ -6,8 +6,8 @@ import cx from "@/utils/cx";
 
 import useSx from "./useSx";
 
-const MongoDb: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
-  const sx = useSx({ color: "mongoDb" });
+const MongoDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "mongoDB" });
 
   return (
     <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
@@ -16,9 +16,9 @@ const MongoDb: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-MongoDb.muiName = SvgIcon.muiName;
+MongoDB.muiName = SvgIcon.muiName;
 if (process.env.NODE_ENV === "development") {
-  MongoDb.whyDidYouRender = true;
+  MongoDB.whyDidYouRender = true;
 }
 
-export default MongoDb;
+export default MongoDB;

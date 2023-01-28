@@ -6,8 +6,8 @@ import cx from "@/utils/cx";
 
 import useSx from "./useSx";
 
-const EnterpriseDb: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
-  const sx = useSx({ color: "enterpriseDb" });
+const EnterpriseDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
+  const sx = useSx({ color: "enterpriseDB" });
 
   return (
     <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
@@ -16,9 +16,9 @@ const EnterpriseDb: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-EnterpriseDb.muiName = SvgIcon.muiName;
+EnterpriseDB.muiName = SvgIcon.muiName;
 if (process.env.NODE_ENV === "development") {
-  EnterpriseDb.whyDidYouRender = true;
+  EnterpriseDB.whyDidYouRender = true;
 }
 
-export default EnterpriseDb;
+export default EnterpriseDB;
