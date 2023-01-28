@@ -1,7 +1,9 @@
+"use client";
+
 import { Box, BoxProps } from "@mui/material";
 import { FC } from "react";
 
-import cx from "@/lib/cx";
+import cx from "@/utils/cx";
 
 import useSx from "./useDividerSvgSx";
 

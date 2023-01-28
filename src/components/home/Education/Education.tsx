@@ -1,3 +1,5 @@
+"use client";
+
 import { SchoolRounded as School } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import { FC } from "react";

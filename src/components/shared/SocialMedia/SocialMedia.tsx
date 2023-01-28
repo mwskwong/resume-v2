@@ -2,7 +2,7 @@ import { IconButton, Stack } from "@mui/material";
 import { ElementType, FC } from "react";
 
 import * as socialMedia from "@/constants/socialMedia";
-import cx from "@/lib/cx";
+import cx from "@/utils/cx";
 
 import GitHub from "../icons/GitHub";
 import LinkedIn from "../icons/LinkedIn";

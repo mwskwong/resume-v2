@@ -9,7 +9,7 @@ import {
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC } from "react";
 
-import dateTimeFormat from "@/lib/dateTimeFormat";
+import dateTimeFormat from "@/utils/dateTimeFormat";
 
 import SupportingDocumentListItem from "./SupportingDocumentListItem";
 import TimelineItemProps from "./TimelineItemProps";

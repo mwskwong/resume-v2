@@ -1,5 +1,5 @@
 
-import makeSx from "@/lib/makeSx";
+import makeSx from "@/utils/makeSx";
 
 type IconColor = "enterpriseDB" | "microsoft" | "mongoDB" | "oracle" | "udemy" | "dataCamp" | "google"
 
