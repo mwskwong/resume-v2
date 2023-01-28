@@ -21,9 +21,9 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
   microsoft: Microsoft,
   oracle: Oracle,
   udemy: Udemy,
-  enterpriseDB: EnterpriseDb,
-  mongoDB: MongoDb,
-  datacamp: DataCamp,
+  enterpriseDb: EnterpriseDb,
+  mongoDb: MongoDb,
+  dataCamp: DataCamp,
   google: Google
 };
 

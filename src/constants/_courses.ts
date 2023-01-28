@@ -35,7 +35,7 @@ const courses: CourseConstants[] = [
   {
     name: "Foundations of EDB v13",
     category: "Database",
-    institution: "enterpriseDB"
+    institution: "enterpriseDb"
   },
   {
     name: "Information Security Awareness-ISO 27001:2013",
@@ -45,7 +45,7 @@ const courses: CourseConstants[] = [
   {
     name: "Introduction to NumPy",
     category: "Development",
-    institution: "datacamp"
+    institution: "dataCamp"
   },
   {
     name: "Linux Administration Bootcamp: Go from Beginner to Advanced",
@@ -71,7 +71,7 @@ const courses: CourseConstants[] = [
   {
     name: "M001: MongoDB Basics",
     category: "Database",
-    institution: "mongoDB"
+    institution: "mongoDb"
   },
   {
     name: "MySQL for Database Administrators",
