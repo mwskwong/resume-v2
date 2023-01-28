@@ -8,7 +8,7 @@ import FooterDivider from "@/components/shared/dividers/Footer";
 import SocialMedia from "@/components/shared/SocialMedia";
 import { address } from "@/constants/contact";
 import { firstName, lastName, middleName } from "@/constants/name";
-import cx from "@/lib/cx";
+import cx from "@/utils/cx";
 import { SectionProps } from "@/types";
 
 import useSx from "./useSx";

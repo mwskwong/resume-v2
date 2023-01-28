@@ -5,7 +5,7 @@ import resume from "@/assets/documents/resume.pdf";
 import SocialMedia from "@/components/shared/SocialMedia";
 import jobTitles from "@/constants/jobTitles";
 import { HOME } from "@/constants/nav";
-import cx from "@/lib/cx";
+import cx from "@/utils/cx";
 import { SectionProps } from "@/types";
 
 import useSx from "./useSx";

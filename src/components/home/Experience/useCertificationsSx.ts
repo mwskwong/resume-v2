@@ -1,4 +1,4 @@
-import makeSx from "@/lib/makeSx";
+import makeSx from "@/utils/makeSx";
 
 const useSx = () => makeSx({
   title: {
