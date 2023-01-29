@@ -18,13 +18,16 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
 
   return (
     <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
-      <Typography variant="h1" >
+      <Typography variant="h6" component="p">
+        Hello,
+      </Typography>
+      <Typography variant="h1">
         {"I'm "}
         <Box component="span" sx={sx.name}>
           {firstName}
         </Box>
       </Typography>
-      <Typography variant="h6" component="p">
+      <Typography variant="h5" component="p">
         {jobTitles.join(" & ")}
       </Typography>
       <SocialMedia sx={sx.socialMedia} />
