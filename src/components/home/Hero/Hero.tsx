@@ -18,7 +18,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
 
   return (
     <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
-      <Typography variant="h6" component="p">
+      <Typography variant="subtitle1" component="p">
         Hello,
       </Typography>
       <Typography variant="h1">
