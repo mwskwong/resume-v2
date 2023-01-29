@@ -27,7 +27,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
           {firstName}
         </Box>
       </Typography>
-      <Typography variant="h5" component="p">
+      <Typography variant="h6" component="p">
         {jobTitles.join(" & ")}
       </Typography>
       <SocialMedia sx={sx.socialMedia} />
