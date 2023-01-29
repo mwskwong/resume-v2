@@ -87,7 +87,7 @@ const brandingTheme = extendTheme({
     fontFamily: rubik.style.fontFamily,
     fontWeightExtraBold: 800,
     h1: {
-      fontSize: "clamp(2.45rem, 1.2857rem + 3.5714vw, 4rem)",
+      fontSize: "clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)",
       fontWeight: 800,
       lineHeight: 78 / 70
     },
