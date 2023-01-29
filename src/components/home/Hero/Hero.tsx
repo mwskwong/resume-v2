@@ -1,11 +1,12 @@
 "use client";
 
-import { Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import resume from "@/assets/documents/resume.pdf";
 import SocialMedia from "@/components/shared/SocialMedia";
 import jobTitles from "@/constants/jobTitles";
+import { firstName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
 import { SectionProps } from "@/types";
 import cx from "@/utils/cx";
@@ -17,8 +18,11 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
 
   return (
     <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
-      <Typography variant="h1" sx={sx.title}>
-        Matthew Kwong
+      <Typography variant="h1" >
+        {"I'm "}
+        <Box component="span" sx={sx.name}>
+          {firstName}
+        </Box>
       </Typography>
       <Typography variant="h6" component="p">
         {jobTitles.join(" & ")}

@@ -10,7 +10,7 @@ const useSx = () => makeSx({
     minHeight: "100vh",
     textAlign: "center"
   },
-  title: {
+  name: {
     color: "primary.main"
   },
   socialMedia: {
