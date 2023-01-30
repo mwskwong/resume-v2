@@ -23,12 +23,12 @@
     "@vercel/og": "^0.0.27",
     "mdi-material-ui": "^7.6.0",
     "next": "^13.1.6",
-    "next-sitemap": "^3.1.47",
+    "next-sitemap": "^3.1.48",
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
-    "simple-icons": "^8.3.0"
+    "simple-icons": "^8.4.0"
   },
   "devDependencies": {
     "@formspree/core": "^2.8.1",
