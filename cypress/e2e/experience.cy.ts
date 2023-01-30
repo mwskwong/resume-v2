@@ -1,4 +1,4 @@
-import experiences from "@/constants/_experiences";
+import experiences from "@/constants/experiences";
 import { EXPERIENCE } from "@/constants/nav";
 
 import viewports from "./viewports";
