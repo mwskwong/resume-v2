@@ -14,124 +14,39 @@ import mysqlForDba from "@/assets/documents/MySQL for Database Administrators.pd
 import openShift from "@/assets/documents/OpenShift for the Absolute Beginners - Hands-on.pdf";
 import oracleDba from "@/assets/documents/Oracle DBA 11g 12c - Database Administration for Junior DBA.pdf";
 import oracleTuning from "@/assets/documents/Oracle SQL Performance Tuning Masterclass.pdf";
-import { Course } from "@/types";
 
+import coursesConstants, { categories, CourseConstants } from "./_courses";
 
-const courses: Course[] = [
-  {
-    name: "Administering a SQL Database Infrastructure",
-    category: "Database",
-    institution: "microsoft",
-    certificationUrl: adminASqlDbInfra
-  },
-  {
-    name: "Agile Crash Course: Agile Project Management; Agile Delivery",
-    category: "Project Management",
-    institution: "udemy",
-    certificationUrl: agileCrashCourse
-  },
-  {
-    name: "Agile Fundamentals: Including Scrum and Kanban",
-    category: "Project Management",
-    institution: "udemy",
-    certificationUrl: agileFundamentals
-  },
-  {
-    name: "Citrix Application and Desktop Virtualization - 7.6",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: citrix
-  },
-  {
-    name: "Docker Crash Course for busy DevOps and Developers",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: docker
-  },
-  {
-    name: "Foundations of EDB v13",
-    category: "Database",
-    institution: "enterpriseDB"
-  },
-  {
-    name: "Information Security Awareness-ISO 27001:2013",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: iso
-  },
-  {
-    name: "Introduction to NumPy",
-    category: "Development",
-    institution: "dataCamp",
-    certificationUrl: introToNumPy
-  },
-  {
-    name: "Linux Administration Bootcamp: Go from Beginner to Advanced",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxBootcamp
-  },
-  {
-    name: "Linux Administration with Troubleshooting Skills: Hands-On",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxTroubleshoot
-  },
-  {
-    name: "Linux Mastery: Master the Linux Command Line in 11.5 Hours",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxMastery
-  },
-  {
-    name: "Linux Shell Scripting: A Project-Based Approach to Learning",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxShellScript
+type Course = CourseConstants & {
+  certificationUrl?: string
+}
 
-  },
-  {
-    name: "M001: MongoDB Basics",
-    category: "Database",
-    institution: "mongoDB",
-    certificationUrl: m001.src
-  },
-  {
-    name: "MySQL for Database Administrators",
-    category: "Database",
-    institution: "oracle",
-    certificationUrl: mysqlForDba
+const certifications: Record<string, string> = {
+  "Administering a SQL Database Infrastructure": adminASqlDbInfra,
+  "Agile Crash Course: Agile Project Management; Agile Delivery": agileCrashCourse,
+  "Agile Fundamentals: Including Scrum and Kanban": agileFundamentals,
+  "Citrix Application and Desktop Virtualization - 7.6": citrix,
+  "Docker Crash Course for busy DevOps and Developers": docker,
+  "Information Security Awareness-ISO 27001:2013": iso,
+  "Introduction to NumPy": introToNumPy,
+  "Linux Administration Bootcamp: Go from Beginner to Advanced": linuxBootcamp,
+  "Linux Administration with Troubleshooting Skills: Hands-On": linuxTroubleshoot,
+  "Linux Mastery: Master the Linux Command Line in 11.5 Hours": linuxMastery,
+  "Linux Shell Scripting: A Project-Based Approach to Learning": linuxShellScript,
+  "M001: MongoDB Basics": m001.src,
+  "MySQL for Database Administrators": mysqlForDba,
+  "OpenShift for the Absolute Beginners - Hands-on": openShift,
+  "Oracle DBA 11g/12c - Database Administration for Junior DBA": oracleDba,
+  "Oracle SQL Performance Tuning Masterclass": oracleTuning
+};
 
-  },
-  {
-    name: "OpenShift for the Absolute Beginners - Hands-on",
-    category: "Others",
-    institution: "udemy",
-    certificationUrl: openShift
+const courses: Course[] = coursesConstants.map(course => ({ ...course, certificationUrl: certifications[course.name] }));
 
-  },
-  {
-    name: "Oracle DBA 11g/12c - Database Administration for Junior DBA",
-    category: "Database",
-    institution: "udemy",
-    certificationUrl: oracleDba
-  },
-  {
-    name: "Oracle SQL Performance Tuning Masterclass",
-    category: "Development",
-    institution: "udemy",
-    certificationUrl: oracleTuning
-  },
-  {
-    name: "The Complete Oracle SQL Certification Course",
-    category: "Development",
-    institution: "udemy"
-  },
-  {
-    name: "Fundamentals of digital marketing",
-    category: "Others",
-    institution: "google"
-  }
-];
+courses.sort((c1, c2) => {
+  if (c1.name < c2.name) return -1;
+  if (c1.name > c2.name) return 1;
+  return 0;
+});
 
 export default courses;
+export { categories };

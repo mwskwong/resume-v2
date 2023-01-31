@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import Timeline from "@/components/shared/Timeline";
-import education from "@/constants/educations";
+import education from "@/constants/education";
 
 const EducationTimeline: FC = () => {
   const data = education

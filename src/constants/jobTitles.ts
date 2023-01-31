@@ -1,6 +1,4 @@
-import { JobTitle } from "@/types";
-
-const jobTitles: JobTitle[] = [
+const jobTitles = [
   "Frontend Dev",
   "System DBA"
 ];

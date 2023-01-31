@@ -1,5 +1,5 @@
-import courses, { categories } from "@/constants/courses";
-import education from "@/constants/educations";
+import courses, { categories } from "@/constants/_courses";
+import education from "@/constants/_education";
 import { EDUCATION } from "@/constants/nav";
 
 import viewports from "./viewports";
