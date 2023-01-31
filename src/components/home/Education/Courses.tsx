@@ -2,15 +2,20 @@ import { Stack, ToggleButton, ToggleButtonGroup, Typography, Unstable_Grid2 as G
 import { FC, MouseEvent, useState } from "react";
 
 import CertificateCard from "@/components/shared/CertificateCard";
-import courses, { categories } from "@/constants/courses";
+import categories from "@/constants/courseCategories";
+import courses from "@/constants/courses";
 
 import useSx from "./useCoursesSx";
 
 const Courses: FC = () => {
   const sx = useSx();
-  const [categorySelected, setCategorySelected] = useState("All");
+  const [categorySelected, setCategorySelected] = useState("");
 
-  const handleCategoryChange = (_: MouseEvent<HTMLElement>, category: string | null) => category && setCategorySelected(category);
+  const handleCategoryChange = (_: MouseEvent<HTMLElement>, category: string | null) => {
+    if(category !== null) {
+      setCategorySelected(category);
+    }
+  };
 
   return (
     <Stack spacing={2}>
@@ -25,7 +30,7 @@ const Courses: FC = () => {
         exclusive
         aria-label="course categories"
       >
-        <ToggleButton value="All" data-cy="All">All</ToggleButton>
+        <ToggleButton value="" data-cy="All">All</ToggleButton>
         {categories.map(category =>
           <ToggleButton key={category} value={category} data-cy={category}>
             {category}
@@ -35,7 +40,7 @@ const Courses: FC = () => {
       <div>
         <Grid container spacing={2}>
           {courses
-            .filter(({ category }) => categorySelected === "All" || category === categorySelected)
+            .filter(({ category }) => !categorySelected || category === categorySelected)
             .map(({ name, institution, certificationUrl }) => (
               <Grid key={name} xs={12} md={6}>
                 <CertificateCard

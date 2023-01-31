@@ -1,3 +1,5 @@
+import { SkillSet } from "@/types";
+
 export const frontend = [
   "React",
   "TypeScript",
@@ -45,3 +47,14 @@ export const mobile = [
   "NativeBase",
   "React Navigation"
 ];
+
+const skillSet: SkillSet = {
+  frontend,
+  database,
+  backend,
+  dataOps,
+  cloud,
+  mobile
+};
+
+export default skillSet;

@@ -1,14 +1,8 @@
-import { SupportingDocument } from "@/types";
+import hkuCsCert from "@/assets/documents/hku_cs.pdf";
+import hkuCsCertThumbnail from "@/assets/images/hku_cs_thumbnail.jpg";
+import { Education } from "@/types";
 
-export type EducationConstants = {
-  from: Date,
-  to: Date | "Present",
-  degree: string,
-  school: string,
-  supportingDocuments?: Required<Omit<SupportingDocument, "url" | "thumbnail">>[]
-}
-
-const education: EducationConstants[] = [
+const educations: Education[] = [
   {
     from: new Date(2022, 7),
     to: "Present",
@@ -22,10 +16,12 @@ const education: EducationConstants[] = [
     school: "The University of Hong Kong",
     supportingDocuments: [
       {
-        name: "Degree Certification"
+        name: "Degree Certification",
+        url: hkuCsCert,
+        thumbnail: hkuCsCertThumbnail
       }
     ]
   }
 ];
 
-export default education;
+export default educations;

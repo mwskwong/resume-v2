@@ -7,7 +7,7 @@ import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
 import selfIntro from "@/constants/selfIntro";
-import * as socialMedia from "@/constants/socialMedia";
+import socialMedia from "@/constants/socialMedia";
 
 const Head: FC = () => {
   const siteUrl = process.env.NEXT_PUBLIC_URL;

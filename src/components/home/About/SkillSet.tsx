@@ -9,7 +9,7 @@ import { Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } fr
 import { Database } from "mdi-material-ui";
 import { ElementType, FC, useMemo } from "react";
 
-import * as skillSet from "@/constants/skillSet";
+import skillSet from "@/constants/skillSet";
 
 import useSx from "./useSkillSetSx";
 

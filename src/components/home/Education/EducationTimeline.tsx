@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import Timeline from "@/components/shared/Timeline";
-import education from "@/constants/education";
+import educations from "@/constants/educations";
 
 const EducationTimeline: FC = () => {
-  const data = education
+  const data = educations
     .map(({ degree, school, ...node }) => ({
       title: degree,
       subtitle: school,
