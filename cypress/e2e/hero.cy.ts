@@ -10,14 +10,14 @@ describe("Hero section", () => {
   });
 
   describe("Title", () => {
-    it("is in 'I'm {firstName}' format", () => {
+    it("is in \"I'm {firstName}\" format", () => {
       cy.get("[data-cy='title']")
         .contains(`I'm ${firstName}`);
     });
   });
 
   describe("Subtitle", () => {
-    it("is {jobTitles} separated by ' & '", () => {
+    it("is {jobTitles} separated by \" & \"", () => {
       cy.get("[data-cy='subtitle']")
         .contains(jobTitles.join(" & "));
     });
