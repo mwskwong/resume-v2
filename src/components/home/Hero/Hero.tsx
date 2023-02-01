@@ -21,13 +21,13 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
       <Typography variant="subtitle1" component="p">
         Hello,
       </Typography>
-      <Typography variant="h1">
+      <Typography variant="h1" data-cy="title">
         {"I'm "}
         <Box component="span" sx={sx.name}>
           {firstName}
         </Box>
       </Typography>
-      <Typography variant="h6" component="p">
+      <Typography variant="h6" component="p" data-cy="subtitle">
         {jobTitles.join(" & ")}
       </Typography>
       <SocialMedia sx={sx.socialMedia} />
@@ -37,7 +37,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
         component="a"
         href={resume}
         target="_blank"
-        data-cy="resume"
+        data-cy="downloadResume"
       >
         Download Resume
       </Button>
