@@ -41,6 +41,7 @@ module.exports = {
       "error",
       "always"
     ],
+    "@typescript-eslint/member-delimiter-style": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/first": "error",

@@ -12,6 +12,7 @@ import { ElementType, FC } from "react";
 
 import skillSet from "@/constants/skillSet";
 import { SkillSet } from "@/types";
+import ObjectEntries from "@/utils/ObjectEntries";
 
 import useSx from "./useSkillSetSx";
 
@@ -34,7 +35,7 @@ const SkillSet: FC = () => {
         Skills
       </Typography>
       <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>
-        {Object.entries(skillSet).map(([category, { label, skills }]) => {
+        {ObjectEntries(skillSet).map(([category, { label, skills }]) => {
           const Icon = Icons[category as keyof SkillSet];
 
           return (
