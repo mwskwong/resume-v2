@@ -10,7 +10,7 @@ const StackOverflow: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx();
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="stackOverflowIcon" {...props}>
       <path d={siStackoverflow.path} />
     </SvgIcon>
   );
