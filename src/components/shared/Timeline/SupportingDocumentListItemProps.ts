@@ -2,7 +2,7 @@ import { SupportingDocument } from "@/types";
 
 import TimelineItemData from "./TimelineItemData";
 
-type SupportingDocumentListItemProps = {
+interface SupportingDocumentListItemProps {
   title: TimelineItemData["title"];
   supportingDocument: SupportingDocument;
 }

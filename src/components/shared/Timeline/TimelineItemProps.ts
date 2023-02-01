@@ -1,6 +1,6 @@
 import TimelineItemData from "./TimelineItemData";
 
-type TimelineItemProps = {
+interface TimelineItemProps {
   data: TimelineItemData;
 }
 

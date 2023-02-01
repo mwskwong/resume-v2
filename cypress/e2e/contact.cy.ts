@@ -79,7 +79,7 @@ describe("Contact", () => {
           cy.get("[data-cy='contact']").find("[type='submit']").should("have.class", "MuiLoadingButton-loading");
 
           cy.wait("@formSubmission").then(interception =>
-            expect(interception?.response?.body?.ok).be.true
+            expect(interception.response?.body?.ok).be.true
           );
           cy.get("[data-cy='contact']")
             .find("[type='submit']")

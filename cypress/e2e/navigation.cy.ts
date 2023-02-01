@@ -1,4 +1,5 @@
-import nav, { Section } from "@/constants/nav";
+import nav from "@/constants/nav";
+import { Section } from "@/types";
 
 import viewports from "./viewports";
 
@@ -42,7 +43,7 @@ describe("Navigation", () => {
         testNavElement(section, "NavButton");
       });
 
-      describe(`${name} nav list item`, viewports.mobile,() => {
+      describe(`${name} nav list item`, viewports.mobile, () => {
         beforeEach(() => cy.get("[data-cy='menuButton']").click());
         testNavElement(section, "NavListItem");
       });

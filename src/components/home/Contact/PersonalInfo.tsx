@@ -2,6 +2,7 @@ import { EmailRounded as Email, LocationOnRounded as Location, SmartphoneRounded
 import { Box, Stack, Typography } from "@mui/material";
 
 import contact from "@/constants/contact";
+import { Contact } from "@/types";
 
 import useSx from "./usePersonalInfoSx";
 
@@ -29,13 +30,7 @@ const PersonalInfo = () => {
   return (
     <Stack spacing={3} sx={sx.root}>
       {
-        (
-          Object.entries(contactTemplate) as
-          [
-            keyof typeof contactTemplate,
-            typeof contactTemplate[keyof typeof contactTemplate]
-          ][]
-        ).map(([key, { Icon, title, urlPrefix }]) => (
+        Object.entries(contactTemplate).map(([key, { Icon, title, urlPrefix }]) => (
           <Box key={key} sx={sx.itemContainer}>
             <Icon fontSize="large" />
             <Typography component="div" sx={sx.title} gutterBottom>
@@ -44,9 +39,9 @@ const PersonalInfo = () => {
             <Typography
               sx={sx.value}
               component={urlPrefix ? "a" : "div"}
-              href={urlPrefix && `${urlPrefix}${contact?.[key]}`}
+              href={urlPrefix && `${urlPrefix}${contact[key as keyof Contact]}`}
             >
-              {contact?.[key]}
+              {contact[key as keyof Contact]}
             </Typography>
           </Box>
         ))

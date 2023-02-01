@@ -1,23 +1,19 @@
-import { Card, CardActionArea, CardContent, CardProps, SvgIconProps, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, SvgIconProps, Typography } from "@mui/material";
 import { ElementType, FC } from "react";
 
-import DataCamp from "../icons/DataCamp";
-import EnterpriseDB from "../icons/EnterpriseDB";
-import Google from "../icons/Google";
-import Microsoft from "../icons/Microsoft";
-import MongoDB from "../icons/MongoDB";
-import Oracle from "../icons/Oracle";
-import Udemy from "../icons/Udemy";
+import DataCamp from "@/components/shared/icons/DataCamp";
+import EnterpriseDB from "@/components/shared/icons/EnterpriseDB";
+import Google from "@/components/shared/icons/Google";
+import Microsoft from "@/components/shared/icons/Microsoft";
+import MongoDB from "@/components/shared/icons/MongoDB";
+import Oracle from "@/components/shared/icons/Oracle";
+import Udemy from "@/components/shared/icons/Udemy";
+import { Course } from "@/types";
+
+import CertificateCardProps from "./CertificateCardProps";
 import useSx from "./useSx";
 
-type CertificateCardProps = CardProps & {
-  name: string;
-  organization: string;
-  status?: string;
-  certificationUrl?: string;
-}
-
-const Icons: Record<string, ElementType<SvgIconProps>> = {
+const Icons: Record<Course["institution"], ElementType<SvgIconProps>> = {
   microsoft: Microsoft,
   oracle: Oracle,
   udemy: Udemy,
@@ -29,10 +25,10 @@ const Icons: Record<string, ElementType<SvgIconProps>> = {
 
 const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status, certificationUrl, ...props }) => {
   const sx = useSx(organization);
-  const Icon = Icons[organization];
+  const Icon = Icons[organization as Course["institution"]];
   const cardContent = (
     <CardContent sx={sx.cardContent}>
-      {Icon && <Icon fontSize="large" sx={sx.icon} />}
+      <Icon fontSize="large" sx={sx.icon} />
       <div>
         <Typography>{name}</Typography>
         <Typography sx={sx.organization}>{organization}</Typography>

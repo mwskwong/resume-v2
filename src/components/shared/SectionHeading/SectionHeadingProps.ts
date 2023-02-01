@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-type SectionHeadingProps = {
+interface SectionHeadingProps {
   heading: string;
   icon?: ReactNode;
 }

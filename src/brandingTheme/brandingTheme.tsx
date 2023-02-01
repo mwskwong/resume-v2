@@ -324,8 +324,7 @@ const brandingTheme = extendTheme({
   }
 });
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: dark theme is not needed
+// @ts-expect-error: dark theme is not needed
 delete brandingTheme.colorSchemes.dark;
 
 export default brandingTheme;

@@ -1,6 +1,6 @@
 import { SupportingDocument } from "@/types";
 
-type TimelineItemData = {
+interface TimelineItemData {
   from?: Date;
   to?: Date | "Present";
   title?: string;

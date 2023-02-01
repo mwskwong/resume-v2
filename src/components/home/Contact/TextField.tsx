@@ -4,7 +4,7 @@ import { Control, useController } from "react-hook-form";
 
 import FormValues from "./FormValues";
 
-type TextFieldProps = {
+interface TextFieldProps {
   name: keyof FormValues;
   control: Control<FormValues>;
   label: MuiTextFieldProps["label"];

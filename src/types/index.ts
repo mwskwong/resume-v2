@@ -5,30 +5,35 @@ import courseCategories from "@/constants/courseCategories";
 
 export type SectionId = "home" | "about" | "experience" | "education" | "contact"
 
-export type SectionProps = {
+export interface Section {
+  id: SectionId;
+  name: string;
+}
+
+export interface SectionProps {
   sx?: SxProps<Theme>;
 }
 
-export type SupportingDocument = {
+export interface SupportingDocument {
   name?: string;
   url?: string;
   thumbnail?: StaticImageData;
 }
 
-export type Contact = {
+export interface Contact {
   phone: string;
   email: string;
   address: string;
 }
 
-export type Course = {
+export interface Course {
   name: string;
   category: typeof courseCategories[number];
   institution: "microsoft" | "udemy" | "enterpriseDB" | "mongoDB" | "dataCamp" | "oracle" | "google";
   certificationUrl?: string;
 }
 
-export type Education = {
+export interface Education {
   from: Date;
   to: Date | "Present";
   degree: string;
@@ -36,7 +41,7 @@ export type Education = {
   supportingDocuments?: Required<SupportingDocument>[];
 }
 
-export type Experience = {
+export interface Experience {
   from: Date;
   to: Date | "Present";
   jobTitle: string;
@@ -47,7 +52,7 @@ export type Experience = {
 
 export type JobTitle = string
 
-export type Name = {
+export interface Name {
   firstName: string;
   middleName: string;
   lastName: string;
@@ -55,7 +60,7 @@ export type Name = {
 
 export type SelfIntro = string
 
-export type SkillSet = {
+export interface SkillSet {
   frontend: {
     label: string;
     skills: string[];
@@ -86,7 +91,7 @@ export type SkillSet = {
   };
 }
 
-export type SocialMedia = {
+export interface SocialMedia {
   gitHub: string;
   linkedIn: string;
   stackOverflow: string;

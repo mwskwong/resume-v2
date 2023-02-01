@@ -13,7 +13,7 @@ const useActiveSectionId = (): SectionId => {
   const [activeSectionId, setActiveSectionId] = useState(HOME.id);
 
   useEffect(() => {
-    const initId = window.location.hash?.slice(1);
+    const initId = window.location.hash.slice(1);
 
     if (isSectionId(initId)) setActiveSectionId(initId);
 

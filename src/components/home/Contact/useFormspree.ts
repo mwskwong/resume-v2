@@ -4,11 +4,11 @@ import { SubmitHandler } from "react-hook-form";
 
 import FormValues from "./FormValues";
 
-type FormError = Omit<FormspreeFormError, "code"> & {
+interface FormError extends Omit<FormspreeFormError, "code"> {
   code: FormspreeFormError["code"] | "FETCH_ERROR";
 }
 
-type FormState = {
+interface FormState {
   submitting: boolean;
   succeeded: boolean;
   errors: FormError[];

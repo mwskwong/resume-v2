@@ -41,7 +41,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           {data.subtitle}
         </Typography>
         <List disablePadding component="ol">
-          {data.contents && data.contents.map((content, index) => (
+          {data.contents?.map((content, index) => (
             <ListItem key={index} disableGutters>
               <ListItemIcon sx={sx.listItemIcon}>
                 <Typography component="span" sx={sx.listItemNumber}>
@@ -53,7 +53,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           ))}
         </List>
         <List disablePadding>
-          {data.supportingDocuments && data.supportingDocuments.map((supportingDocument, index) => (
+          {data.supportingDocuments?.map((supportingDocument, index) => (
             <SupportingDocumentListItem
               key={index}
               title={data.title}

@@ -1,6 +1,6 @@
 import { SxProps, Theme } from "@mui/material";
 
-type SocialMediaProps = {
+interface SocialMediaProps {
   sx?: SxProps<Theme>;
 }
 
