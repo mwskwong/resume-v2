@@ -11,10 +11,10 @@ import Udemy from "../icons/Udemy";
 import useSx from "./useSx";
 
 type CertificateCardProps = CardProps & {
-  name: string,
-  organization: string,
-  status?: string,
-  certificationUrl?: string
+  name: string;
+  organization: string;
+  status?: string;
+  certificationUrl?: string;
 }
 
 const Icons: Record<string, ElementType<SvgIconProps>> = {

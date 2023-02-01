@@ -5,13 +5,13 @@ import { SubmitHandler } from "react-hook-form";
 import FormValues from "./FormValues";
 
 type FormError = Omit<FormspreeFormError, "code"> & {
-  code: FormspreeFormError["code"] | "FETCH_ERROR"
+  code: FormspreeFormError["code"] | "FETCH_ERROR";
 }
 
 type FormState = {
-  submitting: boolean
-  succeeded: boolean
-  errors: FormError[]
+  submitting: boolean;
+  succeeded: boolean;
+  errors: FormError[];
 }
 
 type UseFormSpree = (formKey: string) => [

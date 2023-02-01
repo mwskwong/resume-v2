@@ -5,13 +5,13 @@ import { Control, useController } from "react-hook-form";
 import FormValues from "./FormValues";
 
 type TextFieldProps = {
-  name: keyof FormValues,
-  control: Control<FormValues>,
-  label: MuiTextFieldProps["label"],
-  autoComplete?: MuiTextFieldProps["autoComplete"],
-  multiline?: MuiTextFieldProps["multiline"],
-  rows?: MuiTextFieldProps["rows"],
-  disabled?: MuiTextFieldProps["disabled"]
+  name: keyof FormValues;
+  control: Control<FormValues>;
+  label: MuiTextFieldProps["label"];
+  autoComplete?: MuiTextFieldProps["autoComplete"];
+  multiline?: MuiTextFieldProps["multiline"];
+  rows?: MuiTextFieldProps["rows"];
+  disabled?: MuiTextFieldProps["disabled"];
 }
 
 /**

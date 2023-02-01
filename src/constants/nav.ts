@@ -1,8 +1,8 @@
 import { SectionId } from "@/types";
 
 export type Section = {
-  id: SectionId,
-  name: string
+  id: SectionId;
+  name: string;
 }
 
 export const HOME: Section = { id: "home", name: "Home" };

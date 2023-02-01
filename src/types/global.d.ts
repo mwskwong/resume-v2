@@ -3,10 +3,10 @@ import { FC, SVGProps } from "react";
 declare global {
   declare namespace NodeJS {
     interface ProcessEnv {
-      NEXT_PUBLIC_URL: string
-      NEXT_PUBLIC_FORM: string
-      ANALYZE_BUNDLE: 1 | 0
-      VERCEL_ENV: "preview" | "production" | "development"
+      NEXT_PUBLIC_URL: string;
+      NEXT_PUBLIC_FORM: string;
+      ANALYZE_BUNDLE: 1 | 0;
+      VERCEL_ENV: "preview" | "production" | "development";
     }
   }
 
@@ -24,7 +24,7 @@ declare global {
 
   namespace Cypress {
     interface Chainable {
-      disableSmoothScroll(): Chainable<void>
+      disableSmoothScroll(): Chainable<void>;
     }
   }
 }
