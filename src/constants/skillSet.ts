@@ -11,7 +11,6 @@ export const frontend = [
   "Quasar",
   "Vuex",
   "Pinia",
-  "Cypress",
   "Gatsby",
   "React Router",
   "React Hook Form",
@@ -33,6 +32,10 @@ export const backend = [
   "Express"
 ];
 
+export const qa = [
+  "Cypress"
+];
+
 export const dataOps = [
   "Delphix"
 ];
@@ -49,12 +52,34 @@ export const mobile = [
 ];
 
 const skillSet: SkillSet = {
-  frontend,
-  database,
-  backend,
-  dataOps,
-  cloud,
-  mobile
+  frontend: {
+    label: "Frontend",
+    skills: frontend
+  },
+  database: {
+    label: "Database",
+    skills: database
+  },
+  backend: {
+    label: "Backend",
+    skills: backend
+  },
+  qa: {
+    label: "QA",
+    skills: qa
+  },
+  dataOps: {
+    label: "DataOps",
+    skills: dataOps
+  },
+  cloud: {
+    label: "Cloud",
+    skills: cloud
+  },
+  mobile: {
+    label: "Mobile",
+    skills: mobile
+  }
 };
 
 export default skillSet;

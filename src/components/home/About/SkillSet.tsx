@@ -1,5 +1,6 @@
 import {
   AllInclusiveRounded as AllInclusive,
+  BugReportRounded as BugReport,
   CloudRounded as Cloud,
   DashboardRounded as Dashboard,
   DevicesOtherRounded as DevicesOther,
@@ -7,44 +8,41 @@ import {
 } from "@mui/icons-material";
 import { Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import { Database } from "mdi-material-ui";
-import { ElementType, FC, useMemo } from "react";
+import { ElementType, FC } from "react";
 
 import skillSet from "@/constants/skillSet";
+import { SkillSet } from "@/types";
 
 import useSx from "./useSkillSetSx";
 
-const Icons: Record<string, ElementType<SvgIconProps>> = {
+const Icons: Record<keyof SkillSet, ElementType<SvgIconProps>> = {
   backend: Terminal,
   cloud: Cloud,
   dataOps: AllInclusive,
   database: Database,
   frontend: Dashboard,
+  qa: BugReport,
   mobile: DevicesOther
 };
 
 const SkillSet: FC = () => {
   const sx = useSx();
-  const skillSetGroupedSorted = useMemo(
-    () => Object.entries(skillSet)
-      .sort(([, skillsInCat1], [, skillsInCat2]) => skillsInCat2.length - skillsInCat1.length),
-    []
-  );
 
   return (
     <div>
       <Typography component="h3" sx={sx.title}>
         Skills
       </Typography>
-      <Grid container spacing={6} disableEqualOverflow>
-        {skillSetGroupedSorted.map(([category, skills]) => {
-          const Icon = Icons[category];
+      <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>
+        {Object.entries(skillSet).map(([category, { label, skills }]) => {
+          const Icon = Icons[category as keyof SkillSet];
 
           return (
             <Grid key={category} xs={12} sm={6} lg={4}>
               <Stack spacing={2} sx={sx.stack}>
                 <Icon sx={sx.icon} />
                 <Typography component="h4" sx={sx.subtitle}>
-                  {category}
+                  {label}
                 </Typography>
                 <Box sx={sx.skillsContainer}>
                   {skills.map(skill => (

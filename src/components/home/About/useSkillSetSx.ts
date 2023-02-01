@@ -7,6 +7,9 @@ const useSx = () => makeSx({
     textAlign: "center",
     mb: 2
   },
+  grid: {
+    justifyContent: "center"
+  },
   stack: {
     alignItems: "center"
   },
@@ -15,8 +18,7 @@ const useSx = () => makeSx({
   },
   subtitle: {
     typography: "subtitle1",
-    color: "primary.main",
-    textTransform: "capitalize"
+    color: "primary.main"
   },
   skillsContainer: {
     display: "flex",
