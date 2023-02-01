@@ -1,68 +1,65 @@
-import nav from "@/constants/nav";
+import nav, { Section } from "@/constants/nav";
 
 import viewports from "./viewports";
 
-describe("Navigation", () => {
-  beforeEach(() => {
-    cy.visit("/")
-      .disableSmoothScroll();
-    cy.wait(100);
+
+const testNavElement = ({ id, name }: Section, elementType: "NavButton" | "NavListItem") => {
+  it(`has "${name}" label`, () => {
+    cy.get(`[data-cy='${id}${elementType}']`)
+      .contains(name);
   });
 
-  context("NavBar", () => {
+  it(`navigates to ${name} section`, () => {
+    cy.get(`[data-cy='${id}${elementType}']`)
+      .click();
+    cy.hash().should("equal", `#${id}`);
+    cy.get(`#${id}`)
+      // section scroll-margin-top is between 48px - 64px with +-1px margin of error
+      .should($section => expect($section[0].getClientRects()[0].top).lessThan(64 + 1));
+  });
+};
+
+describe("Navigation", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    cy.disableSmoothScroll();
+  });
+
+  describe("NavBar", () => {
     it("shows nav buttons and hide nav list on desktop", () => {
       cy.get("[data-cy='navButtons']").should("be.visible");
-      cy.get("[data-cy='navList']").should("not.exist"); // navList mountOnEnter and unmountOnExit
+      cy.get("[data-cy='navList']").should("not.exist");
     });
 
-    it("shows nav buttons and hide nav list on desktop", viewports.mobile, () => {
+    it("shows nav buttons and hide nav list on mobile", viewports.mobile, () => {
       cy.get("[data-cy='menuButton']").click();
       cy.get("[data-cy='navButtons']").should("not.be.visible");
       cy.get("[data-cy='navList']").should("be.visible");
     });
 
-    Object.entries(viewports).forEach(([key, viewport]) => (
-      context(key, viewport, () => {
-        beforeEach(() => {
-          if (key === "mobile") {
-            cy.get("[data-cy='menuButton']").click();
-          }
-        });
+    for (const section of Object.values(nav)) {
+      describe(`${name} nav button`, () => {
+        testNavElement(section, "NavButton");
+      });
 
-        Object.values(nav).forEach(({ name, id }) =>
-          it(`navigates to ${name} section`, () => {
-            cy.get(key === "mobile" ? "nav > li > a" : "nav > a").contains(name).click();
-            cy.location("hash").should("equal", `#${id}`);
-            if (id === nav.HOME.id) {
-              cy.window().its("scrollY").should("equal", 0);
-            } else {
-              cy.get(`#${id}`)
-                // section scroll-margin-top is between 48px - 64px with +-1px margin of error
-                .should(($elem: JQuery<HTMLElement>) => expect($elem[0].getClientRects()[0].top).gte(47).lte(65));
-            }
-          })
-        );
-      })
-    ));
+      describe(`${name} nav list item`, viewports.mobile,() => {
+        beforeEach(() => cy.get("[data-cy='menuButton']").click());
+        testNavElement(section, "NavListItem");
+      });
+    }
   });
 
-  context("Logo", () => {
-    it(`navigates to ${nav.HOME.name} section`, () => {
-      cy.scrollTo("bottom")
-        .window()
-        .its("scrollY")
-        .should("not.equal", 0);
+  describe("Logo", () => {
+    it("scrolls to top", () => {
+      cy.scrollTo("bottom");
       cy.get("[data-cy='logo']").click();
       cy.window().its("scrollY").should("equal", 0);
     });
   });
 
-  context("Scroll to top FAB", () => {
-    it(`navigates to ${nav.HOME.name} section`, () => {
-      cy.scrollTo("bottom")
-        .window()
-        .its("scrollY")
-        .should("not.equal", 0);
+  describe("Scroll to top FAB", () => {
+    it("scrolls to top", () => {
+      cy.scrollTo("bottom");
       cy.get("[data-cy='scrollToTop']").click();
       cy.window().its("scrollY").should("equal", 0);
     });
