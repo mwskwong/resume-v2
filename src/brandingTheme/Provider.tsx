@@ -7,7 +7,7 @@ import brandingTheme from "./brandingTheme";
 
 const Provider: FC<ComponentProps<typeof CssVarsProvider>> = ({ children, ...props }) => (
   <>
-    {/* FIXME: Hydration warning when using this script */}
+    {/* FIXME: Hydration warning show up in develop build when using this script */}
     {getInitColorSchemeScript()}
     <CssVarsProvider theme={brandingTheme} disableTransitionOnChange {...props}>
       <CssBaseline />

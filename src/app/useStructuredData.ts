@@ -1,0 +1,75 @@
+import { BreadcrumbList, Graph, Person, WebPage } from "schema-dts";
+
+import { address, email, phone } from "@/constants/contact";
+import jobTitles from "@/constants/jobTitles";
+import { firstName, lastName } from "@/constants/name";
+import { ABOUT } from "@/constants/nav";
+import selfIntro from "@/constants/selfIntro";
+import socialMedia from "@/constants/socialMedia";
+
+const useStructuredData = () => {
+  const siteUrl = process.env.NEXT_PUBLIC_URL;
+  const fullName = `${firstName} ${lastName}`;
+  const jobTitle = jobTitles.join(" & ");
+  const siteTitle = `${fullName} - ${jobTitle}`;
+  const socialMediaLinks = Object.values(socialMedia);
+
+  const personSchema: Person = {
+    "@type": "Person",
+    name: fullName,
+    gender: "Male",
+    jobTitle,
+    description: selfIntro,
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: address
+    },
+    email,
+    image: `${siteUrl}/api/og`,
+    telephone: phone,
+    url: siteUrl,
+    sameAs: socialMediaLinks
+  };
+
+  const breadcrumbListSchema: BreadcrumbList = {
+    "@type": "BreadcrumbList",
+    name: "Breadcrumbs",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        item: {
+          "@id": siteUrl,
+          name: "Homepage"
+        },
+        position: 1
+      }
+    ]
+  };
+
+  const webpageSchema: WebPage = {
+    "@type": "WebPage",
+    author: `${siteUrl}/#${ABOUT.id}`,
+    copyrightHolder: `${siteUrl}/#${ABOUT.id}`,
+    copyrightYear: 2020,
+    description: selfIntro,
+    headline: siteTitle,
+    image: `${siteUrl}/api/og`,
+    inLanguage: "en",
+    mainEntityOfPage: selfIntro,
+    name: siteTitle,
+    url: siteUrl
+  };
+
+  const graph: Graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      personSchema,
+      webpageSchema,
+      breadcrumbListSchema
+    ]
+  };
+
+  return graph;
+};
+
+export default useStructuredData;
