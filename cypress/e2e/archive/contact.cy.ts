@@ -2,7 +2,7 @@ import { formHelperTextClasses } from "@mui/material";
 
 import { CONTACT } from "@/constants/nav";
 
-import { defaultHelperText, errorMessages, validEmail } from "../fixtures/contact.json";
+import { defaultHelperText, errorMessages, validEmail } from "cypress/fixtures/contact.json";
 
 describe("Contact", () => {
   beforeEach(() => {
