@@ -1,4 +1,5 @@
 import { defineConfig } from "cypress";
+import viewports from "cypress/e2e/viewports";
 
 export default defineConfig({
   projectId: "bzfyrk",
@@ -6,7 +7,6 @@ export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:3000",
     scrollBehavior: "center",
-    viewportWidth: 1920,
-    viewportHeight: 1080
+    ...viewports.desktop
   }
 });
