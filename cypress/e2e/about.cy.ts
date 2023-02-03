@@ -10,7 +10,7 @@ describe("About section", () => {
 
   for (const viewportType in viewports) {
     const viewport = viewports[viewportType as keyof typeof viewports];
-    describe(`${viewportType} view`, viewport, () => {
+    describe(`${Cypress._.capitalize(viewportType)} view`, viewport, () => {
       describe("Navigation", () => {
         it(`navigates to section through "/#${ABOUT.id}" path`, () => {
           cy.verifySectionIsInViewport(ABOUT);

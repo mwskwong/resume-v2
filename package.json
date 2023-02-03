@@ -8,7 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "test": "cypress run --browser chrome"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
