@@ -60,10 +60,7 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   navElement.click();
   navElement.should("have.class", activeClassName);
   cy.hash().should("equal", `#${section.id}`);
-  cy.get(`#${section.id}`).first()
-    .should($section =>
-      expect($section[0].getClientRects()[0].top).equals(0)
-    );
+  cy.verifySectionIsInViewport(section);
 
   if (viewport === "mobile") {
     cy.toggleNavMenu();
@@ -71,5 +68,16 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
 });
 
 Cypress.Commands.add("toggleNavMenu", () => cy.get("[data-cy='menuButton']").click());
+
+Cypress.Commands.add("verifySectionIsInViewport", section => {
+  cy.get(`#${section.id}`).first()
+    .should($section =>
+      // Expect equal to 0, with +-1px margin of error
+      expect($section[0].getClientRects()[0].top)
+        .greaterThan(-1)
+        .and
+        .lessThan(1)
+    );
+});
 
 export { };

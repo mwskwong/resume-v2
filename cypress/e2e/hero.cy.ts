@@ -16,18 +16,12 @@ describe("Hero section", () => {
     describe(`${viewportType} view`, viewport, () => {
       describe("Navigation", () => {
         it("navigates to section through \"/\" path", () => {
-          cy.get(`#${HOME.id}`).first()
-            .should($section =>
-              expect($section[0].getClientRects()[0].top).equals(0)
-            );
+          cy.verifySectionIsInViewport(HOME);
         });
 
         it(`navigates to section through "/#${HOME.id}" path`, () => {
           cy.visit(`/#${HOME.id}`);
-          cy.get(`#${HOME.id}`).first()
-            .should($section =>
-              expect($section[0].getClientRects()[0].top).equals(0)
-            );
+          cy.verifySectionIsInViewport(HOME);
         });
 
         it("navigates to section by clicking navigation link", () => {
@@ -38,19 +32,13 @@ describe("Hero section", () => {
         it("navigates to section by clicking Logo", () => {
           cy.scrollTo("center");
           cy.get("[data-cy='logo']").click();
-          cy.get(`#${HOME.id}`).first()
-            .should($section =>
-              expect($section[0].getClientRects()[0].top).equals(0)
-            );
+          cy.verifySectionIsInViewport(HOME);
         });
 
         it("navigates to section by clicking Scroll to Top FAB", () => {
           cy.scrollTo("center");
           cy.get("[data-cy='scrollToTop']").click();
-          cy.get(`#${HOME.id}`).first()
-            .should($section =>
-              expect($section[0].getClientRects()[0].top).equals(0)
-            );
+          cy.verifySectionIsInViewport(HOME);
         });
       });
 

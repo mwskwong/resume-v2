@@ -28,6 +28,7 @@ declare global {
       disableSmoothScroll: () => Chainable<void>;
       toggleNavMenu: () => Chainable<JQuery>;
       navigateToSection: (section: Section, viewport: keyof typeof viewports) => Chainable<void>;
+      verifySectionIsInViewport: (section:Section) => Chainable<void>;
     }
   }
 }
