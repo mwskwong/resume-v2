@@ -1,7 +1,7 @@
+import viewports from "cypress/e2e/viewports";
+
 import nav from "@/constants/nav";
 import { Section } from "@/types";
-
-import viewports from "./viewports";
 
 
 const testNavElement = ({ id, name }: Section, elementType: "NavButton" | "NavListItem") => {
