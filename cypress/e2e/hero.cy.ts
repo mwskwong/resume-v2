@@ -1,6 +1,6 @@
 
 import jobTitles from "@/constants/jobTitles";
-import { firstName } from "@/constants/name";
+import { firstName, lastName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
 import socialMedia from "@/constants/socialMedia";
 
@@ -73,7 +73,7 @@ describe("Hero section", () => {
                 .should("be.visible")
                 .and("have.attr", "target", "_blank")
                 .and("have.attr", "href", link);
-                
+
               cy.request({ url: link, failOnStatusCode: false })
                 .should(response => {
                   expect(
@@ -93,22 +93,21 @@ describe("Hero section", () => {
             .contains("Download Resume");
         });
 
-        
+
         it("links to the resume PDF and opens it in a new tab", () => {
           const downloadResumeButton = cy.get("[data-cy='downloadResume']");
           downloadResumeButton
             .should("have.attr", "target", "_blank")
-            .invoke("removeAttr", "target")
             .click();
 
-          // downloadResumeButton
-          //   .invoke("attr", "href")
-          //   .then(href => {
-          //     const filename = href?.split("/").slice(-1);
-          //     cy.readFile(`./cypress/downloads/${filename}`)
-          //       .should("contain", "%PDF-")
-          //       .and("contain", `Resume of ${firstName} ${lastName}`);
-          //   });
+          downloadResumeButton
+            .invoke("attr", "href")
+            .then(href => {
+              const filename = href?.split("/").slice(-1);
+              cy.readFile(`./cypress/downloads/${filename}`)
+                .should("contain", "%PDF-")
+                .and("contain", `Resume of ${firstName} ${lastName}`);
+            });
         });
       });
     });
