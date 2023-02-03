@@ -24,7 +24,7 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
       <Container>
         <Stack sx={sx.stack} spacing={6}>
           <SectionHeader 
-            data-cy="aboutHeader"
+            data-cy={`${ABOUT.id}SectionHeader`}
             heading="About" 
             icon={<Person />}
           />
