@@ -1,5 +1,3 @@
-import { FC, SVGProps } from "react";
-
 declare global {
   declare namespace NodeJS {
     interface ProcessEnv {
@@ -17,14 +15,21 @@ declare global {
   }
 
   declare module "*.svg" {
-    const ReactComponent: FC<SVGProps<SVGSVGElement>>;
+    import { FC, SVGProps } from "react";
 
+    const ReactComponent: FC<SVGProps<SVGSVGElement>>;
     export default ReactComponent;
   }
 
   namespace Cypress {
+    import viewports from "cypress/e2e/viewports";
+
+    import { Section } from ".";
+
     interface Chainable {
-      disableSmoothScroll(): Chainable<void>;
+      disableSmoothScroll: () => Chainable<void>;
+      toggleNavMenu: () => Chainable<JQuery>;
+      navigateToSection: (section: Section, viewport: keyof typeof viewports) => Chainable<void>;
     }
   }
 }
