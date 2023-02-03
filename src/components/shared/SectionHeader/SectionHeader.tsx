@@ -1,10 +1,10 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { FC } from "react";
 
-import SectionHeadingProps from "./SectionHeadingProps";
+import SectionHeaderProps from "./SectionHeaderProps";
 import useSx from "./useSx";
 
-const SectionHeading: FC<SectionHeadingProps> = ({ heading, icon }) => {
+const SectionHeader: FC<SectionHeaderProps> = ({ heading, icon }) => {
   const sx = useSx();
 
   return (
@@ -21,6 +21,6 @@ const SectionHeading: FC<SectionHeadingProps> = ({ heading, icon }) => {
   );
 };
 
-if (process.env.NODE_ENV === "development") SectionHeading.whyDidYouRender = true;
+if (process.env.NODE_ENV === "development") SectionHeader.whyDidYouRender = true;
 
-export default SectionHeading;
+export default SectionHeader;

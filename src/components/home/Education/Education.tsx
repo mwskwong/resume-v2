@@ -4,7 +4,7 @@ import { SchoolRounded as School } from "@mui/icons-material";
 import { Box, Container, Stack } from "@mui/material";
 import { FC } from "react";
 
-import SectionHeading from "@/components/shared/SectionHeading";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { EDUCATION } from "@/constants/nav";
 import { SectionProps } from "@/types";
 
@@ -15,7 +15,7 @@ const Education: FC<SectionProps> = ({ sx }) => (
   <Box component="section" id={EDUCATION.id} sx={sx}>
     <Container>
       <Stack spacing={6}>
-        <SectionHeading heading="Education" icon={<School />} />
+        <SectionHeader heading="Education" icon={<School />} />
         <EducationTimeline />
         <Courses />
       </Stack>

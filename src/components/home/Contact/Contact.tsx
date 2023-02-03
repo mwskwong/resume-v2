@@ -8,7 +8,7 @@ import { object, string } from "nope-validator";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-import SectionHeading from "@/components/shared/SectionHeading";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { CONTACT } from "@/constants/nav";
 import { SectionProps } from "@/types";
 
@@ -42,7 +42,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sxProp} component="section" id={CONTACT.id}>
       <Container>
         <Stack spacing={6}>
-          <SectionHeading heading="Contact" icon={<Phone />} />
+          <SectionHeader heading="Contact" icon={<Phone />} />
           <form onSubmit={handleSubmit(handleFormspreeSubmit)} data-cy="contact">
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>

@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
-interface SectionHeadingProps {
+interface SectionHeaderProps {
   heading: string;
   icon?: ReactNode;
 }
 
-export default SectionHeadingProps;
+export default SectionHeaderProps;

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import personalPhoto from "@/assets/images/personal_photo.jpg";
-import SectionHeading from "@/components/shared/SectionHeading";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
 import { SectionProps } from "@/types";
@@ -23,7 +23,11 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sxProp} component="section" id={ABOUT.id}>
       <Container>
         <Stack sx={sx.stack} spacing={6}>
-          <SectionHeading heading="About" icon={<Person />} />
+          <SectionHeader 
+            data-cy="aboutHeader"
+            heading="About" 
+            icon={<Person />}
+          />
           <Image
             src={personalPhoto}
             alt={`Picture of ${firstName} ${lastName}`}
