@@ -20,11 +20,10 @@ jobs:
       - name: UI Tests - Chrome
         uses: cypress-io/github-action@v4
         with:
-          headed: true
           browser: chrome
           record: true
           parallel: true
-          group: "UI - Chrome"
+          group: "UI - Chrome Headless"
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
