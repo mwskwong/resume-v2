@@ -1,6 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require("path");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: process.env.ANALYZE_BUNDLE === "true" });
+import NextBundleAnalyzer from "@next/bundle-analyzer";
+import { resolve } from "path";
+
+const withBundleAnalyzer = NextBundleAnalyzer({
+  enabled: process.env.ANALYZE_BUNDLE === "true"
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,7 +11,7 @@ const nextConfig = {
   compiler: {
     // FIXME: until emotion option supports /app dir
     // emotion: true,
-    removeConsole: {
+    removeConsole: process.env.NODE_ENV === "production" && {
       exclude: ["error"]
     },
     reactRemoveProperties: process.env.VERCEL_ENV === "production" && {
@@ -36,7 +39,7 @@ const nextConfig = {
     if (dev && !isServer) {
       const originalEntry = config.entry;
       config.entry = async () => {
-        const wdrPath = path.resolve(__dirname, "src/utils/wdyr.ts");
+        const wdrPath = resolve(__dirname, "src/utils/wdyr.ts");
         const entries = await originalEntry();
 
         if (entries["main.js"] && !entries["main.js"].includes(wdrPath)) {
@@ -86,4 +89,4 @@ const nextConfig = {
   }
 };
 
-module.exports = withBundleAnalyzer(nextConfig);
+export default withBundleAnalyzer(nextConfig);
