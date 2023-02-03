@@ -1,3 +1,8 @@
+import viewports from "cypress/e2e/viewports";
+import { FC, SVGProps } from "react";
+
+import { Section } from ".";
+
 declare global {
   declare namespace NodeJS {
     interface ProcessEnv {
@@ -10,22 +15,15 @@ declare global {
 
   declare module "*.pdf" {
     const content: string;
-
     export default content;
   }
 
   declare module "*.svg" {
-    import { FC, SVGProps } from "react";
-
     const ReactComponent: FC<SVGProps<SVGSVGElement>>;
     export default ReactComponent;
   }
 
   namespace Cypress {
-    import viewports from "cypress/e2e/viewports";
-
-    import { Section } from ".";
-
     interface Chainable {
       disableSmoothScroll: () => Chainable<void>;
       toggleNavMenu: () => Chainable<JQuery>;
