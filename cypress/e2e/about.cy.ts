@@ -20,6 +20,7 @@ describe("About section", () => {
         });
 
         it("navigates to section by clicking navigation link", () => {
+          cy.wait(10);
           cy.scrollTo("center");
           cy.navigateToSection(ABOUT, viewportType as keyof typeof viewports);
         });
@@ -63,7 +64,6 @@ describe("About section", () => {
       it("is correct", () => {
         cy.get("[data-cy='selfIntroduction']")
           .contains(selfIntroduction);
-
       });
     });
 

@@ -26,6 +26,7 @@ describe("Hero section", () => {
         });
 
         it("navigates to section by clicking navigation link", () => {
+          // cy.wait(10);
           cy.scrollTo("center");
           cy.navigateToSection(HOME, viewportType as keyof typeof viewports);
         });
