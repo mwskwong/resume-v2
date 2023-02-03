@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+import { buttonClasses, listItemClasses } from "@mui/material";
+
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -43,5 +45,31 @@ Cypress.Commands.add("disableSmoothScroll", () => {
     document.body.appendChild(node);
   });
 });
+
+Cypress.Commands.add("navigateToSection", (section, viewport) => {
+  const elementType = viewport === "desktop" ? "NavButton" : "NavListItem";
+  const dataCy = `${section.id}${elementType}`;
+  const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemClasses.selected;
+
+  if (viewport === "mobile") {
+    cy.toggleNavMenu();
+  }
+
+  const navElement = cy.get(`[data-cy='${dataCy}']`);
+  navElement.contains(section.name);
+  navElement.click();
+  navElement.should("have.class", activeClassName);
+  cy.hash().should("equal", `#${section.id}`);
+  cy.get(`#${section.id}`).first()
+    .should($section =>
+      expect($section[0].getClientRects()[0].top).equals(0)
+    );
+
+  if (viewport === "mobile") {
+    cy.toggleNavMenu();
+  }
+});
+
+Cypress.Commands.add("toggleNavMenu", () => cy.get("[data-cy='menuButton']").click());
 
 export { };
