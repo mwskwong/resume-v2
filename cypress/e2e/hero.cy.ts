@@ -45,14 +45,16 @@ describe("Hero section", () => {
       describe("Title", () => {
         it("is in \"I'm {firstName}\" format", () => {
           cy.get("[data-cy='title']")
-            .contains(`I'm ${firstName}`);
+            .contains(`I'm ${firstName}`)
+            .and("be.visible");
         });
       });
 
       describe("Subtitle", () => {
         it("is {jobTitles} separated by \" & \"", () => {
           cy.get("[data-cy='subtitle']")
-            .contains(jobTitles.join(" & "));
+            .contains(jobTitles.join(" & "))
+            .and("be.visible");
         });
       });
 
@@ -62,13 +64,15 @@ describe("Hero section", () => {
           describe(`${label} button`, () => {
             it(`contains ${label} icon`, () => {
               cy.get(`#${HOME.id} [data-cy='${name}Button'] [data-cy='${name}Icon']`)
-                .should("exist");
+                .should("be.visible");
             });
 
             it(`links to the ${label} link and opens in new tab`, () => {
               cy.get(`#${HOME.id} [data-cy='${name}Button']`)
-                .should("have.attr", "target", "_blank")
-                .should("have.attr", "href", link);
+                .should("be.visible")
+                .and("have.attr", "target", "_blank")
+                .and("have.attr", "href", link);
+                
 
               cy.request({ url: link, failOnStatusCode: false })
                 .should(response => {

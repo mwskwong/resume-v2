@@ -34,6 +34,7 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
             width={200}
             height={200}
             className={styles.picture}
+            data-cy="profilePicture"
           />
           <Message />
           <SkillSet />
