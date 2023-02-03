@@ -4,7 +4,7 @@ import { address, email, phone } from "@/constants/contact";
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
-import selfIntro from "@/constants/selfIntro";
+import selfIntroduction from "@/constants/selfIntroduction";
 import socialMedia from "@/constants/socialMedia";
 
 const useStructuredData = () => {
@@ -19,7 +19,7 @@ const useStructuredData = () => {
     name: fullName,
     gender: "Male",
     jobTitle,
-    description: selfIntro,
+    description: selfIntroduction,
     address: {
       "@type": "PostalAddress",
       addressRegion: address
@@ -51,11 +51,11 @@ const useStructuredData = () => {
     author: `${siteUrl}/#${ABOUT.id}`,
     copyrightHolder: `${siteUrl}/#${ABOUT.id}`,
     copyrightYear: 2020,
-    description: selfIntro,
+    description: selfIntroduction,
     headline: siteTitle,
     image: `${siteUrl}/api/og`,
     inLanguage: "en",
-    mainEntityOfPage: selfIntro,
+    mainEntityOfPage: selfIntroduction,
     name: siteTitle,
     url: siteUrl
   };

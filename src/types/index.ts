@@ -58,7 +58,7 @@ export interface Name {
   lastName: string;
 }
 
-export type SelfIntro = string
+export type SelfIntroduction = string
 
 export interface SkillSet {
   frontend: {

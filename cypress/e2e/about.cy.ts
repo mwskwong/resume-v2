@@ -1,4 +1,7 @@
+import jobTitles from "@/constants/jobTitles";
+import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
+import selfIntroduction from "@/constants/selfIntroduction";
 
 import viewports from "./viewports";
 
@@ -39,5 +42,30 @@ describe("About section", () => {
           .and("match", /personal_photo\.[a-zA-Z0-9]+\.jpg/i);
       });
     });
+
+    describe("Greeting message", () => {
+      it("contains full name", () => {
+        cy.get("[data-cy='greetingMessage']")
+          .contains(`${firstName} ${lastName}`);
+      });
+    });
+
+    describe("Job titles", () => {
+      it("is correct", () => {
+        const jobTitlesElement = cy.get("[data-cy='jobTitles']");
+        for (const jobTitle of jobTitles) {
+          jobTitlesElement.should("contain", jobTitle);
+        }
+      });
+    });
+
+    describe("Self Introduction", () => {
+      it("is correct", () => {
+        cy.get("[data-cy='selfIntroduction']")
+          .contains(selfIntroduction);
+
+      });
+    });
+
   }
 });

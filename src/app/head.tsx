@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
-import selfIntro from "@/constants/selfIntro";
+import selfIntroduction from "@/constants/selfIntroduction";
 import socialMedia from "@/constants/socialMedia";
 
 const Head: FC = () => {
@@ -28,7 +28,7 @@ const Head: FC = () => {
       <meta name="theme-color" content="#ffffff" />
 
       <meta name="title" property="og:title" content={siteTitle} />
-      <meta name="description" property="og:description" content={selfIntro} />
+      <meta name="description" property="og:description" content={selfIntroduction} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={siteUrl} />
       <meta name="image" property="og:image" content={`${siteUrl}/api/og`} />
@@ -38,7 +38,7 @@ const Head: FC = () => {
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={siteTitle} />
-      <meta property="twitter:description" content={selfIntro} />
+      <meta property="twitter:description" content={selfIntroduction} />
       <meta property="twitter:url" content={siteUrl} />
       <meta property="twitter:image" content={`${siteUrl}/api/og`} />
     </>
