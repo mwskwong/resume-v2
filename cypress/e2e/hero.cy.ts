@@ -73,7 +73,6 @@ describe("Hero section", () => {
                 .and("have.attr", "target", "_blank")
                 .and("have.attr", "href", link);
                 
-
               cy.request({ url: link, failOnStatusCode: false })
                 .should(response => {
                   expect(
@@ -93,11 +92,15 @@ describe("Hero section", () => {
             .contains("Download Resume");
         });
 
+        
         it("links to the resume PDF and opens it in a new tab", () => {
           cy.get("[data-cy='downloadResume']")
             .should("have.attr", "target", "_blank")
             .invoke("removeAttr", "target")
             .click();
+          
+          // TODO: in headless browser, clicking the button with download the file instead of opening in PDF viewer
+          // Change the following to read downloaded PDF and parse the content
           cy.url()
             .should("match", /resume\.[a-zA-Z0-9]+\.pdf$/i)
             .then(url =>
