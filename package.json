@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "cypress": "cypress open",
-    "test": "cypress run --browser chrome"
+    "test": "cypress run --browser edge"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
