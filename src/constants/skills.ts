@@ -11,12 +11,7 @@ export const frontend = [
   "Quasar",
   "Vuex",
   "Pinia",
-  "Gatsby",
-  "React Router",
-  "React Hook Form",
-  "Emotion",
-  "styled-components",
-  "JavaFX"
+  "React Hook Form"
 ];
 
 export const database = [
