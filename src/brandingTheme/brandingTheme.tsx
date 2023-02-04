@@ -344,9 +344,7 @@ const brandingTheme = extendTheme({
   }
 });
 
-// @ts-expect-error: dark theme is not needed
+// @ts-expect-error: dark theme is a required field but is not necessary in this case
 delete brandingTheme.colorSchemes.dark;
-
-console.log(brandingTheme.colorSchemes.light.palette.background);
 
 export default brandingTheme;
