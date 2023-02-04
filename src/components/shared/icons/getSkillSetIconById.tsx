@@ -9,7 +9,7 @@ import {
   TerminalRounded as Terminal
 } from "@mui/icons-material";
 import { SvgIconProps } from "@mui/material";
-import { Brain, Database as MdiDatabase } from "mdi-material-ui";
+import { Database as MdiDatabase, RobotConfused } from "mdi-material-ui";
 import { FC } from "react";
 
 import { SkillSet } from "@/types";
@@ -21,7 +21,7 @@ const Database: FC<SvgIconProps> = props => <MdiDatabase data-cy="dbIcon" {...pr
 const Frontend: FC<SvgIconProps> = props => <Dashboard data-cy="feIcon" {...props} />;
 const Qa: FC<SvgIconProps> = props => <BugReport data-cy="qaIcon" {...props} />;
 const Mobile: FC<SvgIconProps> = props => <DevicesOther data-cy="mobileIcon" {...props} />;
-const Ml: FC<SvgIconProps> = props => <Brain data-cy="mlIcon" {...props} />;
+const Ml: FC<SvgIconProps> = props => <RobotConfused data-cy="mlIcon" {...props} />;
 
 const getSkillSetIconById = (id: SkillSet["id"]) => {
   switch (id) {
