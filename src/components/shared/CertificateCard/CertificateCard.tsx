@@ -17,8 +17,8 @@ const Icons: Record<Course["institution"], ElementType<SvgIconProps>> = {
   microsoft: Microsoft,
   oracle: Oracle,
   udemy: Udemy,
-  enterpriseDB: EnterpriseDB,
-  mongoDB: MongoDB,
+  enterpriseDb: EnterpriseDB,
+  mongoDb: MongoDB,
   dataCamp: DataCamp,
   google: Google
 };

@@ -1,7 +1,6 @@
 import { SxProps, Theme } from "@mui/material";
 import { StaticImageData } from "next/image";
 
-import courseCategories from "@/constants/courseCategories";
 
 export type SectionId = "home" | "about" | "experience" | "education" | "contact"
 
@@ -26,10 +25,21 @@ export interface Contact {
   address: string;
 }
 
-export interface Course {
+export interface CourseCategory {
+  id: "development" | "database" | "operation" | "pm" | "others";
   name: string;
-  category: typeof courseCategories[number];
-  institution: "microsoft" | "udemy" | "enterpriseDB" | "mongoDB" | "dataCamp" | "oracle" | "google";
+}
+
+export interface Brand {
+  id: "dataCamp" | "enterpriseDb" | "gitHub" | "google" | "linkedIn" | "microsoft" | "mongoDb" | "oracle" | "stackOverflow" | "udemy";
+  name: string;
+}
+
+export interface Course {
+  id: string;
+  name: string;
+  category: CourseCategory["id"];
+  institution: "microsoft" | "udemy" | "enterpriseDb" | "mongoDb" | "dataCamp" | "oracle" | "google";
   certificationUrl?: string;
 }
 
@@ -92,7 +102,6 @@ export interface Skills {
 }
 
 export interface PlatformProfile {
-  id: "gitHub" | "linkedIn" | "stackOverflow";
-  name: string;
+  platform: Brand;
   url: string;
 }

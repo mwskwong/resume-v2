@@ -7,7 +7,7 @@ import cx from "@/utils/cx";
 import useSx from "./useSx";
 
 const MongoDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
-  const sx = useSx({ color: "mongoDB" });
+  const sx = useSx({ color: "mongoDb" });
 
   return (
     <SvgIcon sx={cx(sx.root, sxProp)} {...props}>

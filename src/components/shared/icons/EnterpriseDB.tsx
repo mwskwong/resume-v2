@@ -7,7 +7,7 @@ import cx from "@/utils/cx";
 import useSx from "./useSx";
 
 const EnterpriseDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
-  const sx = useSx({ color: "enterpriseDB" });
+  const sx = useSx({ color: "enterpriseDb" });
 
   return (
     <SvgIcon sx={cx(sx.root, sxProp)} {...props}>

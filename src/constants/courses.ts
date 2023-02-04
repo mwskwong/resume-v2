@@ -50,7 +50,7 @@ const courses: Course[] = [
   {
     name: "Foundations of EDB v13",
     category: "Database",
-    institution: "enterpriseDB"
+    institution: "enterpriseDb"
   },
   {
     name: "Information Security Awareness-ISO 27001:2013",
@@ -92,7 +92,7 @@ const courses: Course[] = [
   {
     name: "M001: MongoDB Basics",
     category: "Database",
-    institution: "mongoDB",
+    institution: "mongoDb",
     certificationUrl: m001.src
   },
   {

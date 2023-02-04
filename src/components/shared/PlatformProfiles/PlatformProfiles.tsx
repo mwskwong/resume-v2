@@ -14,16 +14,16 @@ const PlatformProfiles: FC<PlatformProfilesProps> = ({ sx: sxProp }) => {
 
   return (
     <Stack spacing={1} direction="row" sx={cx(sx.root, sxProp)}>
-      {platformProfiles.map(({ id, name, url }) => {
-        const Icon = getBrandIcon(id);
+      {platformProfiles.map(({ platform, url }) => {
+        const Icon = getBrandIcon(platform.id);
 
         return (
           <IconButton
-            key={id}
+            key={platform.id}
             color="inherit"
             href={url}
             target="_blank"
-            aria-label={`${name} profile of ${firstName}`}
+            aria-label={`${platform.name} profile of ${firstName}`}
           >
             <Icon />
           </IconButton>
