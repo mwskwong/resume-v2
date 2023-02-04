@@ -65,7 +65,7 @@ const skillSet: SkillSet = {
     skills: backend
   },
   qa: {
-    label: "QA",
+    label: "Quality Assurance",
     skills: qa
   },
   dataOps: {
