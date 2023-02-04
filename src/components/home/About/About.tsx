@@ -13,7 +13,7 @@ import { SectionProps } from "@/types";
 
 import styles from "./about.module.css";
 import Message from "./Message";
-import SkillSet from "./SkillSet";
+import Skills from "./Skills";
 import useSx from "./useAboutSx";
 
 const About: FC<SectionProps> = ({ sx: sxProp }) => {
@@ -23,9 +23,9 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
     <Box sx={sxProp} component="section" id={ABOUT.id}>
       <Container>
         <Stack sx={sx.stack} spacing={6}>
-          <SectionHeader 
+          <SectionHeader
             data-cy={`${ABOUT.id}SectionHeader`}
-            heading="About" 
+            heading="About"
             icon={<Person />}
           />
           <Image
@@ -37,7 +37,7 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
             data-cy="profilePicture"
           />
           <Message />
-          <SkillSet />
+          <Skills />
         </Stack>
       </Container>
     </Box>

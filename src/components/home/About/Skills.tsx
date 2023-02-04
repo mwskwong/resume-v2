@@ -10,13 +10,13 @@ import { Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } fr
 import { Database } from "mdi-material-ui";
 import { ElementType, FC } from "react";
 
-import skillSet from "@/constants/skillSet";
-import { SkillSet } from "@/types";
+import skills from "@/constants/skills";
+import { Skills } from "@/types";
 import ObjectEntries from "@/utils/ObjectEntries";
 
-import useSx from "./useSkillSetSx";
+import useSx from "./useSkillsSx";
 
-const Icons: Record<keyof SkillSet, ElementType<SvgIconProps>> = {
+const Icons: Record<keyof Skills, ElementType<SvgIconProps>> = {
   backend: Terminal,
   cloud: Cloud,
   dataOps: AllInclusive,
@@ -26,7 +26,7 @@ const Icons: Record<keyof SkillSet, ElementType<SvgIconProps>> = {
   mobile: DevicesOther
 };
 
-const SkillSet: FC = () => {
+const Skills: FC = () => {
   const sx = useSx();
 
   return (
@@ -35,8 +35,8 @@ const SkillSet: FC = () => {
         Skills
       </Typography>
       <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>
-        {ObjectEntries(skillSet).map(([category, { label, skills }]) => {
-          const Icon = Icons[category as keyof SkillSet];
+        {ObjectEntries(skills).map(([category, { label, skills }]) => {
+          const Icon = Icons[category as keyof Skills];
 
           return (
             <Grid key={category} xs={12} sm={6} lg={4}>
@@ -66,7 +66,7 @@ const SkillSet: FC = () => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  SkillSet.whyDidYouRender = true;
+  Skills.whyDidYouRender = true;
 }
 
-export default SkillSet;
+export default Skills;

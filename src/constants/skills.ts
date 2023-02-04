@@ -1,4 +1,4 @@
-import { SkillSet } from "@/types";
+import { Skills } from "@/types";
 
 export const frontend = [
   "React",
@@ -51,7 +51,7 @@ export const mobile = [
   "React Navigation"
 ];
 
-const skillSet: SkillSet = {
+const skills: Skills = {
   frontend: {
     label: "Frontend",
     skills: frontend
@@ -82,4 +82,4 @@ const skillSet: SkillSet = {
   }
 };
 
-export default skillSet;
+export default skills;

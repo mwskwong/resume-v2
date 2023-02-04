@@ -60,7 +60,7 @@ export interface Name {
 
 export type SelfIntroduction = string
 
-export interface SkillSet {
+export interface Skills {
   frontend: {
     label: string;
     skills: string[];
