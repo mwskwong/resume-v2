@@ -1,7 +1,8 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { FC } from "react";
 
-import { getBrandIcon } from "../icons";
+import getBrandIcon from "@/components/shared/icons/getBrandIcon";
+
 import CertificateCardProps from "./CertificateCardProps";
 import useSx from "./useSx";
 

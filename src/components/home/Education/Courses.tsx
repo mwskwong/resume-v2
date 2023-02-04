@@ -1,7 +1,7 @@
 import { Stack, ToggleButton, ToggleButtonGroup, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import { FC, MouseEvent, useState } from "react";
 
-import { getCertificateUrl } from "@/assets";
+import getCertificateUrl from "@/assets/getCertificateUrl";
 import CertificateCard from "@/components/shared/CertificateCard";
 import categories from "@/constants/courseCategories";
 import courses from "@/constants/courses";
