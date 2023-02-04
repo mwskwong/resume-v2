@@ -31,7 +31,7 @@ const Skills: FC = () => {
 
   return (
     <div data-cy="skills">
-      <Typography component="h3" sx={sx.title} data-cy="skillsTitle">
+      <Typography component="h3" sx={sx.title} data-cy="title">
         Skills
       </Typography>
       <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>

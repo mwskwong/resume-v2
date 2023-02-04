@@ -1,7 +1,7 @@
 import { SxProps, Theme } from "@mui/material";
 
-interface SocialMediaProps {
+interface PlatformProfilesProps {
   sx?: SxProps<Theme>;
 }
 
-export default SocialMediaProps;
+export default PlatformProfilesProps;

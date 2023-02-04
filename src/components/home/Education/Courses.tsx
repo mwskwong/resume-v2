@@ -31,9 +31,9 @@ const Courses: FC = () => {
         exclusive
         aria-label="course categories"
       >
-        <ToggleButton value="" data-cy="All">All</ToggleButton>
+        <ToggleButton value="">All</ToggleButton>
         {categories.map(category =>
-          <ToggleButton key={category.id} value={category.id} data-cy={category.id}>
+          <ToggleButton key={category.id} value={category.id}>
             {category.name}
           </ToggleButton>
         )}

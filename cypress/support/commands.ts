@@ -47,15 +47,14 @@ Cypress.Commands.add("disableSmoothScroll", () => {
 });
 
 Cypress.Commands.add("navigateToSection", (section, viewport) => {
-  const elementType = viewport === "desktop" ? "NavButton" : "NavListItem";
-  const dataCy = `${section.id}${elementType}`;
+  const container = viewport === "desktop" ? "navButtons" : "navList";
   const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemClasses.selected;
 
   if (viewport === "mobile") {
     cy.toggleNavMenu();
   }
 
-  const navElement = cy.get(`[data-cy='${dataCy}']`);
+  const navElement = cy.get(`[data-cy='${container}'] [data-cy='${section.id}']`);
   navElement.contains(section.name);
   navElement.click();
   navElement.should("have.class", activeClassName);

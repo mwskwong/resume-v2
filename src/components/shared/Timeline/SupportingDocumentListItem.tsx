@@ -6,22 +6,20 @@ import styles from "./supportingDocumentListItem.module.css";
 import SupportingDocumentListItemProps from "./SupportingDocumentListItemProps";
 import useSx from "./useSupportingDocumentListItemSx";
 
-const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ title, supportingDocument: { name, url, thumbnail } }) => {
+const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ supportingDocument: { name, url, thumbnail } }) => {
   const sx = useSx();
 
   return (
     <ListItem disablePadding>
-      <ListItemButton component="a" href={url ?? undefined} target="_blank" sx={sx.button} data-cy={`${title}-${name}`}>
+      <ListItemButton component="a" href={url} target="_blank" sx={sx.button}>
         <ListItemAvatar sx={sx.avatar}>
-          {thumbnail && (
-            <Image
-              src={thumbnail}
-              alt={`Thumbnail of ${name}`}
-              width={102}
-              height={68}
-              className={styles.thumbnail}
-            />
-          )}
+          <Image
+            src={thumbnail}
+            alt={`Thumbnail of ${name}`}
+            width={102}
+            height={68}
+            className={styles.thumbnail}
+          />
         </ListItemAvatar>
         <ListItemText primary={name} />
       </ListItemButton>

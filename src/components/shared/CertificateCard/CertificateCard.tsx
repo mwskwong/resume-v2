@@ -21,7 +21,7 @@ const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status,
   );
 
   return (
-    <Card {...props} data-cy={name}>
+    <Card {...props}>
       {certificateUrl
         ? (
           <CardActionArea href={certificateUrl} target="_blank">

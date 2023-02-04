@@ -28,7 +28,7 @@ const TextField: FC<TextFieldProps> = ({ name, control, label, autoComplete, mul
   const helperTextId = useId();
 
   return (
-    <FormControl fullWidth error={Boolean(error)} disabled={disabled} data-cy={name}>
+    <FormControl fullWidth error={Boolean(error)} disabled={disabled}>
       <InputLabel htmlFor={inputId}>{label}</InputLabel>
       <FilledInput
         inputRef={ref}

@@ -23,6 +23,7 @@ const PlatformProfiles: FC<PlatformProfilesProps> = ({ sx: sxProp }) => {
             color="inherit"
             href={url}
             target="_blank"
+            data-cy={`${platform.id}Button`}
             aria-label={`${platform.name} profile of ${firstName}`}
           >
             <Icon />

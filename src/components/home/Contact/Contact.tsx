@@ -43,7 +43,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
       <Container>
         <Stack spacing={6}>
           <SectionHeader heading="Contact" icon={<Phone />} />
-          <form onSubmit={handleSubmit(handleFormspreeSubmit)} data-cy="contact">
+          <form onSubmit={handleSubmit(handleFormspreeSubmit)}>
             <Grid container spacing={6} disableEqualOverflow>
               <Grid xs={12} md={4}>
                 <PersonalInfo />
@@ -87,7 +87,7 @@ const Contact: FC<SectionProps> = ({ sx: sxProp }) => {
               <Grid xs={12} md={8} mdOffset={4} sx={sx.alertContainer}>
                 <Stack spacing={1}>
                   {formState.errors.map(({ code, message }) => (
-                    <Alert key={code} severity="error" data-cy="alert">{message}</Alert>
+                    <Alert key={code} severity="error">{message}</Alert>
                   ))}
                 </Stack>
               </Grid>
