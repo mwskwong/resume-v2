@@ -2,7 +2,6 @@
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
-import socialMedia from "@/constants/socialMedia";
 
 import viewports from "./viewports";
 
@@ -45,22 +44,23 @@ describe("Hero section", () => {
       });
 
       describe("Title", () => {
-        it("is in \"I'm {firstName}\" format", () => {
+        it("is visible and in \"I'm {firstName}\" format", () => {
           cy.get("[data-cy='title']")
-            .contains(`I'm ${firstName}`)
-            .and("be.visible");
+            .should("be.visible")
+            .and("contain", `I'm ${firstName}`);
         });
       });
 
       describe("Subtitle", () => {
-        it("is {jobTitles} separated by \" & \"", () => {
+        it("is visible and contains {jobTitles} separated by \" & \"", () => {
           cy.get("[data-cy='subtitle']")
-            .contains(jobTitles.join(" & "))
-            .and("be.visible");
+            .should("be.visible")
+            .and("contain", jobTitles.join(" & "));
+
         });
       });
 
-      describe("Social media buttons", () => {
+      describe("Platform profile buttons", () => {
         Object.entries(socialMedia).map(([name, link]) => {
           const label = Cypress._.capitalize(name);
           describe(`${label} button`, () => {
@@ -69,7 +69,7 @@ describe("Hero section", () => {
                 .should("be.visible");
             });
 
-            it(`links to the ${label} link and opens in new tab`, () => {
+            it(`links to a valid profile link of ${label} and opens in new tab`, () => {
               cy.get(`#${HOME.id} [data-cy='${name}Button']`)
                 .should("be.visible")
                 .and("have.attr", "target", "_blank")
@@ -93,7 +93,6 @@ describe("Hero section", () => {
           cy.get("[data-cy='downloadResume']")
             .contains("Download Resume");
         });
-
 
         it("links to the resume PDF and opens it in a new tab", () => {
           const downloadResumeButton = cy.get("[data-cy='downloadResume']");

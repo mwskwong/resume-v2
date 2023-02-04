@@ -30,8 +30,8 @@ const Skills: FC = () => {
   const sx = useSx();
 
   return (
-    <div>
-      <Typography component="h3" sx={sx.title}>
+    <div data-cy="skills">
+      <Typography component="h3" sx={sx.title} data-cy="skillsTitle">
         Skills
       </Typography>
       <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>

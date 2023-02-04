@@ -8,7 +8,7 @@ const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
   const sx = useSx({ active });
 
   return (
-    <Button color={active ? "primary" : "inherit"} href={`#${id}`} data-cy={`${id}NavButton`}>
+    <Button color={active ? "primary" : "inherit"} href={`#${id}`} data-cy={id}>
       {label}
       <Box component="span" sx={sx.active} />
     </Button>

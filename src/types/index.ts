@@ -91,8 +91,8 @@ export interface Skills {
   };
 }
 
-export interface SocialMedia {
-  gitHub: string;
-  linkedIn: string;
-  stackOverflow: string;
+export interface PlatformProfile {
+  id: "gitHub" | "linkedIn" | "stackOverflow";
+  name: string;
+  url: string;
 }

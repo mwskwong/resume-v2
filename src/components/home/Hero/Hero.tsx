@@ -4,7 +4,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import resume from "@/assets/documents/resume.pdf";
-import SocialMedia from "@/components/shared/SocialMedia";
+import PlatformProfiles from "@/components/shared/PlatformProfiles";
 import jobTitles from "@/constants/jobTitles";
 import { firstName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
@@ -30,7 +30,7 @@ const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
       <Typography variant="h6" component="p" data-cy="subtitle">
         {jobTitles.join(" & ")}
       </Typography>
-      <SocialMedia sx={sx.socialMedia} />
+      <PlatformProfiles sx={sx.platformProfiles} />
       <Button
         variant="contained"
         size="large"

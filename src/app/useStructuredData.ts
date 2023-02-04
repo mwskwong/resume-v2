@@ -5,7 +5,7 @@ import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
 import selfIntroduction from "@/constants/selfIntroduction";
-import socialMedia from "@/constants/socialMedia";
+import socialMedia from "@/constants/platformProfiles";
 
 const useStructuredData = () => {
   const siteUrl = process.env.NEXT_PUBLIC_URL;

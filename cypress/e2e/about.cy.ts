@@ -29,9 +29,9 @@ describe("About section", () => {
 
     describe("Section header", () => {
       it("contains \"About\"", () => {
-        cy.get(`[data-cy='${ABOUT.id}SectionHeader']`)
-          .contains("About")
-          .and("be.visible");
+        cy.get("[data-cy='about'] [data-cy='sectionHeader']")
+          .should("be.visible")
+          .and("contain", "About");
       });
     });
 
@@ -46,7 +46,7 @@ describe("About section", () => {
 
     describe("Greeting message", () => {
       it("contains full name", () => {
-        cy.get("[data-cy='greetingMessage']")
+        cy.get("[data-cy='greeting']")
           .contains(`${firstName} ${lastName}`);
       });
     });

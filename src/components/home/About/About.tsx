@@ -20,11 +20,10 @@ const About: FC<SectionProps> = ({ sx: sxProp }) => {
   const sx = useSx();
 
   return (
-    <Box sx={sxProp} component="section" id={ABOUT.id}>
+    <Box sx={sxProp} component="section" id={ABOUT.id} data-cy="about">
       <Container>
         <Stack sx={sx.stack} spacing={6}>
           <SectionHeader
-            data-cy={`${ABOUT.id}SectionHeader`}
             heading="About"
             icon={<Person />}
           />

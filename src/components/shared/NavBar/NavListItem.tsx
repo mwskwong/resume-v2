@@ -9,7 +9,7 @@ const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
   const primaryTypographyProps = { sx: sx.textPrimary };
 
   return (
-    <ListItem disablePadding data-cy={`${id}NavListItem`}>
+    <ListItem disablePadding data-cy={id}>
       <ListItemButton component="a" href={`#${id}`} selected={active}>
         <ListItemText
           primary={label}

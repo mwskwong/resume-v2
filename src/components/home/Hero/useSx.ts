@@ -13,7 +13,7 @@ const useSx = () => makeSx({
   name: {
     color: "primary.main"
   },
-  socialMedia: {
+  platformProfiles: {
     my: 4
   }
 });
