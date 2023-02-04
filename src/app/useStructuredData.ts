@@ -4,15 +4,15 @@ import { address, email, phone } from "@/constants/contact";
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
+import platformProfiles from "@/constants/platformProfiles";
 import selfIntroduction from "@/constants/selfIntroduction";
-import socialMedia from "@/constants/platformProfiles";
 
 const useStructuredData = () => {
   const siteUrl = process.env.NEXT_PUBLIC_URL;
   const fullName = `${firstName} ${lastName}`;
   const jobTitle = jobTitles.join(" & ");
   const siteTitle = `${fullName} - ${jobTitle}`;
-  const socialMediaLinks = Object.values(socialMedia);
+  const profileUrls = platformProfiles.map(({ url }) => url);
 
   const personSchema: Person = {
     "@type": "Person",
@@ -28,7 +28,7 @@ const useStructuredData = () => {
     image: `${siteUrl}/api/og`,
     telephone: phone,
     url: siteUrl,
-    sameAs: socialMediaLinks
+    sameAs: profileUrls
   };
 
   const breadcrumbListSchema: BreadcrumbList = {
