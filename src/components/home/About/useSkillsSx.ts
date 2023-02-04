@@ -13,8 +13,11 @@ const useSx = () => makeSx({
   stack: {
     alignItems: "center"
   },
-  icon: {
-    fontSize: 60
+  avatar: {
+    width: 60,
+    height: 60,
+    bgcolor: theme => `rgba(${theme.vars.palette.primary.mainChannel} / 0.1)`,
+    color: "text.primary"
   },
   subtitle: {
     typography: "subtitle1",

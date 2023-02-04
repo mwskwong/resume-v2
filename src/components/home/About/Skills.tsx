@@ -6,7 +6,7 @@ import {
   DevicesOtherRounded as DevicesOther,
   TerminalRounded as Terminal
 } from "@mui/icons-material";
-import { Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } from "@mui/material";
+import { Avatar, Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import { Database } from "mdi-material-ui";
 import { ElementType, FC } from "react";
 
@@ -41,7 +41,9 @@ const Skills: FC = () => {
           return (
             <Grid key={category} xs={12} sm={6} lg={4}>
               <Stack spacing={2} sx={sx.stack}>
-                <Icon sx={sx.icon} />
+                <Avatar sx={sx.avatar} variant="rounded">
+                  <Icon fontSize="large" />
+                </Avatar>
                 <Typography component="h4" sx={sx.subtitle}>
                   {label}
                 </Typography>
