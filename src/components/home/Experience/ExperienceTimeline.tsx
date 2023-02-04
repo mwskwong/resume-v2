@@ -1,15 +1,17 @@
 import { FC } from "react";
 
+import getSupportingDocument from "@/assets/getSupportingDocument";
 import Timeline from "@/components/shared/Timeline";
 import experiences from "@/constants/experiences";
 
 const ExperienceTimeline: FC = () => {
   const data = experiences
-    .map(({ jobTitle, company, jobDuties, ...node }) => ({
+    .map(({ jobTitle, company, jobDuties, supportingDocuments, ...elem }) => ({
       title: jobTitle,
       subtitle: company,
       contents: jobDuties,
-      ...node
+      supportingDocuments: supportingDocuments.map(id => getSupportingDocument(id)),
+      ...elem
     }));
 
   return <Timeline data={data} />;

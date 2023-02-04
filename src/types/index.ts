@@ -1,7 +1,6 @@
 import { SxProps, Theme } from "@mui/material";
 import { StaticImageData } from "next/image";
 
-
 export type SectionId = "home" | "about" | "experience" | "education" | "contact"
 
 export interface Section {
@@ -14,9 +13,10 @@ export interface SectionProps {
 }
 
 export interface SupportingDocument {
-  name?: string;
-  url?: string;
-  thumbnail?: StaticImageData;
+  id: string;
+  name: string;
+  url: string;
+  thumbnail: StaticImageData;
 }
 
 export interface Contact {
@@ -47,7 +47,7 @@ export interface Education {
   to: Date | "Present";
   degree: string;
   school: string;
-  supportingDocuments?: Required<SupportingDocument>[];
+  supportingDocuments: SupportingDocument["id"][];
 }
 
 export interface Experience {
@@ -56,7 +56,7 @@ export interface Experience {
   jobTitle: string;
   company: string;
   jobDuties?: string[];
-  supportingDocuments?: Required<SupportingDocument>[];
+  supportingDocuments: SupportingDocument["id"][];
 }
 
 export type JobTitle = string
