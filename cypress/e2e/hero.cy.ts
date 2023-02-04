@@ -62,15 +62,15 @@ describe("Hero section", () => {
       });
 
       describe("Platform profile buttons", () => {
-        platformProfiles.map(({ id, name, url }) => {
-          describe(`${name} button`, () => {
-            it(`contains ${name} icon`, () => {
-              cy.get(`#${HOME.id} [data-cy='${id}Button'] [data-cy='${id}Icon']`)
+        platformProfiles.map(({ platform, url }) => {
+          describe(`${platform.name} button`, () => {
+            it(`contains ${platform.name} icon`, () => {
+              cy.get(`#${HOME.id} [data-cy='${platform.id}Button'] [data-cy='${platform.id}Icon']`)
                 .should("be.visible");
             });
 
-            it(`opens ${firstName}'s profile link of ${name} in new tab`, () => {
-              cy.get(`#${HOME.id} [data-cy='${id}Button']`)
+            it(`opens ${firstName}'s profile link of ${platform.name} in new tab`, () => {
+              cy.get(`#${HOME.id} [data-cy='${platform.id}Button']`)
                 .should("be.visible")
                 .and("have.attr", "target", "_blank")
                 .and("have.attr", "href", url);
