@@ -164,6 +164,17 @@ const brandingTheme = extendTheme({
         })
       }
     },
+    MuiAvatar: {
+      defaultProps: {
+        variant: "rounded"
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.vars.palette.background.sectionTertiary,
+          color: theme.vars.palette.text.primary
+        })
+      }
+    },
     MuiButton: {
       defaultProps: {
         disableElevation: true

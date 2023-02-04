@@ -15,9 +15,7 @@ const useSx = () => makeSx({
   },
   avatar: {
     width: 60,
-    height: 60,
-    bgcolor: theme => `rgba(${theme.vars.palette.primary.mainChannel} / 0.1)`,
-    color: "text.primary"
+    height: 60
   },
   subtitle: {
     typography: "subtitle1",
