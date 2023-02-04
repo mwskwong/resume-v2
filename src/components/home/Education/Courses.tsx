@@ -51,7 +51,6 @@ const Courses: FC = () => {
                     name={name}
                     organization={institution}
                     certificateUrl={certificateUrl}
-                    sx={sx.card}
                   />
                 </Grid>
               );

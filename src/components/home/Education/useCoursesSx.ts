@@ -5,9 +5,6 @@ const useSx = () => makeSx({
     typography: "subtitle2",
     color: "primary.main",
     textAlign: "center"
-  },
-  card: {
-    bgcolor: "background.sectionSecondary"
   }
 });
 

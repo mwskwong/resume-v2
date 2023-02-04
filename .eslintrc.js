@@ -20,10 +20,7 @@ module.exports = {
     "unused-imports"
   ],
   "rules": {
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
+    "comma-dangle": "error",
     "indent": [
       "error",
       2,
@@ -33,14 +30,9 @@ module.exports = {
       "error",
       process.platform === "win32" ? "windows" : "unix"
     ],
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "quotes": "error",
+    "semi": "error",
+    "no-floating-decimal": "error",
     "@typescript-eslint/member-delimiter-style": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",

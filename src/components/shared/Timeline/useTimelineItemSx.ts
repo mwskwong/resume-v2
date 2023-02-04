@@ -8,7 +8,7 @@ const useSx = () => makeSx({
       xs: "none",
       md: "unset"
     },
-    flex: .28
+    flex: 0.28
   },
   timelineContent: {
     pb: 3,

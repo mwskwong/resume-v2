@@ -34,11 +34,11 @@ const brandingTheme = extendTheme({
         success: { main: "#1AA251" },
         enterpriseDb: {
           main: `#${siEnterprisedb.hex}`,
-          dark: darken(`#${siEnterprisedb.hex}`, .19)
+          dark: darken(`#${siEnterprisedb.hex}`, 0.19)
         },
         mongoDb: {
           main: `#${siMongodb.hex}`,
-          dark: darken(`#${siMongodb.hex}`, .23)
+          dark: darken(`#${siMongodb.hex}`, 0.23)
         },
         microsoft: {
           main: `#${siMicrosoft.hex}`,
@@ -46,19 +46,19 @@ const brandingTheme = extendTheme({
         },
         oracle: {
           main: `#${siOracle.hex}`,
-          dark: darken(`#${siOracle.hex}`, .11)
+          dark: darken(`#${siOracle.hex}`, 0.11)
         },
         udemy: {
           main: `#${siUdemy.hex}`,
-          dark: darken(`#${siUdemy.hex}`, .03)
+          dark: darken(`#${siUdemy.hex}`, 0.03)
         },
         dataCamp: {
           main: `#${siDatacamp.hex}`,
-          dark: darken(`#${siDatacamp.hex}`, .465)
+          dark: darken(`#${siDatacamp.hex}`, 0.465)
         },
         google: {
           main: `#${siGoogle.hex}`,
-          dark: darken(`#${siGoogle.hex}`, .165)
+          dark: darken(`#${siGoogle.hex}`, 0.165)
         },
         grey,
         text: {
@@ -67,17 +67,17 @@ const brandingTheme = extendTheme({
         },
         divider: grey[300],
         background: {
-          sectionPrimary: lighten(grey[50], .5),
-          sectionSecondary: grey[50],
-          sectionTertiary: darken(grey[50], .02)
+          sectionPrimary: lighten(grey[50], 0.5),
+          sectionSecondary: darken(grey[50], 0.003),
+          sectionTertiary: darken(grey[50], 0.025)
         },
         action: {
           active: grey[900],
-          hover: alpha(grey[900], .04),
-          selected: alpha(grey[900], .08),
-          disabled: alpha(grey[900], .26),
-          disabledBackground: alpha(grey[900], .12),
-          focus: alpha(grey[900], .12)
+          hover: alpha(grey[900], 0.04),
+          selected: alpha(grey[900], 0.08),
+          disabled: alpha(grey[900], 0.26),
+          disabledBackground: alpha(grey[900], 0.12),
+          focus: alpha(grey[900], 0.12)
         }
       }
     }
@@ -191,6 +191,11 @@ const brandingTheme = extendTheme({
     MuiCard: {
       defaultProps: {
         elevation: 0
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.vars.palette.background.sectionSecondary
+        })
       }
     },
     MuiCardContent: {
@@ -320,7 +325,7 @@ const brandingTheme = extendTheme({
           justifyContent: "center"
         },
         grouped: ({ theme }) => ({
-          margin: `${theme.spacing(.25)} ${theme.spacing(.5)}`,
+          margin: `${theme.spacing(0.25)} ${theme.spacing(0.5)}`,
           border: 0,
           [`&.${toggleButtonGroupClasses.disabled}`]: {
             border: 0
@@ -341,5 +346,7 @@ const brandingTheme = extendTheme({
 
 // @ts-expect-error: dark theme is not needed
 delete brandingTheme.colorSchemes.dark;
+
+console.log(brandingTheme.colorSchemes.light.palette.background);
 
 export default brandingTheme;
