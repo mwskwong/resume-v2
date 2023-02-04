@@ -2,6 +2,7 @@
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
+import platformProfiles from "@/constants/platformProfiles";
 
 import viewports from "./viewports";
 
@@ -61,21 +62,20 @@ describe("Hero section", () => {
       });
 
       describe("Platform profile buttons", () => {
-        Object.entries(socialMedia).map(([name, link]) => {
-          const label = Cypress._.capitalize(name);
-          describe(`${label} button`, () => {
-            it(`contains ${label} icon`, () => {
-              cy.get(`#${HOME.id} [data-cy='${name}Button'] [data-cy='${name}Icon']`)
+        platformProfiles.map(({ id, name, url }) => {
+          describe(`${name} button`, () => {
+            it(`contains ${name} icon`, () => {
+              cy.get(`#${HOME.id} [data-cy='${id}Button'] [data-cy='${id}Icon']`)
                 .should("be.visible");
             });
 
-            it(`links to a valid profile link of ${label} and opens in new tab`, () => {
-              cy.get(`#${HOME.id} [data-cy='${name}Button']`)
+            it(`opens ${firstName}'s profile link of ${name} in new tab`, () => {
+              cy.get(`#${HOME.id} [data-cy='${id}Button']`)
                 .should("be.visible")
                 .and("have.attr", "target", "_blank")
-                .and("have.attr", "href", link);
+                .and("have.attr", "href", url);
 
-              cy.request({ url: link, failOnStatusCode: false })
+              cy.request({ url: url, failOnStatusCode: false })
                 .should(response => {
                   expect(
                     response.isOkStatusCode
@@ -94,7 +94,7 @@ describe("Hero section", () => {
             .contains("Download Resume");
         });
 
-        it("links to the resume PDF and opens it in a new tab", () => {
+        it(`opens the resume PDF of ${firstName} in a new tab`, () => {
           const downloadResumeButton = cy.get("[data-cy='downloadResume']");
           downloadResumeButton
             .should("have.attr", "target", "_blank")
