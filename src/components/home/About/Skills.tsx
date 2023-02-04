@@ -1,32 +1,12 @@
-import {
-  AllInclusiveRounded as AllInclusive,
-  BugReportRounded as BugReport,
-  CloudRounded as Cloud,
-  DashboardRounded as Dashboard,
-  DevicesOtherRounded as DevicesOther,
-  TerminalRounded as Terminal
-} from "@mui/icons-material";
-import { Avatar, Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } from "@mui/material";
-import { Brain, Database } from "mdi-material-ui";
-import { ElementType, FC } from "react";
 
+
+import { Avatar, Box, Chip, Stack, Typography, Unstable_Grid2 as Grid } from "@mui/material";
+import { FC } from "react";
+
+import getSkillSetIcon from "@/components/shared/icons/getSkillSetIcon";
 import skills from "@/constants/skills";
-import { Skills } from "@/types";
-import ObjectEntries from "@/utils/ObjectEntries";
 
 import useSx from "./useSkillsSx";
-
-// TODO: Extract to helper
-const Icons: Record<keyof Skills, ElementType<SvgIconProps>> = {
-  backend: Terminal,
-  cloud: Cloud,
-  dataOps: AllInclusive,
-  database: Database,
-  frontend: Dashboard,
-  qa: BugReport,
-  mobile: DevicesOther,
-  ml: Brain
-};
 
 const Skills: FC = () => {
   const sx = useSx();
@@ -37,17 +17,17 @@ const Skills: FC = () => {
         Skills
       </Typography>
       <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>
-        {ObjectEntries(skills).map(([category, { label, skills }]) => {
-          const Icon = Icons[category as keyof Skills];
+        {skills.map(({ id, name, skills }) => {
+          const Icon = getSkillSetIcon(id);
 
           return (
-            <Grid key={category} xs={12} sm={6} lg={4}>
+            <Grid key={id} xs={12} sm={6} lg={4}>
               <Stack spacing={2} sx={sx.stack}>
                 <Avatar sx={sx.avatar} variant="rounded">
                   <Icon fontSize="large" />
                 </Avatar>
                 <Typography component="h4" sx={sx.subtitle}>
-                  {label}
+                  {name}
                 </Typography>
                 <Box sx={sx.skillsContainer}>
                   {skills.map(skill => (

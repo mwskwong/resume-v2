@@ -69,39 +69,10 @@ export interface Name {
 
 export type SelfIntroduction = string
 
-export interface Skills {
-  frontend: {
-    label: string;
-    skills: string[];
-  };
-  database: {
-    label: string;
-    skills: string[];
-  };
-  backend: {
-    label: string;
-    skills: string[];
-  };
-  qa: {
-    label: string;
-    skills: string[];
-  };
-  dataOps: {
-    label: string;
-    skills: string[];
-  };
-  cloud: {
-    label: string;
-    skills: string[];
-  };
-  mobile: {
-    label: string;
-    skills: string[];
-  };
-  ml: {
-    label: string;
-    skills: string[];
-  };
+export interface SkillSet {
+  id: "fe" | "be" | "cloud" | "dataOps" | "db" | "qa" | "mobile" | "ml";
+  name: string;
+  skills: string[];
 }
 
 export interface PlatformProfile {
