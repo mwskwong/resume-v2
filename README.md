@@ -35,8 +35,17 @@ Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see 
 
 ## To Do
 
-1. Investigate Next.js 13 new features adaptation
-    1. `app/` directory  
-        Keep track on when CSS-in-JS is supported https://beta.nextjs.org/docs/styling/css-in-js
-    2. Turbopack  
-        Currently some features are not implemented
+- [ ] Rewrite tests
+  - [x] Hero
+  - [ ] About
+  - [ ] Experience
+  - [ ] Education
+  - [ ] Contact
+
+- [ ] New feature - Show related skills in the working experience timeline 
+
+- [ ] Investigate Next.js 13 new features adaptation
+  - [x] `app/` directory  
+      Keep track on when CSS-in-JS is supported https://beta.nextjs.org/docs/styling/css-in-js
+  - [ ] Turbopack  
+      Currently some features are not implemented
