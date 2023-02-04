@@ -46,6 +46,10 @@ export const mobile = [
   "React Navigation"
 ];
 
+export const ml = [
+  "scikit-learn"
+];
+
 const skills: Skills = {
   frontend: {
     label: "Frontend",
@@ -74,6 +78,10 @@ const skills: Skills = {
   mobile: {
     label: "Mobile",
     skills: mobile
+  },
+  ml: {
+    label: "Machine Learning",
+    skills: ml
   }
 };
 

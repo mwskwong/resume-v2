@@ -7,7 +7,7 @@ import {
   TerminalRounded as Terminal
 } from "@mui/icons-material";
 import { Avatar, Box, Chip, Stack, SvgIconProps, Typography, Unstable_Grid2 as Grid } from "@mui/material";
-import { Database } from "mdi-material-ui";
+import { Brain, Database } from "mdi-material-ui";
 import { ElementType, FC } from "react";
 
 import skills from "@/constants/skills";
@@ -16,6 +16,7 @@ import ObjectEntries from "@/utils/ObjectEntries";
 
 import useSx from "./useSkillsSx";
 
+// TODO: Extract to helper
 const Icons: Record<keyof Skills, ElementType<SvgIconProps>> = {
   backend: Terminal,
   cloud: Cloud,
@@ -23,7 +24,8 @@ const Icons: Record<keyof Skills, ElementType<SvgIconProps>> = {
   database: Database,
   frontend: Dashboard,
   qa: BugReport,
-  mobile: DevicesOther
+  mobile: DevicesOther,
+  ml: Brain
 };
 
 const Skills: FC = () => {

@@ -98,6 +98,10 @@ export interface Skills {
     label: string;
     skills: string[];
   };
+  ml: {
+    label: string;
+    skills: string[];
+  };
 }
 
 export interface PlatformProfile {
