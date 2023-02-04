@@ -45,7 +45,7 @@ describe("Hero section", () => {
       });
 
       describe("Title", () => {
-        it("is visible and in \"I'm {firstName}\" format", () => {
+        it("is in \"I'm {firstName}\" format", () => {
           cy.get("[data-cy='title']")
             .should("be.visible")
             .and("contain", `I'm ${firstName}`);
@@ -53,7 +53,7 @@ describe("Hero section", () => {
       });
 
       describe("Subtitle", () => {
-        it("is visible and contains {jobTitles} separated by \" & \"", () => {
+        it("contains {jobTitles} separated by \" & \"", () => {
           cy.get("[data-cy='subtitle']")
             .should("be.visible")
             .and("contain", jobTitles.join(" & "));

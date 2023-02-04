@@ -21,12 +21,12 @@ const Skills: FC = () => {
           const Icon = getSkillSetIconById(id);
 
           return (
-            <Grid key={id} xs={12} sm={6} lg={4}>
+            <Grid key={id} xs={12} sm={6} lg={4} data-cy={id}>
               <Stack spacing={2} sx={sx.stack}>
                 <Avatar sx={sx.avatar} variant="rounded">
                   <Icon fontSize="large" />
                 </Avatar>
-                <Typography component="h4" sx={sx.subtitle}>
+                <Typography component="h4" sx={sx.subtitle} data-cy="subtitle">
                   {name}
                 </Typography>
                 <Box sx={sx.skillsContainer}>
@@ -37,6 +37,7 @@ const Skills: FC = () => {
                       label={skill}
                       variant="outlined"
                       color="primary"
+                      data-cy={skill}
                     />
                   ))}
                 </Box>
