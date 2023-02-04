@@ -170,7 +170,7 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionTertiary,
+          backgroundColor: theme.vars.palette.background.sectionSecondary,
           color: theme.vars.palette.text.primary
         })
       }
