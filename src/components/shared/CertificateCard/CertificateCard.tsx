@@ -1,14 +1,14 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { FC } from "react";
 
-import getBrandIcon from "@/components/shared/icons/getBrandIcon";
+import getBrandIconById from "@/components/shared/icons/getBrandIconById";
 
 import CertificateCardProps from "./CertificateCardProps";
 import useSx from "./useSx";
 
 const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status, certificateUrl, ...props }) => {
   const sx = useSx({ organization });
-  const Icon = getBrandIcon(organization.id);
+  const Icon = getBrandIconById(organization.id);
   const cardContent = (
     <CardContent sx={sx.cardContent}>
       <Icon fontSize="large" sx={sx.icon} />

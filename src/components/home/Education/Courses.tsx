@@ -1,7 +1,7 @@
 import { Stack, ToggleButton, ToggleButtonGroup, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import { FC, MouseEvent, useState } from "react";
 
-import getCertificateUrl from "@/assets/getCertificateUrl";
+import getCertificateUrlById from "@/assets/getCertificateUrlById";
 import CertificateCard from "@/components/shared/CertificateCard";
 import categories from "@/constants/courseCategories";
 import courses from "@/constants/courses";
@@ -43,7 +43,7 @@ const Courses: FC = () => {
           {courses
             .filter(({ category }) => !categorySelected || category.id === categorySelected)
             .map(({ id, name, institution }) => {
-              const certificateUrl = getCertificateUrl(id);
+              const certificateUrl = getCertificateUrlById(id);
 
               return (
                 <Grid key={name} xs={12} md={6}>

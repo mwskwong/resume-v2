@@ -36,7 +36,7 @@ const certificates = {
   oracleTuning
 };
 
-const getCertificateUrl = (certificateId: Course["id"]) => {
+const getCertificateUrlById = (certificateId: Course["id"]) => {
   if (certificateId in certificates) {
     return certificates[certificateId as keyof typeof certificates];
   }
@@ -44,4 +44,4 @@ const getCertificateUrl = (certificateId: Course["id"]) => {
   return undefined;
 };
 
-export default getCertificateUrl;
+export default getCertificateUrlById;

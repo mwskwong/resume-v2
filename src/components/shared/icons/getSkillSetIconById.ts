@@ -12,7 +12,7 @@ import { Brain, Database } from "mdi-material-ui";
 
 import { SkillSet } from "@/types";
 
-const getSkillSetIcon = (id: SkillSet["id"]) => {
+const getSkillSetIconById = (id: SkillSet["id"]) => {
   switch (id) {
     case "be":
       return Terminal;
@@ -33,4 +33,4 @@ const getSkillSetIcon = (id: SkillSet["id"]) => {
   }
 };
 
-export default getSkillSetIcon;
+export default getSkillSetIconById;

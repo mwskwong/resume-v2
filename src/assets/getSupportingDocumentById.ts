@@ -36,7 +36,7 @@ const supportingDocuments: SupportingDocument[] = [
   }
 ];
 
-const getSupportingDocument = (supportingDocumentId: SupportingDocument["id"]) => {
+const getSupportingDocumentById = (supportingDocumentId: SupportingDocument["id"]) => {
   const supportingDocument = supportingDocuments.find(({ id }) => id === supportingDocumentId);
   if (!supportingDocument) {
     throw new TypeError(`Supporting document ${supportingDocumentId} must be present`);
@@ -45,4 +45,4 @@ const getSupportingDocument = (supportingDocumentId: SupportingDocument["id"]) =
   return supportingDocument;
 };
 
-export default getSupportingDocument;
+export default getSupportingDocumentById;

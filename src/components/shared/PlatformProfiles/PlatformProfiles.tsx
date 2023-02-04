@@ -1,7 +1,7 @@
 import { IconButton, Stack } from "@mui/material";
 import { FC } from "react";
 
-import getBrandIcon from "@/components/shared/icons/getBrandIcon";
+import getBrandIconById from "@/components/shared/icons/getBrandIconById";
 import { firstName } from "@/constants/name";
 import platformProfiles from "@/constants/platformProfiles";
 import cx from "@/utils/cx";
@@ -15,7 +15,7 @@ const PlatformProfiles: FC<PlatformProfilesProps> = ({ sx: sxProp }) => {
   return (
     <Stack spacing={1} direction="row" sx={cx(sx.root, sxProp)}>
       {platformProfiles.map(({ platform, url }) => {
-        const Icon = getBrandIcon(platform.id);
+        const Icon = getBrandIconById(platform.id);
 
         return (
           <IconButton

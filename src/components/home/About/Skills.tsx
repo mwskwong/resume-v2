@@ -3,7 +3,7 @@
 import { Avatar, Box, Chip, Stack, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import { FC } from "react";
 
-import getSkillSetIcon from "@/components/shared/icons/getSkillSetIcon";
+import getSkillSetIconById from "@/components/shared/icons/getSkillSetIconById";
 import skills from "@/constants/skills";
 
 import useSx from "./useSkillsSx";
@@ -18,7 +18,7 @@ const Skills: FC = () => {
       </Typography>
       <Grid container spacing={6} disableEqualOverflow sx={sx.grid}>
         {skills.map(({ id, name, skills }) => {
-          const Icon = getSkillSetIcon(id);
+          const Icon = getSkillSetIconById(id);
 
           return (
             <Grid key={id} xs={12} sm={6} lg={4}>

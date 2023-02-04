@@ -13,7 +13,7 @@ import Oracle from "./Oracle";
 import StackOverflow from "./StackOverflow";
 import Udemy from "./Udemy";
 
-const getBrandIcon = (id: Brand["id"]) => {
+const getBrandIconById = (id: Brand["id"]) => {
   switch (id) {
     case "dataCamp":
       return DataCamp;
@@ -38,4 +38,4 @@ const getBrandIcon = (id: Brand["id"]) => {
   }
 };
 
-export default getBrandIcon;
+export default getBrandIconById;
