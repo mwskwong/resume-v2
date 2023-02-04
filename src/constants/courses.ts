@@ -1,135 +1,124 @@
-import adminASqlDbInfra from "@/assets/documents/Administering a SQL Database Infrastructure.pdf";
-import agileCrashCourse from "@/assets/documents/Agile Crash Course Agile Project Management Agile Delivery.pdf";
-import agileFundamentals from "@/assets/documents/Agile Fundamentals Including Scrum and Kanban.pdf";
-import citrix from "@/assets/documents/Citrix Application and Desktop Virtualization - 7.6.pdf";
-import docker from "@/assets/documents/Docker Crash Course for busy DevOps and Developers.pdf";
-import iso from "@/assets/documents/Information Security Awareness-ISO 27001 2013.pdf";
-import introToNumPy from "@/assets/documents/Introduction to NumPy.pdf";
-import linuxBootcamp from "@/assets/documents/Linux Administration Bootcamp Go from Beginner to Advanced.pdf";
-import linuxTroubleshoot from "@/assets/documents/Linux Administration with Troubleshooting Skills Hands-On.pdf";
-import linuxMastery from "@/assets/documents/Linux Mastery Master the Linux Command Line in 11.5 Hours.pdf";
-import linuxShellScript from "@/assets/documents/Linux Shell Scripting A Project-Based Approach to Learning.pdf";
-import m001 from "@/assets/documents/M001 MongoDB Basics.jpg";
-import mysqlForDba from "@/assets/documents/MySQL for Database Administrators.pdf";
-import openShift from "@/assets/documents/OpenShift for the Absolute Beginners - Hands-on.pdf";
-import oracleDba from "@/assets/documents/Oracle DBA 11g 12c - Database Administration for Junior DBA.pdf";
-import oracleTuning from "@/assets/documents/Oracle SQL Performance Tuning Masterclass.pdf";
+
 import { Course } from "@/types";
+
+import { getBrandById } from "./brands";
+import { getCourseCategoryById } from "./courseCategories";
 
 const courses: Course[] = [
   {
+    id: "adminASqlDbInfra",
     name: "Administering a SQL Database Infrastructure",
-    category: "Database",
-    institution: "microsoft",
-    certificationUrl: adminASqlDbInfra
+    category: getCourseCategoryById("db"),
+    institution: getBrandById("microsoft")
   },
   {
+    id: "agileCrashCourse",
     name: "Agile Crash Course: Agile Project Management; Agile Delivery",
-    category: "Project Management",
-    institution: "udemy",
-    certificationUrl: agileCrashCourse
+    category: getCourseCategoryById("pm"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "agileFundamentals",
     name: "Agile Fundamentals: Including Scrum and Kanban",
-    category: "Project Management",
-    institution: "udemy",
-    certificationUrl: agileFundamentals
+    category: getCourseCategoryById("pm"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "citrix",
     name: "Citrix Application and Desktop Virtualization - 7.6",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: citrix
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "docker",
     name: "Docker Crash Course for busy DevOps and Developers",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: docker
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "edb",
     name: "Foundations of EDB v13",
-    category: "Database",
-    institution: "enterpriseDb"
+    category: getCourseCategoryById("db"),
+    institution: getBrandById("enterpriseDb")
   },
   {
+    id: "iso",
     name: "Information Security Awareness-ISO 27001:2013",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: iso
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
+
   },
   {
+    id: "introToNumPy",
     name: "Introduction to NumPy",
-    category: "Development",
-    institution: "dataCamp",
-    certificationUrl: introToNumPy
+    category: getCourseCategoryById("dev"),
+    institution: getBrandById("dataCamp")
   },
   {
+    id: "linuxBootcamp",
     name: "Linux Administration Bootcamp: Go from Beginner to Advanced",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxBootcamp
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "linuxTroubleshoot",
     name: "Linux Administration with Troubleshooting Skills: Hands-On",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxTroubleshoot
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "linuxMastery",
     name: "Linux Mastery: Master the Linux Command Line in 11.5 Hours",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxMastery
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "linuxShellScript",
     name: "Linux Shell Scripting: A Project-Based Approach to Learning",
-    category: "IT Operations",
-    institution: "udemy",
-    certificationUrl: linuxShellScript
-
+    category: getCourseCategoryById("ops"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "m001",
     name: "M001: MongoDB Basics",
-    category: "Database",
-    institution: "mongoDb",
-    certificationUrl: m001.src
+    category: getCourseCategoryById("db"),
+    institution: getBrandById("mongoDb")
   },
   {
+    id: "mysqlForDba",
     name: "MySQL for Database Administrators",
-    category: "Database",
-    institution: "oracle",
-    certificationUrl: mysqlForDba
-
+    category: getCourseCategoryById("db"),
+    institution: getBrandById("oracle")
   },
   {
+    id: "openShift",
     name: "OpenShift for the Absolute Beginners - Hands-on",
-    category: "Others",
-    institution: "udemy",
-    certificationUrl: openShift
-
+    category: getCourseCategoryById("others"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "oracleDba",
     name: "Oracle DBA 11g/12c - Database Administration for Junior DBA",
-    category: "Database",
-    institution: "udemy",
-    certificationUrl: oracleDba
+    category: getCourseCategoryById("db"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "oracleTuning",
     name: "Oracle SQL Performance Tuning Masterclass",
-    category: "Development",
-    institution: "udemy",
-    certificationUrl: oracleTuning
+    category: getCourseCategoryById("dev"),
+    institution: getBrandById("udemy")
   },
   {
-    name: "The Complete Oracle SQL Certification Course",
-    category: "Development",
-    institution: "udemy"
+    id: "oracleSql",
+    name: "The Complete Oracle SQL Certificate Course",
+    category: getCourseCategoryById("dev"),
+    institution: getBrandById("udemy")
   },
   {
+    id: "digitalMarketing",
     name: "Fundamentals of digital marketing",
-    category: "Others",
-    institution: "google"
+    category: getCourseCategoryById("others"),
+    institution: getBrandById("google")
   }
 ];
 

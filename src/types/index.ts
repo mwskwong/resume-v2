@@ -26,7 +26,7 @@ export interface Contact {
 }
 
 export interface CourseCategory {
-  id: "development" | "database" | "operation" | "pm" | "others";
+  id: "dev" | "db" | "ops" | "pm" | "others";
   name: string;
 }
 
@@ -38,9 +38,8 @@ export interface Brand {
 export interface Course {
   id: string;
   name: string;
-  category: CourseCategory["id"];
-  institution: "microsoft" | "udemy" | "enterpriseDb" | "mongoDb" | "dataCamp" | "oracle" | "google";
-  certificationUrl?: string;
+  category: CourseCategory;
+  institution: Brand;
 }
 
 export interface Education {

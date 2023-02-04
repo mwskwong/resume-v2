@@ -2,15 +2,15 @@ import { CourseCategory } from "@/types";
 
 const courseCategories: CourseCategory[] = [
   {
-    id: "development",
+    id: "dev",
     name: "Development"
   },
   {
-    id: "database",
+    id: "db",
     name: "Database"
   },
   {
-    id: "operation",
+    id: "ops",
     name: "IT Operations"
   },
   {
@@ -22,5 +22,14 @@ const courseCategories: CourseCategory[] = [
     name: "Others"
   }
 ];
+
+export const getCourseCategoryById = (categoryId: CourseCategory["id"]) => {
+  const courseCategory = courseCategories.find(({ id }) => id === categoryId);
+  if (!courseCategory) {
+    throw new TypeError(`Course category ${categoryId} must be present`);
+  }
+
+  return courseCategory;
+};
 
 export default courseCategories;

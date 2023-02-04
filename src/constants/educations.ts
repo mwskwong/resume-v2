@@ -16,7 +16,7 @@ const educations: Education[] = [
     school: "The University of Hong Kong",
     supportingDocuments: [
       {
-        name: "Degree Certification",
+        name: "Degree Certificate",
         url: hkuCsCert,
         thumbnail: hkuCsCertThumbnail
       }
