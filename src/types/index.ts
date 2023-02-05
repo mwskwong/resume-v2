@@ -57,6 +57,7 @@ export interface Experience {
   company: string;
   jobDuties?: string[];
   supportingDocuments: SupportingDocument["id"][];
+  relatedSkills: string[];
 }
 
 export type JobTitle = string

@@ -42,8 +42,17 @@ const useSx = () => makeSx({
     userSelect: "none",
     lineHeight: "initial"
   },
-  downloadButton: {
-    mt: 1
+  tagsContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    ml: -0.5,
+    mt: 2
+  },
+  tag: {
+    m: 0.5
+  },
+  supportingDocuments: {
+    mt: 2
   }
 });
 

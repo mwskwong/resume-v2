@@ -211,6 +211,9 @@ const brandingTheme = extendTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           borderRadius: theme.vars.shape.borderRadius
+        }),
+        outlinedPrimary: ({ theme }) => ({
+          color: theme.vars.palette.text.primary
         })
       }
     },

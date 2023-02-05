@@ -10,7 +10,14 @@ const experiences: Experience[] = [
       "Decoupled Vue web apps from WordPress API to standalone RESTful API service",
       "Implemented Vue web apps features. e.g., Authorization system"
     ],
-    supportingDocuments: []
+    supportingDocuments: [],
+    relatedSkills: [
+      "Vue",
+      "Vuetify",
+      "Quasar",
+      "Vuex",
+      "Pinia"
+    ]
   },
   {
     from: new Date(2022, 4),
@@ -21,7 +28,12 @@ const experiences: Experience[] = [
       "Maintain, enhance, and manage ha.org.hk and several intranet web apps, serving 100+ staff and 7M+ Hong Kong residents",
       "Planned and finalized web app OS and DB migration within 1 week"
     ],
-    supportingDocuments: []
+    supportingDocuments: [],
+    relatedSkills: [
+      "ASP",
+      "jQuery",
+      "Microsoft SQL Server"
+    ]
   },
   {
     from: new Date(2021, 7),
@@ -38,6 +50,20 @@ const experiences: Experience[] = [
     ],
     supportingDocuments: [
       "lunchAndLearn"
+    ],
+    relatedSkills: [
+      "MySQL",
+      "Microsoft SQL Server",
+      "Oracle Database",
+      "Sybase ASE",
+      "Delphix",
+      "React",
+      "MUI",
+      "Redux",
+      "React Hook Form",
+      "Prism.js",
+      "Express",
+      "OpenShift"
     ]
   },
   {
@@ -52,7 +78,16 @@ const experiences: Experience[] = [
       "Implemented a Java-based database password management application supporting 3 types of DB",
       "POC on data virtualization with Delphix DataOps platform supporting 2 types of DB and 30+ DB instances"
     ],
-    supportingDocuments: []
+    supportingDocuments: [],
+    relatedSkills: [
+      "MySQL",
+      "Sybase ASE",
+      "Delphix",
+      "React",
+      "MUI",
+      "Redux",
+      "Express"
+    ]
   },
   {
     from: new Date(2018, 5),
@@ -64,7 +99,13 @@ const experiences: Experience[] = [
       "Design and develop installer for E-Form Filler using NSIS MUI2",
       "Rework a 3-year-old MPF cross-platform mobile application using React Native to replace the legacy Apache Cordova framework"
     ],
-    supportingDocuments: []
+    supportingDocuments: [],
+    relatedSkills: [
+      "NSIS MUI2",
+      "React Native",
+      "NativeBase",
+      "React Navigation"
+    ]
   },
   {
     from: new Date(2017, 6),
@@ -76,6 +117,9 @@ const experiences: Experience[] = [
     ],
     supportingDocuments: [
       "hkuMedRaRefLetter"
+    ],
+    relatedSkills: [
+      "JavaFX"
     ]
   },
   {
@@ -88,6 +132,9 @@ const experiences: Experience[] = [
     ],
     supportingDocuments: [
       "hkuEngTaRefLetter"
+    ],
+    relatedSkills: [
+      "C++"
     ]
   }
 ];

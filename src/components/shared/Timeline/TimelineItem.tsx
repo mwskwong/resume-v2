@@ -6,7 +6,7 @@ import {
   TimelineOppositeContent,
   TimelineSeparator
 } from "@mui/lab";
-import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Box, Chip, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC } from "react";
 
 import dateTimeFormat from "@/utils/dateTimeFormat";
@@ -52,16 +52,32 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
             </ListItem>
           ))}
         </List>
-        <List disablePadding>
-          {data.supportingDocuments?.map(supportingDocument => (
-            <SupportingDocumentListItem
-              key={supportingDocument.id}
-              supportingDocument={supportingDocument}
-            />
-          ))}
-        </List>
+        {Boolean(data.tags?.length) && (
+          <Box sx={sx.tagsContainer}>
+            {data.tags?.map(tag => (
+              <Chip
+                key={tag}
+                sx={sx.tag}
+                label={tag}
+                variant="outlined"
+                color="primary"
+                data-cy={tag}
+              />
+            ))}
+          </Box>
+        )}
+        {Boolean(data.supportingDocuments?.length) && (
+          <List disablePadding sx={sx.supportingDocuments}>
+            {data.supportingDocuments?.map(supportingDocument => (
+              <SupportingDocumentListItem
+                key={supportingDocument.id}
+                supportingDocument={supportingDocument}
+              />
+            ))}
+          </List>
+        )}
       </TimelineContent>
-    </MuiTimelineItem >
+    </MuiTimelineItem>
   );
 };
 

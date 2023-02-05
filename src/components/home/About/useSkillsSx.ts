@@ -27,8 +27,7 @@ const useSx = () => makeSx({
     flexWrap: "wrap"
   },
   skill: {
-    m: 0.5,
-    color: "inherit"
+    m: 0.5
   }
 });
 
