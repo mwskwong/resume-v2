@@ -2,7 +2,7 @@ import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
 import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
-import mapKeysDeep from "map-keys-deep-lodash";
+import deepRenameKeys from "deep-rename-keys-ts";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 
 import rubik from "./rubik";
@@ -230,9 +230,9 @@ const brandingTheme = extendTheme({
           }
         },
         section: {
-          ...mapKeysDeep(
+          ...deepRenameKeys(
             theme.mixins.toolbar,
-            (_, key) => {
+            key => {
               if (key === "minHeight") {
                 return "scrollPaddingTop";
               }
