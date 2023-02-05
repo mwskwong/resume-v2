@@ -16,8 +16,9 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         with:
           outputDirectory: ${{ github.workspace }}/tmp/artifacts
-          url: ${{ github.event.deployment_status.target_url }}
+          urls: ${{ github.event.deployment_status.target_url }}
           gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          device: mobile
           prCommentEnabled: true
           prCommentSaveOld: true
 
