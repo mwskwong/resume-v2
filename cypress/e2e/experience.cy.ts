@@ -103,10 +103,59 @@ describe("Experience section", () => {
               }
             });
 
-            // TODO: check for supporting documents
             describe("Support documents", () => {
-              // eslint-disable-next-line no-unused-vars
-              for (const supportingDocument of supportingDocuments) { /* empty */ }
+              const documents = {
+                lunchAndLearn: {
+                  name: "Knowledge-sharing session certificate of appreciation",
+                  matchingString: "Lunch & Learn",
+                  thumbnailRegex: /lunch_and_learn_thumbnail\.[a-zA-Z0-9]+\.jpg/i
+                },
+                hkuMedRaRefLetter: {
+                  name: "Reference Letter",
+                  matchingString: "Tommy Lam",
+                  thumbnailRegex: /hku_med_ra_thumbnail\.[a-zA-Z0-9]+\.jpg/i
+                },
+                hkuEngTaRefLetter: {
+                  name: "Reference Letter",
+                  matchingString: "marian",
+                  thumbnailRegex: /hku_eng_ta_thumbnail\.[a-zA-Z0-9]+\.jpg/i
+                }
+              };
+
+              for (const supportingDocument of supportingDocuments) {
+                const document = documents[supportingDocument as keyof typeof documents];
+
+                describe(supportingDocument, () => {
+                  it("contains the correct label", () => {
+                    cy.get(`${timelineSelector} [data-cy='${supportingDocument}']`)
+                      .should("be.visible")
+                      .and("contain", document.name);
+                  });
+
+                  it("opens the correct document in a new tab", () => {
+                    const anchor = cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] a`);
+                    anchor
+                      .should("have.attr", "target", "_blank")
+                      .click();
+
+                    anchor
+                      .invoke("attr", "href")
+                      .then(href => {
+                        const filename = href?.split("/").slice(-1);
+                        cy.readFile(`./cypress/downloads/${filename}`)
+                          .should("contain", "%PDF-")
+                          .and("contain", document.matchingString);
+                      });
+                  });
+
+                  it("contains the correct thumbnail", () => {
+                    cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] img`)
+                      .should("be.visible")
+                      .and("have.attr", "src")
+                      .and("match", document.thumbnailRegex);
+                  });
+                });
+              }
             });
           });
         }

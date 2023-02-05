@@ -72,6 +72,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
               <SupportingDocumentListItem
                 key={supportingDocument.id}
                 supportingDocument={supportingDocument}
+                data-cy={supportingDocument.id}
               />
             ))}
           </List>
