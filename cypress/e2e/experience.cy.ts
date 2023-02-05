@@ -106,9 +106,7 @@ describe("Experience section", () => {
             // TODO: check for supporting documents
             describe("Support documents", () => {
               // eslint-disable-next-line no-unused-vars
-              for (const supportingDocument of supportingDocuments) {
-
-              }
+              for (const supportingDocument of supportingDocuments) { /* empty */ }
             });
           });
         }
