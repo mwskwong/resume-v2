@@ -55,9 +55,9 @@ export interface Experience {
   to: Date | "Present";
   jobTitle: string;
   company: string;
-  jobDuties?: string[];
+  jobDuties: string[];
   supportingDocuments: SupportingDocument["id"][];
-  relatedSkills: string[];
+  relevantSkills: string[];
 }
 
 export type JobTitle = string

@@ -53,7 +53,7 @@ describe("Experience section", () => {
         });
 
         for (let i = 0; i < experiences.length; i++) {
-          const { from, to, jobTitle, company, jobDuties = [] } = experiences[i];
+          const { from, to, jobTitle, company, jobDuties, relevantSkills: relevantSkills } = experiences[i];
           const period = `${dateTimeFormat.format(from)} — ${to === "Present" ? "Present" : dateTimeFormat.format(to)}`;
           const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
@@ -80,21 +80,31 @@ describe("Experience section", () => {
             });
 
             describe("Job duties", () => {
-              for (let j = 0; j < jobDuties.length; j++) {
-                const jobDuty = jobDuties[j];
-                it(`includes Duty ${j + 1}: "${jobDuty}"`, () => {
-                  const title = cy.get(`${timelineSelector} [data-cy='title']`).eq(i);
-                  const container = title.parent();
-
-                  container.find("[data-cy='content']")
-                    .eq(j)
+              for (const jobDuty of jobDuties) {
+                it(`includes Duty: "${jobDuty}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy='contents']`)
+                    .eq(i)
+                    .children()
                     .should("be.visible")
                     .and("contain", jobDuty);
                 });
               }
             });
 
+            describe("Relevant skills", () => {
+              for (const skill of relevantSkills) {
+                it(`includes ${skill}`, () => {
+                  cy.get(`${timelineSelector} [data-cy='tags']`)
+                    .eq(i)
+                    .children()
+                    .should("be.visible")
+                    .and("contain", skill);
+                });
+              }
+            });
+
             // TODO: check for supporting documents
+
           });
         }
       });

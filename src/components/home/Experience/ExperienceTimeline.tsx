@@ -7,12 +7,12 @@ import experiences from "@/constants/experiences";
 
 const ExperienceTimeline: FC = () => {
   const data: TimelineProps["data"] = experiences
-    .map(({ jobTitle, company, jobDuties, supportingDocuments, relatedSkills, ...elem }) => ({
+    .map(({ jobTitle, company, jobDuties, supportingDocuments, relevantSkills: relevantSkills, ...elem }) => ({
       title: jobTitle,
       subtitle: company,
       contents: jobDuties,
       supportingDocuments: supportingDocuments.map(id => getSupportingDocumentById(id)),
-      tags: relatedSkills,
+      tags: relevantSkills,
       ...elem
     }));
 

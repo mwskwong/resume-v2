@@ -40,9 +40,9 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         <Typography sx={sx.subtitle} component="div" gutterBottom data-cy="subtitle">
           {data.subtitle}
         </Typography>
-        <List disablePadding component="ol">
+        <List disablePadding component="ol" data-cy="contents">
           {data.contents?.map((content, index) => (
-            <ListItem key={index} disableGutters data-cy="content">
+            <ListItem key={index} disableGutters>
               <ListItemIcon sx={sx.listItemIcon}>
                 <Typography component="span" sx={sx.listItemNumber}>
                   {`${index + 1 < 10 ? 0 : ""}${index + 1}`}
@@ -53,7 +53,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           ))}
         </List>
         {Boolean(data.tags?.length) && (
-          <Box sx={sx.tagsContainer}>
+          <Box sx={sx.tagsContainer} data-cy="tags">
             {data.tags?.map(tag => (
               <Chip
                 key={tag}

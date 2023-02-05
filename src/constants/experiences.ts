@@ -11,7 +11,7 @@ const experiences: Experience[] = [
       "Implemented Vue web apps features. e.g., Authorization system"
     ],
     supportingDocuments: [],
-    relatedSkills: [
+    relevantSkills: [
       "Vue",
       "Vuetify",
       "Quasar",
@@ -29,7 +29,7 @@ const experiences: Experience[] = [
       "Planned and finalized web app OS and DB migration within 1 week"
     ],
     supportingDocuments: [],
-    relatedSkills: [
+    relevantSkills: [
       "ASP",
       "jQuery",
       "Microsoft SQL Server"
@@ -51,7 +51,7 @@ const experiences: Experience[] = [
     supportingDocuments: [
       "lunchAndLearn"
     ],
-    relatedSkills: [
+    relevantSkills: [
       "MySQL",
       "Microsoft SQL Server",
       "Oracle Database",
@@ -79,7 +79,7 @@ const experiences: Experience[] = [
       "POC on data virtualization with Delphix DataOps platform supporting 2 types of DB and 30+ DB instances"
     ],
     supportingDocuments: [],
-    relatedSkills: [
+    relevantSkills: [
       "MySQL",
       "Sybase ASE",
       "Delphix",
@@ -100,7 +100,7 @@ const experiences: Experience[] = [
       "Rework a 3-year-old MPF cross-platform mobile application using React Native to replace the legacy Apache Cordova framework"
     ],
     supportingDocuments: [],
-    relatedSkills: [
+    relevantSkills: [
       "NSIS MUI2",
       "React Native",
       "NativeBase",
@@ -118,7 +118,7 @@ const experiences: Experience[] = [
     supportingDocuments: [
       "hkuMedRaRefLetter"
     ],
-    relatedSkills: [
+    relevantSkills: [
       "JavaFX"
     ]
   },
@@ -133,7 +133,7 @@ const experiences: Experience[] = [
     supportingDocuments: [
       "hkuEngTaRefLetter"
     ],
-    relatedSkills: [
+    relevantSkills: [
       "C++"
     ]
   }
