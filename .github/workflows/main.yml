@@ -1,9 +1,9 @@
-name: Cypress E2E
+name: Cypress E2E Tests
 
-on: [deployment_status]
+on:
+  deployment_status:
 
-jobs:
-  cypress:
+  run-cypress-e2e-tests-on-headless-chrome:
     if: ${{ github.event.deployment_status.state == 'success' && github.event.deployment_status.environment != 'Production' }}
     runs-on: ubuntu-latest
     strategy:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: UI Tests - Chrome Headless
+      - name: E2E Tests - Headless Chrome
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
