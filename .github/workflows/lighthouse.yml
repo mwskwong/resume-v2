@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
       
       - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
 
       - name: Lighthouse
-        uses: foo-software/lighthouse-check-action@v9
+        uses: foo-software/lighthouse-check-action@master
         with:
           outputDirectory: ${{ github.workspace }}/tmp/artifacts
           url: ${{ github.event.deployment_status.target_url }}
@@ -22,7 +22,7 @@ jobs:
           prCommentSaveOld: true
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@master
         with:
           name: Lighthouse reports
           path: ${{ github.workspace }}/tmp/artifacts

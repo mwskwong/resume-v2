@@ -12,10 +12,10 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
 
       - name: E2E Tests - Headless Chrome
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@master
         with:
           browser: chrome
           record: true
