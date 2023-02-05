@@ -6,9 +6,6 @@ jobs:
   cypress:
     if: ${{ github.event.deployment_status.state == 'success' && github.event.deployment_status.environment != 'Production' }}
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome107
-      options: --user 1001
     strategy:
       fail-fast: false
       matrix:
@@ -17,13 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: UI Tests - Chrome
-        uses: cypress-io/github-action@v4
+      - name: UI Tests - Chrome Headless
+        uses: cypress-io/github-action@v5
         with:
           browser: chrome
           record: true
           parallel: true
-          group: "UI - Chrome Headless"
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
