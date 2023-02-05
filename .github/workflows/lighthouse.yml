@@ -15,12 +15,18 @@ jobs:
       - name: Lighthouse
         uses: foo-software/lighthouse-check-action@master
         with:
-          outputDirectory: ${{ github.workspace }}/tmp/artifacts
           urls: ${{ github.event.deployment_status.target_url }}
-          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
           device: mobile
+          outputDirectory: ${{ github.workspace }}/tmp/artifacts
           prCommentEnabled: true
           prCommentSaveOld: true
+          commentUrl: https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/comments
+          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Verify Results
+        uses: foo-software/lighthouse-check-status-action@master
+        with:
+          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
           minPerformanceScore: "90"
           minAccessibilityScore: "98"
           minBestPracticesScore: "100"
