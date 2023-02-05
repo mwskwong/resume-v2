@@ -11,10 +11,6 @@ const useSx = () => makeSx({
     }
   },
   menuButton: {
-    display: {
-      xs: "inline-flex",
-      md: "none"
-    },
     mr: "-8px"
   },
   navList: {
