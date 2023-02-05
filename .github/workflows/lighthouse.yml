@@ -13,7 +13,7 @@ jobs:
       - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
 
       - name: Lighthouse
-        uses: foo-software/lighthouse-check-action@9
+        uses: foo-software/lighthouse-check-action@v9
         with:
           outputDirectory: ${{ github.workspace }}/tmp/artifacts
           url: ${{ github.event.deployment_status.target_url }}
@@ -22,7 +22,7 @@ jobs:
           prCommentSaveOld: true
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@3
+        uses: actions/upload-artifact@v3
         with:
           name: Lighthouse reports
           path: ${{ github.workspace }}/tmp/artifacts
