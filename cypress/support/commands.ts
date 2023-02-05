@@ -41,7 +41,7 @@ import { buttonClasses, listItemClasses } from "@mui/material";
 Cypress.Commands.add("disableSmoothScroll", () => {
   cy.document().then(document => {
     const node = document.createElement("style");
-    node.innerHTML = "html { scroll-behavior: inherit !important; }";
+    node.innerHTML = "html { scroll-behavior: auto !important; }";
     document.body.appendChild(node);
   });
 });
