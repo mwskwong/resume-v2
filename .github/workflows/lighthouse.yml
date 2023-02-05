@@ -1,0 +1,23 @@
+name: Lighthouse
+
+on: deployment_status
+
+jobs:
+  lighthouse:
+    if: ${{ github.event.deployment_status.state == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate Lighthouse Report
+        uses: justinribeiro/lighthouse-action@v3
+        with:
+          secret: ${{ secrets.GITHUB_TOKEN }}
+          url: ${{ github.event.deployment_status.target_url }}
+
+      - name: Saving Lighthouse Audit Artifacts
+        uses: actions/upload-artifact@3
+        with:
+          name: lighthouse-artifacts
+          path: './results'
