@@ -9,15 +9,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
 
-      - name: Generate Lighthouse Report
-        uses: justinribeiro/lighthouse-action@v3
+      - name: Lighthouse
+        uses: foo-software/lighthouse-check-action@9
         with:
-          secret: ${{ secrets.GITHUB_TOKEN }}
+          outputDirectory: ${{ github.workspace }}/tmp/artifacts
           url: ${{ github.event.deployment_status.target_url }}
+          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          prCommentEnabled: true
+          prCommentSaveOld: true
 
-      - name: Saving Lighthouse Audit Artifacts
+      - name: Upload artifacts
         uses: actions/upload-artifact@3
         with:
-          name: lighthouse-artifacts
-          path: './results'
+          name: Lighthouse reports
+          path: ${{ github.workspace }}/tmp/artifacts
