@@ -53,7 +53,7 @@ describe("Experience section", () => {
         });
 
         for (let i = 0; i < experiences.length; i++) {
-          const { from, to, jobTitle, company, jobDuties, relevantSkills: relevantSkills } = experiences[i];
+          const { from, to, jobTitle, company, jobDuties, relevantSkills, supportingDocuments } = experiences[i];
           const period = `${dateTimeFormat.format(from)} — ${to === "Present" ? "Present" : dateTimeFormat.format(to)}`;
           const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
@@ -104,7 +104,12 @@ describe("Experience section", () => {
             });
 
             // TODO: check for supporting documents
+            describe("Support documents", () => {
+              // eslint-disable-next-line no-unused-vars
+              for (const supportingDocument of supportingDocuments) {
 
+              }
+            });
           });
         }
       });
