@@ -11,10 +11,13 @@ import { SectionProps } from "@/types";
 import ExperienceTimeline from "./ExperienceTimeline";
 
 const Experience: FC<SectionProps> = ({ sx }) => (
-  <Box sx={sx} component="section" id={EXPERIENCE.id}>
+  <Box sx={sx} component="section" id={EXPERIENCE.id} data-cy={EXPERIENCE.id}>
     <Container>
       <Stack spacing={6}>
-        <SectionHeader heading="Experience" icon={<Work />} />
+        <SectionHeader
+          heading="Experience"
+          icon={<Work />}
+        />
         <ExperienceTimeline />
       </Stack>
     </Container>

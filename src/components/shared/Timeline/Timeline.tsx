@@ -5,7 +5,7 @@ import TimelineItem from "./TimelineItem";
 import TimelineProps from "./TimelineProps";
 
 const Timeline: FC<TimelineProps> = ({ data }) => (
-  <MuiTimeline position="right" >
+  <MuiTimeline position="right" data-cy="timeline">
     {data.map((datum, index) => (
       <TimelineItem key={index} data={datum} />
     ))}

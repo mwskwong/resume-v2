@@ -23,7 +23,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
 
   return (
     <MuiTimelineItem>
-      <TimelineOppositeContent sx={sx.periodDesktop}>
+      <TimelineOppositeContent sx={sx.periodDesktop} data-cy="periodDesktop">
         {period}
       </TimelineOppositeContent>
       <TimelineSeparator>
@@ -31,18 +31,18 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent sx={sx.timelineContent}>
-        <Typography sx={sx.periodMobile} component="div" gutterBottom>
+        <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="periodMobile">
           {period}
         </Typography>
-        <Typography sx={sx.title} component="div" gutterBottom>
+        <Typography sx={sx.title} component="div" gutterBottom data-cy="title">
           {data.title}
         </Typography>
-        <Typography sx={sx.subtitle} component="div" gutterBottom>
+        <Typography sx={sx.subtitle} component="div" gutterBottom data-cy="subtitle">
           {data.subtitle}
         </Typography>
         <List disablePadding component="ol">
           {data.contents?.map((content, index) => (
-            <ListItem key={index} disableGutters>
+            <ListItem key={index} disableGutters data-cy="content">
               <ListItemIcon sx={sx.listItemIcon}>
                 <Typography component="span" sx={sx.listItemNumber}>
                   {`${index + 1 < 10 ? 0 : ""}${index + 1}`}
