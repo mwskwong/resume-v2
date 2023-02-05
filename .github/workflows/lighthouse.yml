@@ -21,6 +21,10 @@ jobs:
           device: mobile
           prCommentEnabled: true
           prCommentSaveOld: true
+          inPerformanceScore: "90"
+          minAccessibilityScore: "98"
+          minBestPracticesScore: "100"
+          minSeoScore: "100"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@master
