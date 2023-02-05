@@ -46,13 +46,13 @@ const useSx = () => makeSx({
     display: "flex",
     flexWrap: "wrap",
     ml: -0.5,
-    mt: 2
+    mt: 1
   },
   tag: {
     m: 0.5
   },
   supportingDocuments: {
-    mt: 2
+    mt: 1
   }
 });
 
