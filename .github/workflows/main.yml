@@ -3,7 +3,7 @@ name: Cypress E2E Tests
 on: deployment_status
 
 jobs:
-  run-cypress-e2e-tests-on-headless-chrome:
+  run-on-headless-chrome:
     if: ${{ github.event.deployment_status.state == 'success' && github.event.deployment_status.environment != 'Production' }}
     runs-on: ubuntu-latest
     strategy:
