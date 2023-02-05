@@ -9,19 +9,21 @@ import {
   TerminalRounded as Terminal
 } from "@mui/icons-material";
 import { SvgIconProps } from "@mui/material";
-import { Database as MdiDatabase, RobotConfused } from "mdi-material-ui";
+import { Database as MdiDatabase } from "mdi-material-ui";
 import { FC } from "react";
 
 import { SkillSet } from "@/types";
+
+import MachineLearning from "./MachineLearning";
 
 const Backend: FC<SvgIconProps> = props => <Terminal data-cy="beIcon" {...props} />;
 const Cloud: FC<SvgIconProps> = props => <MuiCloud data-cy="cloudIcon" {...props} />;
 const DataOps: FC<SvgIconProps> = props => <AllInclusive data-cy="dataOpsIcon" {...props} />;
 const Database: FC<SvgIconProps> = props => <MdiDatabase data-cy="dbIcon" {...props} />;
 const Frontend: FC<SvgIconProps> = props => <Dashboard data-cy="feIcon" {...props} />;
-const Qa: FC<SvgIconProps> = props => <BugReport data-cy="qaIcon" {...props} />;
+const QualityAssurance: FC<SvgIconProps> = props => <BugReport data-cy="qaIcon" {...props} />;
 const Mobile: FC<SvgIconProps> = props => <DevicesOther data-cy="mobileIcon" {...props} />;
-const Ml: FC<SvgIconProps> = props => <RobotConfused data-cy="mlIcon" {...props} />;
+
 
 const getSkillSetIconById = (id: SkillSet["id"]) => {
   switch (id) {
@@ -36,11 +38,11 @@ const getSkillSetIconById = (id: SkillSet["id"]) => {
     case "fe":
       return Frontend;
     case "qa":
-      return Qa;
+      return QualityAssurance;
     case "mobile":
       return Mobile;
     case "ml":
-      return Ml;
+      return MachineLearning;
   }
 };
 
