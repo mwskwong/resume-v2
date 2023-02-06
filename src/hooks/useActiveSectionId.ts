@@ -1,28 +1,20 @@
+import { throttle } from "lodash-es";
 import { useEffect, useState, useTransition } from "react";
 
 import nav, { HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
-
-const isSectionId = (value: string): value is SectionId => {
-  const sectionIds = Object.values(nav).map(({ id }) => id as string);
-  return sectionIds.includes(value);
-};
 
 const useActiveSectionId = (): SectionId => {
   const [, startTransition] = useTransition();
   const [activeSectionId, setActiveSectionId] = useState(HOME.id);
 
   useEffect(() => {
-    const initId = window.location.hash.slice(1);
-
-    if (isSectionId(initId)) setActiveSectionId(initId);
-
     const sectionIds = Object.values(nav).map(({ id }) => id).reverse();
 
-    const handleScroll = () => {
-      const scrollBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+    const handleScroll = throttle(() => {
+      const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
 
-      if (scrollBottom) {
+      if (scrolledToBottom) {
         startTransition(() => setActiveSectionId(sectionIds[0]));
       } else {
         for (const sectionId of sectionIds) {
@@ -37,7 +29,7 @@ const useActiveSectionId = (): SectionId => {
           }
         }
       }
-    };
+    }, 1000 / 6); // 6 fps
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

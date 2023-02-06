@@ -58,7 +58,6 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   navElement.contains(section.name);
   navElement.click();
   navElement.should("have.class", activeClassName);
-  cy.hash().should("equal", `#${section.id}`);
   cy.verifySectionIsInViewport(section);
 
   if (viewport === "mobile") {
