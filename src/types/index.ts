@@ -15,8 +15,9 @@ export interface SectionProps {
 export interface SupportingDocument {
   id: string;
   name: string;
-  url: string;
+  url?: string;
   thumbnail: StaticImageData;
+  private?: boolean;
 }
 
 export interface Contact {

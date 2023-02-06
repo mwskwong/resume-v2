@@ -343,6 +343,16 @@ const brandingTheme = extendTheme({
         })
       }
     },
+    MuiTooltip: {
+      defaultProps: {
+        placement: "bottom-start"
+      },
+      styleOverrides: {
+        tooltip: {
+          backdropFilter: "blur(20px)"
+        }
+      }
+    },
     MuiTypography: {
       defaultProps: {
         color: "text.primary"

@@ -50,6 +50,7 @@ const experiences: Experience[] = [
       "POC on data virtualization with Delphix DataOps platform supporting 3 types of DB and 50+ DB instances"
     ],
     supportingDocuments: [
+      "haSc3RefLetter",
       "lunchAndLearn"
     ],
     relevantSkills: [
