@@ -101,20 +101,29 @@ describe("Experience section", () => {
 
             describe("Support documents", () => {
               const documents = {
+                haSc3RefLetter: {
+                  name: "Reference Letter",
+                  matchingString: undefined,
+                  thumbnailRegex: /ha_sc3_ref_thumbnail_blur\.[a-zA-Z0-9]+\.jpg/i,
+                  private: true
+                },
                 lunchAndLearn: {
                   name: "Knowledge-sharing session certificate of appreciation",
                   matchingString: "Lunch & Learn",
-                  thumbnailRegex: /lunch_and_learn_thumbnail\.[a-zA-Z0-9]+\.jpg/i
+                  thumbnailRegex: /lunch_and_learn_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
+                  private: false
                 },
                 hkuMedRaRefLetter: {
                   name: "Reference Letter",
                   matchingString: "Tommy Lam",
-                  thumbnailRegex: /hku_med_ra_thumbnail\.[a-zA-Z0-9]+\.jpg/i
+                  thumbnailRegex: /hku_med_ra_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
+                  private: false
                 },
                 hkuEngTaRefLetter: {
                   name: "Reference Letter",
                   matchingString: "marian",
-                  thumbnailRegex: /hku_eng_ta_thumbnail\.[a-zA-Z0-9]+\.jpg/i
+                  thumbnailRegex: /hku_eng_ta_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
+                  private: false
                 }
               };
 
@@ -128,21 +137,23 @@ describe("Experience section", () => {
                       .and("contain", document.name);
                   });
 
-                  it("opens the correct document in a new tab", () => {
-                    cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] a`).as("anchor");
-                    cy.get("@anchor")
-                      .should("have.attr", "target", "_blank")
-                      .click();
+                  if (!document.private) {
+                    it("opens the correct document in a new tab", () => {
+                      cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] a`).as("anchor");
+                      cy.get("@anchor")
+                        .should("have.attr", "target", "_blank")
+                        .click();
 
-                    cy.get("@anchor")
-                      .invoke("attr", "href")
-                      .then(href => {
-                        const filename = href?.split("/").slice(-1);
-                        cy.readFile(`./cypress/downloads/${filename}`)
-                          .should("contain", "%PDF-")
-                          .and("contain", document.matchingString);
-                      });
-                  });
+                      cy.get("@anchor")
+                        .invoke("attr", "href")
+                        .then(href => {
+                          const filename = href?.split("/").slice(-1);
+                          cy.readFile(`./cypress/downloads/${filename}`)
+                            .should("contain", "%PDF-")
+                            .and("contain", document.matchingString);
+                        });
+                    });
+                  }
 
                   it("contains the correct thumbnail", () => {
                     cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] img`)
