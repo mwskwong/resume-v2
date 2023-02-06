@@ -1,7 +1,11 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
+import { touchRippleClasses } from "@mui/material/ButtonBase";
+import { filledInputClasses } from "@mui/material/FilledInput";
+import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
 import type { } from "@mui/material/themeCssVarsAugmentation";
+import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
+import { alpha, darken, lighten } from "@mui/system";
 import deepRenameKeys from "deep-rename-keys-ts";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 

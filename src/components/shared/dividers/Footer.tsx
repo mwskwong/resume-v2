@@ -1,4 +1,5 @@
-import { BoxProps, useTheme } from "@mui/material";
+import { BoxProps } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { FC } from "react";
 
 import DividerSvg from "./DividerSvg";

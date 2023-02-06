@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
-import { buttonClasses, listItemButtonClasses } from "@mui/material";
+import { buttonClasses } from "@mui/material/Button";
+import { listItemButtonClasses } from "@mui/material/ListItemButton";
 
 // ***********************************************
 // This example commands.ts shows you how to

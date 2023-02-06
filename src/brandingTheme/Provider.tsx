@@ -1,6 +1,7 @@
 "use client";
 
-import { CssBaseline, Experimental_CssVarsProvider as CssVarsProvider, getInitColorSchemeScript } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+import { Experimental_CssVarsProvider as CssVarsProvider, getInitColorSchemeScript } from "@mui/material/styles";
 import { ComponentProps, FC } from "react";
 
 import brandingTheme from "./brandingTheme";
