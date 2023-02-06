@@ -348,9 +348,13 @@ const brandingTheme = extendTheme({
         placement: "bottom-start"
       },
       styleOverrides: {
-        tooltip: {
-          backdropFilter: "blur(20px)"
-        }
+        tooltip: ({ theme }) => ({
+          backdropFilter: "blur(20px)",
+          borderRadius: `calc(${theme.vars.shape.borderRadius} / 1.33)`
+        }),
+        touch: ({ theme }) => ({
+          borderRadius: theme.vars.shape.borderRadius
+        })
       }
     },
     MuiTypography: {
