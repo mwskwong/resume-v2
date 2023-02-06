@@ -13,8 +13,8 @@ const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
   };
 
   return (
-    <ListItem disablePadding data-cy={id}>
-      <ListItemButton onClick={handleClick} selected={active}>
+    <ListItem disablePadding>
+      <ListItemButton onClick={handleClick} selected={active} data-cy={id}>
         <ListItemText
           primary={label}
           primaryTypographyProps={primaryTypographyProps}

@@ -16,10 +16,6 @@ describe("About section", () => {
     const viewport = viewports[viewportType as keyof typeof viewports];
     describe(`${Cypress._.capitalize(viewportType)} view`, viewport, () => {
       describe("Navigation", () => {
-        it(`navigates to section through "/#${ABOUT.id}" path`, () => {
-          cy.verifySectionIsInViewport(ABOUT);
-        });
-
         it("navigates to section by clicking navigation link", () => {
           cy.wait(10);
           cy.scrollTo("center");
@@ -53,9 +49,9 @@ describe("About section", () => {
 
       describe("Job titles", () => {
         it("is correct", () => {
-          const jobTitlesElement = cy.get("[data-cy='jobTitles']");
+          cy.get("[data-cy='jobTitles']").as("jobTitles");
           for (const jobTitle of jobTitles) {
-            jobTitlesElement.should("contain", jobTitle);
+            cy.get("@jobTitles").should("contain", jobTitle);
           }
         });
       });

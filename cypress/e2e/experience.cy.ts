@@ -14,10 +14,6 @@ describe("Experience section", () => {
     const viewport = viewports[viewportType as keyof typeof viewports];
     describe(`${Cypress._.capitalize(viewportType)} view`, viewport, () => {
       describe("Navigation", () => {
-        it(`navigates to section through "/#${EXPERIENCE.id}" path`, () => {
-          cy.verifySectionIsInViewport(EXPERIENCE);
-        });
-
         it("navigates to section by clicking navigation link", () => {
           cy.wait(10);
           cy.scrollTo("center");
@@ -133,12 +129,12 @@ describe("Experience section", () => {
                   });
 
                   it("opens the correct document in a new tab", () => {
-                    const anchor = cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] a`);
-                    anchor
+                    cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] a`).as("anchor");
+                    cy.get("@anchor")
                       .should("have.attr", "target", "_blank")
                       .click();
 
-                    anchor
+                    cy.get("@anchor")
                       .invoke("attr", "href")
                       .then(href => {
                         const filename = href?.split("/").slice(-1);

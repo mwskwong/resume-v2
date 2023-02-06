@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { buttonClasses, listItemClasses } from "@mui/material";
+import { buttonClasses, listItemButtonClasses } from "@mui/material";
 
 // ***********************************************
 // This example commands.ts shows you how to
@@ -48,16 +48,16 @@ Cypress.Commands.add("disableSmoothScroll", () => {
 
 Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const container = viewport === "desktop" ? "navButtons" : "navList";
-  const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemClasses.selected;
+  const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemButtonClasses.selected;
 
   if (viewport === "mobile") {
     cy.toggleNavMenu();
   }
 
-  const navElement = cy.get(`[data-cy='${container}'] [data-cy='${section.id}']`);
-  navElement.contains(section.name);
-  navElement.click();
-  navElement.should("have.class", activeClassName);
+  cy.get(`[data-cy='${container}'] [data-cy='${section.id}']`).as("navElement");
+  cy.get("@navElement").should("contain", section.name);
+  cy.get("@navElement").click();
+  cy.get("@navElement").should("have.class", activeClassName);
   cy.verifySectionIsInViewport(section);
 
   if (viewport === "mobile") {

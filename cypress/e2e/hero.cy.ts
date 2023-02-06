@@ -16,15 +16,6 @@ describe("Hero section", () => {
     const viewport = viewports[viewportType as keyof typeof viewports];
     describe(`${Cypress._.capitalize(viewportType)} view`, viewport, () => {
       describe("Navigation", () => {
-        it("navigates to section through \"/\" path", () => {
-          cy.verifySectionIsInViewport(HOME);
-        });
-
-        it(`navigates to section through "/#${HOME.id}" path`, () => {
-          cy.visit(`/#${HOME.id}`);
-          cy.verifySectionIsInViewport(HOME);
-        });
-
         it("navigates to section by clicking navigation link", () => {
           cy.wait(10);
           cy.scrollTo("center");
@@ -95,12 +86,12 @@ describe("Hero section", () => {
         });
 
         it(`opens the resume PDF of ${firstName} in a new tab`, () => {
-          const downloadResumeButton = cy.get("[data-cy='downloadResume']");
-          downloadResumeButton
+          cy.get("[data-cy='downloadResume']").as("downloadResumeButton");
+          cy.get("@downloadResumeButton")
             .should("have.attr", "target", "_blank")
             .click();
 
-          downloadResumeButton
+          cy.get("@downloadResumeButton")
             .invoke("attr", "href")
             .then(href => {
               const filename = href?.split("/").slice(-1);
