@@ -130,7 +130,6 @@ describe("Education section", () => {
         }
       });
 
-      // TODO: test for courses
       describe("Courses", () => {
         describe("Title", () => {
           it("contains \"Courses & Training\"", () => {
@@ -201,7 +200,38 @@ describe("Education section", () => {
           });
         });
 
-        // TODO:  check whether course cards have displayed the right info
+        for (let i = 0; i < courses.length; i++) {
+          const course = courses[i];
+          describe(`${course.name} card`, () => {
+            beforeEach(() => {
+              cy.get("[data-cy='courses'] [data-cy='certificateCard']")
+                .eq(i)
+                .as("courseCard");
+            });
+
+            it(`displays the course name "${course.name}" as primary text`, () => {
+              cy.get("@courseCard")
+                .get("[data-cy='name']")
+                .should("be.visible")
+                .and("contain", course.name);
+            });
+
+            it(`displays the institution as "${course.institution.name}" as secondary text`, () => {
+              cy.get("@courseCard")
+                .get("[data-cy='organization']")
+                .should("be.visible")
+                .and("contain", course.institution.name);
+            });
+
+            it(`displays the "${course.institution.name}" icon`, () => {
+              cy.get("@courseCard")
+                .get(`[data-cy='${course.institution.id}Icon']`)
+                .should("be.visible");
+            });
+
+            // TODO: test href
+          });
+        }
       });
     });
   }

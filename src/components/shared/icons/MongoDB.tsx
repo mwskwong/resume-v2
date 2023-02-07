@@ -10,7 +10,7 @@ const MongoDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "mongoDb" });
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="mongoDbIcon" {...props}>
       <path d={siMongodb.path} />
     </SvgIcon>
   );
