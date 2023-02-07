@@ -19,8 +19,8 @@ const Courses: FC = () => {
   };
 
   return (
-    <Stack spacing={2}>
-      <Typography sx={sx.title} component="h3">
+    <Stack spacing={2} data-cy="courses">
+      <Typography sx={sx.title} component="h3" data-cy="title">
         Courses & Training
       </Typography>
       <ToggleButtonGroup
@@ -31,9 +31,11 @@ const Courses: FC = () => {
         exclusive
         aria-label="course categories"
       >
-        <ToggleButton value="">All</ToggleButton>
+        <ToggleButton value="" data-cy="category">
+          All
+        </ToggleButton>
         {categories.map(category =>
-          <ToggleButton key={category.id} value={category.id}>
+          <ToggleButton key={category.id} value={category.id} data-cy="category">
             {category.name}
           </ToggleButton>
         )}

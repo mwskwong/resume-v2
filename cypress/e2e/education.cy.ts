@@ -1,3 +1,7 @@
+import { toggleButtonClasses } from "@mui/material/ToggleButton";
+
+import courseCategories from "@/constants/courseCategories";
+import courses from "@/constants/courses";
 import educations from "@/constants/educations";
 import { EDUCATION } from "@/constants/nav";
 import dateTimeFormat from "@/utils/dateTimeFormat";
@@ -128,7 +132,76 @@ describe("Education section", () => {
 
       // TODO: test for courses
       describe("Courses", () => {
+        describe("Title", () => {
+          it("contains \"Courses & Training\"", () => {
+            cy.get("[data-cy='courses'] [data-cy='title']")
+              .should("be.visible")
+              .and("contain", "Courses & Training");
+          });
+        });
 
+        describe("Category selection", () => {
+          for (let i = 0; i < courseCategories.length; i++) {
+            const courseCategory = courseCategories[i];
+            describe(courseCategory.name, () => {
+              beforeEach(() => {
+                cy.get("[data-cy='courses'] [data-cy='category']")
+                  .eq(i + 1)
+                  .as("categoryButton");
+              });
+
+              it(`contains "${courseCategory.name}"`, () => {
+                cy.get("@categoryButton").should("contain", courseCategory.name);
+              });
+
+              it(`displays ${courseCategory.name} courses only`, () => {
+                cy.get("@categoryButton").click();
+                cy.get("@categoryButton")
+                  .should("have.class", toggleButtonClasses.selected);
+
+                for (const { name, category } of courses) {
+                  cy.get("[data-cy='courses'] [data-cy='certificateCard']")
+                    .as("courseCards");
+                  if (category == courseCategory) {
+                    cy.get("@courseCards")
+                      .contains(name)
+                      .should("be.visible");
+                  } else {
+                    cy.get("@courseCards")
+                      .contains(name)
+                      .should("not.exist");
+                  }
+                }
+              });
+            });
+          }
+
+          describe("All", () => {
+            beforeEach(() => {
+              cy.get("[data-cy='courses'] [data-cy='category']")
+                .eq(0)
+                .as("allButton");
+            });
+
+            it("contains \"All\"", () => {
+              cy.get("@allButton").and("contain", "All");
+            });
+
+            it("displays all courses", () => {
+              cy.get("@allButton").click();
+              cy.get("@allButton")
+                .should("have.class", toggleButtonClasses.selected);
+
+              for (const { name } of courses) {
+                cy.get("[data-cy='courses'] [data-cy='certificateCard']")
+                  .contains(name)
+                  .should("be.visible");
+              }
+            });
+          });
+        });
+
+        // TODO:  check whether course cards have displayed the right info
       });
     });
   }

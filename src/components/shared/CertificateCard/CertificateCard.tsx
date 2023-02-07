@@ -13,15 +13,23 @@ const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status,
     <CardContent sx={sx.cardContent}>
       <Icon fontSize="large" sx={sx.icon} />
       <div>
-        <Typography>{name}</Typography>
-        <Typography sx={sx.organization}>{organization.name}</Typography>
-        {status && <Typography variant="body2" sx={sx.status}>{status}</Typography>}
+        <Typography data-cy="name">
+          {name}
+        </Typography>
+        <Typography sx={sx.organization} data-cy="organization">
+          {organization.name}
+        </Typography>
+        {status && (
+          <Typography variant="body2" sx={sx.status}>
+            {status}
+          </Typography>
+        )}
       </div>
     </CardContent>
   );
 
   return (
-    <Card {...props}>
+    <Card {...props} data-cy="certificateCard">
       {certificateUrl
         ? (
           <CardActionArea href={certificateUrl} target="_blank">
