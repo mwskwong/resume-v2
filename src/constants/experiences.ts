@@ -32,7 +32,7 @@ const experiences: Experience[] = [
     supportingDocuments: [],
     relevantSkills: [
       "ASP",
-      "jQuery",
+      "jQuery UI",
       "Microsoft SQL Server"
     ]
   },
