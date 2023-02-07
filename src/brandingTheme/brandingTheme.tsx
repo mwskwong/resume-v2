@@ -84,7 +84,7 @@ const brandingTheme = extendTheme({
           focus: alpha(grey[900], 0.12)
         },
         Tooltip: {
-          bg: grey[900]
+          bg: grey[800]
         }
       }
     }
