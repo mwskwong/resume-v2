@@ -12,7 +12,7 @@ import Courses from "./Courses";
 import EducationTimeline from "./EducationTimeline";
 
 const Education: FC<SectionProps> = ({ sx }) => (
-  <Box component="section" id={EDUCATION.id} sx={sx}>
+  <Box component="section" id={EDUCATION.id} sx={sx} data-cy={EDUCATION.id}>
     <Container>
       <Stack spacing={6}>
         <SectionHeader heading="Education" icon={<School />} />
