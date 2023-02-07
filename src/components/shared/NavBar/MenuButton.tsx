@@ -8,7 +8,6 @@ import MenuButtonProps from "./MenuButtonProps";
 import useSx from "./useMenuButtonSx";
 
 
-
 const MenuButton: FC<MenuButtonProps> = ({ sx: sxProps, menuOpen, onToggleMenu, ...props }) => {
   const sx = useSx();
 

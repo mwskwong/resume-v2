@@ -1,4 +1,3 @@
-
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { HOME } from "@/constants/nav";

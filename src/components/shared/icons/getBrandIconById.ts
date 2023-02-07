@@ -1,5 +1,3 @@
-
-
 import { Brand } from "@/types";
 
 import DataCamp from "./DataCamp";

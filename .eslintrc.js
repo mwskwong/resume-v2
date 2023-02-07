@@ -33,6 +33,11 @@ module.exports = {
     "quotes": "error",
     "semi": "error",
     "no-floating-decimal": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      { "max": 2, "maxBOF": 0, "maxEOF": 0  }
+    ],
+    "eol-last": "error",
     "@typescript-eslint/member-delimiter-style": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",

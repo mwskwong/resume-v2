@@ -1,5 +1,3 @@
-
-
 import {
   AllInclusiveRounded as AllInclusive,
   BugReportRounded as BugReport,

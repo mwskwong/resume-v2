@@ -1,5 +1,3 @@
-
-
 import { Avatar, Box, Chip, Stack, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 import { FC } from "react";
 

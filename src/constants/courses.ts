@@ -1,4 +1,3 @@
-
 import { Course } from "@/types";
 
 import { getBrandById } from "./brands";
