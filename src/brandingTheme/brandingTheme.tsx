@@ -82,6 +82,9 @@ const brandingTheme = extendTheme({
           disabled: alpha(grey[900], 0.26),
           disabledBackground: alpha(grey[900], 0.12),
           focus: alpha(grey[900], 0.12)
+        },
+        Tooltip: {
+          bg: grey[900]
         }
       }
     }
@@ -158,10 +161,13 @@ const brandingTheme = extendTheme({
       }
     },
     MuiAppBar: {
+      defaultProps: {
+        color: "default"
+      },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: `rgba(${theme.vars.palette.background.default}, .7)`,
-          backgroundImage: "none",
+          // FIXME: unable to use --mui-pallette-AppBar-defaultBg because --AppBar-color is invalid when dark color scheme is missing
+          backgroundColor: `rgba(${theme.vars.palette.background.defaultChannel} / 0.5)`,
           boxShadow: "none",
           backdropFilter: "blur(20px)",
           color: theme.vars.palette.text.primary
@@ -349,7 +355,6 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         tooltip: ({ theme }) => ({
-          backdropFilter: "blur(20px)",
           borderRadius: `calc(${theme.vars.shape.borderRadius} / 1.33)`
         }),
         touch: ({ theme }) => ({
