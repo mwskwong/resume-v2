@@ -106,7 +106,8 @@ const experiences: Experience[] = [
       "NSIS MUI2",
       "React Native",
       "NativeBase",
-      "React Navigation"
+      "React Navigation",
+      "MobX"
     ]
   },
   {
