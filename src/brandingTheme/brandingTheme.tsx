@@ -229,8 +229,8 @@ const brandingTheme = extendTheme({
     MuiCssBaseline: {
       styleOverrides: theme => ({
         "::selection": {
-          backgroundColor: theme.vars.palette.text.primary,
-          color: theme.vars.palette.background.default
+          backgroundColor: theme.vars.palette.grey[800],
+          color: theme.vars.palette.common.white
         },
         html: {
           scrollBehavior: "smooth",
@@ -314,7 +314,7 @@ const brandingTheme = extendTheme({
         variant: "filled"
       },
       styleOverrides: {
-          
+
       }
     },
     MuiTimelineDot: {
