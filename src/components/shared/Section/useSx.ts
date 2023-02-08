@@ -1,4 +1,3 @@
-import { TypeBackground } from "@mui/material";
 import { avatarClasses } from "@mui/material/Avatar";
 import { cardClasses } from "@mui/material/Card";
 import { filledInputClasses } from "@mui/material/FilledInput";
@@ -6,33 +5,10 @@ import deepRenameKeys from "deep-rename-keys-ts";
 
 import makeSx from "@/utils/makeSx";
 
+import getBgColor from "./getBgColor";
+import getPaperBgColor from "./getPaperBgColor";
 import SectionProps from "./SectionProps";
 
-export const getBgColor = (variant: SectionProps["variant"]): keyof TypeBackground => {
-  switch (variant) {
-    case "primary":
-      return "sectionPrimary";
-    case "secondary":
-      return "sectionSecondary";
-    case "tertiary":
-      return "sectionTertiary";
-    default:
-      return "default";
-  }
-};
-
-const getPaperBgColor = (variant: SectionProps["variant"]): keyof TypeBackground => {
-  switch (variant) {
-    case "default":
-      return "sectionPrimary";
-    case "primary":
-      return "sectionSecondary";
-    case "secondary":
-      return "sectionTertiary";
-    default:
-      return "default";
-  }
-};
 
 const useSx = ({ variant, fullHeight }: Pick<SectionProps, "variant" | "fullHeight">) => makeSx({
   root: theme => ({
