@@ -25,12 +25,12 @@ const Contact: FC = () => {
 
   useEffect(() => {
     if (state.succeeded) {
-      const resetFormTimeout = setTimeout(() => {
-        hookFormContext.reset();
+      hookFormContext.reset();
+      const resetFormspreeTimeout = setTimeout(() => {
         resetFormspree();
       }, 5000);
 
-      return () => clearTimeout(resetFormTimeout);
+      return () => clearTimeout(resetFormspreeTimeout);
     }
   }, [hookFormContext, resetFormspree, state.succeeded]);
 
