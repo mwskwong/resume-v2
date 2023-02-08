@@ -4,7 +4,7 @@ import { ABOUT } from "@/constants/nav";
 import selfIntroduction from "@/constants/selfIntroduction";
 import skills from "@/constants/skills";
 
-import viewports from "./viewports";
+import viewports from "../fixtures/viewports.json";
 
 describe("About section", () => {
   beforeEach(() => {

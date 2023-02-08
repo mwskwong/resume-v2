@@ -3,7 +3,7 @@ import { firstName, lastName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
 import platformProfiles from "@/constants/platformProfiles";
 
-import viewports from "./viewports";
+import viewports from "../fixtures/viewports.json";
 
 describe("Hero section", () => {
   beforeEach(() => {

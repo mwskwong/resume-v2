@@ -1,5 +1,6 @@
 import { defineConfig } from "cypress";
-import viewports from "cypress/e2e/viewports";
+import viewports from "cypress/fixtures/viewports.json";
+import { downloadFile } from "cypress-downloadfile/lib/addPlugin";
 
 export default defineConfig({
   projectId: "bzfyrk",
@@ -7,6 +8,9 @@ export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:3000",
     scrollBehavior: "center",
-    ...viewports.desktop
+    ...viewports.desktop,
+    setupNodeEvents: on => {
+      on("task", { downloadFile });
+    }
   }
 });

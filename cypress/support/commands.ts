@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+import "cypress-downloadfile/lib/downloadFileCommand";
+
 import { buttonClasses } from "@mui/material/Button";
 import { listItemButtonClasses } from "@mui/material/ListItemButton";
 

@@ -1,8 +1,9 @@
+import documents from "cypress/fixtures/supportingDocuments.json";
+import viewports from "cypress/fixtures/viewports.json";
+
 import experiences from "@/constants/experiences";
 import { EXPERIENCE } from "@/constants/nav";
 import dateTimeFormat from "@/utils/dateTimeFormat";
-
-import viewports from "./viewports";
 
 describe("Experience section", () => {
   beforeEach(() => {
@@ -99,34 +100,7 @@ describe("Experience section", () => {
               }
             });
 
-            describe("Support documents", () => {
-              const documents = {
-                haSc3RefLetter: {
-                  name: "Reference Letter",
-                  matchingString: undefined,
-                  thumbnailRegex: /ha_sc3_ref_thumbnail_blur\.[a-zA-Z0-9]+\.jpg/i,
-                  private: true
-                },
-                lunchAndLearn: {
-                  name: "Knowledge-sharing session certificate of appreciation",
-                  matchingString: "Lunch & Learn",
-                  thumbnailRegex: /lunch_and_learn_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
-                  private: false
-                },
-                hkuMedRaRefLetter: {
-                  name: "Reference Letter",
-                  matchingString: "Tommy Lam",
-                  thumbnailRegex: /hku_med_ra_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
-                  private: false
-                },
-                hkuEngTaRefLetter: {
-                  name: "Reference Letter",
-                  matchingString: "marian",
-                  thumbnailRegex: /hku_eng_ta_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
-                  private: false
-                }
-              };
-
+            describe("Support documents", () => {              
               for (const supportingDocument of supportingDocuments) {
                 const document = documents[supportingDocument as keyof typeof documents];
 
@@ -159,7 +133,7 @@ describe("Experience section", () => {
                     cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] img`)
                       .should("be.visible")
                       .and("have.attr", "src")
-                      .and("match", document.thumbnailRegex);
+                      .and("match", new RegExp(document.thumbnailRegex, "i"));
                   });
                 });
               }

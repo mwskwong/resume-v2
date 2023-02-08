@@ -1,4 +1,4 @@
-import viewports from "cypress/e2e/viewports";
+import viewports from "cypress/fixtures/viewports.json";
 
 import nav from "@/constants/nav";
 import { Section } from "@/types";

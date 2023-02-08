@@ -1,4 +1,9 @@
+/// <reference types="cypress-downloadfile"/>
+
 import { toggleButtonClasses } from "@mui/material/ToggleButton";
+import courseCertificates from "cypress/fixtures/courseCertificates.json";
+import documents from "cypress/fixtures/supportingDocuments.json";
+import viewports from "cypress/fixtures/viewports.json";
 
 import courseCategories from "@/constants/courseCategories";
 import courses from "@/constants/courses";
@@ -6,7 +11,9 @@ import educations from "@/constants/educations";
 import { EDUCATION } from "@/constants/nav";
 import dateTimeFormat from "@/utils/dateTimeFormat";
 
-import viewports from "./viewports";
+const courseHasCertificate = (courseId: string): courseId is keyof typeof courseCertificates =>
+  Object.keys(courseCertificates).includes(courseId);
+
 
 describe("Education section", () => {
   beforeEach(() => {
@@ -80,15 +87,6 @@ describe("Education section", () => {
             });
 
             describe("Support documents", () => {
-              const documents = {
-                hkuCsCertOfGrad: {
-                  name: "Degree Certificate",
-                  matchingString: "MRVC474.jpg",
-                  thumbnailRegex: /hku_cs_thumbnail\.[a-zA-Z0-9]+\.jpg/i,
-                  private: false
-                }
-              };
-
               for (const supportingDocument of supportingDocuments) {
                 const document = documents[supportingDocument as keyof typeof documents];
 
@@ -121,7 +119,7 @@ describe("Education section", () => {
                     cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] img`)
                       .should("be.visible")
                       .and("have.attr", "src")
-                      .and("match", document.thumbnailRegex);
+                      .and("match", new RegExp(document.thumbnailRegex, "i"));
                   });
                 });
               }
@@ -211,14 +209,14 @@ describe("Education section", () => {
 
             it(`displays the course name "${course.name}" as primary text`, () => {
               cy.get("@courseCard")
-                .get("[data-cy='name']")
+                .find("[data-cy='name']")
                 .should("be.visible")
                 .and("contain", course.name);
             });
 
             it(`displays the institution as "${course.institution.name}" as secondary text`, () => {
               cy.get("@courseCard")
-                .get("[data-cy='organization']")
+                .find("[data-cy='organization']")
                 .should("be.visible")
                 .and("contain", course.institution.name);
             });
@@ -229,7 +227,41 @@ describe("Education section", () => {
                 .should("be.visible");
             });
 
-            // TODO: test href
+            if (courseHasCertificate(course.id)) {
+              const courseCertificate = courseCertificates[course.id];
+              it("opens the correct certificate in a new tab", () => {
+                cy.get("@courseCard").find("a").as("anchor");
+
+                cy.get("@anchor")
+                  .should("have.attr", "target", "_blank")
+                  .click();
+
+                cy.get("@anchor")
+                  .invoke("attr", "href")
+                  .then(href => {
+                    expect(href).to.exist;
+
+                    const filename = href?.split("/").at(-1);
+                    let fileTypeMatchingString;
+                    switch (courseCertificate.type) {
+                      case "pdf": {
+                        fileTypeMatchingString = "%PDF-";
+                        break;
+                      }
+                      case "jpg": {
+                        fileTypeMatchingString = "JFIF";
+                        const fileUrl = new URL(href!, Cypress.config().baseUrl!).href;
+                        cy.downloadFile(fileUrl, "./cypress/downloads", filename!);
+                        break;
+                      }
+                    }
+
+                    cy.readFile(`./cypress/downloads/${filename}`)
+                      .should("contain", fileTypeMatchingString)
+                      .and("contain", courseCertificate.matchingString);
+                  });
+              });
+            }
           });
         }
       });
