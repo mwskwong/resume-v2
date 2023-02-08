@@ -7,7 +7,7 @@ declare global {
   declare namespace NodeJS {
     interface ProcessEnv {
       NEXT_PUBLIC_URL: string;
-      NEXT_PUBLIC_FORM: string;
+      NEXT_PUBLIC_FORMSPREE_FORM_ID: string;
       ANALYZE_BUNDLE: 1 | 0;
       VERCEL_ENV: "preview" | "production" | "development";
     }
@@ -28,7 +28,7 @@ declare global {
       disableSmoothScroll: () => Chainable<void>;
       toggleNavMenu: () => Chainable<JQuery>;
       navigateToSection: (section: Section, viewport: keyof typeof viewports) => Chainable<void>;
-      verifySectionIsInViewport: (section:Section) => Chainable<void>;
+      verifySectionIsInViewport: (section: Section) => Chainable<void>;
     }
   }
 }

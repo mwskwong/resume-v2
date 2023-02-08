@@ -21,7 +21,7 @@ const Contact: FC = () => {
     mode: "onChange",
     defaultValues
   });
-  const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(process.env.NEXT_PUBLIC_FORM);
+  const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID);
 
   useEffect(() => {
     if (state.succeeded) {
