@@ -43,14 +43,14 @@ const Home: FC = () => (
       previousSectionVariant={sectionVariants.about}
       nextSectionVariant={sectionVariants.experience}
     />
-    <Section variant={sectionVariants.experience}  id={EXPERIENCE.id} data-cy={EXPERIENCE.id}>
+    <Section variant={sectionVariants.experience} id={EXPERIENCE.id} data-cy={EXPERIENCE.id}>
       <Experience />
     </Section>
     <WaveSmoothFlat
       previousSectionVariant={sectionVariants.experience}
       nextSectionVariant={sectionVariants.education}
     />
-    <Section variant={sectionVariants.education}  id={EDUCATION.id} data-cy={EDUCATION.id}>
+    <Section variant={sectionVariants.education} id={EDUCATION.id} data-cy={EDUCATION.id}>
       <Education />
     </Section>
     <WaveRoaring

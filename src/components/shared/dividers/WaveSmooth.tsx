@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 
 import DividerSvg from "./DividerSvg";
@@ -6,7 +7,7 @@ import useSx from "./useSectionDividerSx";
 
 const WaveSmooth: FC<SectionDividerProps> = props => {
   const sx = useSx(props);
-  
+
   return (
     <DividerSvg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" sx={sx.root}>
       <path

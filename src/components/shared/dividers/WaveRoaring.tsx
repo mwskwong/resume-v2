@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 
 import DividerSvg from "./DividerSvg";
@@ -6,7 +8,7 @@ import useSx from "./useSectionDividerSx";
 
 const WaveRoaring: FC<SectionDividerProps> = props => {
   const sx = useSx(props);
-  
+
   return (
     <DividerSvg viewBox="0 0 2000 242" xmlns="http://www.w3.org/2000/svg" sx={sx.root}>
       <path
