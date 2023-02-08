@@ -7,17 +7,14 @@ import resume from "@/assets/documents/resume.pdf";
 import PlatformProfiles from "@/components/shared/PlatformProfiles";
 import jobTitles from "@/constants/jobTitles";
 import { firstName } from "@/constants/name";
-import { HOME } from "@/constants/nav";
-import { SectionProps } from "@/types";
-import cx from "@/utils/cx";
 
 import useSx from "./useSx";
 
-const Hero: FC<SectionProps> = ({ sx: sxProp }) => {
+const Hero: FC = () => {
   const sx = useSx();
 
   return (
-    <Container component="section" id={HOME.id} sx={cx(sx.root, sxProp)}>
+    <Container sx={sx.root}>
       <Typography variant="subtitle1" component="p">
         Hello,
       </Typography>

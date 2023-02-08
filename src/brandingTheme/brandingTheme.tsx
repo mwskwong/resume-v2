@@ -6,7 +6,6 @@ import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
 import { alpha, darken, lighten } from "@mui/system";
-import deepRenameKeys from "deep-rename-keys-ts";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 
 import rubik from "./rubik";
@@ -180,7 +179,7 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionSecondary,
+          backgroundColor: theme.vars.palette.background.sectionPrimary,
           color: theme.vars.palette.text.primary
         })
       }
@@ -204,7 +203,7 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionSecondary
+          backgroundColor: theme.vars.palette.background.sectionPrimary
         })
       }
     },
@@ -238,20 +237,6 @@ const brandingTheme = extendTheme({
           "@media (prefers-reduced-motion)": {
             scrollBehavior: "auto"
           }
-        },
-        section: {
-          ...deepRenameKeys(
-            theme.mixins.toolbar,
-            key => {
-              if (key === "minHeight") {
-                return "scrollPaddingTop";
-              }
-
-              return key;
-            }
-          ),
-          paddingTop: theme.spacing(10),
-          paddingBottom: theme.spacing(10)
         },
         img: {
           display: "block"
@@ -322,6 +307,14 @@ const brandingTheme = extendTheme({
           marginTop: 0,
           marginBottom: 0
         }
+      }
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: "filled"
+      },
+      styleOverrides: {
+          
       }
     },
     MuiTimelineDot: {

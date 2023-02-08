@@ -5,6 +5,8 @@ import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
 import WaveRough from "@/components/shared/dividers/WaveRough";
 import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
 import WaveSmoothFlat from "@/components/shared/dividers/WaveSmoothFlat";
+import Section from "@/components/shared/Section";
+import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 
 import useSx from "./useSx";
 
@@ -19,15 +21,25 @@ const Home: FC = () => {
 
   return (
     <>
-      <Hero />
+      <Section fullHeight id={HOME.id}>
+        <Hero />
+      </Section>
       <WaveSmooth sx={sx.waveSmooth} />
-      <About sx={sx.about} />
+      <Section variant="primary" id={ABOUT.id} data-cy={ABOUT.id} >
+        <About />
+      </Section>
       <WaveRough sx={sx.waveRough} />
-      <Experience sx={sx.experience} />
+      <Section variant="secondary" id={EXPERIENCE.id} data-cy={EXPERIENCE.id}>
+        <Experience />
+      </Section>
       <WaveSmoothFlat sx={sx.waveSmoothFlat} />
-      <Education sx={sx.education} />
+      <Section variant="primary" id={EDUCATION.id} data-cy={EDUCATION.id}>
+        <Education/>
+      </Section>
       <WaveRoaring sx={sx.waveRoaring} />
-      <Contact />
+      <Section id={CONTACT.id} data-cy={CONTACT.id}>
+        <Contact />
+      </Section>
     </>
   );
 };
