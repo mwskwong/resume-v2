@@ -14,13 +14,11 @@ import formSchema, { defaultValues } from "./formSchema";
 import PersonalInfo from "./PersonalInfo";
 import useSx from "./useContactSx";
 
-// TODO: TextField causes hydration errors and refuse to work if clicked top early. Issue start showing in c0c8f858cc0939741ab81e7cf043d8b6dff9591d
-// May be related to @formspree/react
 const Contact: FC = () => {
   const sx = useSx();
   const hookFormContext = useHookForm({
     resolver: nopeResolver(formSchema),
-    mode:"onChange",
+    mode: "onChange",
     defaultValues
   });
   const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(process.env.NEXT_PUBLIC_FORM);
