@@ -26,13 +26,18 @@ const Contact: FC = () => {
   useEffect(() => {
     if (state.succeeded) {
       hookFormContext.reset();
+    }
+  }, [hookFormContext, state.succeeded]);
+
+  useEffect(() => {
+    if (state.succeeded) {
       const resetFormspreeTimeout = setTimeout(() => {
         resetFormspree();
       }, 5000);
 
       return () => clearTimeout(resetFormspreeTimeout);
     }
-  }, [hookFormContext, resetFormspree, state.succeeded]);
+  }, [resetFormspree, state.succeeded]);
 
   return (
     <Container>
