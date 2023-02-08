@@ -1,4 +1,4 @@
-import {  TypeBackground } from "@mui/material";
+import { TypeBackground } from "@mui/material";
 import { avatarClasses } from "@mui/material/Avatar";
 import { cardClasses } from "@mui/material/Card";
 import { filledInputClasses } from "@mui/material/FilledInput";
@@ -8,12 +8,8 @@ import makeSx from "@/utils/makeSx";
 
 import SectionProps from "./SectionProps";
 
-type UseSxArgs = Pick<SectionProps, "variant" | "fullHeight">
-
-const getBgColor = (variant: UseSxArgs["variant"]): keyof TypeBackground => {
+export const getBgColor = (variant: SectionProps["variant"]): keyof TypeBackground => {
   switch (variant) {
-    case "default":
-      return "default";
     case "primary":
       return "sectionPrimary";
     case "secondary":
@@ -25,7 +21,7 @@ const getBgColor = (variant: UseSxArgs["variant"]): keyof TypeBackground => {
   }
 };
 
-const getPaperBgColor = (variant: UseSxArgs["variant"]): keyof TypeBackground => {
+const getPaperBgColor = (variant: SectionProps["variant"]): keyof TypeBackground => {
   switch (variant) {
     case "default":
       return "sectionPrimary";
@@ -38,7 +34,7 @@ const getPaperBgColor = (variant: UseSxArgs["variant"]): keyof TypeBackground =>
   }
 };
 
-const useSx = ({ variant, fullHeight }: UseSxArgs) => makeSx({
+const useSx = ({ variant, fullHeight }: Pick<SectionProps, "variant" | "fullHeight">) => makeSx({
   root: theme => ({
     display: "flex",
     flexDirection: "column",
@@ -54,7 +50,7 @@ const useSx = ({ variant, fullHeight }: UseSxArgs) => makeSx({
       }
     ),
     py: 10,
-    minHeight:fullHeight &&  "100vh",
+    minHeight: fullHeight && "100vh",
     [`& .${avatarClasses.root}`]: {
       bgcolor: `background.${getPaperBgColor(variant)}`
     },

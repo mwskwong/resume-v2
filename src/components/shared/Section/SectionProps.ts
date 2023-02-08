@@ -1,7 +1,8 @@
-import { BoxProps } from "@mui/material";
+import { BoxProps  } from "@mui/material";
+
 
 interface SectionProps extends BoxProps {
-  variant?: "default"| "primary"| "secondary" | "tertiary";
+  variant?: "default" | "primary" | "secondary" | "tertiary";
   fullHeight?: boolean;
 }
 
