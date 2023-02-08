@@ -40,6 +40,8 @@ const getPaperBgColor = (variant: UseSxArgs["variant"]): keyof TypeBackground =>
 
 const useSx = ({ variant, fullHeight }: UseSxArgs) => makeSx({
   root: theme => ({
+    display: "flex",
+    flexDirection: "column",
     bgcolor: `background.${getBgColor(variant)}`,
     ...deepRenameKeys(
       theme.mixins.toolbar,
@@ -52,12 +54,7 @@ const useSx = ({ variant, fullHeight }: UseSxArgs) => makeSx({
       }
     ),
     py: 10,
-    ...(fullHeight && {
-      minHeight: "100vh",
-      "@media screen and ( min-height: 476.45px )": {
-        height: 0
-      }
-    }),
+    minHeight:fullHeight &&  "100vh",
     [`& .${avatarClasses.root}`]: {
       bgcolor: `background.${getPaperBgColor(variant)}`
     },

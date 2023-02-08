@@ -7,8 +7,7 @@ const useSx = () => makeSx({
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
-    textAlign: "center",
-    height: "100%"
+    textAlign: "center"
   },
   name: {
     color: "primary.main"
