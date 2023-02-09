@@ -122,7 +122,8 @@ const experiences: Experience[] = [
       "hkuMedRaRefLetter"
     ],
     relevantSkills: [
-      "JavaFX"
+      "JavaFX",
+      "ControlsFX"
     ]
   },
   {
