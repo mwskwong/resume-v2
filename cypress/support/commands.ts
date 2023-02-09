@@ -3,6 +3,9 @@ import "cypress-downloadfile/lib/downloadFileCommand";
 
 import { buttonClasses } from "@mui/material/Button";
 import { listItemButtonClasses } from "@mui/material/ListItemButton";
+import viewports from "cypress/fixtures/viewports.json";
+
+import { Section } from "@/types";
 
 // ***********************************************
 // This example commands.ts shows you how to
@@ -41,6 +44,16 @@ import { listItemButtonClasses } from "@mui/material/ListItemButton";
 //   }
 // }
 
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      disableSmoothScroll: () => Chainable<void>;
+      navigateToSection: (section: Section, viewport: keyof typeof viewports) => Chainable<void>;
+      verifySectionIsInViewport: (section: Section) => Chainable<void>;
+    }
+  }
+}
+
 Cypress.Commands.add("disableSmoothScroll", () => {
   cy.document().then(document => {
     const node = document.createElement("style");
@@ -54,7 +67,7 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemButtonClasses.selected;
 
   if (viewport === "mobile") {
-    cy.toggleNavMenu();
+    cy.get("[data-cy='menuButton']").click();
   }
 
   cy.get(`[data-cy='${container}'] [data-cy='${section.id}']`).as("navElement");
@@ -64,11 +77,9 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   cy.verifySectionIsInViewport(section);
 
   if (viewport === "mobile") {
-    cy.toggleNavMenu();
+    cy.get("[data-cy='menuButton']").click();
   }
 });
-
-Cypress.Commands.add("toggleNavMenu", () => cy.get("[data-cy='menuButton']").click());
 
 Cypress.Commands.add("verifySectionIsInViewport", section => {
   cy.get(`#${section.id}`).first()

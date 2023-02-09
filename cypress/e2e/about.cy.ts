@@ -1,10 +1,10 @@
+import viewports from "cypress/fixtures/viewports.json";
+
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
 import { ABOUT } from "@/constants/nav";
 import selfIntroduction from "@/constants/selfIntroduction";
 import skills from "@/constants/skills";
-
-import viewports from "../fixtures/viewports.json";
 
 describe("About section", () => {
   beforeEach(() => {
