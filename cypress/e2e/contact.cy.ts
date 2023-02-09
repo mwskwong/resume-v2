@@ -37,7 +37,7 @@ describe("Contact section", () => {
 
           it(`displays "${info}" as ${type}`, () => {
             cy.get("@contact")
-              .find(`[data-cy='personalInfo'] > [data-cy='${type}']`)
+              .find(`[data-cy='personalInfo'] [data-cy='${type}']`)
               .should("be.visible")
               .and("contain", info);
           });
