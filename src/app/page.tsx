@@ -2,6 +2,7 @@
 
 import { FC, lazy, Suspense } from "react";
 
+import About from "@/components/home/About";
 import Hero from "@/components/home/Hero";
 import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
 import WaveRough from "@/components/shared/dividers/WaveRough";
@@ -14,7 +15,7 @@ import { SectionId } from "@/types";
 
 
 // const Hero = lazy(() => import("@/components/home/Hero"));
-const About = lazy(() => import("@/components/home/About"));
+// const About = lazy(() => import("@/components/home/About"));
 const Experience = lazy(() => import("@/components/home/Experience"));
 const Education = lazy(() => import("@/components/home/Education"));
 const Contact = lazy(() => import("@/components/home/Contact"));
@@ -37,9 +38,7 @@ const Home: FC = () => (
       nextSectionVariant={sectionVariants.about}
     />
     <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id} >
-      <Suspense>
-        <About />
-      </Suspense>
+      <About />
     </Section>
     <WaveRough
       previousSectionVariant={sectionVariants.about}
