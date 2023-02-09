@@ -2,7 +2,6 @@
 
 import { FC, lazy, Suspense } from "react";
 
-import Hero from "@/components/home/Hero";
 import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
 import WaveRough from "@/components/shared/dividers/WaveRough";
 import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
@@ -13,7 +12,7 @@ import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
 
 
-// const Hero = lazy(() => import( "@/components/home/Hero"));
+const Hero = lazy(() => import("@/components/home/Hero"));
 const About = lazy(() => import("@/components/home/About"));
 const Experience = lazy(() => import("@/components/home/Experience"));
 const Education = lazy(() => import("@/components/home/Education"));
@@ -30,28 +29,36 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
 const Home: FC = () => (
   <>
     <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-      <Hero />
+      <Suspense>
+        <Hero />
+      </Suspense>
     </Section>
     <WaveSmooth
       previousSectionVariant={sectionVariants.home}
       nextSectionVariant={sectionVariants.about}
     />
     <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id} >
-      <About />
+      <Suspense>
+        <About />
+      </Suspense>
     </Section>
     <WaveRough
       previousSectionVariant={sectionVariants.about}
       nextSectionVariant={sectionVariants.experience}
     />
     <Section variant={sectionVariants.experience} id={EXPERIENCE.id} data-cy={EXPERIENCE.id}>
-      <Experience />
+      <Suspense>
+        <Experience />
+      </Suspense>
     </Section>
     <WaveSmoothFlat
       previousSectionVariant={sectionVariants.experience}
       nextSectionVariant={sectionVariants.education}
     />
     <Section variant={sectionVariants.education} id={EDUCATION.id} data-cy={EDUCATION.id}>
-      <Education />
+      <Suspense>
+        <Education />
+      </Suspense>
     </Section>
     <WaveRoaring
       previousSectionVariant={sectionVariants.education}
