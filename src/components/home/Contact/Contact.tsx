@@ -47,10 +47,8 @@ const Contact: FC = () => {
           formContext={hookFormContext}
           onSuccess={handleFormspreeSubmit}
         >
-          <Grid container spacing={6} disableEqualOverflow>
-            <Grid xs={12} md={4}>
-              <PersonalInfo />
-            </Grid>
+          <Grid container spacing={6} sx={sx.gridContainer} disableEqualOverflow>
+            <PersonalInfo />
             <Grid container spacing={2} xs={12} md={8}>
               <Grid xs={12} sm={6}>
                 <TextFieldElement

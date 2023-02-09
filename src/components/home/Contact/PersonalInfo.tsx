@@ -1,5 +1,5 @@
 import { EmailRounded as Email, LocationOnRounded as Location, SmartphoneRounded as Mobile } from "@mui/icons-material";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 
 import contact from "@/constants/contact";
 
@@ -31,24 +31,26 @@ const PersonalInfo = () => {
   const sx = useSx();
 
   return (
-    <Stack spacing={3} sx={sx.root} data-cy="personalInfo">
+    <Grid container spacing={3} xs={12} md={4} data-cy="personalInfo">
       {contactUiTemplates.map(({ id, Icon, title, url }) => (
-        <Box key={id} sx={sx.itemContainer} data-cy={id}>
-          <Icon fontSize="large" />
-          <Typography sx={sx.title} gutterBottom>
-            {title}
-          </Typography>
-          <Typography
-            sx={sx.value}
-            component="a"
-            href={url}
-            target={url.startsWith("http") ? "_blank" : undefined}
-          >
-            {contact[id]}
-          </Typography>
-        </Box>
+        <Grid key={id} xs={12} sm={4} md={12}>
+          <Box sx={sx.itemContainer} data-cy={id}>
+            <Icon fontSize="large" />
+            <Typography sx={sx.title} gutterBottom>
+              {title}
+            </Typography>
+            <Typography
+              sx={sx.value}
+              component="a"
+              href={url}
+              target={url.startsWith("http") ? "_blank" : undefined}
+            >
+              {contact[id]}
+            </Typography>
+          </Box>
+        </Grid>
       ))}
-    </Stack>
+    </Grid>
   );
 };
 
