@@ -1,5 +1,6 @@
-import dynamic from "next/dynamic";
-import { FC } from "react";
+"use client";
+
+import { FC, lazy, Suspense } from "react";
 
 import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
 import WaveRough from "@/components/shared/dividers/WaveRough";
@@ -11,11 +12,11 @@ import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
 
 
-const Hero = dynamic(() => import("@/components/home/Hero"));
-const About = dynamic(() => import("@/components/home/About"));
-const Experience = dynamic(() => import("@/components/home/Experience"));
-const Education = dynamic(() => import("@/components/home/Education"));
-const Contact = dynamic(() => import("@/components/home/Contact"));
+const Hero = lazy(() => import("@/components/home/Hero"));
+const About = lazy(() => import("@/components/home/About"));
+const Experience = lazy(() => import("@/components/home/Experience"));
+const Education = lazy(() => import("@/components/home/Education"));
+const Contact = lazy(() => import("@/components/home/Contact"));
 
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   home: "default",
@@ -28,7 +29,9 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
 const Home: FC = () => (
   <>
     <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-      <Hero />
+      <Suspense>
+        <Hero />
+      </Suspense>
     </Section>
     <WaveSmooth
       previousSectionVariant={sectionVariants.home}
@@ -56,7 +59,9 @@ const Home: FC = () => (
       nextSectionVariant={sectionVariants.contact}
     />
     <Section variant={sectionVariants.contact} id={CONTACT.id} data-cy={CONTACT.id}>
-      <Contact />
+      <Suspense>
+        <Contact />
+      </Suspense>
     </Section>
   </>
 );
