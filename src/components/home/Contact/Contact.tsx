@@ -1,6 +1,5 @@
 "use client";
 
-import { useForm as useFormspree } from "@formspree/react";
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { CheckCircleRounded as SuccessIcon, PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
@@ -13,6 +12,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import formSchema, { defaultValues } from "./formSchema";
 import PersonalInfo from "./PersonalInfo";
 import useSx from "./useContactSx";
+import useFormspree from "./useFormspree";
 
 const Contact: FC = () => {
   const sx = useSx();
@@ -92,10 +92,12 @@ const Contact: FC = () => {
               </Grid>
             </Grid>
             <Grid xs={12} md={8} mdOffset={4} sx={sx.alertContainer}>
-              <Stack spacing={1}>
-                {state.errors.map(({ code, message }) => (
-                  <Alert key={code} severity="error">{message}</Alert>
-                ))}
+              <Stack spacing={1}>        
+                {state.errors.map(({ message }) => (
+                  <Alert key={message} severity="error">
+                    {message}
+                  </Alert>
+                ))} 
               </Stack>
             </Grid>
             <Grid xs={12} sm="auto" smOffset="auto">

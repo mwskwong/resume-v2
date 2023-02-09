@@ -37,6 +37,7 @@
     "simple-icons": "^8.4.0"
   },
   "devDependencies": {
+    "@formspree/core": "^2.8.1",
     "@next/bundle-analyzer": "^13.1.6",
     "@svgr/webpack": "^6.5.1",
     "@types/lodash-es": "^4.17.6",
