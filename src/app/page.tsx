@@ -3,6 +3,7 @@
 import { FC, lazy, Suspense } from "react";
 
 import About from "@/components/home/About";
+import Education from "@/components/home/Education";
 import Experience from "@/components/home/Experience";
 import Hero from "@/components/home/Hero";
 import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
@@ -18,7 +19,7 @@ import { SectionId } from "@/types";
 // const Hero = lazy(() => import("@/components/home/Hero"));
 // const About = lazy(() => import("@/components/home/About"));
 // const Experience = lazy(() => import("@/components/home/Experience"));
-const Education = lazy(() => import("@/components/home/Education"));
+// const Education = lazy(() => import("@/components/home/Education"));
 const Contact = lazy(() => import("@/components/home/Contact"));
 
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
@@ -53,9 +54,7 @@ const Home: FC = () => (
       nextSectionVariant={sectionVariants.education}
     />
     <Section variant={sectionVariants.education} id={EDUCATION.id} data-cy={EDUCATION.id}>
-      <Suspense>
-        <Education />
-      </Suspense>
+      <Education />
     </Section>
     <WaveRoaring
       previousSectionVariant={sectionVariants.education}
