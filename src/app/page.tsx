@@ -1,8 +1,7 @@
-"use client";
-
-import { FC, lazy, Suspense } from "react";
+import { FC } from "react";
 
 import About from "@/components/home/About";
+import Contact from "@/components/home/Contact";
 import Education from "@/components/home/Education";
 import Experience from "@/components/home/Experience";
 import Hero from "@/components/home/Hero";
@@ -14,13 +13,6 @@ import Section from "@/components/shared/Section";
 import SectionProps from "@/components/shared/Section/SectionProps";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
-
-
-// const Hero = lazy(() => import("@/components/home/Hero"));
-// const About = lazy(() => import("@/components/home/About"));
-// const Experience = lazy(() => import("@/components/home/Experience"));
-// const Education = lazy(() => import("@/components/home/Education"));
-const Contact = lazy(() => import("@/components/home/Contact"));
 
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   home: "default",
@@ -61,9 +53,7 @@ const Home: FC = () => (
       nextSectionVariant={sectionVariants.contact}
     />
     <Section variant={sectionVariants.contact} id={CONTACT.id} data-cy={CONTACT.id}>
-      <Suspense>
-        <Contact />
-      </Suspense>
+      <Contact />
     </Section>
   </>
 );
