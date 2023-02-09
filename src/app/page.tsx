@@ -2,6 +2,7 @@
 
 import { FC, lazy, Suspense } from "react";
 
+import Hero from "@/components/home/Hero";
 import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
 import WaveRough from "@/components/shared/dividers/WaveRough";
 import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
@@ -12,7 +13,7 @@ import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
 
 
-const Hero = lazy(() => import("@/components/home/Hero"));
+// const Hero = lazy(() => import("@/components/home/Hero"));
 const About = lazy(() => import("@/components/home/About"));
 const Experience = lazy(() => import("@/components/home/Experience"));
 const Education = lazy(() => import("@/components/home/Education"));
@@ -29,9 +30,7 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
 const Home: FC = () => (
   <>
     <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-      <Suspense>
-        <Hero />
-      </Suspense>
+      <Hero />
     </Section>
     <WaveSmooth
       previousSectionVariant={sectionVariants.home}
