@@ -18,7 +18,8 @@ const useSx = () => makeSx({
   },
   value: {
     textAlign: "center",
-    textDecoration: "none"
+    textDecoration: "none",
+    zIndex: 1
   }
 });
 
