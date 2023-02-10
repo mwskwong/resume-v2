@@ -1,15 +1,21 @@
 "use client";
 
-import { CssBaseline, Experimental_CssVarsProvider as CssVarsProvider, getInitColorSchemeScript } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+import { Experimental_CssVarsProvider as CssVarsProvider, getInitColorSchemeScript } from "@mui/material/styles";
 import { ComponentProps, FC } from "react";
 
 import brandingTheme from "./brandingTheme";
 
 const Provider: FC<ComponentProps<typeof CssVarsProvider>> = ({ children, ...props }) => (
   <>
-    {/* FIXME: Hydration warning when using this script */}
+    {/* FIXME: Hydration warning show up in develop build when using this script */}
     {getInitColorSchemeScript()}
-    <CssVarsProvider theme={brandingTheme} disableTransitionOnChange {...props}>
+    <CssVarsProvider 
+      theme={brandingTheme} 
+      defaultMode="light"
+      disableTransitionOnChange 
+      {...props}
+    >
       <CssBaseline />
       {children}
     </CssVarsProvider>

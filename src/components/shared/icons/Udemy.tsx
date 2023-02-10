@@ -10,7 +10,7 @@ const Udemy: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "udemy" });
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="udemyIcon" {...props}>
       <path d={siUdemy.path} />
     </SvgIcon>
   );

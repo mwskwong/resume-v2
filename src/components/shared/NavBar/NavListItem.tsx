@@ -7,10 +7,14 @@ import useSx from "./useNavListItemSx";
 const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
   const sx = useSx({ active });
   const primaryTypographyProps = { sx: sx.textPrimary };
+  const handleClick = () => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView();
+  };
 
   return (
-    <ListItem disablePadding data-cy={`${id}NavListItem`}>
-      <ListItemButton component="a" href={`#${id}`} selected={active}>
+    <ListItem disablePadding>
+      <ListItemButton onClick={handleClick} selected={active} data-cy={id}>
         <ListItemText
           primary={label}
           primaryTypographyProps={primaryTypographyProps}

@@ -1,13 +1,13 @@
 "use client";
 
-import { CloseRounded as Close, MenuRounded as Menu } from "@mui/icons-material";
-import { AppBar, ClickAwayListener, Collapse, Container, IconButton, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
+import { AppBar, ClickAwayListener, Collapse, Container, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 
 import nav from "@/constants/nav";
 import useActiveSectionId from "@/hooks/useActiveSectionId";
 
 import Logo from "./Logo";
+import MenuButton from "./MenuButton";
 import NavButton from "./NavButton";
 import NavListItem from "./NavListItem";
 import useSx from "./useNavBarSx";
@@ -46,14 +46,11 @@ const NavBar: FC = () => {
               />
             ))}
           </Stack>
-          <IconButton
+          <MenuButton
             sx={sx.menuButton}
-            onClick={handleMenuToggle}
-            aria-label={menuOpen ? "close menu" : "open menu"}
-            data-cy="menuButton"
-          >
-            {menuOpen ? <Close /> : <Menu />}
-          </IconButton>
+            menuOpen={menuOpen}
+            onToggleMenu={handleMenuToggle}
+          />
         </Toolbar>
         <Collapse in={menuOpen} timeout="auto" sx={sx.navList} unmountOnExit>
           <ClickAwayListener onClickAway={handleMenuClickAway}>

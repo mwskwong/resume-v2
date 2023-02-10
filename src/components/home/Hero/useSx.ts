@@ -7,13 +7,12 @@ const useSx = () => makeSx({
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
-    minHeight: "100vh",
     textAlign: "center"
   },
   name: {
     color: "primary.main"
   },
-  socialMedia: {
+  platformProfiles: {
     my: 4
   }
 });

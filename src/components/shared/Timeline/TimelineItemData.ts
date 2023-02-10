@@ -7,6 +7,7 @@ interface TimelineItemData {
   subtitle?: string;
   contents?: string[];
   supportingDocuments?: SupportingDocument[];
+  tags?: string[];
 }
 
 export default TimelineItemData;

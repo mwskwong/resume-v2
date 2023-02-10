@@ -1,7 +1,4 @@
-import { SxProps, Theme } from "@mui/material";
 import { StaticImageData } from "next/image";
-
-import courseCategories from "@/constants/courseCategories";
 
 export type SectionId = "home" | "about" | "experience" | "education" | "contact"
 
@@ -10,14 +7,12 @@ export interface Section {
   name: string;
 }
 
-export interface SectionProps {
-  sx?: SxProps<Theme>;
-}
-
 export interface SupportingDocument {
-  name?: string;
+  id: string;
+  name: string;
   url?: string;
-  thumbnail?: StaticImageData;
+  thumbnail: StaticImageData;
+  private?: boolean;
 }
 
 export interface Contact {
@@ -26,11 +21,21 @@ export interface Contact {
   address: string;
 }
 
-export interface Course {
+export interface CourseCategory {
+  id: "dev" | "db" | "ops" | "pm" | "others";
   name: string;
-  category: typeof courseCategories[number];
-  institution: "microsoft" | "udemy" | "enterpriseDB" | "mongoDB" | "dataCamp" | "oracle" | "google";
-  certificationUrl?: string;
+}
+
+export interface Brand {
+  id: "dataCamp" | "enterpriseDb" | "gitHub" | "google" | "linkedIn" | "microsoft" | "mongoDb" | "oracle" | "stackOverflow" | "udemy";
+  name: string;
+}
+
+export interface Course {
+  id: string;
+  name: string;
+  category: CourseCategory;
+  institution: Brand;
 }
 
 export interface Education {
@@ -38,7 +43,7 @@ export interface Education {
   to: Date | "Present";
   degree: string;
   school: string;
-  supportingDocuments?: Required<SupportingDocument>[];
+  supportingDocuments: SupportingDocument["id"][];
 }
 
 export interface Experience {
@@ -46,8 +51,9 @@ export interface Experience {
   to: Date | "Present";
   jobTitle: string;
   company: string;
-  jobDuties?: string[];
-  supportingDocuments?: Required<SupportingDocument>[];
+  jobDuties: string[];
+  supportingDocuments: SupportingDocument["id"][];
+  relevantSkills: string[];
 }
 
 export type JobTitle = string
@@ -58,41 +64,15 @@ export interface Name {
   lastName: string;
 }
 
-export type SelfIntro = string
+export type SelfIntroduction = string
 
 export interface SkillSet {
-  frontend: {
-    label: string;
-    skills: string[];
-  };
-  database: {
-    label: string;
-    skills: string[];
-  };
-  backend: {
-    label: string;
-    skills: string[];
-  };
-  qa: {
-    label: string;
-    skills: string[];
-  };
-  dataOps: {
-    label: string;
-    skills: string[];
-  };
-  cloud: {
-    label: string;
-    skills: string[];
-  };
-  mobile: {
-    label: string;
-    skills: string[];
-  };
+  id: "fe" | "be" | "cloud" | "dataOps" | "db" | "qa" | "mobile" | "ml";
+  name: string;
+  skills: string[];
 }
 
-export interface SocialMedia {
-  gitHub: string;
-  linkedIn: string;
-  stackOverflow: string;
+export interface PlatformProfile {
+  platform: Brand;
+  url: string;
 }

@@ -1,41 +1,41 @@
 "use client";
 
 import { PersonRounded as Person } from "@mui/icons-material";
-import { Box, Container, Stack } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import Image from "next/image";
 import { FC } from "react";
 
 import personalPhoto from "@/assets/images/personal_photo.jpg";
-import SectionHeading from "@/components/shared/SectionHeading";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { firstName, lastName } from "@/constants/name";
-import { ABOUT } from "@/constants/nav";
-import { SectionProps } from "@/types";
 
 import styles from "./about.module.css";
 import Message from "./Message";
-import SkillSet from "./SkillSet";
+import Skills from "./Skills";
 import useSx from "./useAboutSx";
 
-const About: FC<SectionProps> = ({ sx: sxProp }) => {
+const About: FC = () => {
   const sx = useSx();
 
   return (
-    <Box sx={sxProp} component="section" id={ABOUT.id}>
-      <Container>
-        <Stack sx={sx.stack} spacing={6}>
-          <SectionHeading heading="About" icon={<Person />} />
-          <Image
-            src={personalPhoto}
-            alt={`Picture of ${firstName} ${lastName}`}
-            width={200}
-            height={200}
-            className={styles.picture}
-          />
-          <Message />
-          <SkillSet />
-        </Stack>
-      </Container>
-    </Box>
+    <Container>
+      <Stack sx={sx.stack} spacing={6}>
+        <SectionHeader
+          heading="About"
+          icon={<Person />}
+        />
+        <Image
+          src={personalPhoto}
+          alt={`Picture of ${firstName} ${lastName}`}
+          width={200}
+          height={200}
+          className={styles.picture}
+          data-cy="profilePicture"
+        />
+        <Message />
+        <Skills />
+      </Stack>
+    </Container>
   );
 };
 

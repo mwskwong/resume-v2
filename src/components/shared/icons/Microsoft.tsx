@@ -11,7 +11,7 @@ const Microsoft: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "microsoft" });
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="microsoftIcon" {...props}>
       <path d={siMicrosoft.path} />
     </SvgIcon>
   );

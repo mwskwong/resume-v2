@@ -1,9 +1,3 @@
-import hkuEngTaRefLetter from "@/assets/documents/hku_eng_ta.pdf";
-import hkuMedRaRefLetter from "@/assets/documents/hku_med_ra.pdf";
-import lunchAndLearnCert from "@/assets/documents/lunch_and_learn.pdf";
-import hkuEngTaRefLetterThumbnail from "@/assets/images/hku_eng_ta_thumbnail.jpg";
-import hkuMedRaRefLetterThumbnail from "@/assets/images/hku_med_ra_thumbnail.jpg";
-import lunchAndLearnCertThumbnail from "@/assets/images/lunch_and_learn_thumbnail.jpg";
 import { Experience } from "@/types";
 
 const experiences: Experience[] = [
@@ -13,8 +7,17 @@ const experiences: Experience[] = [
     jobTitle: "Frontend Engineer",
     company: "TecPal Ltd.",
     jobDuties: [
-      "Decoupled Vue web apps from WordPress API to standalone RESTful API service",
-      "Implemented Vue web apps features. e.g., Authorization system"
+      "Migrated Vue web apps from legacy WordPress API to RESTful API",
+      "Implemented Vue web app features. e.g., Authorization system, shopping list"
+    ],
+    supportingDocuments: [],
+    relevantSkills: [
+      "Vue",
+      "Vuetify",
+      "Quasar",
+      "Vuex",
+      "Pinia",
+      "WordPress"
     ]
   },
   {
@@ -25,6 +28,12 @@ const experiences: Experience[] = [
     jobDuties: [
       "Maintain, enhance, and manage ha.org.hk and several intranet web apps, serving 100+ staff and 7M+ Hong Kong residents",
       "Planned and finalized web app OS and DB migration within 1 week"
+    ],
+    supportingDocuments: [],
+    relevantSkills: [
+      "ASP",
+      "jQuery UI",
+      "Microsoft SQL Server"
     ]
   },
   {
@@ -41,11 +50,22 @@ const experiences: Experience[] = [
       "POC on data virtualization with Delphix DataOps platform supporting 3 types of DB and 50+ DB instances"
     ],
     supportingDocuments: [
-      {
-        name: "Knowledge-sharing session certificate of appreciation",
-        url: lunchAndLearnCert,
-        thumbnail: lunchAndLearnCertThumbnail
-      }
+      "haSc3RefLetter",
+      "lunchAndLearn"
+    ],
+    relevantSkills: [
+      "MySQL",
+      "Microsoft SQL Server",
+      "Oracle Database",
+      "Sybase ASE",
+      "Delphix",
+      "React",
+      "MUI",
+      "Redux",
+      "React Hook Form",
+      "Prism.js",
+      "Express",
+      "OpenShift"
     ]
   },
   {
@@ -59,6 +79,16 @@ const experiences: Experience[] = [
       "Implemented time off application system using React, Express, and MySQL, serving 20+ team members and cut down admin work by 90%",
       "Implemented a Java-based database password management application supporting 3 types of DB",
       "POC on data virtualization with Delphix DataOps platform supporting 2 types of DB and 30+ DB instances"
+    ],
+    supportingDocuments: [],
+    relevantSkills: [
+      "MySQL",
+      "Sybase ASE",
+      "Delphix",
+      "React",
+      "MUI",
+      "Redux",
+      "Express"
     ]
   },
   {
@@ -70,6 +100,14 @@ const experiences: Experience[] = [
       "Design test suite for E-Form Filler in cooperation with software engineers",
       "Design and develop installer for E-Form Filler using NSIS MUI2",
       "Rework a 3-year-old MPF cross-platform mobile application using React Native to replace the legacy Apache Cordova framework"
+    ],
+    supportingDocuments: [],
+    relevantSkills: [
+      "NSIS MUI2",
+      "React Native",
+      "NativeBase",
+      "React Navigation",
+      "MobX"
     ]
   },
   {
@@ -81,11 +119,11 @@ const experiences: Experience[] = [
       "Develop and design a JavaFX application to perform bioinformatics analysis"
     ],
     supportingDocuments: [
-      {
-        name: "Reference letter",
-        url: hkuMedRaRefLetter,
-        thumbnail: hkuMedRaRefLetterThumbnail
-      }
+      "hkuMedRaRefLetter"
+    ],
+    relevantSkills: [
+      "JavaFX",
+      "ControlsFX"
     ]
   },
   {
@@ -97,11 +135,10 @@ const experiences: Experience[] = [
       "Instruct over 20 students during tutorial sessions of a C++ programming course"
     ],
     supportingDocuments: [
-      {
-        name: "Reference letter",
-        url: hkuEngTaRefLetter,
-        thumbnail: hkuEngTaRefLetterThumbnail
-      }
+      "hkuEngTaRefLetter"
+    ],
+    relevantSkills: [
+      "C++"
     ]
   }
 ];

@@ -10,7 +10,7 @@ const Oracle: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "oracle" });
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="oracleIcon" {...props}>
       <path d={siOracle.path} />
     </SvgIcon>
   );

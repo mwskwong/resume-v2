@@ -20,32 +20,30 @@ module.exports = {
     "unused-imports"
   ],
   "rules": {
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
+    "comma-dangle": "warn",
     "indent": [
-      "error",
+      "warn",
       2,
       { "SwitchCase": 1 }
     ],
     "linebreak-style": [
-      "error",
+      "warn",
       process.platform === "win32" ? "windows" : "unix"
     ],
-    "quotes": [
-      "error",
-      "double"
+    "quotes": "warn",
+    "semi": "warn",
+    "no-floating-decimal": "warn",
+    "no-multiple-empty-lines": [
+      "warn",
+      { "max": 2, "maxBOF": 0, "maxEOF": 0  }
     ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "import/first": "error",
-    "import/newline-after-import": "error",
-    "import/no-duplicates": "error",
-    "unused-imports/no-unused-imports": "error"
+    "eol-last": "warn",
+    "@typescript-eslint/member-delimiter-style": "warn",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "import/first": "warn",
+    "import/newline-after-import": "warn",
+    "import/no-duplicates": "warn",
+    "unused-imports/no-unused-imports": "warn"
   }
 };
