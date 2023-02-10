@@ -33,8 +33,6 @@ const Skills: FC = () => {
                       key={skill}
                       sx={sx.skill}
                       label={skill}
-                      variant="outlined"
-                      color="primary"
                       data-cy={skill}
                     />
                   ))}

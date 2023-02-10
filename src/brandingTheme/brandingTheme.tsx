@@ -1,7 +1,6 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
 import { touchRippleClasses } from "@mui/material/ButtonBase";
-import { filledInputClasses } from "@mui/material/FilledInput";
 import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
 import type { } from "@mui/material/themeCssVarsAugmentation";
 import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
@@ -81,6 +80,14 @@ const brandingTheme = extendTheme({
           disabled: alpha(grey[900], 0.26),
           disabledBackground: alpha(grey[900], 0.12),
           focus: alpha(grey[900], 0.12)
+        },
+        Avatar: {
+          defaultBg: lighten(grey[50], 0.5)
+        },
+        FilledInput: {
+          bg: lighten(grey[50], 0.5),
+          hoverBg: lighten(grey[50], 0.5),
+          disabledBg: alpha(grey[900], 0.26)
         },
         Tooltip: {
           bg: grey[800]
@@ -179,7 +186,6 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionPrimary,
           color: theme.vars.palette.text.primary
         })
       }
@@ -217,6 +223,10 @@ const brandingTheme = extendTheme({
       }
     },
     MuiChip: {
+      defaultProps: {
+        variant: "outlined",
+        color: "primary"
+      },
       styleOverrides: {
         root: ({ theme }) => ({
           borderRadius: theme.vars.shape.borderRadius
@@ -254,19 +264,6 @@ const brandingTheme = extendTheme({
           bottom: theme.spacing(2),
           right: theme.spacing(2),
           borderRadius: theme.vars.shape.borderRadius
-        })
-      }
-    },
-    MuiFilledInput: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionPrimary,
-          [`&:hover, &.${filledInputClasses.focused}`]: {
-            backgroundColor: theme.vars.palette.background.sectionPrimary
-          },
-          [`&.${filledInputClasses.disabled}`]: {
-            backgroundColor: theme.vars.palette.action.disabledBackground
-          }
         })
       }
     },

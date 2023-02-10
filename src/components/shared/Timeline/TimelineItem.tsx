@@ -59,8 +59,6 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
                 key={tag}
                 sx={sx.tag}
                 label={tag}
-                variant="outlined"
-                color="primary"
                 data-cy={tag}
               />
             ))}
