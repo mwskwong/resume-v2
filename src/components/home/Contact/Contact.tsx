@@ -94,12 +94,12 @@ const Contact: FC = () => {
               </Grid>
             </Grid>
             <Grid xs={12} md={8} mdOffset={4} sx={sx.alertContainer}>
-              <Stack spacing={1} data-cy="alerts">        
+              <Stack spacing={1} data-cy="alerts">
                 {state.errors.map(({ message }) => (
                   <Alert key={message} severity="error">
                     {message}
                   </Alert>
-                ))} 
+                ))}
               </Stack>
             </Grid>
             <Grid xs={12} sm="auto" smOffset="auto">
@@ -113,7 +113,7 @@ const Contact: FC = () => {
                 color={state.succeeded ? "success" : "primary"}
                 endIcon={state.succeeded ? <SuccessIcon /> : <SendIcon />}
               >
-                send message
+                {state.succeeded ? "message sent" : "send message"}
               </LoadingButton>
             </Grid>
           </Grid>
