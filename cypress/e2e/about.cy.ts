@@ -25,7 +25,7 @@ describe("About section", () => {
 
       describe("Section header", () => {
         it("contains \"About\"", () => {
-          cy.get("[data-cy='about'] [data-cy='sectionHeader']")
+          cy.get("[data-cy = 'about'] [data-cy = 'sectionHeader']")
             .should("be.visible")
             .and("contain", "About");
         });
@@ -33,7 +33,7 @@ describe("About section", () => {
 
       describe("Profile picture", () => {
         it("contains my personal photo", () => {
-          cy.get("[data-cy='profilePicture']")
+          cy.get("[data-cy = 'profilePicture']")
             .should("be.visible")
             .and("have.attr", "src")
             .and("match", /personal_photo\.[a-zA-Z0-9]+\.jpg/i);
@@ -42,14 +42,14 @@ describe("About section", () => {
 
       describe("Greeting message", () => {
         it("contains full name", () => {
-          cy.get("[data-cy='greeting']")
+          cy.get("[data-cy = 'greeting']")
             .contains(`${firstName} ${lastName}`);
         });
       });
 
       describe("Job titles", () => {
         it("is correct", () => {
-          cy.get("[data-cy='jobTitles']").as("jobTitles");
+          cy.get("[data-cy = 'jobTitles']").as("jobTitles");
           for (const jobTitle of jobTitles) {
             cy.get("@jobTitles").should("contain", jobTitle);
           }
@@ -58,14 +58,14 @@ describe("About section", () => {
 
       describe("Self Introduction", () => {
         it("is correct", () => {
-          cy.get("[data-cy='selfIntroduction']")
+          cy.get("[data-cy = 'selfIntroduction']")
             .contains(selfIntroduction);
         });
       });
 
       describe("Skills", () => {
         it("contains title \"Skills\"", () => {
-          cy.get("[data-cy='skills'] > [data-cy='title']")
+          cy.get("[data-cy = 'skills'] > [data-cy = 'title']")
             .should("be.visible")
             .and("contain", "Skills");
         });
@@ -73,19 +73,19 @@ describe("About section", () => {
         for (const skillSet of skills) {
           describe(skillSet.name, () => {
             it(`has the ${skillSet.name} Icon`, () => {
-              cy.get(`[data-cy='skills'] [data-cy='${skillSet.id}'] [data-cy='${skillSet.id}Icon']`)
+              cy.get(`[data-cy = 'skills'] [data-cy = '${skillSet.id}'] [data-cy = '${skillSet.id}Icon']`)
                 .should("be.visible");
             });
 
             it(`has the subtitle "${skillSet.name}"`, () => {
-              cy.get(`[data-cy='skills'] [data-cy='${skillSet.id}'] [data-cy='subtitle']`)
+              cy.get(`[data-cy = 'skills'] [data-cy = '${skillSet.id}'] [data-cy = 'subtitle']`)
                 .should("be.visible")
                 .and("contain", skillSet.name);
             });
 
             for (const skill of skillSet.skills) {
               it(`contains skill "${skill}"`, () => {
-                cy.get(`[data-cy='skills'] [data-cy='${skillSet.id}'] [data-cy='${skill}']`)
+                cy.get(`[data-cy = 'skills'] [data-cy = '${skillSet.id}'] [data-cy = '${skill}']`)
                   .should("be.visible")
                   .and("contain", skill);
               });

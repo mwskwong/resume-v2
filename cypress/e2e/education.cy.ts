@@ -34,27 +34,27 @@ describe("Education section", () => {
 
       describe("Section header", () => {
         it("contains \"Education\"", () => {
-          cy.get("[data-cy='education'] [data-cy='sectionHeader']")
+          cy.get("[data-cy = 'education'] [data-cy = 'sectionHeader']")
             .should("be.visible")
             .and("contain", "Education");
         });
       });
 
       describe("Education timeline", () => {
-        const timelineSelector = "[data-cy='education'] [data-cy='timeline']";
+        const timelineSelector = "[data-cy = 'education'] [data-cy = 'timeline']";
         it("'s period is responsive", () => {
           const periodDesktopDataCy = "periodDesktop";
           const periodMobileDataCy = "periodMobile";
 
           if (viewportType === "desktop") {
-            cy.get(`${timelineSelector} [data-cy='${periodDesktopDataCy}']`)
+            cy.get(`${timelineSelector} [data-cy = '${periodDesktopDataCy}']`)
               .should("be.visible");
-            cy.get(`${timelineSelector} [data-cy='${periodMobileDataCy}']`)
+            cy.get(`${timelineSelector} [data-cy = '${periodMobileDataCy}']`)
               .should("not.be.visible");
           } else {
-            cy.get(`${timelineSelector} [data-cy='${periodDesktopDataCy}']`)
+            cy.get(`${timelineSelector} [data-cy = '${periodDesktopDataCy}']`)
               .should("not.be.visible");
-            cy.get(`${timelineSelector} [data-cy='${periodMobileDataCy}']`)
+            cy.get(`${timelineSelector} [data-cy = '${periodMobileDataCy}']`)
               .should("be.visible");
           }
         });
@@ -66,21 +66,21 @@ describe("Education section", () => {
 
           describe(`${degree} at ${school}`, () => {
             it(`has period "${period}"`, () => {
-              cy.get(`${timelineSelector} [data-cy='${periodDataCy}']`)
+              cy.get(`${timelineSelector} [data-cy = '${periodDataCy}']`)
                 .eq(i)
                 .should("be.visible")
                 .and("contain", period);
             });
 
             it(`has title "${degree}"`, () => {
-              cy.get(`${timelineSelector} [data-cy='title']`)
+              cy.get(`${timelineSelector} [data-cy = 'title']`)
                 .eq(i)
                 .should("be.visible")
                 .and("contain", degree);
             });
 
             it(`has subtitle "${school}"`, () => {
-              cy.get(`${timelineSelector} [data-cy='subtitle']`)
+              cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
                 .eq(i)
                 .should("be.visible")
                 .and("contain", school);
@@ -92,14 +92,14 @@ describe("Education section", () => {
 
                 describe(supportingDocument, () => {
                   it("contains the correct label", () => {
-                    cy.get(`${timelineSelector} [data-cy='${supportingDocument}']`)
+                    cy.get(`${timelineSelector} [data-cy = '${supportingDocument}']`)
                       .should("be.visible")
                       .and("contain", document.name);
                   });
 
                   if (!document.private) {
                     it("opens the correct document in a new tab", () => {
-                      cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] a`).as("anchor");
+                      cy.get(`${timelineSelector} [data-cy = '${supportingDocument}'] a`).as("anchor");
                       cy.get("@anchor")
                         .should("have.attr", "target", "_blank")
                         .click();
@@ -116,7 +116,7 @@ describe("Education section", () => {
                   }
 
                   it("contains the correct thumbnail", () => {
-                    cy.get(`${timelineSelector} [data-cy='${supportingDocument}'] img`)
+                    cy.get(`${timelineSelector} [data-cy = '${supportingDocument}'] img`)
                       .should("be.visible")
                       .and("have.attr", "src")
                       .and("match", new RegExp(document.thumbnailRegex, "i"));
@@ -131,7 +131,7 @@ describe("Education section", () => {
       describe("Courses", () => {
         describe("Title", () => {
           it("contains \"Courses & Training\"", () => {
-            cy.get("[data-cy='courses'] [data-cy='title']")
+            cy.get("[data-cy = 'courses'] [data-cy = 'title']")
               .should("be.visible")
               .and("contain", "Courses & Training");
           });
@@ -142,7 +142,7 @@ describe("Education section", () => {
             const courseCategory = courseCategories[i];
             describe(courseCategory.name, () => {
               beforeEach(() => {
-                cy.get("[data-cy='courses'] [data-cy='category']")
+                cy.get("[data-cy = 'courses'] [data-cy = 'category']")
                   .eq(i + 1)
                   .as("categoryButton");
               });
@@ -157,7 +157,7 @@ describe("Education section", () => {
                   .should("have.class", toggleButtonClasses.selected);
 
                 for (const { name, category } of courses) {
-                  cy.get("[data-cy='courses'] [data-cy='certificateCard']")
+                  cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']")
                     .as("courseCards");
                   if (category == courseCategory) {
                     cy.get("@courseCards")
@@ -175,7 +175,7 @@ describe("Education section", () => {
 
           describe("All", () => {
             beforeEach(() => {
-              cy.get("[data-cy='courses'] [data-cy='category']")
+              cy.get("[data-cy = 'courses'] [data-cy = 'category']")
                 .eq(0)
                 .as("allButton");
             });
@@ -190,7 +190,7 @@ describe("Education section", () => {
                 .should("have.class", toggleButtonClasses.selected);
 
               for (const { name } of courses) {
-                cy.get("[data-cy='courses'] [data-cy='certificateCard']")
+                cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']")
                   .contains(name)
                   .should("be.visible");
               }
@@ -202,28 +202,28 @@ describe("Education section", () => {
           const course = courses[i];
           describe(`${course.name} card`, () => {
             beforeEach(() => {
-              cy.get("[data-cy='courses'] [data-cy='certificateCard']")
+              cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']")
                 .eq(i)
                 .as("courseCard");
             });
 
             it(`displays the course name "${course.name}" as primary text`, () => {
               cy.get("@courseCard")
-                .find("[data-cy='name']")
+                .find("[data-cy = 'name']")
                 .should("be.visible")
                 .and("contain", course.name);
             });
 
             it(`displays the institution as "${course.institution.name}" as secondary text`, () => {
               cy.get("@courseCard")
-                .find("[data-cy='organization']")
+                .find("[data-cy = 'organization']")
                 .should("be.visible")
                 .and("contain", course.institution.name);
             });
 
             it(`displays the "${course.institution.name}" icon`, () => {
               cy.get("@courseCard")
-                .get(`[data-cy='${course.institution.id}Icon']`)
+                .get(`[data-cy = '${course.institution.id}Icon']`)
                 .should("be.visible");
             });
 

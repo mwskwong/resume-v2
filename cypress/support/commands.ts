@@ -67,17 +67,17 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemButtonClasses.selected;
 
   if (viewport === "mobile") {
-    cy.get("[data-cy='menuButton']").click();
+    cy.get("[data-cy = 'menuButton']").click();
   }
 
-  cy.get(`[data-cy='${container}'] [data-cy='${section.id}']`).as("navElement");
+  cy.get(`[data-cy = '${container}'] [data-cy = '${section.id}']`).as("navElement");
   cy.get("@navElement").should("contain", section.name);
   cy.get("@navElement").click();
   cy.get("@navElement").should("have.class", activeClassName);
   cy.verifySectionIsInViewport(section);
 
   if (viewport === "mobile") {
-    cy.get("[data-cy='menuButton']").click();
+    cy.get("[data-cy = 'menuButton']").click();
   }
 });
 

@@ -8,7 +8,7 @@ describe("Contact section", () => {
   beforeEach(() => {
     cy.visit(`/#${CONTACT.id}`);
     cy.disableSmoothScroll();
-    cy.get("[data-cy='contact']").as("contact");
+    cy.get("[data-cy = 'contact']").as("contact");
   });
 
   for (const viewportType in viewports) {
@@ -25,7 +25,7 @@ describe("Contact section", () => {
       describe("Section header", () => {
         it("contains \"Contact\"", () => {
           cy.get("@contact")
-            .find("[data-cy='sectionHeader']")
+            .find("[data-cy = 'sectionHeader']")
             .should("be.visible")
             .and("contain", "Contact");
         });
@@ -37,7 +37,7 @@ describe("Contact section", () => {
 
           it(`displays "${info}" as ${type}`, () => {
             cy.get("@contact")
-              .find(`[data-cy='personalInfo'] [data-cy='${type}']`)
+              .find(`[data-cy = 'personalInfo'] [data-cy = '${type}']`)
               .should("be.visible")
               .and("contain", info);
           });
