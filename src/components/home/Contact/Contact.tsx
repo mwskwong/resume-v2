@@ -57,6 +57,7 @@ const Contact: FC = () => {
                   fullWidth={true}
                   helperText={"\u200B"}
                   disabled={state.submitting}
+                  data-cy="name"
                 />
               </Grid>
               <Grid xs={12} sm={6}>
@@ -66,6 +67,7 @@ const Contact: FC = () => {
                   fullWidth={true}
                   helperText={"\u200B"}
                   disabled={state.submitting}
+                  data-cy="email"
                 />
               </Grid>
               <Grid xs={12}>
@@ -75,6 +77,7 @@ const Contact: FC = () => {
                   fullWidth={true}
                   helperText={"\u200B"}
                   disabled={state.submitting}
+                  data-cy="subject"
                 />
               </Grid>
               <Grid xs={12}>
@@ -86,11 +89,12 @@ const Contact: FC = () => {
                   rows={9}
                   helperText={"\u200B"}
                   disabled={state.submitting}
+                  data-cy="message"
                 />
               </Grid>
             </Grid>
             <Grid xs={12} md={8} mdOffset={4} sx={sx.alertContainer}>
-              <Stack spacing={1}>        
+              <Stack spacing={1} data-cy="alerts">        
                 {state.errors.map(({ message }) => (
                   <Alert key={message} severity="error">
                     {message}

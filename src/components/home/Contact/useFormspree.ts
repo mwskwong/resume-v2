@@ -4,7 +4,6 @@ import { FormEvent } from "react";
 
 const useFormspree: typeof useForm = (formKey, args) => {
   const [state, submitHandler, reset] = useForm(formKey, args);
-  // const [state, setState] = useState(formspreeState);
 
   const handleFormSubmit = async (submissionData: FormEvent<HTMLFormElement> | SubmissionData) => {
     try {
