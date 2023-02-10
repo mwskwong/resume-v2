@@ -1,14 +1,16 @@
 import { FC } from "react";
 
+import getSupportingDocumentById from "@/assets/getSupportingDocumentById";
 import Timeline from "@/components/shared/Timeline";
-import education from "@/constants/education";
+import educations from "@/constants/educations";
 
 const EducationTimeline: FC = () => {
-  const data = education
-    .map(({ degree, school, ...node }) => ({
+  const data = educations
+    .map(({ degree, school, supportingDocuments, ...elem }) => ({
       title: degree,
       subtitle: school,
-      ...node
+      supportingDocuments: supportingDocuments.map(id => getSupportingDocumentById(id)),
+      ...elem
     }));
 
   return <Timeline data={data} />;

@@ -1,0 +1,32 @@
+{
+  "haSc3RefLetter": {
+    "name": "Reference Letter",
+    "matchingString": null,
+    "thumbnailRegex": "ha_sc3_ref_thumbnail_blur.[a-zA-Z0-9]+.jpg",
+    "private": true
+  },
+  "lunchAndLearn": {
+    "name": "Knowledge-sharing session certificate of appreciation",
+    "matchingString": "Lunch & Learn",
+    "thumbnailRegex": "lunch_and_learn_thumbnail.[a-zA-Z0-9]+.jpg",
+    "private": false
+  },
+  "hkuMedRaRefLetter": {
+    "name": "Reference Letter",
+    "matchingString": "Tommy Lam",
+    "thumbnailRegex": "hku_med_ra_thumbnail.[a-zA-Z0-9]+.jpg",
+    "private": false
+  },
+  "hkuEngTaRefLetter": {
+    "name": "Reference Letter",
+    "matchingString": "marian",
+    "thumbnailRegex": "hku_eng_ta_thumbnail.[a-zA-Z0-9]+.jpg",
+    "private": false
+  },
+  "hkuCsCertOfGrad": {
+    "name": "Degree Certificate",
+    "matchingString": "MRVC474.jpg",
+    "thumbnailRegex": "hku_cs_thumbnail.[a-zA-Z0-9]+.jpg",
+    "private": false
+  }
+}

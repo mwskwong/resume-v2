@@ -11,7 +11,7 @@ const DataCamp: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "dataCamp" });
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="dataCampIcon" {...props}>
       <path d={siDatacamp.path} />
     </SvgIcon>
   );

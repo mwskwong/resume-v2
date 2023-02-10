@@ -1,60 +1,61 @@
 import { EmailRounded as Email, LocationOnRounded as Location, SmartphoneRounded as Mobile } from "@mui/icons-material";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 
-import * as contact from "@/constants/contact";
+import contact from "@/constants/contact";
 
+import ContactUiTemplate from "./ContactUiTemplate";
 import useSx from "./usePersonalInfoSx";
 
-const contactTemplate = {
-  phone: {
+const contactUiTemplates: ContactUiTemplate[] = [
+  {
+    id: "phone",
     Icon: Mobile,
     title: "Call Me On",
-    urlPrefix: "tel:"
+    url: `tel:${contact.phone}`
   },
-  email: {
+  {
+    id: "email",
     Icon: Email,
     title: "Email Me At",
-    urlPrefix: "mailto:"
+    url: `mailto:${contact.email}`
   },
-  address: {
+  {
+    id: "address",
     Icon: Location,
     title: "Find Me At",
-    urlPrefix: undefined
+    url: "https://www.google.com/maps/place/Hong+Kong"
   }
-};
+];
 
 const PersonalInfo = () => {
   const sx = useSx();
 
   return (
-    <Stack spacing={3} sx={sx.root}>
-      {
-        (
-          Object.entries(contactTemplate) as
-          [
-            keyof typeof contactTemplate,
-            typeof contactTemplate[keyof typeof contactTemplate]
-          ][]
-        ).map(([key, { Icon, title, urlPrefix }]) => (
-          <Box key={key} sx={sx.itemContainer}>
+    <Grid container spacing={3} xs={12} md={4} data-cy="personalInfo">
+      {contactUiTemplates.map(({ id, Icon, title, url }) => (
+        <Grid key={id} xs={12} sm={4} md={12}>
+          <Box sx={sx.itemContainer} data-cy={id}>
             <Icon fontSize="large" />
-            <Typography component="div" sx={sx.title} gutterBottom>
+            <Typography sx={sx.title} gutterBottom>
               {title}
             </Typography>
             <Typography
               sx={sx.value}
-              component={urlPrefix ? "a" : "div"}
-              href={urlPrefix && `${urlPrefix}${contact?.[key]}`}
+              component="a"
+              href={url}
+              target={url.startsWith("http") ? "_blank" : undefined}
             >
-              {contact?.[key]}
+              {contact[id]}
             </Typography>
           </Box>
-        ))
-      }
-    </Stack>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
-if (process.env.NODE_ENV === "development") PersonalInfo.whyDidYouRender = true;
+if (process.env.NODE_ENV === "development") {
+  PersonalInfo.whyDidYouRender = true;
+}
 
 export default PersonalInfo;

@@ -5,22 +5,20 @@ import { Box, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import FooterDivider from "@/components/shared/dividers/Footer";
-import SocialMedia from "@/components/shared/SocialMedia";
+import PlatformProfiles from "@/components/shared/PlatformProfiles";
 import { address } from "@/constants/contact";
 import { firstName, lastName, middleName } from "@/constants/name";
-import { SectionProps } from "@/types";
-import cx from "@/utils/cx";
 
 import useSx from "./useSx";
 
-const Footer: FC<SectionProps> = ({ sx: sxProp }) => {
+const Footer: FC = () => {
   const sx = useSx();
   const year = new Date().getFullYear();
 
   return (
     <>
-      <FooterDivider sx={sx.footerDivider} />
-      <Box component="footer" sx={cx(sx.footer, sxProp)}>
+      <FooterDivider />
+      <Box component="footer" sx={sx.footer}>
         <Container sx={sx.container}>
           <div>
             <Typography sx={sx.text} variant="body2">
@@ -32,7 +30,7 @@ const Footer: FC<SectionProps> = ({ sx: sxProp }) => {
               {` in ${address}`}
             </Typography>
           </div>
-          <SocialMedia />
+          <PlatformProfiles />
         </Container>
       </Box>
     </>

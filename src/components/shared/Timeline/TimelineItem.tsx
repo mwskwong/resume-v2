@@ -6,7 +6,7 @@ import {
   TimelineOppositeContent,
   TimelineSeparator
 } from "@mui/lab";
-import { List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Box, Chip, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC } from "react";
 
 import dateTimeFormat from "@/utils/dateTimeFormat";
@@ -23,7 +23,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
 
   return (
     <MuiTimelineItem>
-      <TimelineOppositeContent sx={sx.periodDesktop} data-cy="timelinePeriodDesktop">
+      <TimelineOppositeContent sx={sx.periodDesktop} data-cy="periodDesktop">
         {period}
       </TimelineOppositeContent>
       <TimelineSeparator>
@@ -31,17 +31,17 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent sx={sx.timelineContent}>
-        <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="timelinePeriodMobile">
+        <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="periodMobile">
           {period}
         </Typography>
-        <Typography sx={sx.title} component="div" gutterBottom>
+        <Typography sx={sx.title} component="div" gutterBottom data-cy="title">
           {data.title}
         </Typography>
-        <Typography sx={sx.subtitle} component="div" gutterBottom>
+        <Typography sx={sx.subtitle} component="div" gutterBottom data-cy="subtitle">
           {data.subtitle}
         </Typography>
-        <List disablePadding component="ol">
-          {data.contents && data.contents.map((content, index) => (
+        <List disablePadding component="ol" data-cy="contents">
+          {data.contents?.map((content, index) => (
             <ListItem key={index} disableGutters>
               <ListItemIcon sx={sx.listItemIcon}>
                 <Typography component="span" sx={sx.listItemNumber}>
@@ -52,17 +52,31 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
             </ListItem>
           ))}
         </List>
-        <List disablePadding>
-          {data.supportingDocuments && data.supportingDocuments.map((supportingDocument, index) => (
-            <SupportingDocumentListItem
-              key={index}
-              title={data.title}
-              supportingDocument={supportingDocument}
-            />
-          ))}
-        </List>
+        {Boolean(data.tags?.length) && (
+          <Box sx={sx.tagsContainer} data-cy="tags">
+            {data.tags?.map(tag => (
+              <Chip
+                key={tag}
+                sx={sx.tag}
+                label={tag}
+                data-cy={tag}
+              />
+            ))}
+          </Box>
+        )}
+        {Boolean(data.supportingDocuments?.length) && (
+          <List disablePadding sx={sx.supportingDocuments}>
+            {data.supportingDocuments?.map(supportingDocument => (
+              <SupportingDocumentListItem
+                key={supportingDocument.id}
+                supportingDocument={supportingDocument}
+                data-cy={supportingDocument.id}
+              />
+            ))}
+          </List>
+        )}
       </TimelineContent>
-    </MuiTimelineItem >
+    </MuiTimelineItem>
   );
 };
 

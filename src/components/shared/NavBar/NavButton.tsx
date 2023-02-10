@@ -5,10 +5,14 @@ import NavElementProps from "./NavElementProps";
 import useSx from "./useNavButtonSx";
 
 const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
-  const sx = useSx({ active });
+  const sx = useSx({ active });  
+  const handleClick = () => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView();
+  };
 
   return (
-    <Button color={active ? "primary" : "inherit"} href={`#${id}`}>
+    <Button color={active ? "primary" : "inherit"} onClick={handleClick} data-cy={id}>
       {label}
       <Box component="span" sx={sx.active} />
     </Button>

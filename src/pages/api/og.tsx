@@ -1,5 +1,6 @@
 import { ImageResponse } from "@vercel/og";
-import { NextApiHandler, PageConfig } from "next";
+import { PageConfig } from "next";
+import { NextRequest } from "next/server";
 import { FC } from "react";
 
 import Icon from "@/assets/images/icon.svg";
@@ -39,7 +40,7 @@ const LandingOGImage: FC = () => (
   </div>
 );
 
-const OGImageWithTitle: FC<{ title: string }> = ({ title }) => (
+const OGImageWithTitle: FC<{ title: string | null }> = ({ title }) => (
   <div
     style={{
       display: "flex",
@@ -71,15 +72,15 @@ const OGImageWithTitle: FC<{ title: string }> = ({ title }) => (
         textAlign: "center"
       }}
     >
-      {title}
+      {title?.slice(0, 100)}
     </div>
   </div>
 );
 
-const handler: NextApiHandler = async req => {
+const handler = async (req: NextRequest) => {
   try {
-    const { searchParams } = new URL(req.url ?? "");
-    const title = searchParams.get("title")?.slice(0, 100);
+    const { searchParams } = new URL(req.url);
+    const title = searchParams.get("title");
     const rubikMediumData = await rubikMedium;
 
     return new ImageResponse(

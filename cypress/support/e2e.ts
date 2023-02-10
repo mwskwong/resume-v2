@@ -19,10 +19,3 @@ import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-// Ignore Minified React error #421
-Cypress.on("uncaught:exception", err => {
-  if (err.message.includes("Minified React error #421")) {
-    return false;
-  }
-});

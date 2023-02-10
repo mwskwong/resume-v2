@@ -1,0 +1,66 @@
+{
+  "adminASqlDbInfra": {
+    "type": "pdf",
+    "matchingString": "MRVC5B0.jpg"
+  },
+  "agileCrashCourse": {
+    "type": "pdf",
+    "matchingString": "0000270518"
+  },
+  "agileFundamentals": {
+    "type": "pdf",
+    "matchingString": "0000247241"
+  },
+  "citrix": {
+    "type": "pdf",
+    "matchingString": "0000221605"
+  },
+  "docker": {
+    "type": "pdf",
+    "matchingString": "0000233859"
+  },
+  "iso": {
+    "type": "pdf",
+    "matchingString": "0000210277"
+  },
+  "introToNumPy": {
+    "type": "pdf",
+    "matchingString": "0000220065"
+  },
+  "linuxBootcamp": {
+    "type": "pdf",
+    "matchingString": "0000233346"
+  },
+  "linuxTroubleshoot": {
+    "type": "pdf",
+    "matchingString": "0000238614"
+  },
+  "linuxMastery": {
+    "type": "pdf",
+    "matchingString": "0000229584"
+  },
+  "linuxShellScript": {
+    "type": "pdf",
+    "matchingString": "0000230697"
+  },
+  "m001": {
+    "type": "jpg",
+    "matchingString": ".)10.)-,3:J>36F7,-@WAFLNRSR2>ZaZP`JQRO"
+  },
+  "mysqlForDba": {
+    "type": "pdf",
+    "matchingString": "0000161558"
+  },
+  "openShift": {
+    "type": "pdf",
+    "matchingString": "0000215463"
+  },
+  "oracleDba": {
+    "type": "pdf",
+    "matchingString": "0000240052"
+  },
+  "oracleTuning": {
+    "type": "pdf",
+    "matchingString": "0000248682"
+  }
+}

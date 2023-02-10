@@ -1,10 +1,6 @@
 import makeSx from "@/utils/makeSx";
 
 const useSx = () => makeSx({
-  root: {
-    justifyContent: "center",
-    height: "100%"
-  },
   itemContainer: {
     display: "flex",
     flexDirection: "column",
@@ -18,7 +14,8 @@ const useSx = () => makeSx({
   },
   value: {
     textAlign: "center",
-    textDecoration: "none"
+    textDecoration: "none",
+    zIndex: 1
   }
 });
 

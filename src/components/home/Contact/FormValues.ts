@@ -1,4 +1,4 @@
-type FormValues = {
+interface FormValues {
   name: string;
   email: string;
   subject: string;

@@ -1,10 +1,6 @@
-
 import makeSx from "@/utils/makeSx";
 
 const useSx = () => makeSx({
-  footerDivider: {
-    color: "background.sectionPrimary"
-  },
   footer: {
     bgcolor: "background.sectionPrimary",
     color: "text.secondary",

@@ -10,7 +10,7 @@ const Google: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "google" });
 
   return (
-    <SvgIcon sx={cx(sx.root, sxProp)} {...props}>
+    <SvgIcon sx={cx(sx.root, sxProp)} data-cy="googleIcon" {...props}>
       <path d={siGoogle.path} />
     </SvgIcon>
   );

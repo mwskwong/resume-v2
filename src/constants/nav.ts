@@ -1,9 +1,4 @@
-import { SectionId } from "@/types";
-
-export type Section = {
-  id: SectionId,
-  name: string
-}
+import { Section } from "@/types";
 
 export const HOME: Section = { id: "home", name: "Home" };
 export const ABOUT: Section = { id: "about", name: "About" };

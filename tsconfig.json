@@ -32,8 +32,11 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
+    "**/*.js",
+    "**/*.mjs",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".eslintrc.js"
   ],
   "exclude": [
     "node_modules"

@@ -1,7 +1,10 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, filledInputClasses, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
+import { touchRippleClasses } from "@mui/material/ButtonBase";
+import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
 import type { } from "@mui/material/themeCssVarsAugmentation";
+import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
+import { alpha, darken, lighten } from "@mui/system";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 
 import rubik from "./rubik";
@@ -31,13 +34,13 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDB: {
+        enterpriseDb: {
           main: `#${siEnterprisedb.hex}`,
-          dark: darken(`#${siEnterprisedb.hex}`, .19)
+          dark: darken(`#${siEnterprisedb.hex}`, 0.19)
         },
-        mongoDB: {
+        mongoDb: {
           main: `#${siMongodb.hex}`,
-          dark: darken(`#${siMongodb.hex}`, .23)
+          dark: darken(`#${siMongodb.hex}`, 0.23)
         },
         microsoft: {
           main: `#${siMicrosoft.hex}`,
@@ -45,19 +48,19 @@ const brandingTheme = extendTheme({
         },
         oracle: {
           main: `#${siOracle.hex}`,
-          dark: darken(`#${siOracle.hex}`, .11)
+          dark: darken(`#${siOracle.hex}`, 0.11)
         },
         udemy: {
           main: `#${siUdemy.hex}`,
-          dark: darken(`#${siUdemy.hex}`, .03)
+          dark: darken(`#${siUdemy.hex}`, 0.03)
         },
         dataCamp: {
           main: `#${siDatacamp.hex}`,
-          dark: darken(`#${siDatacamp.hex}`, .465)
+          dark: darken(`#${siDatacamp.hex}`, 0.465)
         },
         google: {
           main: `#${siGoogle.hex}`,
-          dark: darken(`#${siGoogle.hex}`, .165)
+          dark: darken(`#${siGoogle.hex}`, 0.17)
         },
         grey,
         text: {
@@ -66,17 +69,28 @@ const brandingTheme = extendTheme({
         },
         divider: grey[300],
         background: {
-          sectionPrimary: lighten(grey[50], .5),
-          sectionSecondary: grey[50],
-          sectionTertiary: darken(grey[50], .02)
+          sectionPrimary: lighten(grey[50], 0.5),
+          sectionSecondary: darken(grey[50], 0.003),
+          sectionTertiary: darken(grey[50], 0.025)
         },
         action: {
           active: grey[900],
-          hover: alpha(grey[900], .04),
-          selected: alpha(grey[900], .08),
-          disabled: alpha(grey[900], .26),
-          disabledBackground: alpha(grey[900], .12),
-          focus: alpha(grey[900], .12)
+          hover: alpha(grey[900], 0.04),
+          selected: alpha(grey[900], 0.08),
+          disabled: alpha(grey[900], 0.26),
+          disabledBackground: alpha(grey[900], 0.12),
+          focus: alpha(grey[900], 0.12)
+        },
+        Avatar: {
+          defaultBg: lighten(grey[50], 0.5)
+        },
+        FilledInput: {
+          bg: lighten(grey[50], 0.5),
+          hoverBg: lighten(grey[50], 0.5),
+          disabledBg: alpha(grey[900], 0.26)
+        },
+        Tooltip: {
+          bg: grey[800]
         }
       }
     }
@@ -153,12 +167,25 @@ const brandingTheme = extendTheme({
       }
     },
     MuiAppBar: {
+      defaultProps: {
+        color: "default"
+      },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: `rgba(${theme.vars.palette.background.default}, .7)`,
-          backgroundImage: "none",
+          // FIXME: unable to use --mui-pallette-AppBar-defaultBg because --AppBar-color is invalid when dark color scheme is missing
+          backgroundColor: `rgba(${theme.vars.palette.background.defaultChannel} / 0.5)`,
           boxShadow: "none",
           backdropFilter: "blur(20px)",
+          color: theme.vars.palette.text.primary
+        })
+      }
+    },
+    MuiAvatar: {
+      defaultProps: {
+        variant: "rounded"
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
           color: theme.vars.palette.text.primary
         })
       }
@@ -179,6 +206,11 @@ const brandingTheme = extendTheme({
     MuiCard: {
       defaultProps: {
         elevation: 0
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.vars.palette.background.sectionPrimary
+        })
       }
     },
     MuiCardContent: {
@@ -191,34 +223,30 @@ const brandingTheme = extendTheme({
       }
     },
     MuiChip: {
+      defaultProps: {
+        variant: "outlined",
+        color: "primary"
+      },
       styleOverrides: {
         root: ({ theme }) => ({
           borderRadius: theme.vars.shape.borderRadius
+        }),
+        outlinedPrimary: ({ theme }) => ({
+          color: theme.vars.palette.text.primary
         })
       }
     },
     MuiCssBaseline: {
       styleOverrides: theme => ({
         "::selection": {
-          backgroundColor: theme.vars.palette.text.primary,
-          color: theme.vars.palette.background.default
+          backgroundColor: theme.vars.palette.grey[800],
+          color: theme.vars.palette.common.white
         },
         html: {
           scrollBehavior: "smooth",
           "@media (prefers-reduced-motion)": {
             scrollBehavior: "auto"
           }
-        },
-        section: {
-          scrollMarginTop: 56,
-          [`@media (min-width: ${theme.breakpoints.values.xs}px) and (orientation: landscape)`]: {
-            scrollMarginTop: 48
-          },
-          [`@media (min-width: ${theme.breakpoints.values.sm}px)`]: {
-            scrollMarginTop: 64
-          },
-          paddingTop: theme.spacing(10),
-          paddingBottom: theme.spacing(10)
         },
         img: {
           display: "block"
@@ -236,19 +264,6 @@ const brandingTheme = extendTheme({
           bottom: theme.spacing(2),
           right: theme.spacing(2),
           borderRadius: theme.vars.shape.borderRadius
-        })
-      }
-    },
-    MuiFilledInput: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionPrimary,
-          [`&:hover, &.${filledInputClasses.focused}`]: {
-            backgroundColor: theme.vars.palette.background.sectionPrimary
-          },
-          [`&.${filledInputClasses.disabled}`]: {
-            backgroundColor: theme.vars.palette.action.disabledBackground
-          }
         })
       }
     },
@@ -291,6 +306,14 @@ const brandingTheme = extendTheme({
         }
       }
     },
+    MuiTextField: {
+      defaultProps: {
+        variant: "filled"
+      },
+      styleOverrides: {
+
+      }
+    },
     MuiTimelineDot: {
       styleOverrides: {
         root: {
@@ -305,7 +328,7 @@ const brandingTheme = extendTheme({
           justifyContent: "center"
         },
         grouped: ({ theme }) => ({
-          margin: `${theme.spacing(.25)} ${theme.spacing(.5)}`,
+          margin: `${theme.spacing(0.25)} ${theme.spacing(0.5)}`,
           border: 0,
           [`&.${toggleButtonGroupClasses.disabled}`]: {
             border: 0
@@ -313,6 +336,19 @@ const brandingTheme = extendTheme({
           "&:not(:first-of-type), &:first-of-type": {
             borderRadius: theme.vars.shape.borderRadius
           }
+        })
+      }
+    },
+    MuiTooltip: {
+      defaultProps: {
+        placement: "bottom-start"
+      },
+      styleOverrides: {
+        tooltip: ({ theme }) => ({
+          borderRadius: `calc(${theme.vars.shape.borderRadius} / 1.33)`
+        }),
+        touch: ({ theme }) => ({
+          borderRadius: theme.vars.shape.borderRadius
         })
       }
     },
@@ -324,8 +360,7 @@ const brandingTheme = extendTheme({
   }
 });
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: dark theme is not needed
+// @ts-expect-error: dark theme is a required field but is not necessary in this case
 delete brandingTheme.colorSchemes.dark;
 
 export default brandingTheme;

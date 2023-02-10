@@ -8,7 +8,7 @@ const useSx = () => makeSx({
       xs: "none",
       md: "unset"
     },
-    flex: .28
+    flex: 0.28
   },
   timelineContent: {
     pb: 3,
@@ -42,7 +42,16 @@ const useSx = () => makeSx({
     userSelect: "none",
     lineHeight: "initial"
   },
-  downloadButton: {
+  tagsContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    ml: -0.5,
+    mt: 1
+  },
+  tag: {
+    m: 0.5
+  },
+  supportingDocuments: {
     mt: 1
   }
 });
