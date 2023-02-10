@@ -1,5 +1,5 @@
 import { SelfIntroduction } from "@/types";
 
-const selfIntroduction: SelfIntroduction = "Dynamic and motivated Frontend Developer and System DBA with vast IT experience. Skilled in front-end development, database management, analytical thinking, and creative problem-solving. Adaptable and transformational team player with an ability to work independently and a willingness to go the extra mile.";
+const selfIntroduction: SelfIntroduction = "Dynamic and experienced Frontend Developer and System DBA. Skilled in front-end development, database management, analytical thinking, and creative problem-solving. Adaptable team player with the ability to work independently and an eagerness to succeed.";
 
 export default selfIntroduction;
