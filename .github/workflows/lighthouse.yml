@@ -29,3 +29,11 @@ jobs:
         with:
           name: Lighthouse reports
           path: ${{ github.workspace }}/tmp/artifacts
+
+      - name: Verify Results
+        uses: foo-software/lighthouse-check-status-action@master
+        with:
+          lighthouseCheckResults: ${{ steps.lighthouse.outputs.lighthouseCheckResults }}
+          minAccessibilityScore: "100"
+          minBestPracticesScore: "100"
+          minSeoScore: "100"
