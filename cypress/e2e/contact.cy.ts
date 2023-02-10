@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { FormError } from "@formspree/core";
 import { buttonClasses } from "@mui/material/Button";
 import contactForm from "cypress/fixtures/contactForm.json";
@@ -81,11 +82,10 @@ describe("Contact section", () => {
         it("fails to submit when filling in non-email content in the email field", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, cy.spy().as("formspreeApi"));
 
-          const validFormValues = contactForm.validFormValues;
-          cy.get("@nameInput").type(validFormValues.name);
+          cy.get("@nameInput").type(faker.name.fullName());
           cy.get("@emailInput").type("definitely not an email");
-          cy.get("@subjectInput").type(validFormValues.subject);
-          cy.get("@messageInput").type(validFormValues.message);
+          cy.get("@subjectInput").type(faker.lorem.sentence());
+          cy.get("@messageInput").type(faker.lorem.paragraphs());
 
           cy.get("@form").submit();
           cy.get("@formspreeApi").should("not.be.called");
@@ -102,11 +102,10 @@ describe("Contact section", () => {
             body: contactForm.formspreeResponse.success
           }).as("formspreeApi");
 
-          const validFormValues = contactForm.validFormValues;
-          cy.get("@nameInput").type(validFormValues.name);
-          cy.get("@emailInput").type(validFormValues.email);
-          cy.get("@subjectInput").type(validFormValues.subject);
-          cy.get("@messageInput").type(validFormValues.message);
+          cy.get("@nameInput").type(faker.name.fullName());
+          cy.get("@emailInput").type(faker.internet.email());
+          cy.get("@subjectInput").type(faker.lorem.sentence());
+          cy.get("@messageInput").type(faker.lorem.paragraphs());
 
           cy.get("@form").submit();
           cy.wait("@formspreeApi").then(({ response }) => {
@@ -126,11 +125,10 @@ describe("Contact section", () => {
             body: contactForm.formspreeResponse.error
           }).as("formspreeApi");
 
-          const validFormValues = contactForm.validFormValues;
-          cy.get("@nameInput").type(validFormValues.name);
-          cy.get("@emailInput").type(validFormValues.email);
-          cy.get("@subjectInput").type(validFormValues.subject);
-          cy.get("@messageInput").type(validFormValues.message);
+          cy.get("@nameInput").type(faker.name.fullName());
+          cy.get("@emailInput").type(faker.internet.email());
+          cy.get("@subjectInput").type(faker.lorem.sentence());
+          cy.get("@messageInput").type(faker.lorem.paragraphs());
 
           cy.get("@form").submit();
           cy.wait("@formspreeApi").then(({ response }) => {
@@ -148,11 +146,10 @@ describe("Contact section", () => {
             forceNetworkError: true
           }).as("formspreeApi");
 
-          const validFormValues = contactForm.validFormValues;
-          cy.get("@nameInput").type(validFormValues.name);
-          cy.get("@emailInput").type(validFormValues.email);
-          cy.get("@subjectInput").type(validFormValues.subject);
-          cy.get("@messageInput").type(validFormValues.message);
+          cy.get("@nameInput").type(faker.name.fullName());
+          cy.get("@emailInput").type(faker.internet.email());
+          cy.get("@subjectInput").type(faker.lorem.sentence());
+          cy.get("@messageInput").type(faker.lorem.paragraphs());
 
           cy.get("@form").submit();
           cy.wait("@formspreeApi");
