@@ -363,10 +363,7 @@ const brandingTheme = extendTheme({
   }
 });
 
-console.log(brandingTheme.colorSchemes.light.palette.google.dark, brandingTheme.colorSchemes.light.palette.background.sectionSecondary);  
-
 // @ts-expect-error: dark theme is a required field but is not necessary in this case
 delete brandingTheme.colorSchemes.dark;
-
 
 export default brandingTheme;
