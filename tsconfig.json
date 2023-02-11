@@ -16,7 +16,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxImportSource": "@welldone-software/why-did-you-render",
     "incremental": true,
     "plugins": [
       {
