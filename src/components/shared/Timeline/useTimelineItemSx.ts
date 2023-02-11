@@ -8,18 +8,16 @@ const useSx = () => makeSx({
       xs: "none",
       md: "unset"
     },
-    flex: 0.28
-  },
-  timelineContent: {
-    pb: 3,
-    pr: 0
+    flex: 0.28,
+    pt: "7px"
   },
   periodMobile: {
     typography: "body2",
     color: "text.secondary",
     display: {
       md: "none"
-    }
+    },
+    pt: "1px"
   },
   title: {
     typography: "subtitle1"

@@ -303,12 +303,16 @@ const brandingTheme = extendTheme({
         }
       }
     },
+    MuiTimelineContent: {
+      styleOverrides: {
+        positionRight: {
+          paddingRight: 0
+        }
+      }
+    },
     MuiTextField: {
       defaultProps: {
         variant: "filled"
-      },
-      styleOverrides: {
-
       }
     },
     MuiTimelineDot: {
