@@ -24,7 +24,8 @@ const ogImage = `${siteUrl}/api/og`;
 export const metadata: Metadata = {
   title,
   description,
-  authors: [{ name: fullName }],
+  // @ts-expect-error
+  authors: fullName,
   themeColor: "#ffffff",
   openGraph: {
     title,
@@ -47,14 +48,28 @@ export const metadata: Metadata = {
       {
         url: "/favicon-32x32.png",
         type: "image/png",
-        sizes: "32x32"
+        sizes: "32x32",
+        // @ts-expect-error
+        media: "(prefers-color-scheme: light)"
       },
       {
         url: "/favicon-16x16.png",
         type: "image/png",
-        sizes: "16x16"
+        sizes: "16x16",
+        media: "(prefers-color-scheme: light)"
+      },
+      {
+        url: "/favicon-32x32-dark.png",
+        type: "image/png",
+        sizes: "32x32",
+        media: "(prefers-color-scheme: dark)"
+      },
+      {
+        url: "/favicon-16x16-dark.png",
+        type: "image/png",
+        sizes: "16x16",
+        media: "(prefers-color-scheme: dark)"
       }
-      // FIXME: dark PNG icon
     ],
     apple: "/apple-touch-icon.png"
   },
