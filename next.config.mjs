@@ -85,8 +85,7 @@ const nextConfig = {
     }
   ],
   experimental: {
-    appDir: true,
-    runtime: "edge"
+    appDir: true
   }
 };
 
