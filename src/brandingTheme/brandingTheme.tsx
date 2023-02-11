@@ -342,10 +342,11 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         tooltip: ({ theme }) => ({
-          borderRadius: `calc(${theme.vars.shape.borderRadius} / 1.33)`
+          borderRadius: `calc(${theme.vars.shape.borderRadius} * 24 / 53)`,
+          maxWidth: 350
         }),
         touch: ({ theme }) => ({
-          borderRadius: theme.vars.shape.borderRadius
+          borderRadius: `calc(${theme.vars.shape.borderRadius} * 32 / 53)`
         })
       }
     },
