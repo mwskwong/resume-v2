@@ -49,7 +49,7 @@ const useSx = () => makeSx({
     m: 0.5
   },
   supportingDocumentList: {
-    pt: 1.5,
+    pt: "16px",
     pb: 0
   }
 });
