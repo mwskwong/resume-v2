@@ -348,13 +348,13 @@ const brandingTheme = extendTheme({
         placement: "bottom-start"
       },
       styleOverrides: {
-        tooltip: ({ theme }) => ({
-          borderRadius: `calc(${theme.vars.shape.borderRadius} * 24 / 53)`,
+        tooltip: {
+          borderRadius: 8,
           maxWidth: 350
-        }),
-        touch: ({ theme }) => ({
-          borderRadius: `calc(${theme.vars.shape.borderRadius} * 32 / 53)`
-        })
+        },
+        touch: {
+          borderRadius: 8
+        }
       }
     },
     MuiTypography: {
