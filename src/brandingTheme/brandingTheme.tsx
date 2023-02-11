@@ -175,7 +175,7 @@ const brandingTheme = extendTheme({
           // FIXME: unable to use --mui-pallette-AppBar-defaultBg because --AppBar-color is invalid when dark color scheme is missing
           backgroundColor: `rgba(${theme.vars.palette.background.defaultChannel} / 0.5)`,
           boxShadow: "none",
-          backdropFilter: "blur(20px)",
+          backdropFilter: "blur(10px)",
           color: theme.vars.palette.text.primary
         })
       }
