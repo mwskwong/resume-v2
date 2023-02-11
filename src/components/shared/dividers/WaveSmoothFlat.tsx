@@ -17,8 +17,4 @@ const WaveSmoothFlat: FC<SectionDividerProps> = props => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  WaveSmoothFlat.whyDidYouRender = true;
-}
-
 export default WaveSmoothFlat;

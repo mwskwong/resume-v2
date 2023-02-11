@@ -39,8 +39,4 @@ const About: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  About.whyDidYouRender = true;
-}
-
 export default About;

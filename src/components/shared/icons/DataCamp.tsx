@@ -18,8 +18,5 @@ const DataCamp: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 DataCamp.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  DataCamp.whyDidYouRender = true;
-}
 
 export default DataCamp;

@@ -19,8 +19,4 @@ const DividerSvg: FC<BoxProps<"svg">> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  DividerSvg.whyDidYouRender = true;
-}
-
 export default DividerSvg;

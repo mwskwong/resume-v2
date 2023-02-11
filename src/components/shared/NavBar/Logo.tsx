@@ -24,6 +24,5 @@ const Logo: FC = () => {
     </Button>
   );
 };
-if (process.env.NODE_ENV === "development") Logo.whyDidYouRender = true;
 
 export default Logo;

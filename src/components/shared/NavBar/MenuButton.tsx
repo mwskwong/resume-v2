@@ -35,8 +35,4 @@ const MenuButton: FC<MenuButtonProps> = ({ sx: sxProps, menuOpen, onToggleMenu, 
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  MenuButton.whyDidYouRender = true;
-}
-
 export default MenuButton;

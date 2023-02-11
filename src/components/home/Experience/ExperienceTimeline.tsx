@@ -19,8 +19,4 @@ const ExperienceTimeline: FC = () => {
   return <Timeline data={data} />;
 };
 
-if (process.env.NODE_ENV === "development") {
-  ExperienceTimeline.whyDidYouRender = true;
-}
-
 export default ExperienceTimeline;

@@ -123,8 +123,4 @@ const Contact: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  Contact.whyDidYouRender = true;
-}
-
 export default Contact;

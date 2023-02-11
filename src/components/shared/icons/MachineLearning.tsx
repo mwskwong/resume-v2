@@ -16,8 +16,5 @@ const MachineLearning: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 MachineLearning.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  MachineLearning.whyDidYouRender = true;
-}
 
 export default MachineLearning;

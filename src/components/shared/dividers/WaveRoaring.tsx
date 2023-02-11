@@ -17,8 +17,4 @@ const WaveRoaring: FC<SectionDividerProps> = props => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  WaveRoaring.whyDidYouRender = true;
-}
-
 export default WaveRoaring;

@@ -20,8 +20,4 @@ const Experience: FC = () => (
   </Container>
 );
 
-if (process.env.NODE_ENV === "development") {
-  Experience.whyDidYouRender = true;
-}
-
 export default Experience;

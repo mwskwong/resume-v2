@@ -17,8 +17,5 @@ const Google: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 Google.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  Google.whyDidYouRender = true;
-}
 
 export default Google;

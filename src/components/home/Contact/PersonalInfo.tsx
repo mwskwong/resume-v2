@@ -54,8 +54,4 @@ const PersonalInfo = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  PersonalInfo.whyDidYouRender = true;
-}
-
 export default PersonalInfo;

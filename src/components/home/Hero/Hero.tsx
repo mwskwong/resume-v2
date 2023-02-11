@@ -42,8 +42,4 @@ const Hero: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  Hero.whyDidYouRender = true;
-}
-
 export default Hero;

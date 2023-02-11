@@ -18,8 +18,5 @@ const Microsoft: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 Microsoft.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  Microsoft.whyDidYouRender = true;
-}
 
 export default Microsoft;

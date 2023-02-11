@@ -17,8 +17,4 @@ const WaveRough: FC<SectionDividerProps> = props => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  WaveRough.whyDidYouRender = true;
-}
-
 export default WaveRough;

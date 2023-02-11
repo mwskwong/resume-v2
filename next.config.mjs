@@ -1,5 +1,4 @@
 import NextBundleAnalyzer from "@next/bundle-analyzer";
-import { resolve } from "path";
 
 const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE_BUNDLE === "true"
@@ -21,7 +20,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"]
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: config => {
     // import PDF as file url
     config.module.rules.push({
       test: /\.pdf$/,
@@ -34,20 +33,6 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"]
     });
-
-    // why-did-you-render setup
-    if (dev && !isServer) {
-      const originalEntry = config.entry;
-      config.entry = async () => {
-        const wdrPath = resolve("src/utils/wdyr.ts");
-        const entries = await originalEntry();
-
-        if (entries["main.js"] && !entries["main.js"].includes(wdrPath)) {
-          entries["main.js"].push(wdrPath);
-        }
-        return entries;
-      };
-    }
 
     return config;
   },

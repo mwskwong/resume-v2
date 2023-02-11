@@ -12,6 +12,4 @@ const Timeline: FC<TimelineProps> = ({ data }) => (
   </MuiTimeline>
 );
 
-if (process.env.NODE_ENV === "development") Timeline.whyDidYouRender = true;
-
 export default Timeline;

@@ -24,8 +24,4 @@ const Footer: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  Footer.whyDidYouRender = true;
-}
-
 export default Footer;
