@@ -34,8 +34,4 @@ const PlatformProfiles: FC<PlatformProfilesProps> = ({ sx: sxProp }) => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  PlatformProfiles.whyDidYouRender = true;
-}
-
 export default PlatformProfiles;

@@ -45,8 +45,4 @@ const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status,
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  CertificateCard.whyDidYouRender = true;
-}
-
 export default CertificateCard;

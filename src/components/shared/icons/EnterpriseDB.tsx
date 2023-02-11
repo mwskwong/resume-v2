@@ -17,8 +17,5 @@ const EnterpriseDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 EnterpriseDB.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  EnterpriseDB.whyDidYouRender = true;
-}
 
 export default EnterpriseDB;

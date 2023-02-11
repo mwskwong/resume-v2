@@ -1,6 +1,4 @@
-import { avatarClasses } from "@mui/material/Avatar";
-import { cardClasses } from "@mui/material/Card";
-import { filledInputClasses } from "@mui/material/FilledInput";
+import { avatarClasses, cardClasses, filledInputClasses } from "@mui/material";
 import deepRenameKeys from "deep-rename-keys-ts";
 
 import makeSx from "@/utils/makeSx";

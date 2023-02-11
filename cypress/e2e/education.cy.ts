@@ -1,6 +1,6 @@
 /// <reference types="cypress-downloadfile"/>
 
-import { toggleButtonClasses } from "@mui/material/ToggleButton";
+import { toggleButtonClasses } from "@mui/material";
 import courseCertificates from "cypress/fixtures/courseCertificates.json";
 import documents from "cypress/fixtures/supportingDocuments.json";
 import viewports from "cypress/fixtures/viewports.json";

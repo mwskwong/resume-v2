@@ -17,8 +17,5 @@ const MongoDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 MongoDB.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  MongoDB.whyDidYouRender = true;
-}
 
 export default MongoDB;

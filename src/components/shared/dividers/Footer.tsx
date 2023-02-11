@@ -1,6 +1,4 @@
-"use client";
-
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 import { FC } from "react";
 
 import DividerSvg from "./DividerSvg";
@@ -25,9 +23,5 @@ const Footer: FC = () => {
     </DividerSvg>
   );
 };
-
-if (process.env.NODE_ENV === "development") {
-  Footer.whyDidYouRender = true;
-}
 
 export default Footer;

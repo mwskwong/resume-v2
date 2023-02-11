@@ -46,8 +46,4 @@ const Skills: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  Skills.whyDidYouRender = true;
-}
-
 export default Skills;

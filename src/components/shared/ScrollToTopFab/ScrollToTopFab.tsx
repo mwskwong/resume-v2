@@ -22,6 +22,4 @@ const ScrollToTopFab: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") ScrollToTopFab.whyDidYouRender = true;
-
 export default ScrollToTopFab;

@@ -80,6 +80,4 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
   );
 };
 
-if (process.env.NODE_ENV === "development") TimelineItem.whyDidYouRender = true;
-
 export default TimelineItem;

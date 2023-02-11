@@ -71,7 +71,4 @@ const NavBar: FC = () => {
   );
 };
 
-if (process.env.NODE_ENV === "development") NavBar.whyDidYouRender = true;
-
-
 export default NavBar;

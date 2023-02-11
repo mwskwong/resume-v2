@@ -19,8 +19,4 @@ const Education: FC = () => (
   </Container>
 );
 
-if (process.env.NODE_ENV === "development") {
-  Education.whyDidYouRender = true;
-}
-
 export default Education;

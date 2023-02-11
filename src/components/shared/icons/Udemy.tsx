@@ -17,8 +17,5 @@ const Udemy: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
 };
 
 Udemy.muiName = SvgIcon.muiName;
-if (process.env.NODE_ENV === "development") {
-  Udemy.whyDidYouRender = true;
-}
 
 export default Udemy;

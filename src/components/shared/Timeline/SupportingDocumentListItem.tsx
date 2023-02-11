@@ -34,9 +34,6 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ suppo
       </ListItem>
     </Tooltip>
   );
-
 };
-
-if (process.env.NODE_ENV === "development") SupportingDocumentListItem.whyDidYouRender = true;
 
 export default SupportingDocumentListItem;

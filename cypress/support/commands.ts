@@ -1,8 +1,7 @@
 /// <reference types="cypress" />
 import "cypress-downloadfile/lib/downloadFileCommand";
 
-import { buttonClasses } from "@mui/material/Button";
-import { listItemButtonClasses } from "@mui/material/ListItemButton";
+import { buttonClasses, listItemButtonClasses } from "@mui/material";
 import viewports from "cypress/fixtures/viewports.json";
 
 import { Section } from "@/types";

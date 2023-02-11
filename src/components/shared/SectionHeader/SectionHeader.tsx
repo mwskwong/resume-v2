@@ -21,6 +21,4 @@ const SectionHeader: FC<SectionHeaderProps> = ({ heading, icon }) => {
   );
 };
 
-if (process.env.NODE_ENV === "development") SectionHeader.whyDidYouRender = true;
-
 export default SectionHeader;

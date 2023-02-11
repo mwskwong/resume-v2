@@ -17,8 +17,4 @@ const Section: FC<SectionProps> = ({ variant = "default", fullHeight = false, ch
   );
 };
 
-if (process.env.NODE_ENV === "development") {
-  Section.whyDidYouRender = true;
-}
-
 export default Section;
