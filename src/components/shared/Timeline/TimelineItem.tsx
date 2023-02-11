@@ -34,24 +34,26 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="periodMobile">
           {period}
         </Typography>
-        <Typography sx={sx.title} component="div" gutterBottom data-cy="title">
+        <Typography sx={sx.title} component="div" data-cy="title">
           {data.title}
         </Typography>
-        <Typography sx={sx.subtitle} component="div" gutterBottom data-cy="subtitle">
+        <Typography sx={sx.subtitle} component="div" data-cy="subtitle">
           {data.subtitle}
         </Typography>
-        <List disablePadding component="ol" data-cy="contents">
-          {data.contents?.map((content, index) => (
-            <ListItem key={index} disableGutters>
-              <ListItemIcon sx={sx.listItemIcon}>
-                <Typography component="span" sx={sx.listItemNumber}>
-                  {`${index + 1 < 10 ? 0 : ""}${index + 1}`}
-                </Typography>
-              </ListItemIcon>
-              <ListItemText primary={content} />
-            </ListItem>
-          ))}
-        </List>
+        {Boolean(data.contents?.length) && (
+          <List component="ol" data-cy="contents">
+            {data.contents?.map((content, index) => (
+              <ListItem key={index} disableGutters>
+                <ListItemIcon sx={sx.listItemIcon}>
+                  <Typography component="span" sx={sx.listItemNumber}>
+                    {`${index + 1 < 10 ? 0 : ""}${index + 1}`}
+                  </Typography>
+                </ListItemIcon>
+                <ListItemText primary={content} />
+              </ListItem>
+            ))}
+          </List>
+        )}
         {Boolean(data.tags?.length) && (
           <Box sx={sx.tagsContainer} data-cy="tags">
             {data.tags?.map(tag => (
@@ -65,7 +67,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
           </Box>
         )}
         {Boolean(data.supportingDocuments?.length) && (
-          <List disablePadding sx={sx.supportingDocuments}>
+          <List sx={sx.supportingDocumentList}>
             {data.supportingDocuments?.map(supportingDocument => (
               <SupportingDocumentListItem
                 key={supportingDocument.id}

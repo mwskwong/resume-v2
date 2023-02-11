@@ -43,14 +43,14 @@ const useSx = () => makeSx({
   tagsContainer: {
     display: "flex",
     flexWrap: "wrap",
-    ml: -0.5,
-    mt: 1
+    ml: -0.5
   },
   tag: {
     m: 0.5
   },
-  supportingDocuments: {
-    mt: 1
+  supportingDocumentList: {
+    pt: 1.5,
+    pb: 0
   }
 });
 

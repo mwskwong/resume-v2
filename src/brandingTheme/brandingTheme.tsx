@@ -305,6 +305,9 @@ const brandingTheme = extendTheme({
     },
     MuiTimelineContent: {
       styleOverrides: {
+        root: ({ theme }) => ({
+          paddingBottom: theme.spacing(1.5)
+        }),
         positionRight: {
           paddingRight: 0
         }
