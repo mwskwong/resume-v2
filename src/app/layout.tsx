@@ -45,18 +45,15 @@ export const metadata: Metadata = {
         type: "image/svg+xml"
       },
       {
-        url: "/favicon-32x32.png",
-        type: "image/png",
-        sizes: "32x32"
-      },
-      {
-        url: "/favicon-16x16.png",
-        type: "image/png",
-        sizes: "16x16"
+        url: "/favicon.ico",
+        type: "image/x-icon",
+        sizes: "any"
       }
-      // FIXME: dark PNG icon
     ],
-    apple: "/apple-touch-icon.png"
+    apple: {
+      url: "/apple-touch-icon.png",
+      sizes: "192x192"
+    }
   },
   twitter: {
     card: "summary_large_image",
