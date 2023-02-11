@@ -27,7 +27,7 @@
     "deep-rename-keys-ts": "^1.0.1",
     "lodash-es": "^4.17.21",
     "mdi-material-ui": "^7.6.0",
-    "next": "canary",
+    "next": "^13.1.6",
     "next-sitemap": "^3.1.52",
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
