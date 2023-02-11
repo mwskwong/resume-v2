@@ -59,13 +59,13 @@ export const metadata: Metadata = {
         media: "(prefers-color-scheme: light)"
       },
       {
-        url: "/favicon-32x32.dark.png",
+        url: "/favicon-32x32-dark.png",
         type: "image/png",
         sizes: "32x32",
         media: "(prefers-color-scheme: dark)"
       },
       {
-        url: "/favicon-16x16.dark.png",
+        url: "/favicon-16x16-dark.png",
         type: "image/png",
         sizes: "16x16",
         media: "(prefers-color-scheme: dark)"
