@@ -1,10 +1,7 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type { } from "@mui/lab/themeAugmentation";
-import { touchRippleClasses } from "@mui/material/ButtonBase";
-import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
+import { alpha, darken, experimental_extendTheme as extendTheme, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
 import type { } from "@mui/material/themeCssVarsAugmentation";
-import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
-import { alpha, darken, lighten } from "@mui/system";
 import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
 
 import rubik from "./rubik";

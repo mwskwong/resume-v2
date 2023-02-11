@@ -58,10 +58,6 @@ const nextConfig = {
       preventFullImport: true,
       skipDefaultConversion: true
     },
-    "@mui/material": {
-      transform: "@mui/material/{{member}}",
-      preventFullImport: true
-    },
     "@mui/lab": {
       transform: "@mui/lab/{{member}}",
       preventFullImport: true

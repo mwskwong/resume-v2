@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { FormError } from "@formspree/core";
-import { buttonClasses } from "@mui/material/Button";
+import { buttonClasses } from "@mui/material";
 import contactForm from "cypress/fixtures/contactForm.json";
 import viewports from "cypress/fixtures/viewports.json";
 

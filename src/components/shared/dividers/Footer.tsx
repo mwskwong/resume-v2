@@ -1,6 +1,4 @@
-"use client";
-
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 import { FC } from "react";
 
 import DividerSvg from "./DividerSvg";
