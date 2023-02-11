@@ -173,9 +173,9 @@ const brandingTheme = extendTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           // FIXME: unable to use --mui-pallette-AppBar-defaultBg because --AppBar-color is invalid when dark color scheme is missing
-          backgroundColor: `rgba(${theme.vars.palette.background.defaultChannel} / 0.5)`,
+          backgroundColor: `rgba(${theme.vars.palette.background.defaultChannel} / 0.8)`,
           boxShadow: "none",
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(8px)",
           color: theme.vars.palette.text.primary
         })
       }
