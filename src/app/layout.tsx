@@ -47,18 +47,20 @@ export const metadata: Metadata = {
       {
         url: "/favicon-32x32.png",
         type: "image/png",
-        sizes: "32x32"
+        sizes: "32x32",
+        // @ts-expect-error media is not a valid key
+        media: "(prefers-color-scheme: light)"
       },
       {
         url: "/favicon-16x16.png",
         type: "image/png",
-        sizes: "16x16"
+        sizes: "16x16",
+        media: "(prefers-color-scheme: light)"
       },
       {
         url: "/favicon-32x32.dark.png",
         type: "image/png",
         sizes: "32x32",
-        // @ts-expect-error media is not a valid key
         media: "(prefers-color-scheme: dark)"
       },
       {
