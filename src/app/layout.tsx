@@ -24,7 +24,7 @@ const ogImage = `${siteUrl}/api/og`;
 export const metadata: Metadata = {
   title,
   description,
-  // @ts-expect-error
+  // @ts-expect-error authors expects an object but renders the HTML incorrect
   authors: fullName,
   themeColor: "#ffffff",
   openGraph: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: "/favicon-32x32.png",
         type: "image/png",
         sizes: "32x32",
-        // @ts-expect-error
+        // @ts-expect-error media is not supported
         media: "(prefers-color-scheme: light)"
       },
       {
