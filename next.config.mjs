@@ -42,6 +42,18 @@ const nextConfig = {
       transform: "simple-icons/icons",
       preventFullImport: true,
       skipDefaultConversion: true
+    },
+    "@mui/lab": {
+      transform: "@mui/lab/{{member}}",
+      preventFullImport: true
+    },
+    "@mui/icons-material": {
+      transform: "@mui/icons-material/{{member}}",
+      preventFullImport: true
+    },
+    "mdi-material-ui": {
+      transform: "mdi-material-ui/{{member}}",
+      preventFullImport: true
     }
   },
   headers: async () => [
@@ -58,8 +70,7 @@ const nextConfig = {
     }
   ],
   experimental: {
-    appDir: true,
-    runtime: "experimental-edge"
+    appDir: true
   }
 };
 
