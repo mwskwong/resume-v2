@@ -1,4 +1,4 @@
-import { Metadata, PageConfig } from "next";
+import { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
 
 import BrandingThemeProvider from "@/brandingTheme/Provider";
@@ -102,7 +102,5 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => (
     </body>
   </html>
 );
-
-export const runtime: PageConfig["runtime"] = "experimental-edge";
 
 export default RootLayout;
