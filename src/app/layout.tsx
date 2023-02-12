@@ -48,20 +48,18 @@ export const metadata: Metadata = {
       {
         url: "/favicon-32x32.png",
         type: "image/png",
-        sizes: "32x32",
-        // @ts-expect-error media is not supported
-        media: "(prefers-color-scheme: light)"
+        sizes: "32x32"
       },
       {
         url: "/favicon-16x16.png",
         type: "image/png",
-        sizes: "16x16",
-        media: "(prefers-color-scheme: light)"
+        sizes: "16x16"
       },
       {
         url: "/favicon-32x32.dark.png",
         type: "image/png",
         sizes: "32x32",
+        // @ts-expect-error media is not supported
         media: "(prefers-color-scheme: dark)"
       },
       {
