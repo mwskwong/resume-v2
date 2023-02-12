@@ -11,7 +11,10 @@ const nextSitemapConfig = {
 
     return await Promise.all(
       files
-        .filter(file => file.endsWith(".pdf"))
+        .filter(file =>
+          file.endsWith(".pdf")
+          || file.includes("M001 MongoDB Basics")
+        )
         .map(file => config.transform(config, encodeURI(`${prefix}${file}`)))
     );
   }

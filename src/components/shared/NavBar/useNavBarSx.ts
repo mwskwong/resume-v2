@@ -11,7 +11,10 @@ const useSx = () => makeSx({
     }
   },
   menuButton: {
-    mr: "-8px"
+    mr: "-8px",
+    display: {
+      md: "none"
+    }
   },
   navList: {
     mx: "-12px"
