@@ -3,6 +3,7 @@ const fs = require("fs/promises");
 /** @type {import('next-sitemap').IConfig} */
 const nextSitemapConfig = {
   siteUrl: process.env.NEXT_PUBLIC_URL,
+  generateRobotsTxt: true,
   generateIndexSitemap: false,
   additionalPaths: async config => {
     const prefix = "/_next/static/media/";
@@ -10,7 +11,10 @@ const nextSitemapConfig = {
 
     return await Promise.all(
       files
-        .filter(file => file.endsWith(".pdf"))
+        .filter(file =>
+          file.endsWith(".pdf")
+          || file.includes("M001 MongoDB Basics")
+        )
         .map(file => config.transform(config, encodeURI(`${prefix}${file}`)))
     );
   }

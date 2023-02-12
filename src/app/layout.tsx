@@ -33,7 +33,6 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     images: ogImage
-    // FIXME: og:see_also alternative?
   },
   robots: {
     index: true,
@@ -77,7 +76,6 @@ export const metadata: Metadata = {
     description,
     images: ogImage
   }
-  // FIXME: sitemap link
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (
