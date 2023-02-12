@@ -68,7 +68,15 @@ export const metadata: Metadata = {
         media: "(prefers-color-scheme: dark)"
       }
     ],
-    apple: "/apple-touch-icon.png"
+    apple: {
+      url: "/apple-touch-icon.png",
+      sizes: "180x180"
+    },
+    // FIXME: need proper manifest option
+    other: {
+      rel: "manifest",
+      url: "/api/manifest"
+    }
   },
   twitter: {
     card: "summary_large_image",
