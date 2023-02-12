@@ -2,10 +2,7 @@ import makeSx from "@/utils/makeSx";
 
 const useSx = () => makeSx({
   root: {
-    display: {
-      xs: "inline-grid",
-      md: "none"
-    },
+    display: "inline-grid",
     position: "relative"
   },
   icon: {
