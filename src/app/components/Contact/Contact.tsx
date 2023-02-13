@@ -7,7 +7,7 @@ import { Alert, Container, Stack, Unstable_Grid2 as Grid } from "@mui/material";
 import { FC, useEffect } from "react";
 import { FormContainer, TextFieldElement, useForm as useHookForm } from "react-hook-form-mui";
 
-import SectionHeader from "@/components/shared/SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 
 import formSchema, { defaultValues } from "./formSchema";
 import PersonalInfo from "./PersonalInfo";

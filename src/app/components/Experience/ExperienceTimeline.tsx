@@ -1,8 +1,7 @@
 import { FC } from "react";
 
 import getSupportingDocumentById from "@/assets/getSupportingDocumentById";
-import Timeline from "@/components/shared/Timeline";
-import TimelineProps from "@/components/shared/Timeline/TimelineProps";
+import Timeline, { TimelineProps } from "@/components/Timeline";
 import experiences from "@/constants/experiences";
 
 const ExperienceTimeline: FC = () => {
