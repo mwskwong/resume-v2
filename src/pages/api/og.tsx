@@ -40,7 +40,7 @@ const LandingOGImage: FC = () => (
   </div>
 );
 
-const OGImageWithTitle: FC<{ title: string | null }> = ({ title }) => (
+const OGImageWithTitle: FC<{ title: string }> = ({ title }) => (
   <div
     style={{
       display: "flex",
@@ -72,7 +72,7 @@ const OGImageWithTitle: FC<{ title: string | null }> = ({ title }) => (
         textAlign: "center"
       }}
     >
-      {title?.slice(0, 100)}
+      {title.slice(0, 100)}
     </div>
   </div>
 );
@@ -99,9 +99,10 @@ const handler = async (req: NextRequest) => {
     );
   } catch (error) {
     console.error(error);
-    return new Response("Failed to generate OG image.", {
-      status: 500
-    });
+    return new Response(
+      "Failed to generate OG image.",
+      { status: 500 }
+    );
   }
 };
 
