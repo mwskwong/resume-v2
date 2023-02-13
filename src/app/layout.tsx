@@ -3,9 +3,9 @@ import { FC, PropsWithChildren } from "react";
 
 import BrandingThemeProvider from "@/brandingTheme/Provider";
 import rubik from "@/brandingTheme/rubik";
-import Footer from "@/components/shared/Footer";
-import NavBar from "@/components/shared/NavBar";
-import ScrollToTopFab from "@/components/shared/ScrollToTopFab";
+import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import ScrollToTopFab from "@/components/ScrollToTopFab";
 import Analytics from "@/utils/Analytics";
 import EmotionRegistry from "@/utils/EmotionRegistry";
 

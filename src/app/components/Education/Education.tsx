@@ -4,7 +4,7 @@ import { SchoolRounded as School } from "@mui/icons-material";
 import { Container, Stack } from "@mui/material";
 import { FC } from "react";
 
-import SectionHeader from "@/components/shared/SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 
 import Courses from "./Courses";
 import EducationTimeline from "./EducationTimeline";

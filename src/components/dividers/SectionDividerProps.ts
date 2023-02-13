@@ -1,4 +1,4 @@
-import SectionProps from "@/components/shared/Section/SectionProps";
+import { SectionProps } from "@/components/Section";
 
 interface SectionDividerProps {
   previousSectionVariant?: SectionProps["variant"];

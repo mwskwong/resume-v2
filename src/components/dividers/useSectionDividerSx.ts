@@ -1,4 +1,4 @@
-import getBgColor from "@/components/shared/Section/getBgColor";
+import getBgColor from "@/components/Section/getBgColor";
 import makeSx from "@/utils/makeSx";
 
 import SectionDividerProps from "./SectionDividerProps";
