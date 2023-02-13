@@ -37,12 +37,6 @@ const nextConfig = {
     return config;
   },
   modularizeImports: {
-    // FIXME: until simple-icons tree shaking works again
-    "simple-icons": {
-      transform: "simple-icons/icons",
-      preventFullImport: true,
-      skipDefaultConversion: true
-    },
     "@mui/lab": {
       transform: "@mui/lab/{{member}}",
       preventFullImport: true

@@ -34,7 +34,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.1",
     "react-hook-form-mui": "^5.13.1",
-    "simple-icons": "^8.4.0"
+    "simple-icons": "^8.5.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
