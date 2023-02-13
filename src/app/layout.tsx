@@ -11,6 +11,7 @@ import EmotionRegistry from "@/utils/EmotionRegistry";
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (
   <html lang="en" className={rubik.className}>
+    <head />
     <body>
       <EmotionRegistry>
         <BrandingThemeProvider>
