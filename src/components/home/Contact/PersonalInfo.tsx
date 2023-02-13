@@ -31,7 +31,7 @@ const PersonalInfo = () => {
   const sx = useSx();
 
   return (
-    <Grid container spacing={3} xs={12} md={4} data-cy="personalInfo">
+    <Grid component="address" container spacing={3} xs={12} md={4} data-cy="personalInfo">
       {contactUiTemplates.map(({ id, Icon, title, url }) => (
         <Grid key={id} xs={12} sm={4} md={12}>
           <Box sx={sx.itemContainer} data-cy={id}>
