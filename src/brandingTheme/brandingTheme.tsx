@@ -245,8 +245,8 @@ const brandingTheme = extendTheme({
             scrollBehavior: "auto"
           }
         },
-        img: {
-          display: "block"
+        address: {
+          fontStyle: "normal"
         }
       })
     },
