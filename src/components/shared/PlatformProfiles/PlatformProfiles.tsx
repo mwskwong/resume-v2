@@ -1,7 +1,7 @@
 import { IconButton, Stack } from "@mui/material";
 import { FC } from "react";
 
-import getBrandIconById from "@/components/icons/getBrandIconById";
+import getBrandIconById from "@/components/shared/icons/getBrandIconById";
 import { firstName } from "@/constants/name";
 import platformProfiles from "@/constants/platformProfiles";
 import cx from "@/utils/cx";

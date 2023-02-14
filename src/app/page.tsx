@@ -1,18 +1,18 @@
 import { FC } from "react";
 
-import WaveRoaring from "@/components/dividers/WaveRoaring";
-import WaveRough from "@/components/dividers/WaveRough";
-import WaveSmooth from "@/components/dividers/WaveSmooth";
-import WaveSmoothFlat from "@/components/dividers/WaveSmoothFlat";
-import Section, { SectionProps } from "@/components/Section";
+import About from "@/components/home/About";
+import Contact from "@/components/home/Contact";
+import Education from "@/components/home/Education";
+import Experience from "@/components/home/Experience";
+import Hero from "@/components/home/Hero";
+import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
+import WaveRough from "@/components/shared/dividers/WaveRough";
+import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
+import WaveSmoothFlat from "@/components/shared/dividers/WaveSmoothFlat";
+import Section from "@/components/shared/Section";
+import SectionProps from "@/components/shared/Section/SectionProps";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
-
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Education from "./components/Education";
-import Experience from "./components/Experience";
-import Hero from "./components/Hero";
 
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   home: "default",

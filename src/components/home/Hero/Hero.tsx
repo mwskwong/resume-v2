@@ -4,7 +4,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import resume from "@/assets/documents/resume.pdf";
-import PlatformProfiles from "@/components/PlatformProfiles";
+import PlatformProfiles from "@/components/shared/PlatformProfiles";
 import jobTitles from "@/constants/jobTitles";
 import { firstName } from "@/constants/name";
 
