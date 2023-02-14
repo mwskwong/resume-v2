@@ -11,13 +11,18 @@ const useSx = () => makeSx({
     flex: 0.28,
     pt: "7px"
   },
+  timelineContent: {
+    pt: {
+      xs: "7px",
+      md: "5px"
+    }
+  },
   periodMobile: {
     typography: "body2",
     color: "text.secondary",
     display: {
       md: "none"
-    },
-    pt: "1px"
+    }
   },
   title: {
     typography: "subtitle1"
