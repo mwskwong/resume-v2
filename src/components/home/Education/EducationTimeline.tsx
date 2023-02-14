@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import getSupportingDocumentById from "@/assets/getSupportingDocumentById";
-import Timeline from "@/components/Timeline";
+import Timeline from "@/components/shared/Timeline";
 import educations from "@/constants/educations";
 
 const EducationTimeline: FC = () => {

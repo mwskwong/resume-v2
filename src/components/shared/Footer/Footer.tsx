@@ -4,8 +4,8 @@ import { FavoriteRounded as Favorite } from "@mui/icons-material";
 import { Box, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
-import FooterDivider from "@/components/dividers/Footer";
-import PlatformProfiles from "@/components/PlatformProfiles";
+import FooterDivider from "@/components/shared/dividers/Footer";
+import PlatformProfiles from "@/components/shared/PlatformProfiles";
 import { address } from "@/constants/contact";
 import { firstName, lastName, middleName } from "@/constants/name";
 

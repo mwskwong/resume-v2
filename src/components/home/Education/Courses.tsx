@@ -2,7 +2,7 @@ import { Stack, ToggleButton, ToggleButtonGroup, Typography, Unstable_Grid2 as G
 import { FC, MouseEvent, useState } from "react";
 
 import getCertificateUrlById from "@/assets/getCertificateUrlById";
-import CertificateCard from "@/components/CertificateCard";
+import CertificateCard from "@/components/shared/CertificateCard";
 import categories from "@/constants/courseCategories";
 import courses from "@/constants/courses";
 
