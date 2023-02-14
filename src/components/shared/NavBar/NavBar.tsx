@@ -15,11 +15,14 @@ import useSx from "./useNavBarSx";
 const NavBar: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+  const preferReducedMotion = useMediaQuery("(prefers-reduced-motion)");
   const activeSectionId = useActiveSectionId();
   const sx = useSx();
 
   useEffect(() => {
-    if (mdUp) setMenuOpen(false);
+    if (mdUp) {
+      setMenuOpen(false);
+    }
   }, [mdUp]);
 
   const handleMenuToggle = () => setMenuOpen(menuOpen => !menuOpen);
@@ -52,7 +55,12 @@ const NavBar: FC = () => {
             onToggleMenu={handleMenuToggle}
           />
         </Toolbar>
-        <Collapse in={menuOpen} timeout="auto" sx={sx.navList} unmountOnExit>
+        <Collapse 
+          in={menuOpen}
+          timeout={preferReducedMotion ? 0 : "auto"} 
+          sx={sx.navList} 
+          unmountOnExit
+        >
           <ClickAwayListener onClickAway={handleMenuClickAway}>
             <List dense component="nav" aria-label="nav list" data-cy="navList">
               {Object.values(nav).map(({ id, name }) => (
