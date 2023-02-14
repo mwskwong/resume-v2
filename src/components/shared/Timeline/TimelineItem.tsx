@@ -30,7 +30,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         <TimelineDot color="primary" />
         <TimelineConnector />
       </TimelineSeparator>
-      <TimelineContent>
+      <TimelineContent sx={sx.timelineContent}>
         <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="periodMobile">
           {period}
         </Typography>
