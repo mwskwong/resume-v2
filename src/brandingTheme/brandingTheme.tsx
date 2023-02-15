@@ -78,6 +78,9 @@ const brandingTheme = extendTheme({
           disabledBackground: alpha(grey[900], 0.12),
           focus: alpha(grey[900], 0.12)
         },
+        AppBar: {
+          defaultBg: alpha("#fff", 0.5)
+        },
         Avatar: {
           defaultBg: lighten(grey[50], 0.5)
         },
@@ -168,13 +171,10 @@ const brandingTheme = extendTheme({
         color: "default"
       },
       styleOverrides: {
-        root: ({ theme }) => ({
-          // FIXME: unable to use --mui-pallette-AppBar-defaultBg because --AppBar-color is invalid when dark color scheme is missing
-          backgroundColor: `rgba(${theme.vars.palette.background.defaultChannel} / 0.5)`,
+        root: {
           boxShadow: "none",
-          backdropFilter: "blur(20px)",
-          color: theme.vars.palette.text.primary
-        })
+          backdropFilter: "blur(20px)"
+        }
       }
     },
     MuiAvatar: {
