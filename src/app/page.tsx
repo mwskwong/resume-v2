@@ -1,4 +1,3 @@
-import { ServerRuntime } from "next";
 import { FC } from "react";
 
 import About from "@/components/home/About";
@@ -58,7 +57,5 @@ const Home: FC = () => (
     </Section>
   </>
 );
-
-export const runtime: ServerRuntime = "experimental-edge";
 
 export default Home;

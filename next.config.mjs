@@ -36,6 +36,20 @@ const nextConfig = {
 
     return config;
   },
+  modularizeImports: {
+    "@mui/lab": {
+      transform: "@mui/lab/{{member}}",
+      preventFullImport: true
+    },
+    "@mui/icons-material": {
+      transform: "@mui/icons-material/{{member}}",
+      preventFullImport: true
+    },
+    "mdi-material-ui": {
+      transform: "mdi-material-ui/{{member}}",
+      preventFullImport: true
+    }
+  },
   headers: async () => [
     {
       source: "/:path*",
