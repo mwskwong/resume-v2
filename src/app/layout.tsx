@@ -1,4 +1,3 @@
-import { ServerRuntime } from "next";
 import { FC, PropsWithChildren } from "react";
 
 import BrandingThemeProvider from "@/brandingTheme/Provider";
@@ -9,7 +8,7 @@ import ScrollToTopFab from "@/components/shared/ScrollToTopFab";
 import Analytics from "@/utils/Analytics";
 import EmotionRegistry from "@/utils/EmotionRegistry";
 
-const RootLayout: FC<PropsWithChildren> = ({ children }) => (
+const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
   <html lang="en" className={rubik.className}>
     <head />
     <body>
@@ -27,6 +26,4 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => (
 );
 
 export { default as metadata } from "./metadata";
-export const runtime: ServerRuntime = "experimental-edge";
-
 export default RootLayout;

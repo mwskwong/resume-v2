@@ -12,12 +12,10 @@ const title: Metadata["title"] = {
 };
 const description = selfIntroduction;
 const ogImage = `${siteUrl}/api/og`;
-
 const metadata: Metadata = {
   title,
   description,
-  // @ts-expect-error authors type is an object but it renders correctly only when a string is specified
-  authors: fullName,
+  authors: { name: fullName },
   themeColor: "#ffffff",
   openGraph: {
     title,
@@ -63,11 +61,6 @@ const metadata: Metadata = {
     apple: {
       url: "/apple-touch-icon.png",
       sizes: "180x180"
-    },
-    // FIXME: need proper manifest option
-    other: {
-      rel: "manifest",
-      url: "/api/manifest"
     }
   },
   twitter: {
@@ -75,7 +68,7 @@ const metadata: Metadata = {
     title,
     description,
     images: ogImage
-  }
+  },
+  manifest: "/api/manifest"
 };
-
-export default  metadata;
+export default metadata;
