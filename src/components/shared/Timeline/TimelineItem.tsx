@@ -7,6 +7,7 @@ import {
   TimelineSeparator
 } from "@mui/lab";
 import { Box, Chip, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { formatDistance } from "date-fns";
 import { FC } from "react";
 
 import dateTimeFormat from "@/utils/dateTimeFormat";
@@ -17,14 +18,18 @@ import useSx from "./useTimelineItemSx";
 
 const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
   const sx = useSx();
-  const from = data.from && dateTimeFormat.format(data.from);
-  const to = data.to instanceof Date ? dateTimeFormat.format(data.to) : data.to;
+  const from = dateTimeFormat.format(data.from);
+  const to = data.to === "Present" ? "Present" : dateTimeFormat.format(data.to);
   const period = `${from} — ${to}`;
+  const duration = formatDistance(
+    data.to === "Present" ? Date.now() : data.to,
+    data.from
+  );
 
   return (
     <MuiTimelineItem>
       <TimelineOppositeContent sx={sx.periodDesktop} data-cy="periodDesktop">
-        {period}
+        {period}<br />{duration}
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineDot color="primary" />
@@ -32,7 +37,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
       </TimelineSeparator>
       <TimelineContent sx={sx.timelineContent}>
         <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="periodMobile">
-          {period}
+          {period} • {duration}
         </Typography>
         <Typography sx={sx.title} component="div" data-cy="title">
           {data.title}

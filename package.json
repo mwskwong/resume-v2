@@ -24,6 +24,7 @@
     "@next/font": "^13.1.6",
     "@vercel/analytics": "^0.1.9",
     "@vercel/og": "^0.1.0",
+    "date-fns": "^2.29.3",
     "deep-rename-keys-ts": "^1.0.1",
     "lodash-es": "^4.17.21",
     "mdi-material-ui": "^7.6.0",
