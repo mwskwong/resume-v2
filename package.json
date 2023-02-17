@@ -12,8 +12,8 @@
     "test": "cypress run --browser edge"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@fontsource/rubik": "4.5.14",
     "@formspree/react": "^2.4.1",
     "@hookform/resolvers": "^2.9.11",
@@ -47,7 +47,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/web-app-manifest": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "cypress": "^12.6.0",
+    "cypress": "^12.5.1",
     "cypress-downloadfile": "^1.2.3",
     "eslint": "^8.34.0",
     "eslint-config-next": "^13.1.6",
