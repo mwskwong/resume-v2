@@ -1,0 +1,27 @@
+name: Cypress E2E Tests
+
+on: deployment_status
+
+jobs:
+  headless-chrome:
+    if: ${{ github.event.deployment_status.state == 'success' && github.event.deployment_status.environment != 'Production' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: E2E Tests - Headless Chrome
+        uses: cypress-io/github-action@master
+        with:
+          browser: chrome
+          record: true
+          parallel: true
+        env:
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: Asia/Hong_Kong

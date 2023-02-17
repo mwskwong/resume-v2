@@ -1,0 +1,45 @@
+"use client";
+
+import { Box, Button, Container, Typography } from "@mui/material";
+import { FC } from "react";
+
+import resume from "@/assets/documents/resume.pdf";
+import PlatformProfiles from "@/components/shared/PlatformProfiles";
+import jobTitles from "@/constants/jobTitles";
+import { firstName } from "@/constants/name";
+
+import useSx from "./useSx";
+
+const Hero: FC = () => {
+  const sx = useSx();
+
+  return (
+    <Container sx={sx.root}>
+      <Typography variant="subtitle1" component="p">
+        Hello,
+      </Typography>
+      <Typography variant="h1" data-cy="title">
+        {"I'm "}
+        <Box component="span" sx={sx.name}>
+          {firstName}
+        </Box>
+      </Typography>
+      <Typography variant="h6" component="p" data-cy="subtitle">
+        {jobTitles.join(" & ")}
+      </Typography>
+      <PlatformProfiles sx={sx.platformProfiles} />
+      <Button
+        variant="contained"
+        size="large"
+        component="a"
+        href={resume}
+        target="_blank"
+        data-cy="downloadResume"
+      >
+        Download Resume
+      </Button>
+    </Container>
+  );
+};
+
+export default Hero;
