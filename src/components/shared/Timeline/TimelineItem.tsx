@@ -7,7 +7,7 @@ import {
   TimelineSeparator
 } from "@mui/lab";
 import { Box, Chip, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
-import { formatDistance } from "date-fns";
+import { formatDistanceStrict } from "date-fns";
 import { FC } from "react";
 
 import dateTimeFormat from "@/utils/dateTimeFormat";
@@ -21,7 +21,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
   const from = dateTimeFormat.format(data.from);
   const to = data.to === "Present" ? "Present" : dateTimeFormat.format(data.to);
   const period = `${from} — ${to}`;
-  const duration = formatDistance(
+  const duration = formatDistanceStrict(
     data.to === "Present" ? Date.now() : data.to,
     data.from
   );
