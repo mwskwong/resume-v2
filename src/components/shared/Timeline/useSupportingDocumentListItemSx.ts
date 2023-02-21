@@ -6,9 +6,6 @@ const useSx = ({ private: privateDoc }: { private?: boolean }) => makeSx({
   },
   button: {
     pl: 0
-  },
-  avatar: {
-    pr: "16px"
   }
 });
 

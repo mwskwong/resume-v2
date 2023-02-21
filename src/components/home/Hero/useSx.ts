@@ -17,5 +17,4 @@ const useSx = () => makeSx({
   }
 });
 
-
 export default useSx;

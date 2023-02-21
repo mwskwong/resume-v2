@@ -14,7 +14,6 @@ import dateTimeFormat from "@/utils/dateTimeFormat";
 const courseHasCertificate = (courseId: string): courseId is keyof typeof courseCertificates =>
   Object.keys(courseCertificates).includes(courseId);
 
-
 describe("Education section", () => {
   beforeEach(() => {
     cy.visit(`/#${EDUCATION.id}`);

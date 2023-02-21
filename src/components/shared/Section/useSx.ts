@@ -7,7 +7,6 @@ import getBgColor from "./getBgColor";
 import getPaperBgColor from "./getPaperBgColor";
 import SectionProps from "./SectionProps";
 
-
 const useSx = ({ variant, fullHeight }: Pick<SectionProps, "variant" | "fullHeight">) => makeSx({
   root: theme => ({
     display: "flex",

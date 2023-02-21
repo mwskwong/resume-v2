@@ -67,7 +67,7 @@ export interface Name {
 export type SelfIntroduction = string
 
 export interface SkillSet {
-  id: "fe" | "be" | "cloud" | "dataOps" | "db" | "qa" | "mobile" | "ml";
+  id: "fe" | "be" | "cloud" | "dataOps" | "db" | "qa" | "mobile" | "ml" | "pm";
   name: string;
   skills: string[];
 }
