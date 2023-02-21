@@ -6,7 +6,6 @@ import cx from "@/utils/cx";
 
 import useSx from "./useSx";
 
-
 const Microsoft: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   const sx = useSx({ color: "microsoft" });
 
