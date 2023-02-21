@@ -12,6 +12,7 @@ const title: Metadata["title"] = {
 };
 const description = selfIntroduction;
 const ogImage = `${siteUrl}/api/og`;
+
 const metadata: Metadata = {
   title,
   description,
@@ -48,7 +49,6 @@ const metadata: Metadata = {
         url: "/favicon-32x32.dark.png",
         type: "image/png",
         sizes: "32x32",
-        // @ts-expect-error media is not a valid key
         media: "(prefers-color-scheme: dark)"
       },
       {
