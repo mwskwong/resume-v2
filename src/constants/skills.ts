@@ -82,6 +82,14 @@ export const ml: SkillSet = {
   ]
 };
 
+export const pm: SkillSet = {
+  id: "pm",
+  name: "Project Management",
+  skills: [
+    "Microsoft Project"
+  ]
+};
+
 const skills: SkillSet[] = [
   frontend,
   database,
@@ -90,7 +98,8 @@ const skills: SkillSet[] = [
   dataOps,
   cloud,
   mobile,
-  ml
+  ml,
+  pm
 ];
 
 export default skills;
