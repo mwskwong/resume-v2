@@ -1,4 +1,4 @@
-import { ListItem, ListItemAvatar, ListItemButton, ListItemText, Tooltip } from "@mui/material";
+import { ListItem,  ListItemButton, ListItemText, Tooltip } from "@mui/material";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -20,15 +20,13 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ suppo
           sx={sx.button}
           disabled={supportingDocument.private}
         >
-          <ListItemAvatar sx={sx.avatar}>
-            <Image
-              src={supportingDocument.thumbnail}
-              alt={`Thumbnail of ${supportingDocument.name}`}
-              width={102}
-              height={68}
-              className={styles.thumbnail}
-            />
-          </ListItemAvatar>
+          <Image
+            src={supportingDocument.thumbnail}
+            alt={`Thumbnail of ${supportingDocument.name}`}
+            width={102}
+            height={68}
+            className={styles.thumbnail}
+          />
           <ListItemText primary={supportingDocument.name} />
         </ListItemButton>
       </ListItem>
