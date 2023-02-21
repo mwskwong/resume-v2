@@ -35,7 +35,7 @@ module.exports = {
     "no-floating-decimal": "warn",
     "no-multiple-empty-lines": [
       "warn",
-      { "max": 2, "maxBOF": 0, "maxEOF": 0 }
+      { "max": 1, "maxBOF": 0, "maxEOF": 0 }
     ],
     "eol-last": "warn",
     "@typescript-eslint/member-delimiter-style": "warn",
