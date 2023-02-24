@@ -23,7 +23,7 @@ const nextConfig = {
   webpack: config => {
     // import PDF as file url
     config.module.rules.push({
-      test: /\.pdf$/,
+      test: /\.pdf$/i,
       type: "asset/resource"
     });
 
@@ -64,7 +64,8 @@ const nextConfig = {
     }
   ],
   experimental: {
-    appDir: true
+    appDir: true,
+    typedRoutes: true
   }
 };
 
