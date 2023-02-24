@@ -1,10 +1,11 @@
-import { PageConfig } from "next";
+import { ServerRuntime } from "next";
+import { NextResponse } from "next/server";
 import { WebAppManifest } from "web-app-manifest";
 
 import { firstName, lastName } from "@/constants/name";
 import selfIntroduction from "@/constants/selfIntroduction";
 
-const handler = () => {
+export const GET = async () => {
   const manifest: WebAppManifest = {
     lang: "en",
     name: `${firstName} ${lastName}`,
@@ -28,19 +29,7 @@ const handler = () => {
     background_color: "#ffffff"
   };
 
-  return new Response(
-    JSON.stringify(manifest),
-    {
-      status: 200,
-      headers: {
-        "content-type": "application/json"
-      }
-    }
-  );
+  return NextResponse.json(manifest);
 };
 
-export const config: PageConfig = {
-  runtime: "edge"
-};
-
-export default handler;
+export const runtime: ServerRuntime = "edge";

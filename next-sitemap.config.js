@@ -3,7 +3,6 @@ const fs = require("fs/promises");
 /** @type {import('next-sitemap').IConfig} */
 const nextSitemapConfig = {
   siteUrl: process.env.NEXT_PUBLIC_URL,
-  generateRobotsTxt: true,
   generateIndexSitemap: false,
   additionalPaths: async config => {
     const prefix = "/_next/static/media/";
