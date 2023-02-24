@@ -64,8 +64,9 @@ const nextConfig = {
     }
   ],
   experimental: {
-    appDir: true,
-    typedRoutes: true
+    appDir: true
+    // FIXME: enable typedRoutes once the bug of messed up types is fixed
+    // typedRoutes: true
   }
 };
 

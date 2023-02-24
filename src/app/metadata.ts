@@ -1,5 +1,4 @@
-// FIXME: Metadata should be accessible from next directly
-import { Metadata } from "next/types";
+import { Metadata } from "next";
 
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
