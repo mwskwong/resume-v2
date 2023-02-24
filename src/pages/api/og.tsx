@@ -1,3 +1,5 @@
+// TODO: Migrate to routes once it's working
+
 import { ImageResponse } from "@vercel/og";
 import { PageConfig } from "next";
 
@@ -9,7 +11,7 @@ const rubikMedium = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-norma
 
 const handler = async () => {
   const rubikMediumData = await rubikMedium;
-  
+
   return new ImageResponse(
     <div
       style={{
