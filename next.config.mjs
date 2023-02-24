@@ -23,7 +23,7 @@ const nextConfig = {
   webpack: config => {
     // import PDF as file url
     config.module.rules.push({
-      test: /\.pdf$/,
+      test: /\.pdf$/i,
       type: "asset/resource"
     });
 
@@ -65,6 +65,8 @@ const nextConfig = {
   ],
   experimental: {
     appDir: true
+    // FIXME: enable typedRoutes once the bug of messed up types is fixed
+    // typedRoutes: true
   }
 };
 
