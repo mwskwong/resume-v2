@@ -8,7 +8,8 @@ const experiences: Experience[] = [
     company: "TecPal Ltd.",
     jobDuties: [
       "Migrated Vue web apps from legacy WordPress API to RESTful API",
-      "Implemented Vue web app features. e.g., Authorization system, shopping list"
+      "Implemented Vue web app features. e.g., Authorization system, shopping list",
+      "Technically reviewed and developed POC on web app migration from Vue to Astro and Next.js"
     ],
     supportingDocuments: [],
     relevantSkills: [
@@ -17,7 +18,9 @@ const experiences: Experience[] = [
       "Quasar",
       "Vuex",
       "Pinia",
-      "WordPress"
+      "WordPress",
+      "Astro",
+      "Next.js"
     ]
   },
   {
