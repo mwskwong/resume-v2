@@ -27,7 +27,6 @@ export const GET = async () => {
     .map(url => toUrl(`${siteUrl}${url}`));
 
   const urls = orderBy([
-    toUrl(siteUrl),
     ...supportingDocumentsUrls,
     ...courseCertificateUrls
   ], ["loc"]);
