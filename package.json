@@ -27,7 +27,7 @@
     "dedent": "^0.7.0",
     "deep-rename-keys-ts": "^1.0.1",
     "lodash-es": "^4.17.21",
-    "next": "^13.2.0",
+    "next": "^13.2.1",
     "next-sitemap": "^3.1.52",
     "nope-validator": "^1.0.4",
     "react": "^18.2.0",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@formspree/core": "^2.8.1",
-    "@next/bundle-analyzer": "^13.2.0",
+    "@next/bundle-analyzer": "^13.2.1",
     "@svgr/webpack": "^6.5.1",
     "@types/dedent": "^0.7.0",
     "@types/lodash-es": "^4.17.6",
@@ -51,11 +51,11 @@
     "cypress": "^12.6.0",
     "cypress-downloadfile": "^1.2.3",
     "eslint": "^8.34.0",
-    "eslint-config-next": "^13.2.0",
+    "eslint-config-next": "^13.2.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "schema-dts": "^1.1.0",
+    "schema-dts": "^1.1.2",
     "typescript": "^4.9.5"
   },
   "browserslist": [
