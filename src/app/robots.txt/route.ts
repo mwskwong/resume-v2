@@ -8,8 +8,6 @@ export const GET = async () => {
   return new NextResponse(dedent`
     User-agent: *
     Allow: /
-    
-    Host: ${siteUrl}
 
     Sitemap: ${siteUrl}/sitemap.xml
   `);
