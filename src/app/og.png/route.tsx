@@ -1,22 +1,19 @@
-// TODO: Migrate to routes once it's working
-
 import { ImageResponse } from "@vercel/og";
-import { PageConfig } from "next";
+import { ServerRuntime } from "next";
 
 import Icon from "@/assets/images/icon.svg";
 import { firstName, lastName } from "@/constants/name";
 
-const rubikMedium = fetch(new URL("@fontsource/rubik/files/rubik-latin-500-normal.woff", import.meta.url))
-  .then(res => res.arrayBuffer());
+import getRubikMedium from "./getRubikMedium";
 
-const handler = async () => {
-  const rubikMediumData = await rubikMedium;
+export const GET = async () => {
+  const rubikMedium = await getRubikMedium();
 
   return new ImageResponse(
     <div
       style={{
         display: "flex",
-        background: "white",
+        background: "#ffffff",
         width: "100%",
         height: "100%",
         justifyContent: "center",
@@ -42,12 +39,10 @@ const handler = async () => {
       </div>
     </div>,
     {
-      width: 1280,
-      height: 640,
       fonts: [
         {
           name: "Rubik",
-          data: rubikMediumData,
+          data: rubikMedium,
           weight: 500
         }
       ]
@@ -55,8 +50,4 @@ const handler = async () => {
   );
 };
 
-export const config: PageConfig = {
-  runtime: "edge"
-};
-
-export default handler;
+export const runtime: ServerRuntime = "experimental-edge";
