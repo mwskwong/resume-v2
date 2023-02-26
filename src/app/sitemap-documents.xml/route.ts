@@ -47,10 +47,10 @@ export const GET = async () => {
     `,
     {
       headers: {
-        "content-type": "application/xml"
+        "Content-Type": "application/xml"
       }
     }
   );
 };
 
-export const runtime: ServerRuntime = "edge";
+export const runtime: ServerRuntime = "experimental-edge";

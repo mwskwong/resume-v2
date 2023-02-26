@@ -16,6 +16,4 @@ const LinkedIn: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-LinkedIn.muiName = SvgIcon.muiName;
-
 export default LinkedIn;

@@ -16,6 +16,4 @@ const DataCamp: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-DataCamp.muiName = SvgIcon.muiName;
-
 export default DataCamp;

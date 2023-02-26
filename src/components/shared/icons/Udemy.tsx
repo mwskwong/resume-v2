@@ -16,6 +16,4 @@ const Udemy: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-Udemy.muiName = SvgIcon.muiName;
-
 export default Udemy;

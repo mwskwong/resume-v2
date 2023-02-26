@@ -16,6 +16,4 @@ const Oracle: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-Oracle.muiName = SvgIcon.muiName;
-
 export default Oracle;

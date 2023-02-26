@@ -16,6 +16,4 @@ const MongoDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-MongoDB.muiName = SvgIcon.muiName;
-
 export default MongoDB;
