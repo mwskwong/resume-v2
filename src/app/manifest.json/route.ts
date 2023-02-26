@@ -32,4 +32,4 @@ export const GET = async () => {
   return NextResponse.json(manifest);
 };
 
-export const runtime: ServerRuntime = "edge";
+export const runtime: ServerRuntime = "experimental-edge";
