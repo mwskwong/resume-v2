@@ -16,6 +16,4 @@ const StackOverflow: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-StackOverflow.muiName = SvgIcon.muiName;
-
 export default StackOverflow;

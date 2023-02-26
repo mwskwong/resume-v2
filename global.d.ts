@@ -1,7 +1,7 @@
 import { FC, SVGProps } from "react";
 
 declare global {
-  declare namespace NodeJS {
+  namespace NodeJS {
     interface ProcessEnv {
       NEXT_PUBLIC_URL: string;
       NEXT_PUBLIC_FORMSPREE_FORM_ID: string;
@@ -10,12 +10,12 @@ declare global {
     }
   }
 
-  declare module "*.pdf" {
+  module "*.pdf" {
     const content: string;
     export default content;
   }
 
-  declare module "*.svg" {
+  module "*.svg" {
     const ReactComponent: FC<SVGProps<SVGSVGElement>>;
     export default ReactComponent;
   }

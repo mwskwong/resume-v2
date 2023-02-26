@@ -26,14 +26,12 @@ declare module "@mui/material" {
     sectionSecondary: string;
     sectionTertiary: string;
   }
-}
 
-declare module "@mui/material/styles/createTypography" {
-  interface TypographyOptions {
-    fontWeightExtraBold?: number;
+  interface TypographyVariantsOptions {
+    fontWeightExtraBold: number;
   }
 
-  interface Typography {
+  interface TypographyVariants {
     fontWeightExtraBold: number;
   }
 }

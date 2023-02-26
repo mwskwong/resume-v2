@@ -16,6 +16,4 @@ const Google: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-Google.muiName = SvgIcon.muiName;
-
 export default Google;

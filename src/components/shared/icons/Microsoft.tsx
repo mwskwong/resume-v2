@@ -16,6 +16,4 @@ const Microsoft: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-Microsoft.muiName = SvgIcon.muiName;
-
 export default Microsoft;

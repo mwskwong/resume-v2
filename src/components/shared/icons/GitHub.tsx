@@ -16,6 +16,4 @@ const GitHub: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-GitHub.muiName = SvgIcon.muiName;
-
 export default GitHub;

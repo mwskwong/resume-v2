@@ -16,6 +16,4 @@ const EnterpriseDB: FC<SvgIconProps> = ({ sx: sxProp, ...props }) => {
   );
 };
 
-EnterpriseDB.muiName = SvgIcon.muiName;
-
 export default EnterpriseDB;
