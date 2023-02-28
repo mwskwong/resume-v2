@@ -69,7 +69,10 @@ const metadata: Metadata = {
     description,
     images: ogImage
   },
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
+  other: {
+    "og:image": ogImage
+  }
 };
 
 export default metadata;
