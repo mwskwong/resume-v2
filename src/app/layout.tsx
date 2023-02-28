@@ -8,9 +8,14 @@ import ScrollToTopFab from "@/components/shared/ScrollToTopFab";
 import Analytics from "@/utils/Analytics";
 import EmotionRegistry from "@/utils/EmotionRegistry";
 
+import metadata from "./metadata";
+
 const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
   <html lang="en" className={rubik.className}>
-    <head />
+    <head>
+      {/* Fallback of og:image:url, which some website is not able to recognize */}
+      <meta property="og:image" content={metadata.openGraph?.images as string} />
+    </head>
     <body>
       <EmotionRegistry>
         <BrandingThemeProvider>
