@@ -10,7 +10,7 @@ import EmotionRegistry from "@/utils/EmotionRegistry";
 
 const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
   <html lang="en" className={rubik.className}>
-    <head/>
+    <head />
     <body>
       <EmotionRegistry>
         <BrandingThemeProvider>
