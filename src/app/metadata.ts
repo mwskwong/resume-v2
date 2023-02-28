@@ -71,6 +71,7 @@ const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   other: {
+    // fallback support since some websites unable to recognize og:image:url
     "og:image": ogImage
   }
 };
