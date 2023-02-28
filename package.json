@@ -34,7 +34,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.2",
     "react-hook-form-mui": "^5.15.1",
-    "simple-icons": "^8.5.0"
+    "simple-icons": "^8.6.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
@@ -46,7 +46,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/web-app-manifest": "^1.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
     "cypress": "^12.7.0",
     "cypress-downloadfile": "^1.2.3",
     "eslint": "^8.35.0",
