@@ -44,6 +44,10 @@ const nextConfig = {
     "@mui/icons-material": {
       transform: "@mui/icons-material/{{member}}",
       preventFullImport: true
+    },
+    "date-fns": {
+      transform: "date-fns/{{member}}",
+      preventFullImport: true
     }
   },
   headers: async () => [
