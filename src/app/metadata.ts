@@ -11,7 +11,7 @@ const title: Metadata["title"] = {
   template: `%s | ${fullName}`
 };
 const description = selfIntroduction;
-const ogImage = `${siteUrl}/api/og`;
+const ogImage = `${siteUrl}/og.png`;
 
 const metadata: Metadata = {
   title,

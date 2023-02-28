@@ -7,21 +7,10 @@ const useSx = () => makeSx({
   name: {
     color: "primary.main"
   },
-  occupationContainer: {
-    display: "flex",
-    justifyContent: "center",
+  jobTitleContainer: {
+    typography: "subtitle1",
+    textAlign: "center",
     my: 2
-  },
-  dot: {
-    height: 5,
-    width: 5,
-    borderRadius: "50%",
-    bgcolor: "text.primary",
-    mx: 2,
-    my: 1
-  },
-  jobTitle: {
-    typography: "subtitle1"
   },
   intro: {
     textAlign: "center"

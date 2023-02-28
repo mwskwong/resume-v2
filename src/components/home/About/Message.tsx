@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 import jobTitles from "@/constants/jobTitles";
 import { firstName, lastName } from "@/constants/name";
@@ -18,15 +18,8 @@ const Message: FC = () => {
           {`I'm ${firstName} ${lastName}.`}
         </Box>
       </Typography>
-      <Box sx={sx.occupationContainer} data-cy="jobTitles">
-        {jobTitles.map((title, index) => (
-          <Fragment key={title}>
-            {index !== 0 && <Box sx={sx.dot} />}
-            <Typography sx={sx.jobTitle} component="div">
-              {title}
-            </Typography>
-          </Fragment>
-        ))}
+      <Box sx={sx.jobTitleContainer} data-cy="jobTitles">
+        {jobTitles.join(" & ")}
       </Box>
       <Typography sx={sx.intro} data-cy="selfIntroduction">
         {selfIntroduction}
