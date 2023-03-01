@@ -64,8 +64,9 @@ const nextConfig = {
     }
   ],
   experimental: {
-    appDir: true,
-    typedRoutes: true
+    appDir: true
+    // FIXME: see if v13.2.3 fixes it
+    // typedRoutes: true
   }
 };
 
