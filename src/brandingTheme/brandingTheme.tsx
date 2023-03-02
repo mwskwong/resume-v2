@@ -249,7 +249,7 @@ const brandingTheme = extendTheme({
       },
     },
     MuiCssBaseline: {
-      styleOverrides: theme => ({
+      styleOverrides: (theme) => ({
         "::selection": {
           backgroundColor: theme.vars.palette.grey[800],
           color: theme.vars.palette.common.white,

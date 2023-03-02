@@ -4,7 +4,7 @@ import DividerSvg from "./DividerSvg";
 import SectionDividerProps from "./SectionDividerProps";
 import useSx from "./useSectionDividerSx";
 
-const WaveSmoothFlat: FC<SectionDividerProps> = props => {
+const WaveSmoothFlat: FC<SectionDividerProps> = (props) => {
   const sx = useSx(props);
 
   return (

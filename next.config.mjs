@@ -20,7 +20,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  webpack: config => {
+  webpack: (config) => {
     // import PDF as file url
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     config.module.rules.push({

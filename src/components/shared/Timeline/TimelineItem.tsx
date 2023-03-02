@@ -76,14 +76,14 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         )}
         {Boolean(data.tags?.length) && (
           <Box sx={sx.tagsContainer} data-cy="tags">
-            {data.tags?.map(tag => (
+            {data.tags?.map((tag) => (
               <Chip key={tag} sx={sx.tag} label={tag} data-cy={tag} />
             ))}
           </Box>
         )}
         {Boolean(data.supportingDocuments?.length) && (
           <List sx={sx.supportingDocumentList}>
-            {data.supportingDocuments?.map(supportingDocument => (
+            {data.supportingDocuments?.map((supportingDocument) => (
               <SupportingDocumentListItem
                 key={supportingDocument.id}
                 supportingDocument={supportingDocument}

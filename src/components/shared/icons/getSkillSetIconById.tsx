@@ -15,22 +15,22 @@ import Database from "./Database";
 import MachineLearning from "./MachineLearning";
 import ProjectManagement from "./ProjectManagement";
 
-const Backend: FC<SvgIconProps> = props => (
+const Backend: FC<SvgIconProps> = (props) => (
   <Terminal data-cy="beIcon" {...props} />
 );
-const Cloud: FC<SvgIconProps> = props => (
+const Cloud: FC<SvgIconProps> = (props) => (
   <MuiCloud data-cy="cloudIcon" {...props} />
 );
-const DataOps: FC<SvgIconProps> = props => (
+const DataOps: FC<SvgIconProps> = (props) => (
   <AllInclusive data-cy="dataOpsIcon" {...props} />
 );
-const Frontend: FC<SvgIconProps> = props => (
+const Frontend: FC<SvgIconProps> = (props) => (
   <Dashboard data-cy="feIcon" {...props} />
 );
-const QualityAssurance: FC<SvgIconProps> = props => (
+const QualityAssurance: FC<SvgIconProps> = (props) => (
   <BugReport data-cy="qaIcon" {...props} />
 );
-const Mobile: FC<SvgIconProps> = props => (
+const Mobile: FC<SvgIconProps> = (props) => (
   <DevicesOther data-cy="mobileIcon" {...props} />
 );
 

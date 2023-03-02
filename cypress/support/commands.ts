@@ -40,7 +40,7 @@ import "cypress-downloadfile/lib/downloadFileCommand";
 // }
 
 Cypress.Commands.add("disableSmoothScroll", () => {
-  cy.document().then(document => {
+  cy.document().then((document) => {
     const node = document.createElement("style");
     node.innerHTML = "html { scroll-behavior: auto !important; }";
     document.body.appendChild(node);
@@ -71,10 +71,10 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   }
 });
 
-Cypress.Commands.add("verifySectionIsInViewport", section => {
+Cypress.Commands.add("verifySectionIsInViewport", (section) => {
   cy.get(`#${section.id}`)
     .first()
-    .should($section =>
+    .should(($section) =>
       // Expect equal to 0, with +-1px margin of error
       expect($section[0].getClientRects()[0].top)
         .greaterThan(-1)

@@ -9,7 +9,7 @@ export default defineConfig({
     baseUrl: "http://localhost:3000",
     scrollBehavior: "center",
     ...viewports.desktop,
-    setupNodeEvents: on => {
+    setupNodeEvents: (on) => {
       on("task", { downloadFile });
     },
   },

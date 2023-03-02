@@ -18,7 +18,7 @@ const ExperienceTimeline: FC = () => {
       title: jobTitle,
       subtitle: company,
       contents: jobDuties,
-      supportingDocuments: supportingDocuments.map(id =>
+      supportingDocuments: supportingDocuments.map((id) =>
         getSupportingDocumentById(id)
       ),
       tags: relevantSkills,

@@ -122,7 +122,7 @@ describe("Education section", () => {
 
                       cy.get("@anchor")
                         .invoke("attr", "href")
-                        .then(href => {
+                        .then((href) => {
                           const filename = href?.split("/").at(-1);
                           cy.readFile(`./cypress/downloads/${filename ?? ""}`)
                             .should("contain", "%PDF-")
@@ -260,7 +260,7 @@ describe("Education section", () => {
 
                 cy.get("@anchor")
                   .invoke("attr", "href")
-                  .then(href => {
+                  .then((href) => {
                     expect(href).to.exist;
                     if (href) {
                       const filename = href.split("/").at(-1);

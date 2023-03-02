@@ -6,6 +6,6 @@ import {
 } from "@vercel/analytics/react";
 import { FC } from "react";
 
-const Analytics: FC<AnalyticsProps> = props => <VercelAnalytics {...props} />;
+const Analytics: FC<AnalyticsProps> = (props) => <VercelAnalytics {...props} />;
 
 export default Analytics;

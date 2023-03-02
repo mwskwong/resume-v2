@@ -9,7 +9,7 @@ const EducationTimeline: FC = () => {
     ({ degree, school, supportingDocuments, ...elem }) => ({
       title: degree,
       subtitle: school,
-      supportingDocuments: supportingDocuments.map(id =>
+      supportingDocuments: supportingDocuments.map((id) =>
         getSupportingDocumentById(id)
       ),
       ...elem,

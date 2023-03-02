@@ -43,7 +43,7 @@ const Courses: FC = () => {
         <ToggleButton value="" data-cy="category">
           All
         </ToggleButton>
-        {categories.map(category => (
+        {categories.map((category) => (
           <ToggleButton
             key={category.id}
             value={category.id}

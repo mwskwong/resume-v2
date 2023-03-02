@@ -35,7 +35,7 @@ const NavBar: FC = () => {
     }
   }, [mdUp]);
 
-  const handleMenuToggle = () => setMenuOpen(menuOpen => !menuOpen);
+  const handleMenuToggle = () => setMenuOpen((menuOpen) => !menuOpen);
   const handleMenuClickAway = () => setMenuOpen(false);
 
   return (

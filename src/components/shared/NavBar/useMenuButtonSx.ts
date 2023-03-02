@@ -9,7 +9,7 @@ const useSx = () =>
     icon: {
       gridColumnStart: 1,
       gridRowStart: 1,
-      transition: theme => theme.transitions.create(["rotate", "opacity"]),
+      transition: (theme) => theme.transitions.create(["rotate", "opacity"]),
       rotate: "0deg",
       opacity: 1,
       "@media (prefers-reduced-motion)": {

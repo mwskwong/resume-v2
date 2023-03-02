@@ -12,11 +12,11 @@ const useSx = ({
   fullHeight,
 }: Pick<SectionProps, "variant" | "fullHeight">) =>
   makeSx({
-    root: theme => ({
+    root: (theme) => ({
       display: "flex",
       flexDirection: "column",
       bgcolor: `background.${getBgColor(variant)}`,
-      ...(deepRenameKeys(theme.mixins.toolbar, key => {
+      ...(deepRenameKeys(theme.mixins.toolbar, (key) => {
         if (key === "minHeight") {
           return "scrollPaddingTop";
         }

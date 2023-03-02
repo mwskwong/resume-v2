@@ -16,15 +16,15 @@ export const GET = () => {
 
   const supportingDocumentsUrls = experiences
     .flatMap(({ supportingDocuments }) =>
-      supportingDocuments.map(id => getSupportingDocumentById(id).url)
+      supportingDocuments.map((id) => getSupportingDocumentById(id).url)
     )
     .filter(isString)
-    .map(url => toUrl(`${siteUrl}${url}`));
+    .map((url) => toUrl(`${siteUrl}${url}`));
 
   const courseCertificateUrls = courses
     .map(({ id }) => getCertificateUrlById(id))
     .filter(isString)
-    .map(url => toUrl(`${siteUrl}${url}`));
+    .map((url) => toUrl(`${siteUrl}${url}`));
 
   const urls = orderBy(
     [...supportingDocumentsUrls, ...courseCertificateUrls],

@@ -35,7 +35,7 @@ const Skills: FC = () => {
                   {name}
                 </Typography>
                 <Box sx={sx.skillsContainer}>
-                  {skills.map(skill => (
+                  {skills.map((skill) => (
                     <Chip
                       key={skill}
                       sx={sx.skill}

@@ -66,7 +66,7 @@ describe("Hero section", () => {
                 .and("have.attr", "href", url);
 
               cy.request({ url: url, failOnStatusCode: false }).should(
-                response => {
+                (response) => {
                   expect(
                     response.isOkStatusCode || response.status === 999 // Used by LinkedIn
                   ).be.true;
@@ -91,7 +91,7 @@ describe("Hero section", () => {
 
           cy.get("@downloadResumeButton")
             .invoke("attr", "href")
-            .then(href => {
+            .then((href) => {
               const filename = href?.split("/").at(-1);
               cy.readFile(`./cypress/downloads/${filename ?? ""}`)
                 .should("contain", "%PDF-")

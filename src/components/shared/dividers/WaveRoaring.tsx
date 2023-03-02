@@ -4,7 +4,7 @@ import DividerSvg from "./DividerSvg";
 import SectionDividerProps from "./SectionDividerProps";
 import useSx from "./useSectionDividerSx";
 
-const WaveRoaring: FC<SectionDividerProps> = props => {
+const WaveRoaring: FC<SectionDividerProps> = (props) => {
   const sx = useSx(props);
 
   return (
