@@ -30,7 +30,7 @@
     "**/*.mjs",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".eslintrc.js"
+    ".eslintrc.cjs"
   ],
   "exclude": ["node_modules"]
 }
