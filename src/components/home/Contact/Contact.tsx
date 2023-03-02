@@ -1,16 +1,24 @@
 "use client";
 
 import { nopeResolver } from "@hookform/resolvers/nope";
-import { CheckCircleRounded as SuccessIcon, PhoneRounded as Phone, SendRounded as SendIcon } from "@mui/icons-material";
+import {
+  PhoneRounded as Phone,
+  SendRounded as SendIcon,
+  CheckCircleRounded as SuccessIcon,
+} from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Alert, Container, Stack, Unstable_Grid2 as Grid } from "@mui/material";
+import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
 import { FC, useEffect } from "react";
-import { FormContainer, TextFieldElement, useForm as useHookForm } from "react-hook-form-mui";
+import {
+  FormContainer,
+  TextFieldElement,
+  useForm as useHookForm,
+} from "react-hook-form-mui";
 
 import SectionHeader from "@/components/shared/SectionHeader";
 
-import formSchema, { defaultValues } from "./formSchema";
 import PersonalInfo from "./PersonalInfo";
+import formSchema, { defaultValues } from "./formSchema";
 import useSx from "./useContactSx";
 import useFormspree from "./useFormspree";
 
@@ -19,9 +27,11 @@ const Contact: FC = () => {
   const hookFormContext = useHookForm({
     resolver: nopeResolver(formSchema),
     mode: "onChange",
-    defaultValues
+    defaultValues,
   });
-  const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID);
+  const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(
+    process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
+  );
 
   useEffect(() => {
     if (state.succeeded) {
@@ -47,7 +57,12 @@ const Contact: FC = () => {
           formContext={hookFormContext}
           onSuccess={handleFormspreeSubmit}
         >
-          <Grid container spacing={6} sx={sx.gridContainer} disableEqualOverflow>
+          <Grid
+            container
+            spacing={6}
+            sx={sx.gridContainer}
+            disableEqualOverflow
+          >
             <PersonalInfo />
             <Grid container spacing={2} xs={12} md={8}>
               <Grid xs={12} sm={6}>

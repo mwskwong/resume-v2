@@ -2,7 +2,7 @@ import { FC, SVGProps } from "react";
 
 declare global {
   namespace NodeJS {
-    interface ProcessEnv {      
+    interface ProcessEnv {
       NEXT_PUBLIC_URL: string;
       NEXT_PUBLIC_FORMSPREE_FORM_ID: string;
       ANALYZE_BUNDLE: "true" | "false";

@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_URL;
 const fullName = `${firstName} ${lastName}`;
 const title: Metadata["title"] = {
   default: `${fullName} - ${jobTitles.join(" & ")}`,
-  template: `%s | ${fullName}`
+  template: `%s | ${fullName}`,
 };
 const description = selfIntroduction;
 const ogImage = `${siteUrl}/og.png`;
@@ -23,53 +23,53 @@ const metadata: Metadata = {
     description,
     type: "website",
     url: siteUrl,
-    images: ogImage
+    images: ogImage,
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
   },
   icons: {
     icon: [
       {
         url: "/favicon.svg",
-        type: "image/svg+xml"
+        type: "image/svg+xml",
       },
       {
         url: "/favicon-32x32.png",
         type: "image/png",
-        sizes: "32x32"
+        sizes: "32x32",
       },
       {
         url: "/favicon-16x16.png",
         type: "image/png",
-        sizes: "16x16"
+        sizes: "16x16",
       },
       {
         url: "/favicon-32x32.dark.png",
         type: "image/png",
         sizes: "32x32",
-        media: "(prefers-color-scheme: dark)"
+        media: "(prefers-color-scheme: dark)",
       },
       {
         url: "/favicon-16x16.dark.png",
         type: "image/png",
         sizes: "16x16",
-        media: "(prefers-color-scheme: dark)"
-      }
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
     apple: {
       url: "/apple-touch-icon.png",
-      sizes: "180x180"
-    }
+      sizes: "180x180",
+    },
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ogImage
+    images: ogImage,
   },
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
 };
 
 export default metadata;

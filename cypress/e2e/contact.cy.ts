@@ -26,7 +26,7 @@ describe("Contact section", () => {
       });
 
       describe("Section header", () => {
-        it("contains \"Contact\"", () => {
+        it('contains "Contact"', () => {
           cy.get("@contact")
             .find("[data-cy = 'sectionHeader']")
             .should("be.visible")
@@ -64,7 +64,11 @@ describe("Contact section", () => {
         });
 
         it("fails to submit without filling in any fields", () => {
-          cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, cy.spy().as("formspreeApi"));
+          cy.intercept(
+            "POST",
+            `${contactForm.apiUrlPrefix}/*`,
+            cy.spy().as("formspreeApi")
+          );
 
           cy.get("@form").submit();
           cy.get("@formspreeApi").should("not.be.called");
@@ -79,7 +83,11 @@ describe("Contact section", () => {
         });
 
         it("fails to submit when filling in non-email content in the email field", () => {
-          cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, cy.spy().as("formspreeApi"));
+          cy.intercept(
+            "POST",
+            `${contactForm.apiUrlPrefix}/*`,
+            cy.spy().as("formspreeApi")
+          );
 
           cy.get("@nameInput").type(faker.name.fullName());
           cy.get("@emailInput").type("definitely not an email");
@@ -98,7 +106,7 @@ describe("Contact section", () => {
 
         it("submits successfully when filling in valid contents", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, {
-            body: contactForm.formspreeResponse.success
+            body: contactForm.formspreeResponse.success,
           }).as("formspreeApi");
 
           cy.get("@nameInput").type(faker.name.fullName());
@@ -108,11 +116,15 @@ describe("Contact section", () => {
 
           cy.get("@form").submit();
           cy.wait("@formspreeApi").then(({ response }) => {
-            const body = response?.body as typeof contactForm.formspreeResponse.success;
+            const body =
+              response?.body as typeof contactForm.formspreeResponse.success;
             expect(body.ok).to.be.true;
           });
 
-          cy.get("@submitButton").should("have.class", buttonClasses.containedSuccess);
+          cy.get("@submitButton").should(
+            "have.class",
+            buttonClasses.containedSuccess
+          );
           cy.get("@nameInput").should("have.value", "");
           cy.get("@emailInput").should("have.value", "");
           cy.get("@subjectInput").should("have.value", "");
@@ -122,7 +134,7 @@ describe("Contact section", () => {
         it("displays the error messages when Formspree API returns a HTTP error.", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, {
             statusCode: 400,
-            body: contactForm.formspreeResponse.error
+            body: contactForm.formspreeResponse.error,
           }).as("formspreeApi");
 
           cy.get("@nameInput").type(faker.name.fullName());
@@ -133,7 +145,8 @@ describe("Contact section", () => {
           cy.get("@form").submit();
           cy.wait("@formspreeApi").then(({ response }) => {
             cy.get("@form").find("[data-cy = 'alerts']").as("alerts");
-            const body = response?.body as typeof contactForm.formspreeResponse.error;
+            const body =
+              response?.body as typeof contactForm.formspreeResponse.error;
             for (const error of body.errors) {
               cy.get("@alerts")
                 .should("be.visible")
@@ -144,7 +157,7 @@ describe("Contact section", () => {
 
         it("displays the error message when having network error", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, {
-            forceNetworkError: true
+            forceNetworkError: true,
           }).as("formspreeApi");
 
           cy.get("@nameInput").type(faker.name.fullName());
@@ -155,7 +168,8 @@ describe("Contact section", () => {
           cy.get("@form").submit();
           cy.wait("@formspreeApi");
 
-          cy.get("@form").find("[data-cy = 'alerts']")
+          cy.get("@form")
+            .find("[data-cy = 'alerts']")
             .should("be.visible")
             .and("contain", contactForm.offlineError);
         });

@@ -1,4 +1,7 @@
-import { CloseRounded as Close, MenuRounded as Menu } from "@mui/icons-material";
+import {
+  CloseRounded as Close,
+  MenuRounded as Menu,
+} from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { FC } from "react";
 
@@ -7,7 +10,12 @@ import cx from "@/utils/cx";
 import MenuButtonProps from "./MenuButtonProps";
 import useSx from "./useMenuButtonSx";
 
-const MenuButton: FC<MenuButtonProps> = ({ sx: sxProps, menuOpen, onToggleMenu, ...props }) => {
+const MenuButton: FC<MenuButtonProps> = ({
+  sx: sxProps,
+  menuOpen,
+  onToggleMenu,
+  ...props
+}) => {
   const sx = useSx();
 
   return (
@@ -18,18 +26,8 @@ const MenuButton: FC<MenuButtonProps> = ({ sx: sxProps, menuOpen, onToggleMenu, 
       onClick={onToggleMenu}
       {...props}
     >
-      <Close
-        sx={cx(
-          sx.icon,
-          menuOpen ? undefined : sx.closeIconInactive
-        )}
-      />
-      <Menu
-        sx={cx(
-          sx.icon,
-          menuOpen ? sx.menuIconInactive : undefined
-        )}
-      />
+      <Close sx={cx(sx.icon, menuOpen ? undefined : sx.closeIconInactive)} />
+      <Menu sx={cx(sx.icon, menuOpen ? sx.menuIconInactive : undefined)} />
     </IconButton>
   );
 };

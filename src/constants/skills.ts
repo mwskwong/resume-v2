@@ -14,8 +14,8 @@ export const frontend: SkillSet = {
     "Quasar",
     "Vuex",
     "Pinia",
-    "React Hook Form"
-  ]
+    "React Hook Form",
+  ],
 };
 
 export const database: SkillSet = {
@@ -26,68 +26,50 @@ export const database: SkillSet = {
     "Microsoft SQL Server",
     "MongoDB",
     "Oracle Database",
-    "Sybase ASE"
-  ]
+    "Sybase ASE",
+  ],
 };
 
 export const backend: SkillSet = {
   id: "be",
   name: "Backend",
-  skills: [
-    "Spring Boot",
-    "Express"
-  ]
+  skills: ["Spring Boot", "Express"],
 };
 
 export const qa: SkillSet = {
   id: "qa",
   name: "Quality Assurance",
-  skills: [
-    "Cypress"
-  ]
+  skills: ["Cypress"],
 };
 
 export const dataOps: SkillSet = {
   id: "dataOps",
   name: "DataOps",
-  skills: [
-    "Delphix"
-  ]
+  skills: ["Delphix"],
 };
 
 export const cloud: SkillSet = {
   id: "cloud",
   name: "Cloud",
-  skills: [
-    "Contentful",
-    "OpenShift"
-  ]
+  skills: ["Contentful", "OpenShift"],
 };
 
 export const mobile: SkillSet = {
   id: "mobile",
   name: "Mobile",
-  skills: [
-    "React Native",
-    "NativeBase",
-    "React Navigation"
-  ]
+  skills: ["React Native", "NativeBase", "React Navigation"],
 };
 
 export const ml: SkillSet = {
   id: "ml",
   name: "Machine Learning",
-  skills: [
-    "scikit-learn"
-  ]
+  skills: ["scikit-learn"],
 };
 
 export const pm: SkillSet = {
   id: "pm",
   name: "Project Management",
-  skills: [
-    "Microsoft Project"
-  ]
+  skills: ["Microsoft Project"],
 };
 
 const skills: SkillSet[] = [
@@ -99,7 +81,7 @@ const skills: SkillSet[] = [
   cloud,
   mobile,
   ml,
-  pm
+  pm,
 ];
 
 export default skills;

@@ -5,17 +5,19 @@ import { FormEvent } from "react";
 const useFormspree: typeof useForm = (formKey, args) => {
   const [state, submitHandler, reset] = useForm(formKey, args);
 
-  const handleFormSubmit = async (submissionData: FormEvent<HTMLFormElement> | SubmissionData) => {
+  const handleFormSubmit = async (
+    submissionData: FormEvent<HTMLFormElement> | SubmissionData
+  ) => {
     try {
       return await submitHandler(submissionData);
     } catch (error) {
       state.errors.push({
-        message: String(error)
+        message: String(error),
       });
 
-      return Promise.resolve({ 
+      return Promise.resolve({
         body: { errors: [] },
-        response: null 
+        response: null,
       });
     }
   };

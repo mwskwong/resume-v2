@@ -11,7 +11,7 @@ const nav = {
   ABOUT,
   EXPERIENCE,
   EDUCATION,
-  CONTACT
+  CONTACT,
 };
 
 export default nav;

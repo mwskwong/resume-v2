@@ -1,5 +1,4 @@
 /// <reference types="cypress-downloadfile"/>
-
 import { toggleButtonClasses } from "@mui/material";
 import courseCertificates from "cypress/fixtures/courseCertificates.json";
 import documents from "cypress/fixtures/supportingDocuments.json";
@@ -11,7 +10,9 @@ import educations from "@/constants/educations";
 import { EDUCATION } from "@/constants/nav";
 import dateTimeFormat from "@/utils/dateTimeFormat";
 
-const courseHasCertificate = (courseId: string): courseId is keyof typeof courseCertificates =>
+const courseHasCertificate = (
+  courseId: string
+): courseId is keyof typeof courseCertificates =>
   Object.keys(courseCertificates).includes(courseId);
 
 describe("Education section", () => {
@@ -27,12 +28,15 @@ describe("Education section", () => {
         it("navigates to section by clicking navigation link", () => {
           cy.wait(10);
           cy.scrollTo("center");
-          cy.navigateToSection(EDUCATION, viewportType as keyof typeof viewports);
+          cy.navigateToSection(
+            EDUCATION,
+            viewportType as keyof typeof viewports
+          );
         });
       });
 
       describe("Section header", () => {
-        it("contains \"Education\"", () => {
+        it('contains "Education"', () => {
           cy.get("[data-cy = 'education'] [data-cy = 'sectionHeader']")
             .should("be.visible")
             .and("contain", "Education");
@@ -40,27 +44,35 @@ describe("Education section", () => {
       });
 
       describe("Education timeline", () => {
-        const timelineSelector = "[data-cy = 'education'] [data-cy = 'timeline']";
+        const timelineSelector =
+          "[data-cy = 'education'] [data-cy = 'timeline']";
         it("'s period is responsive", () => {
           const periodDesktopDataCy = "periodDesktop";
           const periodMobileDataCy = "periodMobile";
 
           if (viewportType === "desktop") {
-            cy.get(`${timelineSelector} [data-cy = '${periodDesktopDataCy}']`)
-              .should("be.visible");
-            cy.get(`${timelineSelector} [data-cy = '${periodMobileDataCy}']`)
-              .should("not.be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
+            ).should("be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
+            ).should("not.be.visible");
           } else {
-            cy.get(`${timelineSelector} [data-cy = '${periodDesktopDataCy}']`)
-              .should("not.be.visible");
-            cy.get(`${timelineSelector} [data-cy = '${periodMobileDataCy}']`)
-              .should("be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
+            ).should("not.be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
+            ).should("be.visible");
           }
         });
 
         for (let i = 0; i < educations.length; i++) {
-          const { from, to, degree, school, supportingDocuments } = educations[i];
-          const period = `${dateTimeFormat.format(from)} — ${to === "Present" ? "Present" : dateTimeFormat.format(to)}`;
+          const { from, to, degree, school, supportingDocuments } =
+            educations[i];
+          const period = `${dateTimeFormat.format(from)} — ${
+            to === "Present" ? "Present" : dateTimeFormat.format(to)
+          }`;
           const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
           describe(`${degree} at ${school}`, () => {
@@ -87,25 +99,30 @@ describe("Education section", () => {
 
             describe("Support documents", () => {
               for (const supportingDocument of supportingDocuments) {
-                const document = documents[supportingDocument as keyof typeof documents];
+                const document =
+                  documents[supportingDocument as keyof typeof documents];
 
                 describe(supportingDocument, () => {
                   it("contains the correct label", () => {
-                    cy.get(`${timelineSelector} [data-cy = '${supportingDocument}']`)
+                    cy.get(
+                      `${timelineSelector} [data-cy = '${supportingDocument}']`
+                    )
                       .should("be.visible")
                       .and("contain", document.name);
                   });
 
                   if (!document.private) {
                     it("opens the correct document in a new tab", () => {
-                      cy.get(`${timelineSelector} [data-cy = '${supportingDocument}'] a`).as("anchor");
+                      cy.get(
+                        `${timelineSelector} [data-cy = '${supportingDocument}'] a`
+                      ).as("anchor");
                       cy.get("@anchor")
                         .should("have.attr", "target", "_blank")
                         .click();
 
                       cy.get("@anchor")
                         .invoke("attr", "href")
-                        .then(href => {
+                        .then((href) => {
                           const filename = href?.split("/").at(-1);
                           cy.readFile(`./cypress/downloads/${filename ?? ""}`)
                             .should("contain", "%PDF-")
@@ -115,7 +132,9 @@ describe("Education section", () => {
                   }
 
                   it("contains the correct thumbnail", () => {
-                    cy.get(`${timelineSelector} [data-cy = '${supportingDocument}'] img`)
+                    cy.get(
+                      `${timelineSelector} [data-cy = '${supportingDocument}'] img`
+                    )
                       .should("be.visible")
                       .and("have.attr", "src")
                       .and("match", new RegExp(document.thumbnailRegex, "i"));
@@ -129,7 +148,7 @@ describe("Education section", () => {
 
       describe("Courses", () => {
         describe("Title", () => {
-          it("contains \"Courses & Training\"", () => {
+          it('contains "Courses & Training"', () => {
             cy.get("[data-cy = 'courses'] [data-cy = 'title']")
               .should("be.visible")
               .and("contain", "Courses & Training");
@@ -147,25 +166,27 @@ describe("Education section", () => {
               });
 
               it(`contains "${courseCategory.name}"`, () => {
-                cy.get("@categoryButton").should("contain", courseCategory.name);
+                cy.get("@categoryButton").should(
+                  "contain",
+                  courseCategory.name
+                );
               });
 
               it(`displays ${courseCategory.name} courses only`, () => {
                 cy.get("@categoryButton").click();
-                cy.get("@categoryButton")
-                  .should("have.class", toggleButtonClasses.selected);
+                cy.get("@categoryButton").should(
+                  "have.class",
+                  toggleButtonClasses.selected
+                );
 
                 for (const { name, category } of courses) {
-                  cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']")
-                    .as("courseCards");
+                  cy.get(
+                    "[data-cy = 'courses'] [data-cy = 'certificateCard']"
+                  ).as("courseCards");
                   if (category == courseCategory) {
-                    cy.get("@courseCards")
-                      .contains(name)
-                      .should("be.visible");
+                    cy.get("@courseCards").contains(name).should("be.visible");
                   } else {
-                    cy.get("@courseCards")
-                      .contains(name)
-                      .should("not.exist");
+                    cy.get("@courseCards").contains(name).should("not.exist");
                   }
                 }
               });
@@ -179,14 +200,16 @@ describe("Education section", () => {
                 .as("allButton");
             });
 
-            it("contains \"All\"", () => {
+            it('contains "All"', () => {
               cy.get("@allButton").and("contain", "All");
             });
 
             it("displays all courses", () => {
               cy.get("@allButton").click();
-              cy.get("@allButton")
-                .should("have.class", toggleButtonClasses.selected);
+              cy.get("@allButton").should(
+                "have.class",
+                toggleButtonClasses.selected
+              );
 
               for (const { name } of courses) {
                 cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']")
@@ -237,7 +260,7 @@ describe("Education section", () => {
 
                 cy.get("@anchor")
                   .invoke("attr", "href")
-                  .then(href => {
+                  .then((href) => {
                     expect(href).to.exist;
                     if (href) {
                       const filename = href.split("/").at(-1);
@@ -249,8 +272,15 @@ describe("Education section", () => {
                         }
                         case "jpg": {
                           fileTypeMatchingString = "JFIF";
-                          const fileUrl = new URL(href, Cypress.config().baseUrl ?? "").href;
-                          cy.downloadFile(fileUrl, "./cypress/downloads", filename ?? "");
+                          const fileUrl = new URL(
+                            href,
+                            Cypress.config().baseUrl ?? ""
+                          ).href;
+                          cy.downloadFile(
+                            fileUrl,
+                            "./cypress/downloads",
+                            filename ?? ""
+                          );
                           break;
                         }
                       }

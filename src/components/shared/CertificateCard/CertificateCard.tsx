@@ -6,19 +6,20 @@ import getBrandIconById from "@/components/shared/icons/getBrandIconById";
 import CertificateCardProps from "./CertificateCardProps";
 import useSx from "./useSx";
 
-const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status, certificateUrl, ...props }) => {
+const CertificateCard: FC<CertificateCardProps> = ({
+  name,
+  organization,
+  status,
+  certificateUrl,
+  ...props
+}) => {
   const sx = useSx({ organization });
   const Icon = getBrandIconById(organization.id);
   const cardContent = (
     <CardContent sx={sx.cardContent}>
-      <Icon
-        fontSize="large"
-        sx={sx.icon}
-      />
+      <Icon fontSize="large" sx={sx.icon} />
       <div>
-        <Typography data-cy="name">
-          {name}
-        </Typography>
+        <Typography data-cy="name">{name}</Typography>
         <Typography sx={sx.organization} data-cy="organization">
           {organization.name}
         </Typography>
@@ -33,14 +34,13 @@ const CertificateCard: FC<CertificateCardProps> = ({ name, organization, status,
 
   return (
     <Card {...props} data-cy="certificateCard">
-      {certificateUrl
-        ? (
-          <CardActionArea href={certificateUrl} target="_blank">
-            {cardContent}
-          </CardActionArea>
-        )
-        : cardContent
-      }
+      {certificateUrl ? (
+        <CardActionArea href={certificateUrl} target="_blank">
+          {cardContent}
+        </CardActionArea>
+      ) : (
+        cardContent
+      )}
     </Card>
   );
 };

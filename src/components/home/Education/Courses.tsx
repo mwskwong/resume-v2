@@ -1,4 +1,10 @@
-import { Stack, ToggleButton, ToggleButtonGroup, Typography, Unstable_Grid2 as Grid } from "@mui/material";
+import {
+  Unstable_Grid2 as Grid,
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from "@mui/material";
 import { FC, MouseEvent, useState } from "react";
 
 import getCertificateUrlById from "@/assets/getCertificateUrlById";
@@ -12,7 +18,10 @@ const Courses: FC = () => {
   const sx = useSx();
   const [categorySelected, setCategorySelected] = useState("");
 
-  const handleCategoryChange = (_: MouseEvent<HTMLElement>, category: string | null) => {
+  const handleCategoryChange = (
+    _: MouseEvent<HTMLElement>,
+    category: string | null
+  ) => {
     if (category !== null) {
       setCategorySelected(category);
     }
@@ -34,16 +43,23 @@ const Courses: FC = () => {
         <ToggleButton value="" data-cy="category">
           All
         </ToggleButton>
-        {categories.map(category =>
-          <ToggleButton key={category.id} value={category.id} data-cy="category">
+        {categories.map((category) => (
+          <ToggleButton
+            key={category.id}
+            value={category.id}
+            data-cy="category"
+          >
             {category.name}
           </ToggleButton>
-        )}
+        ))}
       </ToggleButtonGroup>
       <div>
         <Grid container spacing={2}>
           {courses
-            .filter(({ category }) => !categorySelected || category.id === categorySelected)
+            .filter(
+              ({ category }) =>
+                !categorySelected || category.id === categorySelected
+            )
             .map(({ id, name, institution }) => {
               const certificateUrl = getCertificateUrlById(id);
 

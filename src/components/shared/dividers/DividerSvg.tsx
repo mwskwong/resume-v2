@@ -10,13 +10,7 @@ import useSx from "./useDividerSvgSx";
 const DividerSvg: FC<BoxProps<"svg">> = ({ sx: sxProp, ...props }) => {
   const sx = useSx();
 
-  return (
-    <Box
-      component="svg"
-      sx={cx(sx.root, sxProp)}
-      {...props}
-    />
-  );
+  return <Box component="svg" sx={cx(sx.root, sxProp)} {...props} />;
 };
 
 export default DividerSvg;

@@ -1,12 +1,20 @@
 import {
+  TimelineItem as MuiTimelineItem,
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-  TimelineItem as MuiTimelineItem,
   TimelineOppositeContent,
-  TimelineSeparator
+  TimelineSeparator,
 } from "@mui/lab";
-import { Box, Chip, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import {
+  Box,
+  Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import { formatDistanceStrict } from "date-fns";
 import { FC } from "react";
 
@@ -29,14 +37,21 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
   return (
     <MuiTimelineItem>
       <TimelineOppositeContent sx={sx.periodDesktop} data-cy="periodDesktop">
-        {period}<br />{duration}
+        {period}
+        <br />
+        {duration}
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineDot color="primary" />
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent sx={sx.timelineContent}>
-        <Typography sx={sx.periodMobile} component="div" gutterBottom data-cy="periodMobile">
+        <Typography
+          sx={sx.periodMobile}
+          component="div"
+          gutterBottom
+          data-cy="periodMobile"
+        >
           {period} • {duration}
         </Typography>
         <Typography sx={sx.title} component="div" data-cy="title">
@@ -61,19 +76,14 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         )}
         {Boolean(data.tags?.length) && (
           <Box sx={sx.tagsContainer} data-cy="tags">
-            {data.tags?.map(tag => (
-              <Chip
-                key={tag}
-                sx={sx.tag}
-                label={tag}
-                data-cy={tag}
-              />
+            {data.tags?.map((tag) => (
+              <Chip key={tag} sx={sx.tag} label={tag} data-cy={tag} />
             ))}
           </Box>
         )}
         {Boolean(data.supportingDocuments?.length) && (
           <List sx={sx.supportingDocumentList}>
-            {data.supportingDocuments?.map(supportingDocument => (
+            {data.supportingDocuments?.map((supportingDocument) => (
               <SupportingDocumentListItem
                 key={supportingDocument.id}
                 supportingDocument={supportingDocument}

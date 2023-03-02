@@ -4,14 +4,14 @@ const formSchema = object().shape({
   name: string().required(),
   email: string().email().required(),
   subject: string().required(),
-  message: string().required()
+  message: string().required(),
 });
 
 export const defaultValues = {
   name: "",
   email: "",
   subject: "",
-  message: ""
+  message: "",
 };
 
 export default formSchema;

@@ -15,18 +15,18 @@ export const GET = () => {
       {
         src: "/android-chrome-192x192.png",
         sizes: "192x192",
-        type: "image/png"
+        type: "image/png",
       },
       {
         src: "/android-chrome-512x512.png",
         sizes: "512x512",
-        type: "image/png"
-      }
+        type: "image/png",
+      },
     ],
     start_url: "/",
     display: "standalone",
     theme_color: "#ffffff",
-    background_color: "#ffffff"
+    background_color: "#ffffff",
   };
 
   return NextResponse.json(manifest);

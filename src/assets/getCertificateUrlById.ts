@@ -33,7 +33,7 @@ const certificates = {
   mysqlForDba,
   openShift,
   oracleDba,
-  oracleTuning
+  oracleTuning,
 };
 
 const getCertificateUrlById = (certificateId: Course["id"]) => {
