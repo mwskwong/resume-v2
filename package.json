@@ -8,6 +8,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.mjs",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "prettier --write .",
     "cypress": "cypress open",
     "test": "cypress run --browser edge"
   },
@@ -43,7 +44,7 @@
     "@svgr/webpack": "^6.5.1",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.14.3",
+    "@types/node": "^18.14.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/web-app-manifest": "^1.0.2",
