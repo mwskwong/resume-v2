@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import { FormError } from "@formspree/core";
 import { buttonClasses } from "@mui/material";
 import contactForm from "cypress/fixtures/contactForm.json";
 import viewports from "cypress/fixtures/viewports.json";
@@ -109,7 +108,8 @@ describe("Contact section", () => {
 
           cy.get("@form").submit();
           cy.wait("@formspreeApi").then(({ response }) => {
-            expect(response?.body.ok).to.be.true;
+            const body = response?.body as typeof contactForm.formspreeResponse.success;
+            expect(body.ok).to.be.true;
           });
 
           cy.get("@submitButton").should("have.class", buttonClasses.containedSuccess);
@@ -133,7 +133,8 @@ describe("Contact section", () => {
           cy.get("@form").submit();
           cy.wait("@formspreeApi").then(({ response }) => {
             cy.get("@form").find("[data-cy = 'alerts']").as("alerts");
-            for (const error of response?.body.errors as FormError[]) {
+            const body = response?.body as typeof contactForm.formspreeResponse.error;
+            for (const error of body.errors) {
               cy.get("@alerts")
                 .should("be.visible")
                 .and("contain", error.message);

@@ -106,8 +106,8 @@ describe("Education section", () => {
                       cy.get("@anchor")
                         .invoke("attr", "href")
                         .then(href => {
-                          const filename = href?.split("/").slice(-1);
-                          cy.readFile(`./cypress/downloads/${filename}`)
+                          const filename = href?.split("/").at(-1);
+                          cy.readFile(`./cypress/downloads/${filename ?? ""}`)
                             .should("contain", "%PDF-")
                             .and("contain", document.matchingString);
                         });
@@ -239,25 +239,26 @@ describe("Education section", () => {
                   .invoke("attr", "href")
                   .then(href => {
                     expect(href).to.exist;
+                    if (href) {
+                      const filename = href.split("/").at(-1);
+                      let fileTypeMatchingString;
+                      switch (courseCertificate.type) {
+                        case "pdf": {
+                          fileTypeMatchingString = "%PDF-";
+                          break;
+                        }
+                        case "jpg": {
+                          fileTypeMatchingString = "JFIF";
+                          const fileUrl = new URL(href, Cypress.config().baseUrl ?? "").href;
+                          cy.downloadFile(fileUrl, "./cypress/downloads", filename ?? "");
+                          break;
+                        }
+                      }
 
-                    const filename = href?.split("/").at(-1);
-                    let fileTypeMatchingString;
-                    switch (courseCertificate.type) {
-                      case "pdf": {
-                        fileTypeMatchingString = "%PDF-";
-                        break;
-                      }
-                      case "jpg": {
-                        fileTypeMatchingString = "JFIF";
-                        const fileUrl = new URL(href!, Cypress.config().baseUrl!).href;
-                        cy.downloadFile(fileUrl, "./cypress/downloads", filename!);
-                        break;
-                      }
+                      cy.readFile(`./cypress/downloads/${filename ?? ""}`)
+                        .should("contain", fileTypeMatchingString)
+                        .and("contain", courseCertificate.matchingString);
                     }
-
-                    cy.readFile(`./cypress/downloads/${filename}`)
-                      .should("contain", fileTypeMatchingString)
-                      .and("contain", courseCertificate.matchingString);
                   });
               });
             }

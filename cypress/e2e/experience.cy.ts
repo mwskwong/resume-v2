@@ -121,8 +121,8 @@ describe("Experience section", () => {
                       cy.get("@anchor")
                         .invoke("attr", "href")
                         .then(href => {
-                          const filename = href?.split("/").slice(-1);
-                          cy.readFile(`./cypress/downloads/${filename}`)
+                          const filename = href?.split("/").at(-1);
+                          cy.readFile(`./cypress/downloads/${filename ?? ""}`)
                             .should("contain", "%PDF-")
                             .and("contain", document.matchingString);
                         });

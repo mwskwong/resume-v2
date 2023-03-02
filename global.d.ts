@@ -2,10 +2,10 @@ import { FC, SVGProps } from "react";
 
 declare global {
   namespace NodeJS {
-    interface ProcessEnv {
+    interface ProcessEnv {      
       NEXT_PUBLIC_URL: string;
       NEXT_PUBLIC_FORMSPREE_FORM_ID: string;
-      ANALYZE_BUNDLE: 1 | 0;
+      ANALYZE_BUNDLE: "true" | "false";
       VERCEL_ENV: "preview" | "production" | "development";
     }
   }
