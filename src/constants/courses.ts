@@ -45,7 +45,6 @@ const courses: Course[] = [
     name: "Information Security Awareness-ISO 27001:2013",
     category: getCourseCategoryById("ops"),
     institution: getBrandById("udemy")
-
   },
   {
     id: "introToNumPy",

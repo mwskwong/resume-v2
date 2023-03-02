@@ -1,17 +1,23 @@
-import { ListItem,  ListItemButton, ListItemText, Tooltip } from "@mui/material";
+import { ListItem, ListItemButton, ListItemText, Tooltip } from "@mui/material";
 import Image from "next/image";
 import { FC } from "react";
 
-import styles from "./supportingDocumentListItem.module.css";
 import SupportingDocumentListItemProps from "./SupportingDocumentListItemProps";
+import styles from "./supportingDocumentListItem.module.css";
 import useSx from "./useSupportingDocumentListItemSx";
 
-const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({ supportingDocument, ...props }) => {
+const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
+  supportingDocument,
+  ...props
+}) => {
   const sx = useSx({ private: supportingDocument.private });
   const PopperProps = { sx: sx.tooltip };
 
   return (
-    <Tooltip title="Private document; Contact me for access" PopperProps={PopperProps}>
+    <Tooltip
+      title="Private document; Contact me for access"
+      PopperProps={PopperProps}
+    >
       <ListItem disablePadding {...props}>
         <ListItemButton
           component="a"

@@ -13,9 +13,7 @@ const educations: Education[] = [
     to: new Date(2019, 6),
     degree: "BEng in Computer Science",
     school: "The University of Hong Kong",
-    supportingDocuments: [
-      "hkuCsCertOfGrad"
-    ]
+    supportingDocuments: ["hkuCsCertOfGrad"]
   }
 ];
 

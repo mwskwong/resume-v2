@@ -1,6 +1,11 @@
 import { StaticImageData } from "next/image";
 
-export type SectionId = "home" | "about" | "experience" | "education" | "contact";
+export type SectionId =
+  | "home"
+  | "about"
+  | "experience"
+  | "education"
+  | "contact";
 
 export interface Section {
   id: SectionId;
@@ -27,7 +32,17 @@ export interface CourseCategory {
 }
 
 export interface Brand {
-  id: "dataCamp" | "enterpriseDb" | "gitHub" | "google" | "linkedIn" | "microsoft" | "mongoDb" | "oracle" | "stackOverflow" | "udemy";
+  id:
+    | "dataCamp"
+    | "enterpriseDb"
+    | "gitHub"
+    | "google"
+    | "linkedIn"
+    | "microsoft"
+    | "mongoDb"
+    | "oracle"
+    | "stackOverflow"
+    | "udemy";
   name: string;
 }
 

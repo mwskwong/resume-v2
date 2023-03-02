@@ -26,10 +26,10 @@ export const GET = () => {
     .filter(isString)
     .map(url => toUrl(`${siteUrl}${url}`));
 
-  const urls = orderBy([
-    ...supportingDocumentsUrls,
-    ...courseCertificateUrls
-  ], ["loc"]);
+  const urls = orderBy(
+    [...supportingDocumentsUrls, ...courseCertificateUrls],
+    ["loc"]
+  );
 
   return new NextResponse(
     endent`

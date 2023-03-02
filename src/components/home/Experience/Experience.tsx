@@ -11,10 +11,7 @@ import ExperienceTimeline from "./ExperienceTimeline";
 const Experience: FC = () => (
   <Container>
     <Stack spacing={6}>
-      <SectionHeader
-        heading="Experience"
-        icon={<Work />}
-      />
+      <SectionHeader heading="Experience" icon={<Work />} />
       <ExperienceTimeline />
     </Stack>
   </Container>

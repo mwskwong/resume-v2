@@ -29,7 +29,7 @@ export const GET = async () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: 170 / 2 * 1.16,
+            fontSize: (170 / 2) * 1.16,
             lineHeight: "100%",
             textTransform: "uppercase",
             marginLeft: 15

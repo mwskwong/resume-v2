@@ -9,19 +9,24 @@ const useActiveSectionId = (): SectionId => {
   const [activeSectionId, setActiveSectionId] = useState(HOME.id);
 
   useEffect(() => {
-    const sectionIds = Object.values(nav).map(({ id }) => id).reverse();
+    const sectionIds = Object.values(nav)
+      .map(({ id }) => id)
+      .reverse();
 
     const handleScroll = throttle(() => {
-      const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight;
 
       if (scrolledToBottom) {
         startTransition(() => setActiveSectionId(sectionIds[0]));
       } else {
         for (const sectionId of sectionIds) {
           const section = document.getElementById(sectionId);
-          const sectionActive = section
-            && section.offsetTop < document.documentElement.scrollTop
-            + document.documentElement.clientHeight / 8;
+          const sectionActive =
+            section &&
+            section.offsetTop <
+              document.documentElement.scrollTop +
+                document.documentElement.clientHeight / 8;
 
           if (sectionActive) {
             startTransition(() => setActiveSectionId(sectionId));

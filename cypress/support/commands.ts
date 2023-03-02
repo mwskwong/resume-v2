@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
-import "cypress-downloadfile/lib/downloadFileCommand";
-
 import { buttonClasses, listItemButtonClasses } from "@mui/material";
+import "cypress-downloadfile/lib/downloadFileCommand";
 
 // ***********************************************
 // This example commands.ts shows you how to
@@ -50,13 +49,18 @@ Cypress.Commands.add("disableSmoothScroll", () => {
 
 Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const container = viewport === "desktop" ? "navButtons" : "navList";
-  const activeClassName = viewport === "desktop" ? buttonClasses.textPrimary : listItemButtonClasses.selected;
+  const activeClassName =
+    viewport === "desktop"
+      ? buttonClasses.textPrimary
+      : listItemButtonClasses.selected;
 
   if (viewport === "mobile") {
     cy.get("[data-cy = 'menuButton']").click();
   }
 
-  cy.get(`[data-cy = '${container}'] [data-cy = '${section.id}']`).as("navElement");
+  cy.get(`[data-cy = '${container}'] [data-cy = '${section.id}']`).as(
+    "navElement"
+  );
   cy.get("@navElement").should("contain", section.name);
   cy.get("@navElement").click();
   cy.get("@navElement").should("have.class", activeClassName);
@@ -68,14 +72,14 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
 });
 
 Cypress.Commands.add("verifySectionIsInViewport", section => {
-  cy.get(`#${section.id}`).first()
+  cy.get(`#${section.id}`)
+    .first()
     .should($section =>
       // Expect equal to 0, with +-1px margin of error
       expect($section[0].getClientRects()[0].top)
         .greaterThan(-1)
-        .and
-        .lessThan(1)
+        .and.lessThan(1)
     );
 });
 
-export { };
+export {};

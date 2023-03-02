@@ -1,9 +1,9 @@
 import {
   AllInclusiveRounded as AllInclusive,
   BugReportRounded as BugReport,
-  CloudRounded as MuiCloud,
   DashboardRounded as Dashboard,
   DevicesOtherRounded as DevicesOther,
+  CloudRounded as MuiCloud,
   TerminalRounded as Terminal
 } from "@mui/icons-material";
 import { SvgIconProps } from "@mui/material";
@@ -15,12 +15,24 @@ import Database from "./Database";
 import MachineLearning from "./MachineLearning";
 import ProjectManagement from "./ProjectManagement";
 
-const Backend: FC<SvgIconProps> = props => <Terminal data-cy="beIcon" {...props} />;
-const Cloud: FC<SvgIconProps> = props => <MuiCloud data-cy="cloudIcon" {...props} />;
-const DataOps: FC<SvgIconProps> = props => <AllInclusive data-cy="dataOpsIcon" {...props} />;
-const Frontend: FC<SvgIconProps> = props => <Dashboard data-cy="feIcon" {...props} />;
-const QualityAssurance: FC<SvgIconProps> = props => <BugReport data-cy="qaIcon" {...props} />;
-const Mobile: FC<SvgIconProps> = props => <DevicesOther data-cy="mobileIcon" {...props} />;
+const Backend: FC<SvgIconProps> = props => (
+  <Terminal data-cy="beIcon" {...props} />
+);
+const Cloud: FC<SvgIconProps> = props => (
+  <MuiCloud data-cy="cloudIcon" {...props} />
+);
+const DataOps: FC<SvgIconProps> = props => (
+  <AllInclusive data-cy="dataOpsIcon" {...props} />
+);
+const Frontend: FC<SvgIconProps> = props => (
+  <Dashboard data-cy="feIcon" {...props} />
+);
+const QualityAssurance: FC<SvgIconProps> = props => (
+  <BugReport data-cy="qaIcon" {...props} />
+);
+const Mobile: FC<SvgIconProps> = props => (
+  <DevicesOther data-cy="mobileIcon" {...props} />
+);
 
 const getSkillSetIconById = (id: SkillSet["id"]) => {
   switch (id) {

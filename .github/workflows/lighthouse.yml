@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      
+
       - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
 
       - name: Lighthouse

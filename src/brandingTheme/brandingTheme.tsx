@@ -1,12 +1,27 @@
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
-import type { } from "@mui/lab/themeAugmentation";
-import { alpha, darken, experimental_extendTheme as extendTheme, lighten, toggleButtonGroupClasses, touchRippleClasses } from "@mui/material";
-import type { } from "@mui/material/themeCssVarsAugmentation";
-import { siDatacamp, siEnterprisedb, siGoogle, siMicrosoft, siMongodb, siOracle, siUdemy } from "simple-icons";
+import type {} from "@mui/lab/themeAugmentation";
+import {
+  alpha,
+  darken,
+  experimental_extendTheme as extendTheme,
+  lighten,
+  toggleButtonGroupClasses,
+  touchRippleClasses
+} from "@mui/material";
+import type {} from "@mui/material/themeCssVarsAugmentation";
+import {
+  siDatacamp,
+  siEnterprisedb,
+  siGoogle,
+  siMicrosoft,
+  siMongodb,
+  siOracle,
+  siUdemy
+} from "simple-icons";
 
 import rubik from "./rubik";
 
-const pxToRem = (size: number) => `${(size / 16)}rem`;
+const pxToRem = (size: number) => `${size / 16}rem`;
 
 const grey = {
   50: "#F3F6F9",

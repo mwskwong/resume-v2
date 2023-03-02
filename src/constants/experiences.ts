@@ -33,11 +33,7 @@ const experiences: Experience[] = [
       "Planned and finalized web app OS and DB migration within 1 week"
     ],
     supportingDocuments: [],
-    relevantSkills: [
-      "ASP",
-      "jQuery UI",
-      "Microsoft SQL Server"
-    ]
+    relevantSkills: ["ASP", "jQuery UI", "Microsoft SQL Server"]
   },
   {
     from: new Date(2021, 7),
@@ -52,10 +48,7 @@ const experiences: Experience[] = [
       "Designed and developed a web app using React, Express, and MySQL to visualize database CPU utilization which led to a 30% increase in productivity",
       "POC on data virtualization with Delphix DataOps platform supporting 3 types of DB and 50+ DB instances"
     ],
-    supportingDocuments: [
-      "haSc3RefLetter",
-      "lunchAndLearn"
-    ],
+    supportingDocuments: ["haSc3RefLetter", "lunchAndLearn"],
     relevantSkills: [
       "MySQL",
       "Microsoft SQL Server",
@@ -121,13 +114,8 @@ const experiences: Experience[] = [
     jobDuties: [
       "Develop and design a JavaFX application to perform bioinformatics analysis"
     ],
-    supportingDocuments: [
-      "hkuMedRaRefLetter"
-    ],
-    relevantSkills: [
-      "JavaFX",
-      "ControlsFX"
-    ]
+    supportingDocuments: ["hkuMedRaRefLetter"],
+    relevantSkills: ["JavaFX", "ControlsFX"]
   },
   {
     from: new Date(2017, 0),
@@ -137,12 +125,8 @@ const experiences: Experience[] = [
     jobDuties: [
       "Instruct over 20 students during tutorial sessions of a C++ programming course"
     ],
-    supportingDocuments: [
-      "hkuEngTaRefLetter"
-    ],
-    relevantSkills: [
-      "C++"
-    ]
+    supportingDocuments: ["hkuEngTaRefLetter"],
+    relevantSkills: ["C++"]
   }
 ];
 

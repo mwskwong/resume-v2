@@ -1,6 +1,16 @@
 "use client";
 
-import { AppBar, ClickAwayListener, Collapse, Container, List, Stack, Theme, Toolbar, useMediaQuery } from "@mui/material";
+import {
+  AppBar,
+  ClickAwayListener,
+  Collapse,
+  Container,
+  List,
+  Stack,
+  Theme,
+  Toolbar,
+  useMediaQuery
+} from "@mui/material";
 import { FC, useEffect, useState } from "react";
 
 import nav from "@/constants/nav";
@@ -55,10 +65,10 @@ const NavBar: FC = () => {
             onToggleMenu={handleMenuToggle}
           />
         </Toolbar>
-        <Collapse 
+        <Collapse
           in={menuOpen}
-          timeout={preferReducedMotion ? 0 : "auto"} 
-          sx={sx.navList} 
+          timeout={preferReducedMotion ? 0 : "auto"}
+          sx={sx.navList}
           unmountOnExit
         >
           <ClickAwayListener onClickAway={handleMenuClickAway}>

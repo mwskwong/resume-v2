@@ -22,11 +22,7 @@ const EmotionRegistry: FC<PropsWithChildren> = ({ children }) => {
     />
   ));
 
-  return (
-    <CacheProvider value={cache}>
-      {children}
-    </CacheProvider>
-  );
+  return <CacheProvider value={cache}>{children}</CacheProvider>;
 };
 
 export default EmotionRegistry;

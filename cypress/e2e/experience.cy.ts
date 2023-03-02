@@ -18,12 +18,15 @@ describe("Experience section", () => {
         it("navigates to section by clicking navigation link", () => {
           cy.wait(10);
           cy.scrollTo("center");
-          cy.navigateToSection(EXPERIENCE, viewportType as keyof typeof viewports);
+          cy.navigateToSection(
+            EXPERIENCE,
+            viewportType as keyof typeof viewports
+          );
         });
       });
 
       describe("Section header", () => {
-        it("contains \"Experience\"", () => {
+        it('contains "Experience"', () => {
           cy.get("[data-cy = 'experience'] [data-cy = 'sectionHeader']")
             .should("be.visible")
             .and("contain", "Experience");
@@ -31,27 +34,42 @@ describe("Experience section", () => {
       });
 
       describe("Experience timeline", () => {
-        const timelineSelector = "[data-cy = 'experience'] [data-cy = 'timeline']";
+        const timelineSelector =
+          "[data-cy = 'experience'] [data-cy = 'timeline']";
         it("'s period is responsive", () => {
           const periodDesktopDataCy = "periodDesktop";
           const periodMobileDataCy = "periodMobile";
 
           if (viewportType === "desktop") {
-            cy.get(`${timelineSelector} [data-cy = '${periodDesktopDataCy}']`)
-              .should("be.visible");
-            cy.get(`${timelineSelector} [data-cy = '${periodMobileDataCy}']`)
-              .should("not.be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
+            ).should("be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
+            ).should("not.be.visible");
           } else {
-            cy.get(`${timelineSelector} [data-cy = '${periodDesktopDataCy}']`)
-              .should("not.be.visible");
-            cy.get(`${timelineSelector} [data-cy = '${periodMobileDataCy}']`)
-              .should("be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
+            ).should("not.be.visible");
+            cy.get(
+              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
+            ).should("be.visible");
           }
         });
 
         for (let i = 0; i < experiences.length; i++) {
-          const { from, to, jobTitle, company, jobDuties, relevantSkills, supportingDocuments } = experiences[i];
-          const period = `${dateTimeFormat.format(from)} — ${to === "Present" ? "Present" : dateTimeFormat.format(to)}`;
+          const {
+            from,
+            to,
+            jobTitle,
+            company,
+            jobDuties,
+            relevantSkills,
+            supportingDocuments
+          } = experiences[i];
+          const period = `${dateTimeFormat.format(from)} — ${
+            to === "Present" ? "Present" : dateTimeFormat.format(to)
+          }`;
           const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
           describe(`${jobTitle} at ${company}`, () => {
@@ -100,20 +118,25 @@ describe("Experience section", () => {
               }
             });
 
-            describe("Support documents", () => {              
+            describe("Support documents", () => {
               for (const supportingDocument of supportingDocuments) {
-                const document = documents[supportingDocument as keyof typeof documents];
+                const document =
+                  documents[supportingDocument as keyof typeof documents];
 
                 describe(supportingDocument, () => {
                   it("contains the correct label", () => {
-                    cy.get(`${timelineSelector} [data-cy = '${supportingDocument}']`)
+                    cy.get(
+                      `${timelineSelector} [data-cy = '${supportingDocument}']`
+                    )
                       .should("be.visible")
                       .and("contain", document.name);
                   });
 
                   if (!document.private) {
                     it("opens the correct document in a new tab", () => {
-                      cy.get(`${timelineSelector} [data-cy = '${supportingDocument}'] a`).as("anchor");
+                      cy.get(
+                        `${timelineSelector} [data-cy = '${supportingDocument}'] a`
+                      ).as("anchor");
                       cy.get("@anchor")
                         .should("have.attr", "target", "_blank")
                         .click();
@@ -130,7 +153,9 @@ describe("Experience section", () => {
                   }
 
                   it("contains the correct thumbnail", () => {
-                    cy.get(`${timelineSelector} [data-cy = '${supportingDocument}'] img`)
+                    cy.get(
+                      `${timelineSelector} [data-cy = '${supportingDocument}'] img`
+                    )
                       .should("be.visible")
                       .and("have.attr", "src")
                       .and("match", new RegExp(document.thumbnailRegex, "i"));

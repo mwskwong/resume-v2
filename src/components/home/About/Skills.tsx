@@ -1,4 +1,11 @@
-import { Avatar, Box, Chip, Stack, Typography, Unstable_Grid2 as Grid } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Chip,
+  Unstable_Grid2 as Grid,
+  Stack,
+  Typography
+} from "@mui/material";
 import { FC } from "react";
 
 import getSkillSetIconById from "@/components/shared/icons/getSkillSetIconById";

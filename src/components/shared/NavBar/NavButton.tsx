@@ -12,7 +12,11 @@ const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
   };
 
   return (
-    <Button color={active ? "primary" : "inherit"} onClick={handleClick} data-cy={id}>
+    <Button
+      color={active ? "primary" : "inherit"}
+      onClick={handleClick}
+      data-cy={id}
+    >
       {label}
       <Box component="span" sx={sx.active} />
     </Button>
