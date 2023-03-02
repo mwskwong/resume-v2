@@ -8,6 +8,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.mjs",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "prettier --write .",
     "cypress": "cypress open",
     "test": "cypress run --browser edge"
   },
