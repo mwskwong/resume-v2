@@ -1,7 +1,7 @@
 import { EmailRounded as Email, LocationOnRounded as Location, SmartphoneRounded as Mobile } from "@mui/icons-material";
 import { Box, Typography, Unstable_Grid2 as Grid } from "@mui/material";
 
-import contact from "@/constants/contact";
+import contact, { email, phone } from "@/constants/contact";
 
 import ContactUiTemplate from "./ContactUiTemplate";
 import useSx from "./usePersonalInfoSx";
@@ -11,13 +11,13 @@ const contactUiTemplates: ContactUiTemplate[] = [
     id: "phone",
     Icon: Mobile,
     title: "Call Me On",
-    url: `tel:${contact.phone}`
+    url: `tel:${phone}`
   },
   {
     id: "email",
     Icon: Email,
     title: "Email Me At",
-    url: `mailto:${contact.email}`
+    url: `mailto:${email}`
   },
   {
     id: "address",

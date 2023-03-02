@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 
-export type SectionId = "home" | "about" | "experience" | "education" | "contact"
+export type SectionId = "home" | "about" | "experience" | "education" | "contact";
 
 export interface Section {
   id: SectionId;
@@ -56,7 +56,7 @@ export interface Experience {
   relevantSkills: string[];
 }
 
-export type JobTitle = string
+export type JobTitle = string;
 
 export interface Name {
   firstName: string;
@@ -64,7 +64,7 @@ export interface Name {
   lastName: string;
 }
 
-export type SelfIntroduction = string
+export type SelfIntroduction = string;
 
 export interface SkillSet {
   id: "fe" | "be" | "cloud" | "dataOps" | "db" | "qa" | "mobile" | "ml" | "pm";

@@ -22,18 +22,21 @@ const nextConfig = {
   },
   webpack: config => {
     // import PDF as file url
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     config.module.rules.push({
       test: /\.pdf$/i,
       type: "asset/resource"
     });
 
     // import SVG as component
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"]
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return config;
   },
   modularizeImports: {
@@ -50,7 +53,7 @@ const nextConfig = {
       preventFullImport: true
     }
   },
-  headers: async () => [
+  headers: () => [
     {
       source: "/:path*",
       headers: [

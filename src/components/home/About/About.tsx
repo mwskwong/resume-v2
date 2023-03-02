@@ -29,7 +29,7 @@ const About: FC = () => {
           alt={`Picture of ${firstName} ${lastName}`}
           width={200}
           height={200}
-          className={styles.picture}
+          className={styles.image}
           data-cy="profilePicture"
         />
         <Message />

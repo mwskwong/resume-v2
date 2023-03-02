@@ -11,7 +11,7 @@ import experiences from "@/constants/experiences";
 import toUrl from "./toUrl";
 import toXml from "./toXml";
 
-export const GET = async () => {
+export const GET = () => {
   const siteUrl = process.env.NEXT_PUBLIC_URL;
 
   const supportingDocumentsUrls = experiences

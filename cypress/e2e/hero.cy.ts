@@ -93,8 +93,8 @@ describe("Hero section", () => {
           cy.get("@downloadResumeButton")
             .invoke("attr", "href")
             .then(href => {
-              const filename = href?.split("/").slice(-1);
-              cy.readFile(`./cypress/downloads/${filename}`)
+              const filename = href?.split("/").at(-1);
+              cy.readFile(`./cypress/downloads/${filename ?? ""}`)
                 .should("contain", "%PDF-")
                 .and("contain", `Resume of ${firstName} ${lastName}`);
             });

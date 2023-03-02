@@ -5,7 +5,7 @@ import { WebAppManifest } from "web-app-manifest";
 import { firstName, lastName } from "@/constants/name";
 import selfIntroduction from "@/constants/selfIntroduction";
 
-export const GET = async () => {
+export const GET = () => {
   const manifest: WebAppManifest = {
     lang: "en",
     name: `${firstName} ${lastName}`,

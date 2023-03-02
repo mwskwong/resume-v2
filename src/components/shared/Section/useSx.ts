@@ -21,9 +21,9 @@ const useSx = ({ variant, fullHeight }: Pick<SectionProps, "variant" | "fullHeig
 
         return key;
       }
-    ),
+    ) as typeof theme.mixins.toolbar,
     py: 10,
-    minHeight: fullHeight && "100vh",
+    minHeight: fullHeight ? "100vh": undefined,
     [`& .${avatarClasses.root}`]: {
       bgcolor: `background.${getPaperBgColor(variant)}`
     },
