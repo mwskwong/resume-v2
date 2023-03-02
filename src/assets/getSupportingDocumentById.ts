@@ -15,32 +15,32 @@ const supportingDocuments: SupportingDocument[] = [
     id: "haSc3RefLetter",
     name: "Reference Letter",
     thumbnail: haSc3RefThumbnailBlur,
-    private: true
+    private: true,
   },
   {
     id: "lunchAndLearn",
     name: "Knowledge-sharing session certificate of appreciation",
     url: lunchAndLearnCert,
-    thumbnail: lunchAndLearnCertThumbnail
+    thumbnail: lunchAndLearnCertThumbnail,
   },
   {
     id: "hkuMedRaRefLetter",
     name: "Reference Letter",
     url: hkuMedRaRefLetter,
-    thumbnail: hkuMedRaRefLetterThumbnail
+    thumbnail: hkuMedRaRefLetterThumbnail,
   },
   {
     id: "hkuEngTaRefLetter",
     name: "Reference Letter",
     url: hkuEngTaRefLetter,
-    thumbnail: hkuEngTaRefLetterThumbnail
+    thumbnail: hkuEngTaRefLetterThumbnail,
   },
   {
     id: "hkuCsCertOfGrad",
     name: "Degree Certificate",
     url: hkuCsCert,
-    thumbnail: hkuCsCertThumbnail
-  }
+    thumbnail: hkuCsCertThumbnail,
+  },
 ];
 
 const getSupportingDocumentById = (

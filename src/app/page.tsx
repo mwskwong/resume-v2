@@ -19,7 +19,7 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   about: "primary",
   experience: "secondary",
   education: "primary",
-  contact: "default"
+  contact: "default",
 };
 
 const Home: FC = () => (

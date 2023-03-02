@@ -5,7 +5,7 @@ const useSx = () =>
     footer: {
       bgcolor: "background.sectionPrimary",
       color: "text.secondary",
-      py: 4
+      py: 4,
     },
     container: {
       display: "flex",
@@ -13,8 +13,8 @@ const useSx = () =>
       alignItems: "center",
       justifyContent: "space-between",
       "@media (min-width: 1300px)": {
-        flexDirection: "row"
-      }
+        flexDirection: "row",
+      },
     },
     text: {
       color: "inherit",
@@ -22,12 +22,12 @@ const useSx = () =>
       width: "100%",
       textAlign: "center",
       "@media (min-width: 1300px)": {
-        textAlign: "unset"
-      }
+        textAlign: "unset",
+      },
     },
     loveIcon: {
-      verticalAlign: "middle"
-    }
+      verticalAlign: "middle",
+    },
   });
 
 export default useSx;

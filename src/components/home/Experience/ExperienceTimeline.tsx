@@ -22,7 +22,7 @@ const ExperienceTimeline: FC = () => {
         getSupportingDocumentById(id)
       ),
       tags: relevantSkills,
-      ...elem
+      ...elem,
     })
   );
 

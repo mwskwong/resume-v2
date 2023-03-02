@@ -65,7 +65,7 @@ describe("Experience section", () => {
             company,
             jobDuties,
             relevantSkills,
-            supportingDocuments
+            supportingDocuments,
           } = experiences[i];
           const period = `${dateTimeFormat.format(from)} — ${
             to === "Present" ? "Present" : dateTimeFormat.format(to)

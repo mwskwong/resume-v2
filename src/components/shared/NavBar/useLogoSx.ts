@@ -4,8 +4,8 @@ const useSx = () =>
   makeSx({
     root: {
       typography: "h5",
-      fontWeight: "medium"
-    }
+      fontWeight: "medium",
+    },
   });
 
 export default useSx;

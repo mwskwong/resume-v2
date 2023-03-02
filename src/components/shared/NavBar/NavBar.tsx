@@ -9,7 +9,7 @@ import {
   Stack,
   Theme,
   Toolbar,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 

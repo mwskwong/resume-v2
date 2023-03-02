@@ -5,19 +5,19 @@ const useSx = ({ organization }: { organization: Brand }) =>
   makeSx({
     cardContent: {
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
     },
     organization: {
       typography: "body2",
       textTransform: "capitalize",
-      color: `${organization.id}.dark`
+      color: `${organization.id}.dark`,
     },
     icon: {
-      mr: "16px"
+      mr: "16px",
     },
     status: {
-      color: "text.secondary"
-    }
+      color: "text.secondary",
+    },
   });
 
 export default useSx;

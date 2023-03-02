@@ -8,14 +8,14 @@ const useSx = () =>
       alignItems: "center",
       justifyContent: "center",
       flex: 1,
-      textAlign: "center"
+      textAlign: "center",
     },
     name: {
-      color: "primary.main"
+      color: "primary.main",
     },
     platformProfiles: {
-      my: 4
-    }
+      my: 4,
+    },
   });
 
 export default useSx;

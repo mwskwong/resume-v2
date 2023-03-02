@@ -1,7 +1,7 @@
 import {
   EmailRounded as Email,
   LocationOnRounded as Location,
-  SmartphoneRounded as Mobile
+  SmartphoneRounded as Mobile,
 } from "@mui/icons-material";
 import { Box, Unstable_Grid2 as Grid, Typography } from "@mui/material";
 
@@ -15,20 +15,20 @@ const contactUiTemplates: ContactUiTemplate[] = [
     id: "phone",
     Icon: Mobile,
     title: "Call Me On",
-    url: `tel:${phone}`
+    url: `tel:${phone}`,
   },
   {
     id: "email",
     Icon: Email,
     title: "Email Me At",
-    url: `mailto:${email}`
+    url: `mailto:${email}`,
   },
   {
     id: "address",
     Icon: Location,
     title: "Find Me At",
-    url: "https://www.google.com/maps/place/Hong+Kong"
-  }
+    url: "https://www.google.com/maps/place/Hong+Kong",
+  },
 ];
 
 const PersonalInfo = () => {

@@ -3,7 +3,7 @@ import {
   Stack,
   ToggleButton,
   ToggleButtonGroup,
-  Typography
+  Typography,
 } from "@mui/material";
 import { FC, MouseEvent, useState } from "react";
 

@@ -12,12 +12,12 @@ const useFormspree: typeof useForm = (formKey, args) => {
       return await submitHandler(submissionData);
     } catch (error) {
       state.errors.push({
-        message: String(error)
+        message: String(error),
       });
 
       return Promise.resolve({
         body: { errors: [] },
-        response: null
+        response: null,
       });
     }
   };

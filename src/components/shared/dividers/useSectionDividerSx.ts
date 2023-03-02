@@ -5,7 +5,7 @@ import SectionDividerProps from "./SectionDividerProps";
 
 const useSx = ({
   previousSectionVariant,
-  nextSectionVariant
+  nextSectionVariant,
 }: SectionDividerProps) =>
   makeSx({
     root: {
@@ -13,8 +13,8 @@ const useSx = ({
         previousSectionVariant &&
         `background.${getBgColor(previousSectionVariant)}`,
       color:
-        nextSectionVariant && `background.${getBgColor(nextSectionVariant)}`
-    }
+        nextSectionVariant && `background.${getBgColor(nextSectionVariant)}`,
+    },
   });
 
 export default useSx;

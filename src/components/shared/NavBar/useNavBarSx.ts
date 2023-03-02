@@ -3,23 +3,23 @@ import makeSx from "@/utils/makeSx";
 const useSx = () =>
   makeSx({
     toolbar: {
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
     navButtonContainer: {
       display: {
         xs: "none",
-        md: "flex"
-      }
+        md: "flex",
+      },
     },
     menuButton: {
       mr: "-8px",
       display: {
-        md: "none"
-      }
+        md: "none",
+      },
     },
     navList: {
-      mx: "-12px"
-    }
+      mx: "-12px",
+    },
   });
 
 export default useSx;

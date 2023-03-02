@@ -12,8 +12,8 @@ const useSx = () =>
       pointerEvents: "none",
       userSelect: "none",
       verticalAlign: "middle",
-      overflow: "hidden"
-    }
+      overflow: "hidden",
+    },
   });
 
 export default useSx;

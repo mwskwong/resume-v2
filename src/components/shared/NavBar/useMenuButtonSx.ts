@@ -4,7 +4,7 @@ const useSx = () =>
   makeSx({
     root: {
       display: "inline-grid",
-      position: "relative"
+      position: "relative",
     },
     icon: {
       gridColumnStart: 1,
@@ -13,23 +13,23 @@ const useSx = () =>
       rotate: "0deg",
       opacity: 1,
       "@media (prefers-reduced-motion)": {
-        transition: "none"
-      }
+        transition: "none",
+      },
     },
     menuIconInactive: {
       rotate: "-45deg",
       opacity: 0,
       "@media (prefers-reduced-motion)": {
-        rotate: "0deg"
-      }
+        rotate: "0deg",
+      },
     },
     closeIconInactive: {
       rotate: "45deg",
       opacity: 0,
       "@media (prefers-reduced-motion)": {
-        rotate: "0deg"
-      }
-    }
+        rotate: "0deg",
+      },
+    },
   });
 
 export default useSx;

@@ -5,11 +5,11 @@ const useSx = () =>
     title: {
       typography: "subtitle2",
       color: "primary.main",
-      textAlign: "center"
+      textAlign: "center",
     },
     card: {
-      bgcolor: "background.sectionTertiary"
-    }
+      bgcolor: "background.sectionTertiary",
+    },
   });
 
 export default useSx;

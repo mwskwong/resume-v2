@@ -4,7 +4,7 @@ import {
   TimelineContent,
   TimelineDot,
   TimelineOppositeContent,
-  TimelineSeparator
+  TimelineSeparator,
 } from "@mui/lab";
 import {
   Box,
@@ -13,7 +13,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography
+  Typography,
 } from "@mui/material";
 import { formatDistanceStrict } from "date-fns";
 import { FC } from "react";

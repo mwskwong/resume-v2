@@ -1,6 +1,6 @@
 import {
   CloseRounded as Close,
-  MenuRounded as Menu
+  MenuRounded as Menu,
 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { FC } from "react";

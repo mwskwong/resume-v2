@@ -5,8 +5,8 @@ const useSx = () =>
     title: {
       typography: "subtitle2",
       color: "primary.main",
-      textAlign: "center"
-    }
+      textAlign: "center",
+    },
   });
 
 export default useSx;

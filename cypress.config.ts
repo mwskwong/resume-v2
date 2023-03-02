@@ -11,6 +11,6 @@ export default defineConfig({
     ...viewports.desktop,
     setupNodeEvents: on => {
       on("task", { downloadFile });
-    }
-  }
+    },
+  },
 });

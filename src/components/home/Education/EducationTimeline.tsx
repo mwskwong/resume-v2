@@ -12,7 +12,7 @@ const EducationTimeline: FC = () => {
       supportingDocuments: supportingDocuments.map(id =>
         getSupportingDocumentById(id)
       ),
-      ...elem
+      ...elem,
     })
   );
 

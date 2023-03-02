@@ -3,7 +3,7 @@
 import {
   CssBaseline,
   Experimental_CssVarsProvider as CssVarsProvider,
-  getInitColorSchemeScript
+  getInitColorSchemeScript,
 } from "@mui/material";
 import { ComponentProps, FC } from "react";
 

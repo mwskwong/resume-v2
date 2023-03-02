@@ -4,7 +4,7 @@ import {
   Chip,
   Unstable_Grid2 as Grid,
   Stack,
-  Typography
+  Typography,
 } from "@mui/material";
 import { FC } from "react";
 

@@ -3,44 +3,44 @@ import { Brand } from "@/types";
 const brands: Brand[] = [
   {
     id: "dataCamp",
-    name: "DataCamp"
+    name: "DataCamp",
   },
   {
     id: "enterpriseDb",
-    name: "EnterpriseDB"
+    name: "EnterpriseDB",
   },
   {
     id: "gitHub",
-    name: "GitHub"
+    name: "GitHub",
   },
   {
     id: "google",
-    name: "Google"
+    name: "Google",
   },
   {
     id: "linkedIn",
-    name: "LinkedIn"
+    name: "LinkedIn",
   },
   {
     id: "microsoft",
-    name: "Microsoft"
+    name: "Microsoft",
   },
   {
     id: "mongoDb",
-    name: "MongoDB"
+    name: "MongoDB",
   },
   {
     id: "oracle",
-    name: "Oracle"
+    name: "Oracle",
   },
   {
     id: "stackOverflow",
-    name: "StackOverflow"
+    name: "StackOverflow",
   },
   {
     id: "udemy",
-    name: "Udemy"
-  }
+    name: "Udemy",
+  },
 ];
 
 export const getBrandById = (brandId: Brand["id"]) => {

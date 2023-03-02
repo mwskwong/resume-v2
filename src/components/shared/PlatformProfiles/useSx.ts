@@ -3,8 +3,8 @@ import makeSx from "@/utils/makeSx";
 const useSx = () =>
   makeSx({
     root: {
-      justifyContent: "center"
-    }
+      justifyContent: "center",
+    },
   });
 
 export default useSx;

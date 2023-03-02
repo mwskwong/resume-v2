@@ -7,29 +7,29 @@ const useSx = () =>
       color: "text.secondary",
       display: {
         xs: "none",
-        md: "unset"
+        md: "unset",
       },
       flex: 0.28,
-      pt: "7px"
+      pt: "7px",
     },
     timelineContent: {
       pt: {
         xs: "7px",
-        md: "5px"
-      }
+        md: "5px",
+      },
     },
     periodMobile: {
       typography: "body2",
       color: "text.secondary",
       display: {
-        md: "none"
-      }
+        md: "none",
+      },
     },
     title: {
-      typography: "subtitle1"
+      typography: "subtitle1",
     },
     subtitle: {
-      color: "primary.main"
+      color: "primary.main",
     },
     listItemIcon: {
       minWidth: "initial",
@@ -38,26 +38,26 @@ const useSx = () =>
       alignSelf: "flex-start",
       display: "flex",
       alignItems: "center",
-      height: 24
+      height: 24,
     },
     listItemNumber: {
       typography: "overline",
       color: "text.secondary",
       userSelect: "none",
-      lineHeight: "initial"
+      lineHeight: "initial",
     },
     tagsContainer: {
       display: "flex",
       flexWrap: "wrap",
-      ml: -0.5
+      ml: -0.5,
     },
     tag: {
-      m: 0.5
+      m: 0.5,
     },
     supportingDocumentList: {
       pt: "16px",
-      pb: 0
-    }
+      pb: 0,
+    },
   });
 
 export default useSx;

@@ -3,8 +3,8 @@ import makeSx from "@/utils/makeSx";
 const useSx = () =>
   makeSx({
     stack: {
-      alignItems: "center"
-    }
+      alignItems: "center",
+    },
   });
 
 export default useSx;

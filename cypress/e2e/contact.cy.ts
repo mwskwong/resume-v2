@@ -106,7 +106,7 @@ describe("Contact section", () => {
 
         it("submits successfully when filling in valid contents", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, {
-            body: contactForm.formspreeResponse.success
+            body: contactForm.formspreeResponse.success,
           }).as("formspreeApi");
 
           cy.get("@nameInput").type(faker.name.fullName());
@@ -134,7 +134,7 @@ describe("Contact section", () => {
         it("displays the error messages when Formspree API returns a HTTP error.", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, {
             statusCode: 400,
-            body: contactForm.formspreeResponse.error
+            body: contactForm.formspreeResponse.error,
           }).as("formspreeApi");
 
           cy.get("@nameInput").type(faker.name.fullName());
@@ -157,7 +157,7 @@ describe("Contact section", () => {
 
         it("displays the error message when having network error", () => {
           cy.intercept("POST", `${contactForm.apiUrlPrefix}/*`, {
-            forceNetworkError: true
+            forceNetworkError: true,
           }).as("formspreeApi");
 
           cy.get("@nameInput").type(faker.name.fullName());

@@ -4,7 +4,7 @@ import { nopeResolver } from "@hookform/resolvers/nope";
 import {
   PhoneRounded as Phone,
   SendRounded as SendIcon,
-  CheckCircleRounded as SuccessIcon
+  CheckCircleRounded as SuccessIcon,
 } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
@@ -12,7 +12,7 @@ import { FC, useEffect } from "react";
 import {
   FormContainer,
   TextFieldElement,
-  useForm as useHookForm
+  useForm as useHookForm,
 } from "react-hook-form-mui";
 
 import SectionHeader from "@/components/shared/SectionHeader";
@@ -27,7 +27,7 @@ const Contact: FC = () => {
   const hookFormContext = useHookForm({
     resolver: nopeResolver(formSchema),
     mode: "onChange",
-    defaultValues
+    defaultValues,
   });
   const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(
     process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID

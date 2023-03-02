@@ -10,8 +10,8 @@ const useSx = (params?: { active?: boolean }) =>
       bottom: 0,
       left: "calc(50% - 3px)",
       borderRadius: "50%",
-      opacity: params?.active ? 1 : 0
-    }
+      opacity: params?.active ? 1 : 0,
+    },
   });
 
 export default useSx;

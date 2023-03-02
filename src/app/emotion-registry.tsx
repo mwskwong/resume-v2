@@ -17,7 +17,7 @@ const EmotionRegistry: FC<PropsWithChildren> = ({ children }) => {
     <style
       data-emotion={`${cache.key} ${Object.keys(cache.inserted).join(" ")}`}
       dangerouslySetInnerHTML={{
-        __html: Object.values(cache.inserted).join(" ")
+        __html: Object.values(cache.inserted).join(" "),
       }}
     />
   ));

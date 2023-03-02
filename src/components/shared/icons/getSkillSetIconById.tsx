@@ -4,7 +4,7 @@ import {
   DashboardRounded as Dashboard,
   DevicesOtherRounded as DevicesOther,
   CloudRounded as MuiCloud,
-  TerminalRounded as Terminal
+  TerminalRounded as Terminal,
 } from "@mui/icons-material";
 import { SvgIconProps } from "@mui/material";
 import { FC } from "react";

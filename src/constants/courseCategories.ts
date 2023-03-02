@@ -3,24 +3,24 @@ import { CourseCategory } from "@/types";
 const courseCategories: CourseCategory[] = [
   {
     id: "dev",
-    name: "Development"
+    name: "Development",
   },
   {
     id: "db",
-    name: "Database"
+    name: "Database",
   },
   {
     id: "ops",
-    name: "IT Operations"
+    name: "IT Operations",
   },
   {
     id: "pm",
-    name: "Project Management"
+    name: "Project Management",
   },
   {
     id: "others",
-    name: "Others"
-  }
+    name: "Others",
+  },
 ];
 
 export const getCourseCategoryById = (categoryId: CourseCategory["id"]) => {

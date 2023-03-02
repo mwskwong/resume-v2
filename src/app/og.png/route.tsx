@@ -21,7 +21,7 @@ export const GET = async () => {
           alignItems: "center",
           fontFamily: "Rubik",
           fontWeight: 500,
-          color: "#1a2027"
+          color: "#1a2027",
         }}
       >
         <Icon width={170} />
@@ -32,7 +32,7 @@ export const GET = async () => {
             fontSize: (170 / 2) * 1.16,
             lineHeight: "100%",
             textTransform: "uppercase",
-            marginLeft: 15
+            marginLeft: 15,
           }}
         >
           <span>{firstName}</span>
@@ -45,9 +45,9 @@ export const GET = async () => {
         {
           name: "Rubik",
           data: rubikMedium,
-          weight: 500
-        }
-      ]
+          weight: 500,
+        },
+      ],
     }
   );
 };

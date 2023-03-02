@@ -6,30 +6,30 @@ const useSx = () =>
       typography: "subtitle2",
       color: "primary.main",
       textAlign: "center",
-      mb: 2
+      mb: 2,
     },
     grid: {
-      justifyContent: "center"
+      justifyContent: "center",
     },
     stack: {
-      alignItems: "center"
+      alignItems: "center",
     },
     avatar: {
       width: 60,
-      height: 60
+      height: 60,
     },
     subtitle: {
       typography: "subtitle1",
-      color: "primary.main"
+      color: "primary.main",
     },
     skillsContainer: {
       display: "flex",
       justifyContent: "center",
-      flexWrap: "wrap"
+      flexWrap: "wrap",
     },
     skill: {
-      m: 0.5
-    }
+      m: 0.5,
+    },
   });
 
 export default useSx;

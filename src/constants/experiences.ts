@@ -9,7 +9,7 @@ const experiences: Experience[] = [
     jobDuties: [
       "Migrated Vue web apps from legacy WordPress API to RESTful API",
       "Implemented Vue web app features. e.g., Authorization system, shopping list",
-      "Technically reviewed and developed POC on web app migration from Vue to Astro and Next.js"
+      "Technically reviewed and developed POC on web app migration from Vue to Astro and Next.js",
     ],
     supportingDocuments: [],
     relevantSkills: [
@@ -20,8 +20,8 @@ const experiences: Experience[] = [
       "Pinia",
       "WordPress",
       "Astro",
-      "Next.js"
-    ]
+      "Next.js",
+    ],
   },
   {
     from: new Date(2022, 4),
@@ -30,10 +30,10 @@ const experiences: Experience[] = [
     company: "EDPS Limited | Seconded to Hospital Authority",
     jobDuties: [
       "Maintain, enhance, and manage ha.org.hk and several intranet web apps, serving 100+ staff and 7M+ Hong Kong residents",
-      "Planned and finalized web app OS and DB migration within 1 week"
+      "Planned and finalized web app OS and DB migration within 1 week",
     ],
     supportingDocuments: [],
-    relevantSkills: ["ASP", "jQuery UI", "Microsoft SQL Server"]
+    relevantSkills: ["ASP", "jQuery UI", "Microsoft SQL Server"],
   },
   {
     from: new Date(2021, 7),
@@ -46,7 +46,7 @@ const experiences: Experience[] = [
       "Designed and developed a DB health check system using React, Express, and MySQL to facilitate SRE and reduce system recovery time",
       "Supported and guided 10+ application teams on MySQL deployment and maintenance",
       "Designed and developed a web app using React, Express, and MySQL to visualize database CPU utilization which led to a 30% increase in productivity",
-      "POC on data virtualization with Delphix DataOps platform supporting 3 types of DB and 50+ DB instances"
+      "POC on data virtualization with Delphix DataOps platform supporting 3 types of DB and 50+ DB instances",
     ],
     supportingDocuments: ["haSc3RefLetter", "lunchAndLearn"],
     relevantSkills: [
@@ -61,8 +61,8 @@ const experiences: Experience[] = [
       "React Hook Form",
       "Prism.js",
       "Express",
-      "OpenShift"
-    ]
+      "OpenShift",
+    ],
   },
   {
     from: new Date(2019, 6),
@@ -74,7 +74,7 @@ const experiences: Experience[] = [
       "Maintained database management web application",
       "Implemented time off application system using React, Express, and MySQL, serving 20+ team members and cut down admin work by 90%",
       "Implemented a Java-based database password management application supporting 3 types of DB",
-      "POC on data virtualization with Delphix DataOps platform supporting 2 types of DB and 30+ DB instances"
+      "POC on data virtualization with Delphix DataOps platform supporting 2 types of DB and 30+ DB instances",
     ],
     supportingDocuments: [],
     relevantSkills: [
@@ -84,8 +84,8 @@ const experiences: Experience[] = [
       "React",
       "MUI",
       "Redux",
-      "Express"
-    ]
+      "Express",
+    ],
   },
   {
     from: new Date(2018, 5),
@@ -95,7 +95,7 @@ const experiences: Experience[] = [
     jobDuties: [
       "Design test suite for E-Form Filler in cooperation with software engineers",
       "Design and develop installer for E-Form Filler using NSIS MUI2",
-      "Rework a 3-year-old MPF cross-platform mobile application using React Native to replace the legacy Apache Cordova framework"
+      "Rework a 3-year-old MPF cross-platform mobile application using React Native to replace the legacy Apache Cordova framework",
     ],
     supportingDocuments: [],
     relevantSkills: [
@@ -103,8 +103,8 @@ const experiences: Experience[] = [
       "React Native",
       "NativeBase",
       "React Navigation",
-      "MobX"
-    ]
+      "MobX",
+    ],
   },
   {
     from: new Date(2017, 6),
@@ -112,10 +112,10 @@ const experiences: Experience[] = [
     jobTitle: "Student Research Assistant",
     company: "School of Public Health, HKU",
     jobDuties: [
-      "Develop and design a JavaFX application to perform bioinformatics analysis"
+      "Develop and design a JavaFX application to perform bioinformatics analysis",
     ],
     supportingDocuments: ["hkuMedRaRefLetter"],
-    relevantSkills: ["JavaFX", "ControlsFX"]
+    relevantSkills: ["JavaFX", "ControlsFX"],
   },
   {
     from: new Date(2017, 0),
@@ -123,11 +123,11 @@ const experiences: Experience[] = [
     jobTitle: "Teaching Assistant",
     company: "Faculty of Engineering, HKU",
     jobDuties: [
-      "Instruct over 20 students during tutorial sessions of a C++ programming course"
+      "Instruct over 20 students during tutorial sessions of a C++ programming course",
     ],
     supportingDocuments: ["hkuEngTaRefLetter"],
-    relevantSkills: ["C++"]
-  }
+    relevantSkills: ["C++"],
+  },
 ];
 
 export default experiences;

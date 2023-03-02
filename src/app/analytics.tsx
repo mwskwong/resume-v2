@@ -2,7 +2,7 @@
 
 import {
   AnalyticsProps,
-  Analytics as VercelAnalytics
+  Analytics as VercelAnalytics,
 } from "@vercel/analytics/react";
 import { FC } from "react";
 
