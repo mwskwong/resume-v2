@@ -24,6 +24,8 @@ export const GET = () => {
     [...supportingDocumentsUrls, ...courseCertificateUrls].map((url) => ({
       loc: `${siteUrl}${url}`,
       lastmod: new Date().toISOString(),
+      changefreq: "daily",
+      priority: 0.7,
     }))
   );
 };
