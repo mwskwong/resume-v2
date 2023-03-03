@@ -5,7 +5,7 @@ const config = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ["sitemap*.xml"],
+  exclude: ["/sitemap*.xml"],
   robotsTxtOptions: {
     additionalSitemaps: [`${siteUrl}/sitemap-documents.xml`],
   },

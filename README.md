@@ -26,7 +26,7 @@
 
 Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see how I created my own personal site here.
 
-## Deployment Platforms
+## Platforms
 
 - Vercel: Web hosting
 - ImprovMX: Email forwarding
