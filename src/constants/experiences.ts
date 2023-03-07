@@ -19,8 +19,9 @@ const experiences: Experience[] = [
       "Vuex",
       "Pinia",
       "WordPress",
-      "Astro",
       "Next.js",
+      "Turborepo",
+      "Astro",
     ],
   },
   {
