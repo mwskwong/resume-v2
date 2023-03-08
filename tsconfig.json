@@ -23,14 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "*.d.ts",
-    "**/*.ts",
-    "**/*.js",
-    "**/*.mjs",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".eslintrc.js"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.*js"],
   "exclude": ["node_modules"]
 }
