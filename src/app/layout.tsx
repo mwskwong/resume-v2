@@ -6,8 +6,8 @@ import Footer from "@/components/shared/Footer";
 import NavBar from "@/components/shared/NavBar";
 import ScrollToTopFab from "@/components/shared/ScrollToTopFab";
 
-import Analytics from "./analytics";
-import EmotionRegistry from "./emotion-registry";
+import Analytics from "./Analytics";
+import EmotionRegistry from "./EmotionRegistry";
 
 const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
   <html lang="en" className={rubik.className}>

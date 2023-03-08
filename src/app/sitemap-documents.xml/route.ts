@@ -1,28 +1,16 @@
-import { isString } from "lodash-es";
 import { ServerRuntime } from "next";
 import { getServerSideSitemap } from "next-sitemap";
 
-import getCertificateUrlById from "@/assets/getCertificateUrlById";
-import getSupportingDocumentById from "@/assets/getSupportingDocumentById";
-import courses from "@/constants/courses";
-import experiences from "@/constants/experiences";
+import getCertificateUrls from "./getCertificateUrls";
+import getSupportingDocumentUrls from "./getSupportingDocumentUrls";
 
 export const GET = () => {
-  const siteUrl = process.env.NEXT_PUBLIC_URL;
-
-  const supportingDocumentsUrls = experiences
-    .flatMap(({ supportingDocuments }) =>
-      supportingDocuments.map((id) => getSupportingDocumentById(id).url)
-    )
-    .filter(isString);
-
-  const courseCertificateUrls = courses
-    .map(({ id }) => getCertificateUrlById(id))
-    .filter(isString);
+  const certificateUrls = getCertificateUrls();
+  const supportingDocumentUrls = getSupportingDocumentUrls();
 
   return getServerSideSitemap(
-    [...supportingDocumentsUrls, ...courseCertificateUrls].map((url) => ({
-      loc: `${siteUrl}${url}`,
+    [...certificateUrls, ...supportingDocumentUrls].map((url) => ({
+      loc: url,
       lastmod: new Date().toISOString(),
       changefreq: "daily",
       priority: 0.7,

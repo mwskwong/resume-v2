@@ -15,7 +15,7 @@ export interface Section {
 export interface SupportingDocument {
   id: string;
   name: string;
-  url?: string;
+  path?: string;
   thumbnail: StaticImageData;
   private?: boolean;
 }

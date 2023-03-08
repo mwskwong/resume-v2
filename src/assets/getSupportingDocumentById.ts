@@ -20,25 +20,25 @@ const supportingDocuments: SupportingDocument[] = [
   {
     id: "lunchAndLearn",
     name: "Knowledge-sharing session certificate of appreciation",
-    url: lunchAndLearnCert,
+    path: lunchAndLearnCert,
     thumbnail: lunchAndLearnCertThumbnail,
   },
   {
     id: "hkuMedRaRefLetter",
     name: "Reference Letter",
-    url: hkuMedRaRefLetter,
+    path: hkuMedRaRefLetter,
     thumbnail: hkuMedRaRefLetterThumbnail,
   },
   {
     id: "hkuEngTaRefLetter",
     name: "Reference Letter",
-    url: hkuEngTaRefLetter,
+    path: hkuEngTaRefLetter,
     thumbnail: hkuEngTaRefLetterThumbnail,
   },
   {
     id: "hkuCsCertOfGrad",
     name: "Degree Certificate",
-    url: hkuCsCert,
+    path: hkuCsCert,
     thumbnail: hkuCsCertThumbnail,
   },
 ];
