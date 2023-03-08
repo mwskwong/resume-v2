@@ -1,8 +1,8 @@
 import { ImageResponse } from "@vercel/og";
 import { ServerRuntime } from "next";
 
+import OG from "./OG";
 import getRubikMedium from "./getRubikMedium";
-import OG from "./og";
 
 export const GET = async () => {
   const rubikMedium = await getRubikMedium();
