@@ -21,7 +21,7 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
       <ListItem disablePadding {...props}>
         <ListItemButton
           component="a"
-          href={supportingDocument.url}
+          href={supportingDocument.path}
           target="_blank"
           sx={sx.button}
           disabled={supportingDocument.private}

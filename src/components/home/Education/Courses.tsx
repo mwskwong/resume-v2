@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { FC, MouseEvent, useState } from "react";
 
-import getCertificateUrlById from "@/assets/getCertificateUrlById";
+import getCertificatePathById from "@/assets/getCertificatePathById";
 import CertificateCard from "@/components/shared/CertificateCard";
 import categories from "@/constants/courseCategories";
 import courses from "@/constants/courses";
@@ -61,7 +61,7 @@ const Courses: FC = () => {
                 !categorySelected || category.id === categorySelected
             )
             .map(({ id, name, institution }) => {
-              const certificateUrl = getCertificateUrlById(id);
+              const certificateUrl = getCertificatePathById(id);
 
               return (
                 <Grid key={name} xs={12} md={6}>
