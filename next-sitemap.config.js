@@ -1,7 +1,7 @@
 const siteUrl = process.env.NEXT_PUBLIC_URL;
 
 /** @type {import('next-sitemap').IConfig} */
-const config = {
+module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
@@ -10,5 +10,3 @@ const config = {
     additionalSitemaps: [`${siteUrl}/sitemap-documents.xml`],
   },
 };
-
-export default config;

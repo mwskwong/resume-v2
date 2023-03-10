@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 
-import BrandingThemeProvider from "@/brandingTheme/Provider";
+// Group branding theme import in MUI v6
+import BrandingThemeProvider from "@/brandingTheme/BrandingThemeProvider";
 import rubik from "@/brandingTheme/rubik";
 import Footer from "@/components/shared/Footer";
 import NavBar from "@/components/shared/NavBar";

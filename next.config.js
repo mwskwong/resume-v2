@@ -1,6 +1,5 @@
-import NextBundleAnalyzer from "@next/bundle-analyzer";
-
-const withBundleAnalyzer = NextBundleAnalyzer({
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE_BUNDLE === "true",
 });
 
@@ -86,9 +85,9 @@ const nextConfig = {
   ],
   experimental: {
     appDir: true,
-    // FIXME: see if v13.2.4 fixes it
-    // typedRoutes: true
+    typedRoutes: true,
   },
 };
 
-export default withBundleAnalyzer(nextConfig);
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+module.exports = withBundleAnalyzer(nextConfig);

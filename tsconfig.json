@@ -24,13 +24,11 @@
     }
   },
   "include": [
-    "*.d.ts",
     "**/*.ts",
-    "**/*.js",
-    "**/*.mjs",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "."
   ],
   "exclude": ["node_modules"]
 }
