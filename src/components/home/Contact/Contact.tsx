@@ -1,6 +1,6 @@
 "use client";
 
-import { nopeResolver } from "@hookform/resolvers/nope";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   PhoneRounded as Phone,
   SendRounded as SendIcon,
@@ -17,17 +17,16 @@ import {
 
 import SectionHeader from "@/components/shared/SectionHeader";
 
+import FormSchema from "./FormSchema";
 import PersonalInfo from "./PersonalInfo";
-import formSchema, { defaultValues } from "./formSchema";
 import useSx from "./useContactSx";
 import useFormspree from "./useFormspree";
 
 const Contact: FC = () => {
   const sx = useSx();
   const hookFormContext = useHookForm({
-    resolver: nopeResolver(formSchema),
+    resolver: zodResolver(FormSchema),
     mode: "onChange",
-    defaultValues,
   });
   const [state, handleFormspreeSubmit, resetFormspree] = useFormspree(
     process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
