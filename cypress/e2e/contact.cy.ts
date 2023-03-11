@@ -76,12 +76,14 @@ describe("Contact section", () => {
           cy.focused().should("have.attr", "name", "name");
 
           const fieldRequiredError = contactForm.textFieldError.required;
-          const fieldEmailError = contactForm.textFieldError.email;
           cy.get("@name").should(
             "contain",
             fieldRequiredError.replace("%", "Name")
           );
-          cy.get("@email").should("contain", fieldEmailError);
+          cy.get("@email").should(
+            "contain",
+            fieldRequiredError.replace("%", "Email")
+          );
           cy.get("@subject").should(
             "contain",
             fieldRequiredError.replace("%", "Subject")
