@@ -8,7 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write .",
+    "format": "prettier --write .",
     "cypress": "cypress open",
     "test": "cypress run --browser edge"
   },
