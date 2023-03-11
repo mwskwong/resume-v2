@@ -123,9 +123,9 @@ const Contact: FC = () => {
                 size="large"
                 fullWidth
                 loading={state.submitting}
-                loadingPosition="end"
+                loadingPosition="start"
                 color={state.succeeded ? "success" : "primary"}
-                endIcon={state.succeeded ? <SuccessIcon /> : <SendIcon />}
+                startIcon={state.succeeded ? <SuccessIcon /> : <SendIcon />}
               >
                 {state.succeeded ? "message sent" : "send message"}
               </LoadingButton>
