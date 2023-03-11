@@ -76,10 +76,22 @@ describe("Contact section", () => {
           cy.focused().should("have.attr", "name", "name");
 
           const fieldRequiredError = contactForm.textFieldError.required;
-          cy.get("@name").should("contain", fieldRequiredError);
-          cy.get("@email").should("contain", fieldRequiredError);
-          cy.get("@subject").should("contain", fieldRequiredError);
-          cy.get("@message").should("contain", fieldRequiredError);
+          cy.get("@name").should(
+            "contain",
+            fieldRequiredError.replace("%", "Name")
+          );
+          cy.get("@email").should(
+            "contain",
+            fieldRequiredError.replace("%", "Email")
+          );
+          cy.get("@subject").should(
+            "contain",
+            fieldRequiredError.replace("%", "Subject")
+          );
+          cy.get("@message").should(
+            "contain",
+            fieldRequiredError.replace("%", "Message")
+          );
         });
 
         it("fails to submit when filling in non-email content in the email field", () => {

@@ -8,7 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write .",
+    "format": "prettier --write .",
     "cypress": "cypress open",
     "test": "cypress run --browser edge"
   },
@@ -29,12 +29,12 @@
     "lodash-es": "^4.17.21",
     "next": "^13.2.4",
     "next-sitemap": "^4.0.5",
-    "nope-validator": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.5",
     "react-hook-form-mui": "^5.16.0",
-    "simple-icons": "^8.6.0"
+    "simple-icons": "^8.6.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
