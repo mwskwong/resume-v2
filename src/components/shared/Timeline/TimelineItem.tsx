@@ -77,7 +77,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         {Boolean(data.tags?.length) && (
           <Box sx={sx.tagsContainer} data-cy="tags">
             {data.tags?.map((tag) => (
-              <Chip key={tag} sx={sx.tag} label={tag} data-cy={tag} />
+              <Chip key={tag} label={tag} data-cy={tag} />
             ))}
           </Box>
         )}

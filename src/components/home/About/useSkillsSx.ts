@@ -26,9 +26,7 @@ const useSx = () =>
       display: "flex",
       justifyContent: "center",
       flexWrap: "wrap",
-    },
-    skill: {
-      m: 0.5,
+      gap: 1,
     },
   });
 

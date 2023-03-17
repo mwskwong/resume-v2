@@ -50,9 +50,7 @@ const useSx = () =>
       display: "flex",
       flexWrap: "wrap",
       ml: -0.5,
-    },
-    tag: {
-      m: 0.5,
+      gap: 1,
     },
     supportingDocumentList: {
       pt: "16px",
