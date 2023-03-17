@@ -7,14 +7,14 @@ export const frontend: SkillSet = {
     "React",
     "TypeScript",
     "Next.js",
-    "Redux",
     "MUI",
+    "React Query",
+    "React Hook Form",
     "Vue",
     "Vuetify",
     "Quasar",
     "Vuex",
     "Pinia",
-    "React Hook Form",
   ],
 };
 
