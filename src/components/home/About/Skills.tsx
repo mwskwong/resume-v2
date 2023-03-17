@@ -36,12 +36,7 @@ const Skills: FC = () => {
                 </Typography>
                 <Box sx={sx.skillsContainer}>
                   {skills.map((skill) => (
-                    <Chip
-                      key={skill}
-                      sx={sx.skill}
-                      label={skill}
-                      data-cy={skill}
-                    />
+                    <Chip key={skill} label={skill} data-cy={skill} />
                   ))}
                 </Box>
               </Stack>
