@@ -51,8 +51,7 @@ const Courses: FC = () => {
         sx={sx.searchField}
         value={query}
         onChange={handleSearch}
-        placeholder="Search Courses"
-        inputProps={{ "aria-label": "search courses" }}
+        inputProps={{ "aria-label": "search courses and training" }}
       />
       <div>
         <LazyMotion strict features={loadFeatures}>
