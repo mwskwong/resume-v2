@@ -301,6 +301,16 @@ const brandingTheme = extendTheme({
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          "&::placeholder": {
+            color: theme.vars.palette.text.secondary,
+            opacity: 1,
+          },
+        }),
+      },
+    },
     MuiListItemButton: {
       styleOverrides: {
         root: ({ theme }) => ({
