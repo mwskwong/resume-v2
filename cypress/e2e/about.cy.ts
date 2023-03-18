@@ -9,7 +9,6 @@ import skills from "@/constants/skills";
 describe("About section", () => {
   beforeEach(() => {
     cy.visit(`/#${ABOUT.id}`);
-    cy.disableSmoothScroll();
   });
 
   for (const viewportType in viewports) {

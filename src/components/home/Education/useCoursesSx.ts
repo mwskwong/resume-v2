@@ -7,6 +7,11 @@ const useSx = () =>
       color: "primary.main",
       textAlign: "center",
     },
+    searchField: {
+      position: "sticky",
+      alignSelf: "center",
+      width: "100%",
+    },
   });
 
 export default useSx;

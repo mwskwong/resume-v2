@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  AnalyticsProps,
-  Analytics as VercelAnalytics,
-} from "@vercel/analytics/react";
-import { FC } from "react";
-
-const Analytics: FC<AnalyticsProps> = (props) => <VercelAnalytics {...props} />;
+import { Analytics } from "@vercel/analytics/react";
 
 export default Analytics;

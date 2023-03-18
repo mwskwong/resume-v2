@@ -1,4 +1,9 @@
-import { avatarClasses, cardClasses, filledInputClasses } from "@mui/material";
+import {
+  avatarClasses,
+  cardClasses,
+  filledInputClasses,
+  inputBaseClasses,
+} from "@mui/material";
 import deepRenameKeys from "deep-rename-keys-ts";
 
 import makeSx from "@/utils/makeSx";
@@ -39,6 +44,9 @@ const useSx = ({
         [`&.${filledInputClasses.disabled}`]: {
           bgcolor: "action.disabledBackground",
         },
+      },
+      [`& .${inputBaseClasses.root}`]: {
+        bgcolor: `background.${getPaperBgColor(variant)}`,
       },
     }),
   });

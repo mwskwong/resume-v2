@@ -10,7 +10,6 @@ import { Contact } from "@/types";
 describe("Contact section", () => {
   beforeEach(() => {
     cy.visit(`/#${CONTACT.id}`);
-    cy.disableSmoothScroll();
     cy.get("[data-cy = 'contact']").as("contact");
   });
 
