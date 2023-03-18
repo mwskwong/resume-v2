@@ -32,27 +32,29 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
       title="Private document; Contact me for access"
       PopperProps={PopperProps}
     >
-      <ListItemButton
-        component="a"
-        href={supportingDocument.path}
-        target="_blank"
-        sx={sx.button}
-        disabled={supportingDocument.private}
-        {...props}
-      >
-        <Image
-          src={supportingDocument.thumbnail}
-          alt={`Thumbnail of ${supportingDocument.name}`}
-          width={114}
-          height={64}
-          className={styles.thumbnail}
-          quality={100}
-        />
-        <ListItemText
-          primary={supportingDocument.name}
-          primaryTypographyProps={primaryTypographyProps}
-        />
-      </ListItemButton>
+      <span>
+        <ListItemButton
+          component="a"
+          href={supportingDocument.path}
+          target="_blank"
+          sx={sx.button}
+          disabled={supportingDocument.private}
+          {...props}
+        >
+          <Image
+            src={supportingDocument.thumbnail}
+            alt={`Thumbnail of ${supportingDocument.name}`}
+            width={114}
+            height={64}
+            className={styles.thumbnail}
+            quality={100}
+          />
+          <ListItemText
+            primary={supportingDocument.name}
+            primaryTypographyProps={primaryTypographyProps}
+          />
+        </ListItemButton>
+      </span>
     </Tooltip>
   );
 };
