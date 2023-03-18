@@ -5,11 +5,11 @@ const useSx = () =>
     root: {
       display: "flex",
       alignItems: "center",
-      gap: 2,
+      gap: "16px",
       borderRadius: 1,
-      px: 2,
-      py: 1,
+      px: "16px",
       maxWidth: 400,
+      height: 56,
     },
   });
 
