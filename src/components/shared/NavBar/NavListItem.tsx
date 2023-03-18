@@ -1,4 +1,4 @@
-import { ListItemButton, ListItemText } from "@mui/material";
+import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { FC } from "react";
 
 import NavElementProps from "./NavElementProps";
@@ -13,12 +13,14 @@ const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
   };
 
   return (
-    <ListItemButton onClick={handleClick} selected={active} data-cy={id}>
-      <ListItemText
-        primary={label}
-        primaryTypographyProps={primaryTypographyProps}
-      />
-    </ListItemButton>
+    <ListItem disablePadding>
+      <ListItemButton onClick={handleClick} selected={active} data-cy={id}>
+        <ListItemText
+          primary={label}
+          primaryTypographyProps={primaryTypographyProps}
+        />
+      </ListItemButton>
+    </ListItem>
   );
 };
 

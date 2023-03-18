@@ -32,14 +32,13 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
       title="Private document; Contact me for access"
       PopperProps={PopperProps}
     >
-      <span>
+      <ListItem disablePadding {...props}>
         <ListItemButton
           component="a"
           href={supportingDocument.path}
           target="_blank"
           sx={sx.button}
           disabled={supportingDocument.private}
-          {...props}
         >
           <Image
             src={supportingDocument.thumbnail}
@@ -54,7 +53,7 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
             primaryTypographyProps={primaryTypographyProps}
           />
         </ListItemButton>
-      </span>
+      </ListItem>
     </Tooltip>
   );
 };
