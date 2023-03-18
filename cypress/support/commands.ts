@@ -39,14 +39,6 @@ import "cypress-downloadfile/lib/downloadFileCommand";
 //   }
 // }
 
-Cypress.Commands.add("disableSmoothScroll", () => {
-  cy.document().then((document) => {
-    const node = document.createElement("style");
-    node.innerHTML = "html { scroll-behavior: auto !important; }";
-    document.body.appendChild(node);
-  });
-});
-
 Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const container = viewport === "desktop" ? "navButtons" : "navList";
   const activeClassName =

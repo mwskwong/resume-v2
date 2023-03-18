@@ -1,10 +1,8 @@
 /// <reference types="cypress-downloadfile"/>
-import { toggleButtonClasses } from "@mui/material";
 import courseCertificates from "cypress/fixtures/courseCertificates.json";
 import documents from "cypress/fixtures/supportingDocuments.json";
 import viewports from "cypress/fixtures/viewports.json";
 
-import courseCategories from "@/constants/courseCategories";
 import courses from "@/constants/courses";
 import educations from "@/constants/educations";
 import { EDUCATION } from "@/constants/nav";
@@ -18,7 +16,6 @@ const courseHasCertificate = (
 describe("Education section", () => {
   beforeEach(() => {
     cy.visit(`/#${EDUCATION.id}`);
-    cy.disableSmoothScroll();
   });
 
   for (const viewportType in viewports) {
@@ -155,74 +152,100 @@ describe("Education section", () => {
           });
         });
 
-        describe("Category selection", () => {
-          it("displays all courses");
-          it("searches the courses by name");
-          it("searches the courses by category");
-          it("searches the courses by institution");
-          it("searches the courses by by special character without crashing");
+        describe("Courses filtering", () => {
+          beforeEach(() => {
+            cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']").as(
+              "courseCards"
+            );
+          });
 
-          for (let i = 0; i < courseCategories.length; i++) {
-            const courseCategory = courseCategories[i];
-            describe(courseCategory.name, () => {
-              beforeEach(() => {
-                cy.get("[data-cy = 'courses'] [data-cy = 'category']")
-                  .eq(i + 1)
-                  .as("categoryButton");
-              });
+          it("displays all courses initially", () => {
+            for (const { name } of courses) {
+              cy.get("@courseCards").contains(name).should("be.visible");
+            }
+          });
 
-              it(`contains "${courseCategory.name}"`, () => {
-                cy.get("@categoryButton").should(
-                  "contain",
-                  courseCategory.name
-                );
-              });
+          const keywords = {
+            name: {
+              originalCase: "Adminis",
+              uppercase: "Adminis".toUpperCase(),
+              lowercase: "Adminis".toLowerCase(),
+            },
+            category: {
+              originalCase: "Datab",
+              uppercase: "Datab".toUpperCase(),
+              lowercase: "Datab".toLowerCase(),
+            },
+            institution: {
+              originalCase: "demy",
+              uppercase: "demy".toUpperCase(),
+              lowercase: "demy".toLowerCase(),
+            },
+          };
 
-              it(`displays ${courseCategory.name} courses only`, () => {
-                cy.get("@categoryButton").click();
-                cy.get("@categoryButton").should(
-                  "have.class",
-                  toggleButtonClasses.selected
-                );
+          for (const key in keywords.name) {
+            it(`searches the courses by name in ${key}`, () => {
+              const keyword = keywords.name[key as keyof typeof keywords.name];
 
-                for (const { name, category } of courses) {
-                  cy.get(
-                    "[data-cy = 'courses'] [data-cy = 'certificateCard']"
-                  ).as("courseCards");
-                  if (category == courseCategory) {
-                    cy.get("@courseCards").contains(name).should("be.visible");
-                  } else {
-                    cy.get("@courseCards").contains(name).should("not.exist");
-                  }
+              cy.get("[data-cy = 'courses'] input").type(keyword);
+              for (const { name } of courses) {
+                if (name.toLowerCase().includes(keyword.toLowerCase())) {
+                  cy.get("@courseCards").contains(name).should("be.visible");
+                } else {
+                  cy.get("@courseCards").contains(name).should("not.exist");
                 }
-              });
+              }
             });
           }
 
-          describe("All", () => {
-            beforeEach(() => {
-              cy.get("[data-cy = 'courses'] [data-cy = 'category']")
-                .eq(0)
-                .as("allButton");
-            });
+          for (const key in keywords.category) {
+            it(`searches the courses by category in ${key}`, () => {
+              const keyword =
+                keywords.category[key as keyof typeof keywords.category];
 
-            it('contains "All"', () => {
-              cy.get("@allButton").and("contain", "All");
-            });
-
-            it("displays all courses", () => {
-              cy.get("@allButton").click();
-              cy.get("@allButton").should(
-                "have.class",
-                toggleButtonClasses.selected
-              );
-
-              for (const { name } of courses) {
-                cy.get("[data-cy = 'courses'] [data-cy = 'certificateCard']")
-                  .contains(name)
-                  .should("be.visible");
+              cy.get("[data-cy = 'courses'] input").type(keyword);
+              for (const { category } of courses) {
+                if (
+                  category.name.toLowerCase().includes(keyword.toLowerCase())
+                ) {
+                  cy.get("@courseCards")
+                    .contains(category.name)
+                    .should("be.visible");
+                } else {
+                  cy.get("@courseCards")
+                    .contains(category.name)
+                    .should("not.exist");
+                }
               }
             });
+          }
+
+          for (const key in keywords.institution) {
+            it(`searches the courses by institution in ${key}`, () => {
+              const keyword =
+                keywords.institution[key as keyof typeof keywords.institution];
+
+              cy.get("[data-cy = 'courses'] input").type(keyword);
+              for (const { institution } of courses) {
+                if (
+                  institution.name.toLowerCase().includes(keyword.toLowerCase())
+                ) {
+                  cy.get("@courseCards")
+                    .get(`[data-cy = '${institution.id}Icon']`)
+                    .should("be.visible");
+                } else {
+                  cy.get("@courseCards")
+                    .get(`[data-cy = '${institution.id}Icon']`)
+                    .should("not.exist");
+                }
+              }
+            });
+          }
+
+          it("searches the courses by by special character without crashing", () => {
+            const keyword = "\\.*%$#@~`";
+            cy.get("[data-cy = 'courses'] input").type(keyword);
+            cy.get("@courseCards").should("not.exist");
           });
         });
 

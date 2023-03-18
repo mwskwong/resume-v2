@@ -8,7 +8,6 @@ import dateTimeFormat from "@/utils/dateTimeFormat";
 describe("Experience section", () => {
   beforeEach(() => {
     cy.visit(`/#${EXPERIENCE.id}`);
-    cy.disableSmoothScroll();
   });
 
   for (const viewportType in viewports) {

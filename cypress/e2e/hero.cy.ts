@@ -8,7 +8,6 @@ import platformProfiles from "@/constants/platformProfiles";
 describe("Hero section", () => {
   beforeEach(() => {
     cy.visit("/");
-    cy.disableSmoothScroll();
   });
 
   for (const viewportType in viewports) {

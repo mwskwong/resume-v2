@@ -10,6 +10,19 @@ export default defineConfig({
     scrollBehavior: "center",
     ...viewports.desktop,
     setupNodeEvents: (on) => {
+      on("before:browser:launch", (browser, launchOptions) => {
+        switch (browser.family) {
+          case "chromium":
+            launchOptions.args.push("--force-prefers-reduced-motion");
+            break;
+          case "firefox":
+            launchOptions.preferences["ui.prefersReducedMotion"] = 1;
+            break;
+        }
+
+        return launchOptions;
+      });
+
       on("task", { downloadFile });
     },
   },
