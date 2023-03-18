@@ -156,6 +156,12 @@ describe("Education section", () => {
         });
 
         describe("Category selection", () => {
+          it("displays all courses");
+          it("searches the courses by name");
+          it("searches the courses by category");
+          it("searches the courses by institution");
+          it("searches the courses by by special character without crashing");
+
           for (let i = 0; i < courseCategories.length; i++) {
             const courseCategory = courseCategories[i];
             describe(courseCategory.name, () => {
