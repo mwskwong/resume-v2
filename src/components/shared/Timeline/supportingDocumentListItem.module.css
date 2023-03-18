@@ -1,4 +1,6 @@
 .thumbnail {
   border-radius: var(--mui-shape-borderRadius);
   margin-right: 16px;
+  object-position: top;
+  aspect-ratio: 114 / 64;
 }

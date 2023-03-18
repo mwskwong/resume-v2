@@ -110,7 +110,6 @@ const brandingTheme = extendTheme({
       },
     },
   },
-  spacing: 10,
   shape: { borderRadius: 10 },
   typography: {
     fontFamily: rubik.style.fontFamily,
@@ -262,6 +261,9 @@ const brandingTheme = extendTheme({
         },
         address: {
           fontStyle: "normal",
+        },
+        img: {
+          objectFit: "cover",
         },
       }),
     },

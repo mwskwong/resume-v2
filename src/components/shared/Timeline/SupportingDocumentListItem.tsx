@@ -1,4 +1,10 @@
-import { ListItem, ListItemButton, ListItemText, Tooltip } from "@mui/material";
+import {
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Tooltip,
+  TypographyProps,
+} from "@mui/material";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -12,6 +18,14 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
 }) => {
   const sx = useSx({ private: supportingDocument.private });
   const PopperProps = { sx: sx.tooltip };
+  const primaryTypographyProps: TypographyProps = {
+    sx: {
+      display: "-webkit-box",
+      WebkitBoxOrient: "vertical",
+      WebkitLineClamp: 2,
+      overflow: "hidden",
+    },
+  };
 
   return (
     <Tooltip
@@ -29,11 +43,15 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
           <Image
             src={supportingDocument.thumbnail}
             alt={`Thumbnail of ${supportingDocument.name}`}
-            width={102}
-            height={68}
+            width={114}
+            height={64}
             className={styles.thumbnail}
+            quality={100}
           />
-          <ListItemText primary={supportingDocument.name} />
+          <ListItemText
+            primary={supportingDocument.name}
+            primaryTypographyProps={primaryTypographyProps}
+          />
         </ListItemButton>
       </ListItem>
     </Tooltip>
