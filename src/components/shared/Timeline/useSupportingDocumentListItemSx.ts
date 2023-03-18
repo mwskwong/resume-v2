@@ -7,6 +7,8 @@ const useSx = ({ private: privateDoc }: { private?: boolean }) =>
     },
     button: {
       pl: 0,
+      pr: "24px",
+      py: "12px",
     },
   });
 

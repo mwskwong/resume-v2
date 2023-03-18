@@ -1,4 +1,10 @@
-import { ListItem, ListItemButton, ListItemText, Tooltip } from "@mui/material";
+import {
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Tooltip,
+  TypographyProps,
+} from "@mui/material";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -12,30 +18,41 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
 }) => {
   const sx = useSx({ private: supportingDocument.private });
   const PopperProps = { sx: sx.tooltip };
+  const primaryTypographyProps: TypographyProps = {
+    sx: {
+      display: "-webkit-box",
+      WebkitBoxOrient: "vertical",
+      WebkitLineClamp: 2,
+      overflow: "hidden",
+    },
+  };
 
   return (
     <Tooltip
       title="Private document; Contact me for access"
       PopperProps={PopperProps}
     >
-      <ListItem disablePadding {...props}>
-        <ListItemButton
-          component="a"
-          href={supportingDocument.path}
-          target="_blank"
-          sx={sx.button}
-          disabled={supportingDocument.private}
-        >
-          <Image
-            src={supportingDocument.thumbnail}
-            alt={`Thumbnail of ${supportingDocument.name}`}
-            width={102}
-            height={68}
-            className={styles.thumbnail}
-          />
-          <ListItemText primary={supportingDocument.name} />
-        </ListItemButton>
-      </ListItem>
+      <ListItemButton
+        component="a"
+        href={supportingDocument.path}
+        target="_blank"
+        sx={sx.button}
+        disabled={supportingDocument.private}
+        {...props}
+      >
+        <Image
+          src={supportingDocument.thumbnail}
+          alt={`Thumbnail of ${supportingDocument.name}`}
+          width={114}
+          height={64}
+          className={styles.thumbnail}
+          quality={100}
+        />
+        <ListItemText
+          primary={supportingDocument.name}
+          primaryTypographyProps={primaryTypographyProps}
+        />
+      </ListItemButton>
     </Tooltip>
   );
 };

@@ -262,6 +262,9 @@ const brandingTheme = extendTheme({
         address: {
           fontStyle: "normal",
         },
+        img: {
+          objectFit: "cover",
+        },
       }),
     },
     MuiFab: {
