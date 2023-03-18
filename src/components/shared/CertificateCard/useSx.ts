@@ -6,14 +6,12 @@ const useSx = ({ organization }: { organization: Brand }) =>
     cardContent: {
       display: "flex",
       alignItems: "center",
+      gap: "16px",
     },
     organization: {
       typography: "body2",
       textTransform: "capitalize",
       color: `${organization.id}.dark`,
-    },
-    icon: {
-      mr: "16px",
     },
     status: {
       color: "text.secondary",

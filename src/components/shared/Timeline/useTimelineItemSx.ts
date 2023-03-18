@@ -31,10 +31,12 @@ const useSx = () =>
     subtitle: {
       color: "primary.main",
     },
+    listItem: {
+      gap: "16px",
+    },
     listItemIcon: {
       minWidth: "initial",
       my: "4px",
-      mr: "16px",
       alignSelf: "flex-start",
       display: "flex",
       alignItems: "center",
@@ -49,7 +51,6 @@ const useSx = () =>
     tagsContainer: {
       display: "flex",
       flexWrap: "wrap",
-      ml: -0.5,
       gap: 1,
     },
     supportingDocumentList: {

@@ -63,7 +63,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         {Boolean(data.contents?.length) && (
           <List component="ol" data-cy="contents">
             {data.contents?.map((content, index) => (
-              <ListItem key={index} disableGutters>
+              <ListItem key={index} sx={sx.listItem} disableGutters>
                 <ListItemIcon sx={sx.listItemIcon}>
                   <Typography component="span" sx={sx.listItemNumber}>
                     {`${index + 1 < 10 ? 0 : ""}${index + 1}`}

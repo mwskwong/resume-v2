@@ -12,7 +12,7 @@ const SearchField: FC<SearchFieldProps> = ({ sx: sxProps, ...props }) => {
 
   return (
     <InputBase
-      startAdornment={<Search />}
+      startAdornment={<Search color="inherit" />}
       sx={cx(sx.root, sxProps)}
       {...props}
     />

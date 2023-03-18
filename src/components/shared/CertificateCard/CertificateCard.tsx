@@ -17,7 +17,7 @@ const CertificateCard: FC<CertificateCardProps> = ({
   const Icon = getBrandIconById(organization.id);
   const cardContent = (
     <CardContent sx={sx.cardContent}>
-      <Icon fontSize="large" sx={sx.icon} />
+      <Icon fontSize="large" />
       <div>
         <Typography data-cy="name">{name}</Typography>
         <Typography sx={sx.organization} data-cy="organization">
