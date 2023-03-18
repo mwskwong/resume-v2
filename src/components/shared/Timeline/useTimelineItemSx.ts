@@ -49,7 +49,6 @@ const useSx = () =>
     tagsContainer: {
       display: "flex",
       flexWrap: "wrap",
-      ml: -0.5,
       gap: 1,
     },
     supportingDocumentList: {
