@@ -10,6 +10,12 @@ const useSx = ({ private: privateDoc }: { private?: boolean }) =>
       pr: "24px",
       py: "12px",
     },
+    name: {
+      display: "-webkit-box",
+      WebkitBoxOrient: "vertical",
+      WebkitLineClamp: 2,
+      overflow: "hidden",
+    },
   });
 
 export default useSx;

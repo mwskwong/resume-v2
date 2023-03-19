@@ -8,6 +8,7 @@ import {
 } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
+import { LazyMotion, m } from "framer-motion";
 import { FC, useEffect } from "react";
 import {
   FormContainer,
@@ -16,11 +17,14 @@ import {
 } from "react-hook-form-mui";
 
 import SectionHeader from "@/components/shared/SectionHeader";
+import loadFramerMotionFeatures from "@/utils/loadFramerMotionFeatures";
 
 import FormSchema from "./FormSchema";
 import PersonalInfo from "./PersonalInfo";
 import useSx from "./useContactSx";
 import useFormspree from "./useFormspree";
+
+const MotionAlert = m(Alert);
 
 const Contact: FC = () => {
   const sx = useSx();
@@ -109,11 +113,20 @@ const Contact: FC = () => {
             </Grid>
             <Grid xs={12} md={8} mdOffset={4} sx={sx.alertContainer}>
               <Stack spacing={1} data-cy="alerts">
-                {state.errors.map(({ message }) => (
-                  <Alert key={message} severity="error">
-                    {message}
-                  </Alert>
-                ))}
+                <LazyMotion features={loadFramerMotionFeatures}>
+                  {state.errors.map(({ message }, index) => (
+                    <MotionAlert
+                      key={message}
+                      severity="error"
+                      initial={{ scaleY: 0, opacity: 0 }}
+                      animate={{ scaleY: 1, opacity: 1 }}
+                      exit={{ scaleY: 0, opacity: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                    >
+                      {message}
+                    </MotionAlert>
+                  ))}
+                </LazyMotion>
               </Stack>
             </Grid>
             <Grid xs={12} sm="auto" smOffset="auto">
