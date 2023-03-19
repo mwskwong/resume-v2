@@ -13,7 +13,6 @@ import MotionConfig from "./MotionConfig";
 
 const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
   <html lang="en" className={rubik.className}>
-    <head />
     <body>
       <EmotionRegistry>
         <ThemeProvider>
