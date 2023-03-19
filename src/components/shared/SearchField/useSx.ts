@@ -5,11 +5,13 @@ const useSx = () =>
     root: {
       display: "flex",
       alignItems: "center",
-      gap: "16px",
       borderRadius: 1,
-      px: "16px",
+      px: 2,
       maxWidth: 400,
       height: 56,
+    },
+    clearButton: {
+      mx: -1,
     },
   });
 
