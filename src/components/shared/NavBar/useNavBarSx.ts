@@ -12,7 +12,7 @@ const useSx = () =>
       },
     },
     menuButton: {
-      mr: "-8px",
+      mr: "-6px",
       display: {
         md: "none",
       },
