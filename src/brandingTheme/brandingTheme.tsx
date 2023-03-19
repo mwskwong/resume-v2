@@ -270,7 +270,6 @@ const brandingTheme = extendTheme({
     MuiFab: {
       defaultProps: {
         color: "primary",
-        size: "medium",
       },
       styleOverrides: {
         root: ({ theme }) => ({
