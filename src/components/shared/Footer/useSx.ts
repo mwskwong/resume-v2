@@ -12,7 +12,7 @@ const useSx = () =>
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "space-between",
-      "@media (min-width: 1300px)": {
+      "@media (min-width: 1332px)": {
         flexDirection: "row",
       },
     },
@@ -21,7 +21,7 @@ const useSx = () =>
       fontWeight: "regular",
       width: "100%",
       textAlign: "center",
-      "@media (min-width: 1300px)": {
+      "@media (min-width: 1332px)": {
         textAlign: "unset",
       },
     },
