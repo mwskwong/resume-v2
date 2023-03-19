@@ -1,11 +1,11 @@
 import { FC, PropsWithChildren } from "react";
 
-// Group branding theme import in MUI v6
-import BrandingThemeProvider from "@/brandingTheme/BrandingThemeProvider";
-import rubik from "@/brandingTheme/rubik";
 import Footer from "@/components/shared/Footer";
 import NavBar from "@/components/shared/NavBar";
 import ScrollToTopFab from "@/components/shared/ScrollToTopFab";
+// Group branding theme import in MUI v6
+import ThemeProvider from "@/theme/ThemeProvider";
+import rubik from "@/theme/rubik";
 
 import Analytics from "./Analytics";
 import EmotionRegistry from "./EmotionRegistry";
@@ -16,14 +16,14 @@ const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
     <head />
     <body>
       <EmotionRegistry>
-        <BrandingThemeProvider>
+        <ThemeProvider>
           <MotionConfig reducedMotion="user">
             <NavBar />
             {children}
             <Footer />
             <ScrollToTopFab />
           </MotionConfig>
-        </BrandingThemeProvider>
+        </ThemeProvider>
       </EmotionRegistry>
       <Analytics />
     </body>

@@ -7,16 +7,16 @@ import {
 } from "@mui/material";
 import { ComponentProps, FC } from "react";
 
-import brandingTheme from "./brandingTheme";
+import theme from "./theme";
 
-const Provider: FC<ComponentProps<typeof CssVarsProvider>> = ({
+const ThemeProvider: FC<ComponentProps<typeof CssVarsProvider>> = ({
   children,
   ...props
 }) => (
   <>
     {getInitColorSchemeScript()}
     <CssVarsProvider
-      theme={brandingTheme}
+      theme={theme}
       defaultMode="light"
       disableTransitionOnChange
       {...props}
@@ -27,4 +27,4 @@ const Provider: FC<ComponentProps<typeof CssVarsProvider>> = ({
   </>
 );
 
-export default Provider;
+export default ThemeProvider;
