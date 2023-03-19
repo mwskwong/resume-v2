@@ -280,9 +280,28 @@ const brandingTheme = extendTheme({
         }),
       },
     },
+    MuiFilledInput: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+        }),
+      },
+    },
     MuiFormControl: {
       defaultProps: {
         variant: "filled",
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontWeight: "normal",
+        },
+        contained: {
+          marginLeft: 12,
+          marginRight: 12,
+        },
       },
     },
     MuiIconButton: {
@@ -293,13 +312,6 @@ const brandingTheme = extendTheme({
             borderRadius: theme.vars.shape.borderRadius,
           },
         }),
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          textTransform: "capitalize",
-        },
       },
     },
     MuiInputBase: {
