@@ -9,7 +9,7 @@ import { FC, PropsWithChildren, useState } from "react";
 const EmotionRegistry: FC<PropsWithChildren> = ({ children }) => {
   const [cache] = useState(() => {
     const cache = createCache({ key: "css" });
-    cache.compat = true;
+    // cache.compat = true;
     return cache;
   });
 
