@@ -1,3 +1,8 @@
 import { InputBaseProps } from "@mui/material";
+import { MouseEventHandler } from "react";
 
-export default InputBaseProps;
+interface SearchFieldProps extends InputBaseProps {
+  onClear?: MouseEventHandler<HTMLButtonElement>;
+}
+
+export default SearchFieldProps;

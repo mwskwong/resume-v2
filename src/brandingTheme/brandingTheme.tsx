@@ -304,15 +304,25 @@ const brandingTheme = extendTheme({
     },
     MuiInputBase: {
       styleOverrides: {
-        adornedStart: ({ theme }) => ({
-          color: theme.vars.palette.text.secondary,
-        }),
         input: ({ theme }) => ({
           color: theme.vars.palette.text.primary,
           "&::placeholder": {
             color: theme.vars.palette.text.secondary,
             opacity: 1,
           },
+        }),
+      },
+    },
+    MuiInputAdornment: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.vars.palette.text.secondary,
+        }),
+        positionStart: ({ theme }) => ({
+          marginRight: theme.spacing(2),
+        }),
+        positionEnd: ({ theme }) => ({
+          marginLeft: theme.spacing(2),
         }),
       },
     },

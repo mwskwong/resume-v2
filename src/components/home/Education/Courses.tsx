@@ -41,6 +41,7 @@ const Courses: FC = () => {
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) =>
     setQuery(event.target.value);
+  const handleSearchClear = () => setQuery("");
 
   return (
     <Stack spacing={2} data-cy="courses" alignItems="stretch">
@@ -51,11 +52,12 @@ const Courses: FC = () => {
         sx={sx.searchField}
         value={query}
         onChange={handleSearch}
+        onClear={handleSearchClear}
         inputProps={{ "aria-label": "search courses and training" }}
       />
       <div>
-        <LazyMotion strict features={loadFramerMotionFeatures}>
-          <Grid container spacing={2}>
+        <Grid container spacing={2}>
+          <LazyMotion strict features={loadFramerMotionFeatures}>
             {filteredCourses.map(({ id, name, institution }) => {
               const certificateUrl = getCertificatePathById(id);
 
@@ -69,8 +71,8 @@ const Courses: FC = () => {
                 </MotionGrid>
               );
             })}
-          </Grid>
-        </LazyMotion>
+          </LazyMotion>
+        </Grid>
       </div>
     </Stack>
   );

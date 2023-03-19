@@ -118,9 +118,9 @@ const Contact: FC = () => {
                     <MotionAlert
                       key={message}
                       severity="error"
-                      initial={{ scaleY: 0, opacity: 0 }}
-                      animate={{ scaleY: 1, opacity: 1 }}
-                      exit={{ scaleY: 0, opacity: 0 }}
+                      initial={{ y: -10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
                       transition={{ delay: 0.1 * index }}
                     >
                       {message}
