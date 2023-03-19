@@ -280,14 +280,6 @@ const brandingTheme = extendTheme({
         }),
       },
     },
-    MuiFilledInput: {
-      styleOverrides: {
-        input: ({ theme }) => ({
-          paddingLeft: theme.spacing(2),
-          paddingRight: theme.spacing(2),
-        }),
-      },
-    },
     MuiFormControl: {
       defaultProps: {
         variant: "filled",
