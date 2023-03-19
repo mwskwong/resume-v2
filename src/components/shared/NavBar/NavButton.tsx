@@ -5,7 +5,7 @@ import NavElementProps from "./NavElementProps";
 import useSx from "./useNavButtonSx";
 
 const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
-  const sx = useSx({ active });
+  const sx = useSx();
   const handleClick = () => {
     const section = document.getElementById(id);
     section?.scrollIntoView();
@@ -18,7 +18,7 @@ const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
       data-cy={id}
     >
       {label}
-      <Box component="span" sx={sx.active} />
+      {active && <Box component="span" sx={sx.dot} />}
     </Button>
   );
 };

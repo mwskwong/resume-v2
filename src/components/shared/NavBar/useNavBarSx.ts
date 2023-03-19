@@ -5,6 +5,9 @@ const useSx = () =>
     toolbar: {
       justifyContent: "space-between",
     },
+    logo: {
+      ml: -1,
+    },
     navButtonContainer: {
       display: {
         xs: "none",
@@ -12,13 +15,12 @@ const useSx = () =>
       },
     },
     menuButton: {
-      mr: "-6px",
       display: {
         md: "none",
       },
     },
     navList: {
-      mx: "-12px",
+      mx: -2,
     },
   });
 

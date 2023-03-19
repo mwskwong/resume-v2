@@ -5,6 +5,7 @@ const useSx = () =>
     root: {
       typography: "h5",
       fontWeight: "medium",
+      gap: 1,
     },
   });
 
