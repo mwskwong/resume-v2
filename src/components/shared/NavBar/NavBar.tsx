@@ -42,7 +42,7 @@ const NavBar: FC = () => {
     <AppBar>
       <Container>
         <Toolbar disableGutters sx={sx.toolbar}>
-          <Logo />
+          <Logo sx={sx.logo} />
           <Stack
             sx={sx.navButtonContainer}
             component="nav"
@@ -63,6 +63,7 @@ const NavBar: FC = () => {
             sx={sx.menuButton}
             menuOpen={menuOpen}
             onToggleMenu={handleMenuToggle}
+            edge="end"
           />
         </Toolbar>
         <Collapse

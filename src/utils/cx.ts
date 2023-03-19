@@ -1,8 +1,6 @@
 import { SxProps, Theme } from "@mui/material";
 
-type Cx = (...args: (SxProps<Theme> | undefined)[]) => SxProps<Theme>;
-
-const cx: Cx = (...args) =>
-  args.filter((sx) => Boolean(sx)).flat() as SxProps<Theme>;
+const cx = (...args: (SxProps<Theme> | undefined)[]) =>
+  args.filter(Boolean).flat(Infinity) as SxProps<Theme>;
 
 export default cx;

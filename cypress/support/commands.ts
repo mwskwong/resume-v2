@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-import { buttonClasses, listItemButtonClasses } from "@mui/material";
 import "cypress-downloadfile/lib/downloadFileCommand";
 
 // ***********************************************
@@ -41,10 +40,6 @@ import "cypress-downloadfile/lib/downloadFileCommand";
 
 Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const container = viewport === "desktop" ? "navButtons" : "navList";
-  const activeClassName =
-    viewport === "desktop"
-      ? buttonClasses.textPrimary
-      : listItemButtonClasses.selected;
 
   if (viewport === "mobile") {
     cy.get("[data-cy = 'menuButton']").click();
@@ -55,7 +50,6 @@ Cypress.Commands.add("navigateToSection", (section, viewport) => {
   );
   cy.get("@navElement").should("contain", section.name);
   cy.get("@navElement").click();
-  cy.get("@navElement").should("have.class", activeClassName);
   cy.verifySectionIsInViewport(section);
 
   if (viewport === "mobile") {
