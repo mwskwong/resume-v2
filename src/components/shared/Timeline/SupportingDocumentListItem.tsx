@@ -18,14 +18,7 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
 }) => {
   const sx = useSx({ private: supportingDocument.private });
   const PopperProps = { sx: sx.tooltip };
-  const primaryTypographyProps: TypographyProps = {
-    sx: {
-      display: "-webkit-box",
-      WebkitBoxOrient: "vertical",
-      WebkitLineClamp: 2,
-      overflow: "hidden",
-    },
-  };
+  const primaryTypographyProps: TypographyProps = { sx: sx.name };
 
   return (
     <Tooltip
