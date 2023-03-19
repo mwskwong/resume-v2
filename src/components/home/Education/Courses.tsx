@@ -12,11 +12,9 @@ import getCertificatePathById from "@/assets/getCertificatePathById";
 import CertificateCard from "@/components/shared/CertificateCard";
 import SearchField from "@/components/shared/SearchField/SearchField";
 import courses from "@/constants/courses";
+import loadFramerMotionFeatures from "@/utils/loadFramerMotionFeatures";
 
 import useSx from "./useCoursesSx";
-
-const loadFeatures = () =>
-  import("./framerMotionFeatures").then((res) => res.default);
 
 const MotionGrid = m(Grid);
 
@@ -56,7 +54,7 @@ const Courses: FC = () => {
         inputProps={{ "aria-label": "search courses and training" }}
       />
       <div>
-        <LazyMotion strict features={loadFeatures}>
+        <LazyMotion strict features={loadFramerMotionFeatures}>
           <Grid container spacing={2}>
             {filteredCourses.map(({ id, name, institution }) => {
               const certificateUrl = getCertificatePathById(id);
