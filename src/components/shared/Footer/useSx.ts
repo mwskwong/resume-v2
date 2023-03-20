@@ -18,7 +18,6 @@ const useSx = () =>
     },
     text: {
       color: "inherit",
-      fontWeight: "regular",
       width: "100%",
       textAlign: "center",
       "@media (min-width: 1332px)": {
