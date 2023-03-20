@@ -169,7 +169,6 @@ const brandingTheme = extendTheme({
       fontSize: pxToRem(12),
       lineHeight: 18 / 12,
       letterSpacing: 0,
-      fontWeight: 700,
     },
   },
   components: {
@@ -287,9 +286,6 @@ const brandingTheme = extendTheme({
     },
     MuiFormHelperText: {
       styleOverrides: {
-        root: {
-          fontWeight: "normal",
-        },
         contained: {
           marginLeft: 12,
           marginRight: 12,
