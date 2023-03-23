@@ -1,7 +1,7 @@
 "use client";
 
-import { PersonRounded as Person } from "@mui/icons-material";
 import { Container, Stack } from "@mui/material";
+import { CircleSlice2 } from "mdi-material-ui";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -20,7 +20,7 @@ const About: FC = () => {
   return (
     <Container>
       <Stack sx={sx.stack} spacing={6}>
-        <SectionHeader heading="About" icon={<Person />} />
+        <SectionHeader heading="About" icon={<CircleSlice2 />} />
         <Image
           src={personalPhoto}
           alt={`Picture of ${firstName} ${lastName}`}

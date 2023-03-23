@@ -2,13 +2,13 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  PhoneRounded as Phone,
   SendRounded as SendIcon,
   CheckCircleRounded as SuccessIcon,
 } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
+import { CircleSlice8 } from "mdi-material-ui";
 import { FC, useEffect } from "react";
 import {
   FormContainer,
@@ -55,7 +55,7 @@ const Contact: FC = () => {
   return (
     <Container>
       <Stack spacing={6}>
-        <SectionHeader heading="Contact" icon={<Phone />} />
+        <SectionHeader heading="Contact" icon={<CircleSlice8 />} />
         <FormContainer
           formContext={hookFormContext}
           onSuccess={handleFormspreeSubmit}
