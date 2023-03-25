@@ -20,20 +20,34 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   webpack: (config) => {
-    // import PDF as file url
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     config.module.rules.push({
       test: /\.pdf$/i,
       type: "asset/resource",
     });
 
-    // import SVG as component
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
-    });
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      rule.test?.test?.(".svg")
+    );
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    config.module.rules.push(
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/,
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: /url/ },
+        use: ["@svgr/webpack"],
+      }
+    );
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    fileLoaderRule.exclude = /\.svg$/i;
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return config;

@@ -19,4 +19,9 @@ declare global {
     const ReactComponent: FC<SVGProps<SVGSVGElement>>;
     export default ReactComponent;
   }
+
+  module "*.svg?url" {
+    const url: string;
+    export default url;
+  }
 }
