@@ -5,11 +5,11 @@ import SectionProps from "./SectionProps";
 const getBgColor = (variant: SectionProps["variant"]): keyof TypeBackground => {
   switch (variant) {
     case "primary":
-      return "sectionPrimary";
+      return "primary";
     case "secondary":
-      return "sectionSecondary";
+      return "secondary";
     case "tertiary":
-      return "sectionTertiary";
+      return "tertiary";
     default:
       return "default";
   }

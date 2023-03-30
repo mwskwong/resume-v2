@@ -13,7 +13,7 @@ const CertificateCard: FC<CertificateCardProps> = ({
   certificateUrl,
   ...props
 }) => {
-  const sx = useSx({ organization });
+  const sx = useSx();
   const Icon = getBrandIconById(organization.id);
   const cardContent = (
     <CardContent sx={sx.cardContent}>

@@ -8,7 +8,7 @@ const useSx = () =>
       textAlign: "center",
     },
     card: {
-      bgcolor: "background.sectionTertiary",
+      bgcolor: "background.tertiary",
     },
   });
 

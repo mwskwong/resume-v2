@@ -1,7 +1,6 @@
-import { Brand } from "@/types";
 import makeSx from "@/utils/makeSx";
 
-const useSx = ({ organization }: { organization: Brand }) =>
+const useSx = () =>
   makeSx({
     cardContent: {
       display: "flex",
@@ -11,7 +10,7 @@ const useSx = ({ organization }: { organization: Brand }) =>
     organization: {
       typography: "body2",
       textTransform: "capitalize",
-      color: `${organization.id}.dark`,
+      color: "text.secondary",
     },
     status: {
       color: "text.secondary",
