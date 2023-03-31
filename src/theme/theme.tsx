@@ -5,7 +5,6 @@ import {
   darken,
   experimental_extendTheme as extendTheme,
   lighten,
-  toggleButtonGroupClasses,
   touchRippleClasses,
 } from "@mui/material";
 import type {} from "@mui/material/themeCssVarsAugmentation";
@@ -20,6 +19,42 @@ import {
 } from "simple-icons";
 
 import rubik from "./rubik";
+
+declare module "@mui/material" {
+  interface Palette {
+    dataCamp: Palette["primary"];
+    enterpriseDb: Palette["primary"];
+    google: Palette["primary"];
+    microsoft: Palette["primary"];
+    mongoDb: Palette["primary"];
+    oracle: Palette["primary"];
+    udemy: Palette["primary"];
+  }
+
+  interface PaletteOptions {
+    dataCamp: PaletteOptions["primary"];
+    enterpriseDb: PaletteOptions["primary"];
+    google: PaletteOptions["primary"];
+    microsoft: PaletteOptions["primary"];
+    mongoDb: PaletteOptions["primary"];
+    oracle: PaletteOptions["primary"];
+    udemy: PaletteOptions["primary"];
+  }
+
+  interface TypeBackground {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+  }
+
+  interface TypographyVariantsOptions {
+    fontWeightExtraBold: number;
+  }
+
+  interface TypographyVariants {
+    fontWeightExtraBold: number;
+  }
+}
 
 const pxToRem = (size: number) => `${size / 16}rem`;
 
@@ -48,31 +83,24 @@ const brandingTheme = extendTheme({
         success: { main: "#1AA251" },
         enterpriseDb: {
           main: `#${siEnterprisedb.hex}`,
-          dark: darken(`#${siEnterprisedb.hex}`, 0.19),
         },
         mongoDb: {
           main: `#${siMongodb.hex}`,
-          dark: darken(`#${siMongodb.hex}`, 0.23),
         },
         microsoft: {
           main: `#${siMicrosoft.hex}`,
-          dark: `#${siMicrosoft.hex}`,
         },
         oracle: {
           main: `#${siOracle.hex}`,
-          dark: darken(`#${siOracle.hex}`, 0.11),
         },
         udemy: {
           main: `#${siUdemy.hex}`,
-          dark: darken(`#${siUdemy.hex}`, 0.03),
         },
         dataCamp: {
           main: `#${siDatacamp.hex}`,
-          dark: darken(`#${siDatacamp.hex}`, 0.465),
         },
         google: {
           main: `#${siGoogle.hex}`,
-          dark: darken(`#${siGoogle.hex}`, 0.17),
         },
         grey,
         text: {
@@ -81,9 +109,9 @@ const brandingTheme = extendTheme({
         },
         divider: grey[300],
         background: {
-          sectionPrimary: lighten(grey[50], 0.5),
-          sectionSecondary: darken(grey[50], 0.003),
-          sectionTertiary: darken(grey[50], 0.025),
+          primary: lighten(grey[50], 0.5),
+          secondary: darken(grey[50], 0.003),
+          tertiary: darken(grey[50], 0.025),
         },
         action: {
           active: grey[900],
@@ -120,7 +148,7 @@ const brandingTheme = extendTheme({
       lineHeight: 78 / 70,
     },
     h2: {
-      fontSize: "clamp(1.5rem, .9643rem + 1.4286vw, 2.25rem)",
+      fontSize: "clamp(1.5rem, 0.9643rem + 1.4286vw, 2.25rem)",
       fontWeight: 800,
       lineHeight: 44 / 36,
     },
@@ -219,7 +247,7 @@ const brandingTheme = extendTheme({
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.sectionPrimary,
+          backgroundColor: theme.vars.palette.background.primary,
         }),
       },
     },
@@ -360,26 +388,8 @@ const brandingTheme = extendTheme({
     },
     MuiTimelineDot: {
       styleOverrides: {
-        root: {
-          boxShadow: "none",
-        },
-      },
-    },
-    MuiToggleButtonGroup: {
-      styleOverrides: {
-        root: {
-          flexWrap: "wrap",
-          justifyContent: "center",
-        },
-        grouped: ({ theme }) => ({
-          margin: `${theme.spacing(0.25)} ${theme.spacing(0.5)}`,
-          border: 0,
-          [`&.${toggleButtonGroupClasses.disabled}`]: {
-            border: 0,
-          },
-          "&:not(:first-of-type), &:first-of-type": {
-            borderRadius: theme.vars.shape.borderRadius,
-          },
+        root: ({ theme }) => ({
+          boxShadow: theme.vars.shadows[0],
         }),
       },
     },
@@ -395,11 +405,6 @@ const brandingTheme = extendTheme({
         touch: {
           borderRadius: 8,
         },
-      },
-    },
-    MuiTypography: {
-      defaultProps: {
-        color: "text.primary",
       },
     },
   },

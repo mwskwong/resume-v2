@@ -3,7 +3,7 @@ import makeSx from "@/utils/makeSx";
 const useSx = () =>
   makeSx({
     footer: {
-      bgcolor: "background.sectionPrimary",
+      bgcolor: "background.primary",
       color: "text.secondary",
       py: 4,
     },

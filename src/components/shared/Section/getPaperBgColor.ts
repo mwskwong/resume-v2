@@ -7,11 +7,11 @@ const getPaperBgColor = (
 ): keyof TypeBackground => {
   switch (variant) {
     case "default":
-      return "sectionPrimary";
+      return "primary";
     case "primary":
-      return "sectionSecondary";
+      return "secondary";
     case "secondary":
-      return "sectionTertiary";
+      return "tertiary";
     default:
       return "default";
   }

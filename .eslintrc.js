@@ -19,4 +19,7 @@ module.exports = {
     es6: true,
   },
   plugins: ["@typescript-eslint"],
+  rules: {
+    "@next/next/no-html-link-for-pages": ["error", "src/app/"],
+  },
 };
