@@ -41,6 +41,16 @@ declare module "@mui/material" {
     udemy: PaletteOptions["primary"];
   }
 
+  interface SvgIconPropsColorOverrides {
+    dataCamp: true;
+    enterpriseDb: true;
+    google: true;
+    microsoft: true;
+    mongoDb: true;
+    oracle: true;
+    udemy: true;
+  }
+
   interface TypeBackground {
     primary: string;
     secondary: string;
@@ -181,6 +191,12 @@ const brandingTheme = extendTheme({
       lineHeight: 24 / 18,
       letterSpacing: 0,
       fontWeight: 500,
+    },
+    subtitle2: {
+      fontSize: pxToRem(14),
+      lineHeight: 21 / 14,
+      letterSpacing: 0,
+      fontWeight: 700,
     },
     body1: {
       fontSize: pxToRem(16),

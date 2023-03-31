@@ -1,6 +1,6 @@
-import { SxProps, Theme } from "@mui/material";
+import { StackProps, SxProps, Theme } from "@mui/material";
 
-interface PlatformProfilesProps {
+interface PlatformProfilesProps extends StackProps {
   sx?: SxProps<Theme>;
 }
 
