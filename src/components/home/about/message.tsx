@@ -13,9 +13,14 @@ const Message: FC = () => (
         {`I'm ${firstName} ${lastName}.`}
       </Box>
     </Typography>
-    <Box sx={{ typography: "subtitle1", my: 2 }} data-cy="jobTitles">
+    <Typography
+      variant="subtitle1"
+      component="div"
+      sx={{ my: 2 }}
+      data-cy="jobTitles"
+    >
       {jobTitles.join(" & ")}
-    </Box>
+    </Typography>
     <Typography data-cy="selfIntroduction">{selfIntroduction}</Typography>
   </Box>
 );

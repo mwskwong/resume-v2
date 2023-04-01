@@ -63,7 +63,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
         >
           {period} • {duration}
         </Typography>
-        <Typography variant="subtitle1" data-cy="title">
+        <Typography variant="subtitle1" component="h5" data-cy="title">
           {data.title}
         </Typography>
         <Typography sx={{ color: "primary.main" }} data-cy="subtitle">
