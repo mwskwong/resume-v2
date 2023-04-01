@@ -4,8 +4,6 @@ import { KeyboardArrowUpRounded as ArrowUp } from "@mui/icons-material";
 import { Fab, Zoom, useMediaQuery, useScrollTrigger } from "@mui/material";
 import { FC } from "react";
 
-import styles from "./scroll-to-top-fab.module.css";
-
 const ScrollToTopFab: FC = () => {
   const show = useScrollTrigger({ disableHysteresis: true });
   const preferReducedMotion = useMediaQuery("(prefers-reduced-motion)");
@@ -15,7 +13,7 @@ const ScrollToTopFab: FC = () => {
   return (
     <Zoom
       in={show}
-      className={styles.zoom}
+      style={{ transformOrigin: "bottom right" }}
       timeout={preferReducedMotion ? 0 : undefined}
       mountOnEnter
       unmountOnExit

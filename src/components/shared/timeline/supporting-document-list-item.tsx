@@ -1,9 +1,16 @@
-import { ListItem, ListItemButton, ListItemText, Tooltip } from "@mui/material";
-import Image from "next/image";
+import {
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Tooltip,
+  styled,
+} from "@mui/material";
+import NextImage from "next/image";
 import { FC } from "react";
 
 import SupportingDocumentListItemProps from "./supporting-document-list-item-props";
-import styles from "./supporting-document-list-item.module.css";
+
+const Image = styled(NextImage)``;
 
 const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
   supportingDocument,
@@ -28,9 +35,14 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
         <Image
           src={supportingDocument.thumbnail}
           alt={`Thumbnail of ${supportingDocument.name}`}
-          width={114}
-          height={64}
-          className={styles.thumbnail}
+          width={100}
+          height={56}
+          sx={{
+            borderRadius: 1,
+            mr: 2,
+            objectPosition: "top",
+            aspectRatio: "100 / 56",
+          }}
         />
         <ListItemText
           primary={supportingDocument.name}
