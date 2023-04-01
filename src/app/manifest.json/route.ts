@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { WebAppManifest } from "web-app-manifest";
 
 import { firstName, lastName } from "@/constants/name";
-import selfIntroduction from "@/constants/selfIntroduction";
+import selfIntroduction from "@/constants/self-introduction";
 
 export const GET = () => {
   const manifest: WebAppManifest = {

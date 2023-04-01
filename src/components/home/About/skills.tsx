@@ -16,9 +16,7 @@ const Skills: FC = () => (
     <Typography
       variant="subtitle2"
       component="h3"
-      color="primary.main"
-      align="center"
-      mb={2}
+      sx={{ color: "primary.main", textAlign: "center", mb: 2 }}
       data-cy="title"
     >
       Skills
@@ -42,16 +40,18 @@ const Skills: FC = () => (
               <Typography
                 variant="subtitle1"
                 component="h4"
-                color="primary.main"
+                sx={{ color: "primary.main" }}
                 data-cy="subtitle"
               >
                 {name}
               </Typography>
               <Box
-                display="flex"
-                justifyContent="center"
-                flexWrap="wrap"
-                gap={1}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                  gap: 1,
+                }}
               >
                 {skills.map((skill) => (
                   <Chip key={skill} label={skill} data-cy={skill} />

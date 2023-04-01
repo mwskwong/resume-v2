@@ -4,7 +4,7 @@ import { siStackoverflow } from "simple-icons";
 
 import cx from "@/utils/cx";
 
-import thirdPartyIconSx from "./thirdPartyIconSx";
+import thirdPartyIconSx from "./third-party-icon-sx";
 
 const StackOverflow: FC<SvgIconProps> = ({ sx, ...props }) => (
   <SvgIcon sx={cx(thirdPartyIconSx, sx)} data-cy="stackOverflowIcon" {...props}>

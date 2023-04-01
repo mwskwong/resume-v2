@@ -16,8 +16,8 @@ import {
   useForm as useHookForm,
 } from "react-hook-form-mui";
 
-import SectionHeader from "@/components/shared/SectionHeader";
-import loadFramerMotionFeatures from "@/utils/loadFramerMotionFeatures";
+import SectionHeader from "@/components/shared/section-header";
+import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
 
 import FormSchema from "./form-schema";
 import PersonalInfo from "./personal-info";

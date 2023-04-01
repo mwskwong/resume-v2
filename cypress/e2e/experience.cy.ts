@@ -3,7 +3,7 @@ import viewports from "cypress/fixtures/viewports.json";
 
 import experiences from "@/constants/experiences";
 import { EXPERIENCE } from "@/constants/nav";
-import dateTimeFormat from "@/utils/dateTimeFormat";
+import dateTimeFormat from "@/utils/date-time-format";
 
 describe("Experience section", () => {
   beforeEach(() => {

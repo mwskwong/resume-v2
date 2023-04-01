@@ -1,4 +1,4 @@
-import SectionProps from "@/components/shared/Section/SectionProps";
+import SectionProps from "@/components/shared/section/section-props";
 
 interface SectionDividerProps {
   sectionVariants: {

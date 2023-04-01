@@ -1,6 +1,6 @@
 import { SxProps, Theme } from "@mui/material";
 
-import getBgColor from "@/components/shared/Section/getBgColor";
+import getBgColor from "@/components/shared/section/get-bgcolor";
 
 import SectionDividerProps from "./section-divider-props";
 

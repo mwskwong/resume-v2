@@ -4,8 +4,8 @@ import { FavoriteRounded as Favorite } from "@mui/icons-material";
 import { Box, Container, SxProps, Theme, Typography } from "@mui/material";
 import { FC } from "react";
 
-import PlatformProfiles from "@/components/shared/PlatformProfiles";
 import FooterDivider from "@/components/shared/dividers/footer";
+import PlatformProfiles from "@/components/shared/platform-profiles";
 import { address } from "@/constants/contact";
 import { firstName, lastName, middleName } from "@/constants/name";
 
@@ -25,9 +25,7 @@ const Footer: FC = () => {
       <FooterDivider />
       <Box
         component="footer"
-        bgcolor="background.primary"
-        color="text.secondary"
-        py={4}
+        sx={{ bgcolor: "background.primary", color: "text.secondary", py: 4 }}
       >
         <Container
           sx={{
@@ -41,10 +39,10 @@ const Footer: FC = () => {
           }}
         >
           <div>
-            <Typography sx={textSx} variant="body2">
+            <Typography variant="body2" sx={textSx}>
               {`Copyright © ${year} ${lastName.toUpperCase()}, ${firstName} ${middleName}`}
             </Typography>
-            <Typography sx={textSx} variant="caption">
+            <Typography variant="caption" sx={textSx}>
               {"Made with "}
               <Favorite
                 color="error"

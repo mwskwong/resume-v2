@@ -1,9 +1,9 @@
 import viewports from "cypress/fixtures/viewports.json";
 
-import jobTitles from "@/constants/jobTitles";
+import jobTitles from "@/constants/job-titles";
 import { firstName, lastName } from "@/constants/name";
 import { HOME } from "@/constants/nav";
-import platformProfiles from "@/constants/platformProfiles";
+import platformProfiles from "@/constants/platform-profiles";
 
 describe("Hero section", () => {
   beforeEach(() => {

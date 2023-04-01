@@ -38,31 +38,33 @@ const PersonalInfo = () => (
     spacing={3}
     xs={12}
     md={4}
+    sx={{ textAlign: "center" }}
     data-cy="personalInfo"
   >
     {data.map(({ id, Icon, title, value, url }) => (
       <Grid key={id} xs={12} sm={4} md={12}>
         <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
           data-cy={id}
         >
           <Icon fontSize="large" />
           <Typography
-            color="primary.main"
-            align="center"
-            textTransform="capitalize"
-            mt={2}
+            sx={{
+              color: "primary.main",
+              mt: 2,
+            }}
             gutterBottom
           >
             {title}
           </Typography>
           <Link
             color="inherit"
-            align="center"
             underline="none"
-            zIndex={1}
+            sx={{ zIndex: 1 }}
             href={url}
             target={url.startsWith("http") ? "_blank" : undefined}
           >

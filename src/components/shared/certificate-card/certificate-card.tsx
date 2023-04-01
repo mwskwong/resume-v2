@@ -27,13 +27,13 @@ const CertificateCard: FC<CertificateCardProps> = ({
             <Typography data-cy="name">{name}</Typography>
             <Typography
               variant="body2"
-              color="text.secondary"
+              sx={{ color: "text.secondary" }}
               data-cy="organization"
             >
               {organization.name}
             </Typography>
             {status && (
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
                 {status}
               </Typography>
             )}

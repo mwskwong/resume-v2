@@ -4,7 +4,7 @@ import { siDatacamp } from "simple-icons";
 
 import cx from "@/utils/cx";
 
-import thirdPartyIconSx from "./thirdPartyIconSx";
+import thirdPartyIconSx from "./third-party-icon-sx";
 
 const DataCamp: FC<SvgIconProps> = ({ sx, ...props }) => (
   <SvgIcon

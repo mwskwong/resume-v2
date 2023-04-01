@@ -9,10 +9,10 @@ import {
 } from "react";
 
 import getCertificatePathById from "@/assets/get-certificate-path-by-id";
-import SearchField from "@/components/shared/SearchField";
 import CertificateCard from "@/components/shared/certificate-card";
+import SearchField from "@/components/shared/search-field";
 import courses from "@/constants/courses";
-import loadFramerMotionFeatures from "@/utils/loadFramerMotionFeatures";
+import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
 
 const MotionGrid = m(Grid);
 
@@ -45,8 +45,7 @@ const Courses: FC = () => {
       <Typography
         variant="subtitle2"
         component="h3"
-        color="primary.main"
-        align="center"
+        sx={{ color: "primary.main", textAlign: "center" }}
         data-cy="title"
       >
         Courses & Training

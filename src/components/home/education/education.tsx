@@ -5,8 +5,8 @@ import { CircleSlice6 } from "mdi-material-ui";
 import { FC } from "react";
 
 import getSupportingDocumentById from "@/assets/get-supporting-document-by-id";
-import SectionHeader from "@/components/shared/SectionHeader";
-import Timeline from "@/components/shared/Timeline";
+import SectionHeader from "@/components/shared/section-header";
+import Timeline from "@/components/shared/timeline";
 import educations from "@/constants/educations";
 
 import Courses from "./courses";

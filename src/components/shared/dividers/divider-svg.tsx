@@ -3,11 +3,13 @@
 import { Box, BoxProps } from "@mui/material";
 import { FC } from "react";
 
-const DividerSvg: FC<BoxProps<"svg">> = (props) => (
+import cx from "@/utils/cx";
+
+const DividerSvg: FC<BoxProps<"svg">> = ({ sx, ...props }) => (
   <Box
     component="svg"
     xmlns="http://www.w3.org/2000/svg"
-    display="block"
+    sx={cx({ display: "block" }, sx)}
     {...props}
   />
 );

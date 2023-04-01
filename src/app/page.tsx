@@ -5,12 +5,12 @@ import Contact from "@/components/home/contact";
 import Education from "@/components/home/education";
 import Experience from "@/components/home/experience";
 import Hero from "@/components/home/hero";
-import Section from "@/components/shared/Section";
-import SectionProps from "@/components/shared/Section/SectionProps";
 import WaveRoaring from "@/components/shared/dividers/wave-roaring";
 import WaveRough from "@/components/shared/dividers/wave-rough";
 import WaveSmooth from "@/components/shared/dividers/wave-smooth";
 import WaveSmoothFlat from "@/components/shared/dividers/wave-smooth-flat";
+import Section from "@/components/shared/section";
+import SectionProps from "@/components/shared/section/section-props";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
 

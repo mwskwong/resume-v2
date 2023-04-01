@@ -4,8 +4,8 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 
 import resume from "@/assets/documents/resume.pdf";
-import PlatformProfiles from "@/components/shared/PlatformProfiles";
-import jobTitles from "@/constants/jobTitles";
+import PlatformProfiles from "@/components/shared/platform-profiles";
+import jobTitles from "@/constants/job-titles";
 import { firstName } from "@/constants/name";
 
 const Hero: FC = () => (
@@ -24,7 +24,7 @@ const Hero: FC = () => (
     </Typography>
     <Typography variant="h1" data-cy="title">
       {"I'm "}
-      <Box component="span" color="primary.main">
+      <Box component="span" sx={{ color: "primary.main" }}>
         {firstName}
       </Box>
     </Typography>

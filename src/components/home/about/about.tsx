@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import personalPhoto from "@/assets/images/personal_photo.jpg";
-import SectionHeader from "@/components/shared/SectionHeader";
+import SectionHeader from "@/components/shared/section-header";
 import { firstName, lastName } from "@/constants/name";
 
 import styles from "./about.module.css";

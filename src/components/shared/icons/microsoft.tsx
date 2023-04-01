@@ -4,7 +4,7 @@ import { siMicrosoft } from "simple-icons";
 
 import cx from "@/utils/cx";
 
-import thirdPartyIconSx from "./thirdPartyIconSx";
+import thirdPartyIconSx from "./third-party-icon-sx";
 
 const Microsoft: FC<SvgIconProps> = ({ sx, ...props }) => (
   <SvgIcon

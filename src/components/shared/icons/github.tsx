@@ -4,7 +4,7 @@ import { siGithub } from "simple-icons";
 
 import cx from "@/utils/cx";
 
-import thirdPartyIconSx from "./thirdPartyIconSx";
+import thirdPartyIconSx from "./third-party-icon-sx";
 
 const GitHub: FC<SvgIconProps> = ({ sx, ...props }) => (
   <SvgIcon sx={cx(thirdPartyIconSx, sx)} data-cy="gitHubIcon" {...props}>

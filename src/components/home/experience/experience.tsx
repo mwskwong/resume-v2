@@ -5,9 +5,9 @@ import { CircleSlice4 } from "mdi-material-ui";
 import { FC } from "react";
 
 import getSupportingDocumentById from "@/assets/get-supporting-document-by-id";
-import SectionHeader from "@/components/shared/SectionHeader";
-import Timeline from "@/components/shared/Timeline";
-import TimelineProps from "@/components/shared/Timeline/TimelineProps";
+import SectionHeader from "@/components/shared/section-header";
+import Timeline from "@/components/shared/timeline";
+import TimelineProps from "@/components/shared/timeline/timeline-props";
 import experiences from "@/constants/experiences";
 
 const Experience: FC = () => {

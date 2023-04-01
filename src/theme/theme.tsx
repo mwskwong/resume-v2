@@ -18,7 +18,7 @@ import {
   siUdemy,
 } from "simple-icons";
 
-import rubik from "./rubik";
+import font from "./font";
 
 declare module "@mui/material" {
   interface Palette {
@@ -150,7 +150,7 @@ const brandingTheme = extendTheme({
   },
   shape: { borderRadius: 10 },
   typography: {
-    fontFamily: rubik.style.fontFamily,
+    fontFamily: font.style.fontFamily,
     fontWeightExtraBold: 800,
     h1: {
       fontSize: "clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)",
