@@ -83,7 +83,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ data }) => {
                   }}
                 >
                   <Typography
-                    variant="overline"
+                    variant="caption"
                     component="span"
                     sx={{ color: "text.secondary", userSelect: "none" }}
                   >
