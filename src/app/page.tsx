@@ -14,8 +14,6 @@ import SectionProps from "@/components/shared/section/section-props";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
 
-import Toolbar from "./toolbar";
-
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   home: "default",
   about: "primary",
@@ -27,7 +25,6 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
 const Home: FC = () => (
   <>
     <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-      <Toolbar />
       <Hero />
     </Section>
     <WaveSmooth
