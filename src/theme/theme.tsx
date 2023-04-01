@@ -18,7 +18,7 @@ import {
   siUdemy,
 } from "simple-icons";
 
-import rubik from "./rubik";
+import font from "./font";
 
 declare module "@mui/material" {
   interface Palette {
@@ -39,6 +39,16 @@ declare module "@mui/material" {
     mongoDb: PaletteOptions["primary"];
     oracle: PaletteOptions["primary"];
     udemy: PaletteOptions["primary"];
+  }
+
+  interface SvgIconPropsColorOverrides {
+    dataCamp: true;
+    enterpriseDb: true;
+    google: true;
+    microsoft: true;
+    mongoDb: true;
+    oracle: true;
+    udemy: true;
   }
 
   interface TypeBackground {
@@ -140,7 +150,7 @@ const brandingTheme = extendTheme({
   },
   shape: { borderRadius: 10 },
   typography: {
-    fontFamily: rubik.style.fontFamily,
+    fontFamily: font.style.fontFamily,
     fontWeightExtraBold: 800,
     h1: {
       fontSize: "clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)",
@@ -181,6 +191,12 @@ const brandingTheme = extendTheme({
       lineHeight: 24 / 18,
       letterSpacing: 0,
       fontWeight: 500,
+    },
+    subtitle2: {
+      fontSize: pxToRem(14),
+      lineHeight: 21 / 14,
+      letterSpacing: 0,
+      fontWeight: 700,
     },
     body1: {
       fontSize: pxToRem(16),

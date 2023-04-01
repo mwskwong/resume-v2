@@ -6,7 +6,7 @@ import viewports from "cypress/fixtures/viewports.json";
 import courses from "@/constants/courses";
 import educations from "@/constants/educations";
 import { EDUCATION } from "@/constants/nav";
-import dateTimeFormat from "@/utils/dateTimeFormat";
+import dateTimeFormat from "@/utils/date-time-format";
 
 const courseHasCertificate = (
   courseId: string
