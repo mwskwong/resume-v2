@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 import "cypress-downloadfile/lib/downloadFileCommand";
+import viewports from "cypress/fixtures/viewports.json";
+
+import { Section } from "@/types";
 
 // ***********************************************
 // This example commands.ts shows you how to
@@ -37,6 +40,19 @@ import "cypress-downloadfile/lib/downloadFileCommand";
 //     }
 //   }
 // }
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Cypress {
+    interface Chainable {
+      navigateToSection: (
+        section: Section,
+        viewport: keyof typeof viewports
+      ) => Chainable<void>;
+      verifySectionIsInViewport: (section: Section) => Chainable<void>;
+    }
+  }
+}
 
 Cypress.Commands.add("navigateToSection", (section, viewport) => {
   const container = viewport === "desktop" ? "navButtons" : "navList";
