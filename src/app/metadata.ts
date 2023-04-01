@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-import jobTitles from "@/constants/jobTitles";
+import jobTitles from "@/constants/job-titles";
 import { firstName, lastName } from "@/constants/name";
-import selfIntroduction from "@/constants/selfIntroduction";
+import selfIntroduction from "@/constants/self-introduction";
 
 const siteUrl = process.env.NEXT_PUBLIC_URL;
 const fullName = `${firstName} ${lastName}`;

@@ -1,3 +1,3 @@
 export { default } from "./theme";
-export { default as ThemeProvider } from "./ThemeProvider";
-export { default as rubik } from "./rubik";
+export { default as ThemeProvider } from "./theme-provider";
+export { default as rubik } from "./font";

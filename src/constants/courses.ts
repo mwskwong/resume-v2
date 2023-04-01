@@ -1,7 +1,7 @@
 import { Course } from "@/types";
 
 import { getBrandById } from "./brands";
-import { getCourseCategoryById } from "./courseCategories";
+import { getCourseCategoryById } from "./course-categories";
 
 const courses: Course[] = [
   {

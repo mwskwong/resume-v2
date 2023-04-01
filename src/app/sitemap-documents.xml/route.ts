@@ -1,8 +1,8 @@
 import { ServerRuntime } from "next";
 import { getServerSideSitemap } from "next-sitemap";
 
-import getCertificateUrls from "./getCertificateUrls";
-import getSupportingDocumentUrls from "./getSupportingDocumentUrls";
+import getCertificateUrls from "./get-certificate-urls";
+import getSupportingDocumentUrls from "./get-supporting-document-urls";
 
 export const GET = () => {
   const certificateUrls = getCertificateUrls();

@@ -1,20 +1,18 @@
 import { FC } from "react";
 
-import About from "@/components/home/About";
-import Contact from "@/components/home/Contact";
-import Education from "@/components/home/Education";
-import Experience from "@/components/home/Experience";
-import Hero from "@/components/home/Hero";
-import Section from "@/components/shared/Section";
-import SectionProps from "@/components/shared/Section/SectionProps";
-import WaveRoaring from "@/components/shared/dividers/WaveRoaring";
-import WaveRough from "@/components/shared/dividers/WaveRough";
-import WaveSmooth from "@/components/shared/dividers/WaveSmooth";
-import WaveSmoothFlat from "@/components/shared/dividers/WaveSmoothFlat";
+import About from "@/components/home/about";
+import Contact from "@/components/home/contact";
+import Education from "@/components/home/education";
+import Experience from "@/components/home/experience";
+import Hero from "@/components/home/hero";
+import WaveRoaring from "@/components/shared/dividers/wave-roaring";
+import WaveRough from "@/components/shared/dividers/wave-rough";
+import WaveSmooth from "@/components/shared/dividers/wave-smooth";
+import WaveSmoothFlat from "@/components/shared/dividers/wave-smooth-flat";
+import Section from "@/components/shared/section";
+import SectionProps from "@/components/shared/section/section-props";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
-
-import Toolbar from "./Toolbar";
 
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   home: "default",
@@ -27,19 +25,22 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
 const Home: FC = () => (
   <>
     <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-      <Toolbar />
       <Hero />
     </Section>
     <WaveSmooth
-      previousSectionVariant={sectionVariants.home}
-      nextSectionVariant={sectionVariants.about}
+      sectionVariants={{
+        previous: sectionVariants.home,
+        next: sectionVariants.about,
+      }}
     />
     <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id}>
       <About />
     </Section>
     <WaveRough
-      previousSectionVariant={sectionVariants.about}
-      nextSectionVariant={sectionVariants.experience}
+      sectionVariants={{
+        previous: sectionVariants.about,
+        next: sectionVariants.experience,
+      }}
     />
     <Section
       variant={sectionVariants.experience}
@@ -49,8 +50,10 @@ const Home: FC = () => (
       <Experience />
     </Section>
     <WaveSmoothFlat
-      previousSectionVariant={sectionVariants.experience}
-      nextSectionVariant={sectionVariants.education}
+      sectionVariants={{
+        previous: sectionVariants.experience,
+        next: sectionVariants.education,
+      }}
     />
     <Section
       variant={sectionVariants.education}
@@ -60,8 +63,10 @@ const Home: FC = () => (
       <Education />
     </Section>
     <WaveRoaring
-      previousSectionVariant={sectionVariants.education}
-      nextSectionVariant={sectionVariants.contact}
+      sectionVariants={{
+        previous: sectionVariants.education,
+        next: sectionVariants.contact,
+      }}
     />
     <Section
       variant={sectionVariants.contact}
