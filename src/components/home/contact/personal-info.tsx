@@ -63,7 +63,7 @@ const PersonalInfo = () => (
           </Typography>
           <Link
             color="inherit"
-            underline="none"
+            underline="hover"
             sx={{ zIndex: 1 }}
             href={url}
             target={url.startsWith("http") ? "_blank" : undefined}
