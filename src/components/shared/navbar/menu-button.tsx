@@ -46,7 +46,7 @@ const MenuButton: FC<MenuButtonProps> = ({
           menuOpen
             ? undefined
             : {
-                rotate: "-45deg",
+                rotate: "45deg",
                 opacity: 0,
                 "@media (prefers-reduced-motion)": {
                   rotate: "0deg",
@@ -59,7 +59,7 @@ const MenuButton: FC<MenuButtonProps> = ({
           iconSx,
           menuOpen
             ? {
-                rotate: "45deg",
+                rotate: "-45deg",
                 opacity: 0,
                 "@media (prefers-reduced-motion)": {
                   rotate: "0deg",
