@@ -27,7 +27,7 @@ const Education: FC = () => {
     <Container>
       <Stack spacing={6}>
         <SectionHeader heading="Education" icon={<CircleSlice6 />} />
-        <Timeline data={data} />;
+        <Timeline data={data} />
         <Courses />
       </Stack>
     </Container>
