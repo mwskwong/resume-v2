@@ -28,8 +28,8 @@ const SupportingDocumentListItem: FC<SupportingDocumentListItemProps> = ({
         <Image
           src={supportingDocument.thumbnail}
           alt={`Thumbnail of ${supportingDocument.name}`}
-          width={114}
-          height={64}
+          width={100}
+          height={56}
           className={styles.thumbnail}
         />
         <ListItemText
