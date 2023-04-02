@@ -22,7 +22,7 @@ const CertificateCard: FC<CertificateCardProps> = ({
         target="_blank"
       >
         <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Icon fontSize="large" />
+          {Icon && <Icon fontSize="large" />}
           <div>
             <Typography data-cy="name">{name}</Typography>
             <Typography
