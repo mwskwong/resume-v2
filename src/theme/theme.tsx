@@ -377,36 +377,19 @@ const brandingTheme = extendTheme({
         }),
       },
     },
-    MuiTimeline: {
-      styleOverrides: {
-        root: {
-          paddingLeft: 0,
-          paddingRight: 0,
-          marginTop: 0,
-          marginBottom: 0,
-        },
+    MuiTimelineDot: {
+      defaultProps: {
+        color: "primary",
       },
-    },
-    MuiTimelineContent: {
       styleOverrides: {
-        root: {
-          paddingBottom: "16px",
-        },
-        positionRight: {
-          paddingRight: 0,
-        },
+        root: ({ theme }) => ({
+          boxShadow: theme.vars.shadows[0],
+        }),
       },
     },
     MuiTextField: {
       defaultProps: {
         variant: "filled",
-      },
-    },
-    MuiTimelineDot: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          boxShadow: theme.vars.shadows[0],
-        }),
       },
     },
     MuiTooltip: {

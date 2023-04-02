@@ -57,10 +57,6 @@ const nextConfig = {
       transform: "@mui/icons-material/{{member}}",
       preventFullImport: true,
     },
-    "@mui/lab": {
-      transform: "@mui/lab/{{member}}",
-      preventFullImport: true,
-    },
     "date-fns": {
       transform: "date-fns/{{member}}",
       preventFullImport: true,
