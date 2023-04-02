@@ -17,7 +17,7 @@ import openShift from "./documents/OpenShift for the Absolute Beginners - Hands-
 import oracleDba from "./documents/Oracle DBA 11g 12c - Database Administration for Junior DBA.pdf";
 import oracleTuning from "./documents/Oracle SQL Performance Tuning Masterclass.pdf";
 
-const certificates = {
+const certificates: Record<Course["id"], string> = {
   adminASqlDbInfra,
   agileCrashCourse,
   agileFundamentals,
@@ -38,7 +38,7 @@ const certificates = {
 
 const getCertificatePathById = (certificateId: Course["id"]) => {
   if (certificateId in certificates) {
-    return certificates[certificateId as keyof typeof certificates];
+    return certificates[certificateId];
   }
 
   return undefined;

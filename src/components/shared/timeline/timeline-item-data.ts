@@ -1,13 +1,16 @@
 import { SupportingDocument } from "@/types";
 
+import IThumbnail from "./i-thumbnail";
+
 interface TimelineItemData {
-  from: Date;
-  to: Date | "Present";
+  thumbnails?: IThumbnail | [IThumbnail, IThumbnail];
   title?: string;
   subtitle?: string;
+  from: Date;
+  to: Date | "Present";
+  tags?: string[];
   contents?: string[];
   supportingDocuments?: SupportingDocument[];
-  tags?: string[];
 }
 
 export default TimelineItemData;

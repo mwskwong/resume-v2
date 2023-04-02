@@ -1,11 +1,13 @@
 import { Experience } from "@/types";
 
+import { getBrandById } from "./brands";
+
 const experiences: Experience[] = [
   {
     from: new Date(2022, 9),
     to: "Present",
     jobTitle: "Frontend Engineer",
-    company: "TecPal Ltd.",
+    companies: getBrandById("tecpal"),
     jobDuties: [
       "Facilitated the seamless migration of Vue apps from a legacy WordPress API to a modern RESTful API.",
       "Orchestrated the successful implementation of features in Vue apps, including an authorization system and a shopping list.",
@@ -33,7 +35,8 @@ const experiences: Experience[] = [
     from: new Date(2022, 4),
     to: new Date(2022, 8),
     jobTitle: "Programmer (Business and Administrative Systems)",
-    company: "EDPS Limited | Seconded to Hospital Authority",
+    companies: [getBrandById("edps"), getBrandById("ha")],
+    companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
     jobDuties: [
       "Managed ha.org.hk and multiple intranet web apps, effectively catering to the needs of 100+ staff and 7M+ Hong Kong residents.",
       "Orchestrated the strategic planning and timely execution of web app OS and DB migration within 1 week.",
@@ -45,7 +48,8 @@ const experiences: Experience[] = [
     from: new Date(2021, 7),
     to: new Date(2022, 4),
     jobTitle: "Programmer (Database Management System)",
-    company: "EDPS Limited | Seconded to Hospital Authority",
+    companies: [getBrandById("edps"), getBrandById("ha")],
+    companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
     jobDuties: [
       "Played an active role in conducting a DB knowledge-sharing session and engaging audiences of 100+ technical professionals.",
       "Implemented and sustained a Bitrix24 site for managing training materials, guidelines, and documentation, resulting in a 20% increase in work efficiency.",
@@ -75,7 +79,8 @@ const experiences: Experience[] = [
     from: new Date(2019, 6),
     to: new Date(2021, 7),
     jobTitle: "Junior Programmer (Database Management System)",
-    company: "EDPS Limited | Seconded to Hospital Authority",
+    companies: [getBrandById("edps"), getBrandById("ha")],
+    companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
     jobDuties: [
       "Provided support and guidance to 3+ application teams on MySQL deployment and maintenance.",
       "Maintained database management web application",
@@ -98,7 +103,7 @@ const experiences: Experience[] = [
     from: new Date(2018, 5),
     to: new Date(2018, 7),
     jobTitle: "Summer Internship (Software Development)",
-    company: "HKU Technology Transfer Office / Versitech Limited",
+    companies: getBrandById("versitech"),
     jobDuties: [
       "Collaborated with software engineers to design a comprehensive test suite for the E-Form Filler.",
       "Architected and programmed an installer for the E-Form Filler utilizing NSIS MUI2.",
@@ -117,7 +122,7 @@ const experiences: Experience[] = [
     from: new Date(2017, 6),
     to: new Date(2017, 8),
     jobTitle: "Student Research Assistant",
-    company: "School of Public Health, HKU",
+    companies: getBrandById("publicHealthHku"),
     jobDuties: [
       "Designed and programmed a JavaFX app for executing bioinformatics analyses.",
     ],
@@ -128,7 +133,7 @@ const experiences: Experience[] = [
     from: new Date(2017, 0),
     to: new Date(2017, 3),
     jobTitle: "Teaching Assistant",
-    company: "Faculty of Engineering, HKU",
+    companies: getBrandById("engineeringHku"),
     jobDuties: [
       "Conducted tutorial sessions for a C++ programming course, providing instruction to a class of 20+ students.",
     ],

@@ -33,7 +33,6 @@ const Skills: FC = () => (
                   width: 60,
                   height: 60,
                 }}
-                variant="rounded"
               >
                 <Icon fontSize="large" />
               </Avatar>

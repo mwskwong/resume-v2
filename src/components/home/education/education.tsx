@@ -4,6 +4,7 @@ import { Container, Stack } from "@mui/material";
 import { CircleSlice6 } from "mdi-material-ui";
 import { FC } from "react";
 
+import getBrandLogoById from "@/assets/get-brand-logo-by-id";
 import getSupportingDocumentById from "@/assets/get-supporting-document-by-id";
 import SectionHeader from "@/components/shared/section-header";
 import Timeline from "@/components/shared/timeline";
@@ -13,14 +14,23 @@ import Courses from "./courses";
 
 const Education: FC = () => {
   const data = educations.map(
-    ({ degree, school, supportingDocuments, ...elem }) => ({
-      title: degree,
-      subtitle: school,
-      supportingDocuments: supportingDocuments.map((id) =>
-        getSupportingDocumentById(id)
-      ),
-      ...elem,
-    })
+    ({ degree, school, supportingDocuments, ...elem }) => {
+      const thumbnailSrc = getBrandLogoById(school.id);
+
+      return {
+        thumbnails: thumbnailSrc && {
+          src: thumbnailSrc,
+          alt: school.name,
+          url: school.url,
+        },
+        title: degree,
+        subtitle: school.name,
+        supportingDocuments: supportingDocuments.map((id) =>
+          getSupportingDocumentById(id)
+        ),
+        ...elem,
+      };
+    }
   );
 
   return (

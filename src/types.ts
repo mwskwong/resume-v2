@@ -42,8 +42,17 @@ export interface Brand {
     | "mongoDb"
     | "oracle"
     | "stackOverflow"
-    | "udemy";
+    | "udemy"
+    | "hku"
+    | "hkust"
+    | "tecpal"
+    | "edps"
+    | "ha"
+    | "versitech"
+    | "publicHealthHku"
+    | "engineeringHku";
   name: string;
+  url?: string;
 }
 
 export interface Course {
@@ -57,7 +66,7 @@ export interface Education {
   from: Date;
   to: Date | "Present";
   degree: string;
-  school: string;
+  school: Brand;
   supportingDocuments: SupportingDocument["id"][];
 }
 
@@ -65,7 +74,8 @@ export interface Experience {
   from: Date;
   to: Date | "Present";
   jobTitle: string;
-  company: string;
+  companies: Brand | [Brand, Brand];
+  companiesDescription?: string;
   jobDuties: string[];
   supportingDocuments: SupportingDocument["id"][];
   relevantSkills: string[];

@@ -1,15 +1,41 @@
-import { Timeline as MuiTimeline } from "@mui/lab";
+import { Stack } from "@mui/material";
 import { FC } from "react";
 
 import TimelineItem from "./timeline-item";
 import TimelineProps from "./timeline-props";
 
-const Timeline: FC<TimelineProps> = ({ data = [] }) => (
-  <MuiTimeline position="right" data-cy="timeline">
-    {data.map((datum, index) => (
-      <TimelineItem key={index} data={datum} />
-    ))}
-  </MuiTimeline>
-);
+const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
+  return (
+    <Stack spacing={6} {...props}>
+      {data.map(
+        (
+          {
+            thumbnails,
+            title,
+            subtitle,
+            from,
+            to,
+            contents,
+            tags,
+            supportingDocuments,
+          },
+          index
+        ) => (
+          <TimelineItem
+            key={index}
+            thumbnails={thumbnails}
+            title={title}
+            subtitle={subtitle}
+            from={from}
+            to={to}
+            contents={contents}
+            tags={tags}
+            supportingDocuments={supportingDocuments}
+          />
+        )
+      )}
+    </Stack>
+  );
+};
 
 export default Timeline;
