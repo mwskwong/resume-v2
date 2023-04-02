@@ -28,14 +28,14 @@
     "deep-rename-keys-ts": "^1.0.1",
     "framer-motion": "^10.10.0",
     "lodash-es": "^4.17.21",
-    "mdi-material-ui": "^7.6.0",
+    "mdi-material-ui": "^7.7.0",
     "next": "^13.2.4",
     "next-sitemap": "^4.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-hook-form-mui": "^6.0.1",
-    "simple-icons": "^8.8.0",
+    "simple-icons": "^8.9.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
