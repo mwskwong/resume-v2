@@ -27,7 +27,7 @@ const PlatformProfiles: FC<PlatformProfilesProps> = ({ sx, ...props }) => (
           data-cy={`${platform.id}Button`}
           aria-label={`${platform.name} profile of ${firstName}`}
         >
-          <Icon />
+          {Icon && <Icon />}
         </IconButton>
       );
     })}
