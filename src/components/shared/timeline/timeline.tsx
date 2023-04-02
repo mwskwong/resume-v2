@@ -16,6 +16,7 @@ const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
             subtitle,
             from,
             to,
+            type,
             contents,
             tags,
             supportingDocuments,
@@ -48,6 +49,7 @@ const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
                   title={title}
                   from={from}
                   to={to}
+                  type={type}
                   contents={contents}
                   tags={tags}
                   supportingDocuments={supportingDocuments}
@@ -65,6 +67,7 @@ const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
               subtitle={subtitle}
               from={from}
               to={to}
+              type={type}
               contents={contents}
               tags={tags}
               supportingDocuments={supportingDocuments}

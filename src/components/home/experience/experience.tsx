@@ -48,6 +48,7 @@ const Experience: FC = () => {
       jobTitle,
       companies,
       companiesDescription,
+      employmentType,
       jobDuties,
       supportingDocuments,
       relevantSkills: relevantSkills,
@@ -60,6 +61,7 @@ const Experience: FC = () => {
         (Array.isArray(companies)
           ? `${companies[0].name} | ${companies[1].name}`
           : companies.name),
+      type: employmentType,
       contents: jobDuties,
       supportingDocuments: supportingDocuments.map((id) =>
         getSupportingDocumentById(id)

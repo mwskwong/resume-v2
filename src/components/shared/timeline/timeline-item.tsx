@@ -14,6 +14,7 @@ const TimelineItem: FC<TimelineItemProps> = ({
   subtitle,
   from,
   to,
+  type,
   contents,
   tags,
   supportingDocuments,
@@ -29,6 +30,7 @@ const TimelineItem: FC<TimelineItemProps> = ({
           subtitle={subtitle}
           from={from}
           to={to}
+          type={type}
         />
         {Boolean(contents?.length) && (
           <TimelineItemContent

@@ -14,7 +14,7 @@ import Courses from "./courses";
 
 const Education: FC = () => {
   const data = educations.map(
-    ({ degree, school, supportingDocuments, ...elem }) => {
+    ({ degree, school, mode, supportingDocuments, ...elem }) => {
       const thumbnailSrc = getBrandLogoById(school.id);
 
       return {
@@ -25,6 +25,7 @@ const Education: FC = () => {
         },
         title: degree,
         subtitle: school.name,
+        type: mode,
         supportingDocuments: supportingDocuments.map((id) =>
           getSupportingDocumentById(id)
         ),

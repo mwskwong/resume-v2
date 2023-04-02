@@ -1,4 +1,4 @@
-import { Box, Chip, Stack, Typography } from "@mui/material";
+import { Box, Chip, Typography } from "@mui/material";
 import { formatDistanceStrict } from "date-fns";
 import { FC } from "react";
 
@@ -12,6 +12,7 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
   to,
   title,
   subtitle,
+  type,
   sx,
   ...props
 }) => {
@@ -29,6 +30,7 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
         {
           display: "flex",
           flexDirection: { xs: "column", sm: "row" },
+          alignItems: "flex-start",
           justifyContent: { sm: "space-between" },
         },
         sx
@@ -42,10 +44,13 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
         <Typography sx={{ color: "primary.main" }} data-cy="subtitle">
           {subtitle}
         </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          {period} • {duration}
+        </Typography>
       </div>
-      <Typography variant="body2" sx={{ color: "text.secondary" }}>
-        {period} • {duration}
-      </Typography>
+      {type && (
+        <Chip label={type.name} variant="filled" color={type.id} size="small" />
+      )}
     </Box>
   );
 };

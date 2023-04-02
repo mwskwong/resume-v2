@@ -55,6 +55,11 @@ export interface Brand {
   url?: string;
 }
 
+export interface EmploymentType {
+  id: "fullTime" | "partTime" | "internship" | "contract";
+  name: string;
+}
+
 export interface Course {
   id: string;
   name: string;
@@ -67,6 +72,7 @@ export interface Education {
   to: Date | "Present";
   degree: string;
   school: Brand;
+  mode: EmploymentType;
   supportingDocuments: SupportingDocument["id"][];
 }
 
@@ -75,6 +81,7 @@ export interface Experience {
   to: Date | "Present";
   jobTitle: string;
   companies: Brand | [Brand, Brand];
+  employmentType: EmploymentType;
   companiesDescription?: string;
   jobDuties: string[];
   supportingDocuments: SupportingDocument["id"][];

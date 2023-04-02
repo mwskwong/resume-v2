@@ -12,6 +12,7 @@ const TimelineSubitem: FC<TimelineSubitemProps> = ({
   from,
   to,
   title,
+  type,
   contents,
   tags,
   supportingDocuments,
@@ -28,7 +29,7 @@ const TimelineSubitem: FC<TimelineSubitemProps> = ({
         </TimelineSeparator>
       </Box>
       <Stack spacing={2} sx={{ flex: 1, pt: "5px", pb: 6 }}>
-        <TimelineItemHeader from={from} to={to} title={title} />
+        <TimelineItemHeader from={from} to={to} title={title} type={type} />
         <TimelineItemContent
           contents={contents}
           tags={tags}

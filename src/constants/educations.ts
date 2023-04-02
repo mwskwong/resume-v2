@@ -1,6 +1,7 @@
 import { Education } from "@/types";
 
 import { getBrandById } from "./brands";
+import { getEmploymentTypeById } from "./employmentTypes";
 
 const educations: Education[] = [
   {
@@ -8,6 +9,7 @@ const educations: Education[] = [
     to: "Present",
     degree: "MSc in Information Systems Management",
     school: getBrandById("hkust"),
+    mode: getEmploymentTypeById("partTime"),
     supportingDocuments: [],
   },
   {
@@ -15,6 +17,7 @@ const educations: Education[] = [
     to: new Date(2019, 6),
     degree: "BEng in Computer Science",
     school: getBrandById("hku"),
+    mode: getEmploymentTypeById("fullTime"),
     supportingDocuments: ["hkuCsCertOfGrad"],
   },
 ];

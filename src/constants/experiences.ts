@@ -1,6 +1,7 @@
 import { Experience } from "@/types";
 
 import { getBrandById } from "./brands";
+import { getEmploymentTypeById } from "./employmentTypes";
 
 const experiences: Experience[] = [
   {
@@ -8,6 +9,7 @@ const experiences: Experience[] = [
     to: "Present",
     jobTitle: "Frontend Engineer",
     companies: getBrandById("tecpal"),
+    employmentType: getEmploymentTypeById("fullTime"),
     jobDuties: [
       "Facilitated the seamless migration of Vue apps from a legacy WordPress API to a modern RESTful API.",
       "Orchestrated the successful implementation of features in Vue apps, including an authorization system and a shopping list.",
@@ -36,6 +38,7 @@ const experiences: Experience[] = [
     to: new Date(2022, 8),
     jobTitle: "Programmer (Business and Administrative Systems)",
     companies: [getBrandById("edps"), getBrandById("ha")],
+    employmentType: getEmploymentTypeById("contract"),
     companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
     jobDuties: [
       "Managed ha.org.hk and multiple intranet web apps, effectively catering to the needs of 100+ staff and 7M+ Hong Kong residents.",
@@ -50,6 +53,7 @@ const experiences: Experience[] = [
     jobTitle: "Programmer (Database Management System)",
     companies: [getBrandById("edps"), getBrandById("ha")],
     companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
+    employmentType: getEmploymentTypeById("contract"),
     jobDuties: [
       "Played an active role in conducting a DB knowledge-sharing session and engaging audiences of 100+ technical professionals.",
       "Implemented and sustained a Bitrix24 site for managing training materials, guidelines, and documentation, resulting in a 20% increase in work efficiency.",
@@ -81,6 +85,7 @@ const experiences: Experience[] = [
     jobTitle: "Junior Programmer (Database Management System)",
     companies: [getBrandById("edps"), getBrandById("ha")],
     companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
+    employmentType: getEmploymentTypeById("contract"),
     jobDuties: [
       "Provided support and guidance to 3+ application teams on MySQL deployment and maintenance.",
       "Maintained database management web application",
@@ -104,6 +109,7 @@ const experiences: Experience[] = [
     to: new Date(2018, 7),
     jobTitle: "Summer Internship (Software Development)",
     companies: getBrandById("versitech"),
+    employmentType: getEmploymentTypeById("internship"),
     jobDuties: [
       "Collaborated with software engineers to design a comprehensive test suite for the E-Form Filler.",
       "Architected and programmed an installer for the E-Form Filler utilizing NSIS MUI2.",
@@ -123,6 +129,7 @@ const experiences: Experience[] = [
     to: new Date(2017, 8),
     jobTitle: "Student Research Assistant",
     companies: getBrandById("publicHealthHku"),
+    employmentType: getEmploymentTypeById("partTime"),
     jobDuties: [
       "Designed and programmed a JavaFX app for executing bioinformatics analyses.",
     ],
@@ -134,6 +141,7 @@ const experiences: Experience[] = [
     to: new Date(2017, 3),
     jobTitle: "Teaching Assistant",
     companies: getBrandById("engineeringHku"),
+    employmentType: getEmploymentTypeById("partTime"),
     jobDuties: [
       "Conducted tutorial sessions for a C++ programming course, providing instruction to a class of 20+ students.",
     ],
