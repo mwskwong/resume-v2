@@ -81,9 +81,9 @@ export interface Experience {
   from: Date;
   to: Date | "Present";
   jobTitle: string;
-  companies: Brand | [Brand, Brand];
+  company: Brand | [Brand, Brand];
   employmentType: EmploymentType;
-  companiesTemplate?: string;
+  companyTemplate?: string;
   jobDuties: string[];
   supportingDocuments: SupportingDocument["id"][];
   relevantSkills: string[];

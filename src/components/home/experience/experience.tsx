@@ -12,31 +12,31 @@ import IThumbnail from "@/components/shared/timeline/i-thumbnail";
 import experiences from "@/constants/experiences";
 import { Brand } from "@/types";
 
-const getThumbnails = (companies: Brand | [Brand, Brand]) => {
-  if (Array.isArray(companies)) {
-    const thumbnailSrcs = companies.map(({ id }) => getBrandLogoById(id));
+const getThumbnails = (company: Brand | [Brand, Brand]) => {
+  if (Array.isArray(company)) {
+    const thumbnailSrcs = company.map(({ id }) => getBrandLogoById(id));
     const allThumbnailExist = thumbnailSrcs.every(Boolean);
     if (allThumbnailExist) {
       return [
         {
           src: thumbnailSrcs[0],
-          alt: companies[0].name,
-          url: companies[0].url,
+          alt: company[0].name,
+          url: company[0].url,
         },
         {
           src: thumbnailSrcs[1],
-          alt: companies[1].name,
-          url: companies[1].url,
+          alt: company[1].name,
+          url: company[1].url,
         },
       ] as [IThumbnail, IThumbnail];
     }
   } else {
-    const thumbnailSrc = getBrandLogoById(companies.id);
+    const thumbnailSrc = getBrandLogoById(company.id);
     return (
       thumbnailSrc && {
         src: thumbnailSrc,
-        alt: companies.name,
-        url: companies.url,
+        alt: company.name,
+        url: company.url,
       }
     );
   }
@@ -46,23 +46,23 @@ const Experience: FC = () => {
   const data = experiences.map(
     ({
       jobTitle,
-      companies,
-      companiesTemplate,
+      company,
+      companyTemplate,
       employmentType,
       jobDuties,
       supportingDocuments,
       relevantSkills: relevantSkills,
       ...elem
     }) => ({
-      thumbnails: getThumbnails(companies),
+      thumbnails: getThumbnails(company),
       title: jobTitle,
-      subtitle: Array.isArray(companies)
-        ? companiesTemplate
-          ? companiesTemplate
-              .replace("{0}", companies[0].name)
-              .replace("{1}", companies[1].name)
-          : `${companies[0].name} | ${companies[1].name}`
-        : companies.name,
+      subtitle: Array.isArray(company)
+        ? companyTemplate
+          ? companyTemplate
+              .replace("{0}", company[0].name)
+              .replace("{1}", company[1].name)
+          : `${company[0].name} | ${company[1].name}`
+        : company.name,
       type: employmentType,
       contents: jobDuties,
       supportingDocuments: supportingDocuments.map((id) =>

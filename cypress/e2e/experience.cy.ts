@@ -61,7 +61,7 @@ describe("Experience section", () => {
             from,
             to,
             jobTitle,
-            companies,
+            company,
             jobDuties,
             relevantSkills,
             supportingDocuments,
@@ -71,7 +71,7 @@ describe("Experience section", () => {
           }`;
           const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
-          describe(`${jobTitle} at ${companies}`, () => {
+          describe(`${jobTitle} at ${company}`, () => {
             it(`has period "${period}"`, () => {
               cy.get(`${timelineSelector} [data-cy = '${periodDataCy}']`)
                 .eq(i)
@@ -86,11 +86,11 @@ describe("Experience section", () => {
                 .and("contain", jobTitle);
             });
 
-            it(`has subtitle "${companies}"`, () => {
+            it(`has subtitle "${company}"`, () => {
               cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
                 .eq(i)
                 .should("be.visible")
-                .and("contain", companies);
+                .and("contain", company);
             });
 
             describe("Job duties", () => {
