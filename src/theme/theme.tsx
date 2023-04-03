@@ -323,7 +323,7 @@ const brandingTheme = extendTheme({
       styleOverrides: (theme) =>
         theme.unstable_sx({
           "::selection": {
-            bgcolor: "grey[800]",
+            bgcolor: "grey.800",
             color: "common.white",
           },
           html: {
