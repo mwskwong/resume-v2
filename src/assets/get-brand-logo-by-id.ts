@@ -6,11 +6,13 @@ import hku from "./images/hku.jpeg";
 import hkust from "./images/hkust.jpeg";
 import publicHealthHku from "./images/public_health_hku.jpg";
 import tecpal from "./images/tecpal.jpeg";
+import ubc from "./images/ubc.jpeg";
 import versitech from "./images/versitech.png";
 
 const logos = {
   hku,
   hkust,
+  ubc,
   tecpal,
   edps,
   ha,

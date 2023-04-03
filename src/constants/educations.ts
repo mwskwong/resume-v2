@@ -20,6 +20,14 @@ const educations: Education[] = [
     mode: getEmploymentTypeById("fullTime"),
     supportingDocuments: ["hkuCsCertOfGrad"],
   },
+  {
+    from: new Date(2016, 7),
+    to: new Date(2016, 8),
+    degree: "Vancouver Summer Program (Communication and Digital Systems)",
+    school: getBrandById("ubc"),
+    mode: getEmploymentTypeById("fullTime"),
+    supportingDocuments: [],
+  },
 ];
 
 export default educations;

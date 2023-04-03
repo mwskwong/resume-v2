@@ -45,6 +45,7 @@ export interface Brand {
     | "udemy"
     | "hku"
     | "hkust"
+    | "ubc"
     | "tecpal"
     | "edps"
     | "ha"

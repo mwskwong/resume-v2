@@ -52,6 +52,11 @@ const brands: Brand[] = [
     url: "https://www.hku.hk/",
   },
   {
+    id: "ubc",
+    name: "The University of British Columbia",
+    url: "https://www.ubc.ca/",
+  },
+  {
     id: "tecpal",
     name: "TecPal Ltd.",
     url: "https://www.tecpal.com/",
