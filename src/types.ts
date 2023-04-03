@@ -73,7 +73,7 @@ export interface Education {
   to: Date | "Present";
   degree: string;
   school: Brand;
-  mode: EmploymentType;
+  mode?: EmploymentType;
   supportingDocuments: SupportingDocument["id"][];
 }
 
