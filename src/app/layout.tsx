@@ -42,17 +42,16 @@ const description = selfIntroduction;
 const ogImage = "/og.png";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_URL),
   title,
   description,
   authors: { name: fullName },
-  themeColor: "#ffffff",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL),
   openGraph: {
     title,
     description,
-    type: "website",
     url: "/",
     images: ogImage,
+    type: "website",
   },
   robots: {
     index: true,
@@ -92,13 +91,14 @@ export const metadata: Metadata = {
       sizes: "180x180",
     },
   },
+  themeColor: "#ffffff",
+  manifest: "/manifest.json",
   twitter: {
     card: "summary_large_image",
     title,
     description,
     images: ogImage,
   },
-  manifest: "/manifest.json",
 };
 
 export default RootLayout;
