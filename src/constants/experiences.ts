@@ -39,7 +39,7 @@ const experiences: Experience[] = [
     jobTitle: "Programmer (Business and Administrative Systems)",
     companies: [getBrandById("edps"), getBrandById("ha")],
     employmentType: getEmploymentTypeById("contract"),
-    companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
+    companiesTemplate: "{0} | Seconded to {1}",
     jobDuties: [
       "Managed ha.org.hk and multiple intranet web apps, effectively catering to the needs of 100+ staff and 7M+ Hong Kong residents.",
       "Orchestrated the strategic planning and timely execution of web app OS and DB migration within 1 week.",
@@ -52,7 +52,7 @@ const experiences: Experience[] = [
     to: new Date(2022, 4),
     jobTitle: "Programmer (Database Management System)",
     companies: [getBrandById("edps"), getBrandById("ha")],
-    companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
+    companiesTemplate: "{0} | Seconded to {1}",
     employmentType: getEmploymentTypeById("contract"),
     jobDuties: [
       "Played an active role in conducting a DB knowledge-sharing session and engaging audiences of 100+ technical professionals.",
@@ -84,7 +84,7 @@ const experiences: Experience[] = [
     to: new Date(2021, 7),
     jobTitle: "Junior Programmer (Database Management System)",
     companies: [getBrandById("edps"), getBrandById("ha")],
-    companiesDescription: "EDPS Limited | Seconded to Hospital Authority",
+    companiesTemplate: "{0} | Seconded to {1}",
     employmentType: getEmploymentTypeById("contract"),
     jobDuties: [
       "Provided support and guidance to 3+ application teams on MySQL deployment and maintenance.",

@@ -47,7 +47,7 @@ const Experience: FC = () => {
     ({
       jobTitle,
       companies,
-      companiesDescription,
+      companiesTemplate,
       employmentType,
       jobDuties,
       supportingDocuments,
@@ -56,11 +56,13 @@ const Experience: FC = () => {
     }) => ({
       thumbnails: getThumbnails(companies),
       title: jobTitle,
-      subtitle:
-        companiesDescription ??
-        (Array.isArray(companies)
-          ? `${companies[0].name} | ${companies[1].name}`
-          : companies.name),
+      subtitle: Array.isArray(companies)
+        ? companiesTemplate
+          ? companiesTemplate
+              .replace("{0}", companies[0].name)
+              .replace("{1}", companies[1].name)
+          : `${companies[0].name} | ${companies[1].name}`
+        : companies.name,
       type: employmentType,
       contents: jobDuties,
       supportingDocuments: supportingDocuments.map((id) =>

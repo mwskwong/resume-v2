@@ -82,7 +82,7 @@ export interface Experience {
   jobTitle: string;
   companies: Brand | [Brand, Brand];
   employmentType: EmploymentType;
-  companiesDescription?: string;
+  companiesTemplate?: string;
   jobDuties: string[];
   supportingDocuments: SupportingDocument["id"][];
   relevantSkills: string[];
