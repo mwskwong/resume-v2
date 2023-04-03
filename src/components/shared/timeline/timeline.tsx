@@ -7,7 +7,7 @@ import TimelineSubitem from "./timeline-subitem";
 
 const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
   return (
-    <Stack {...props}>
+    <Stack data-cy="timeline" {...props}>
       {data.map(
         (
           {

@@ -32,7 +32,9 @@ const TimelineItem: FC<TimelineItemProps> = ({
           to={to}
           type={type}
         />
-        {Boolean(contents?.length) && (
+        {Boolean(
+          contents?.length ?? tags?.length ?? supportingDocuments?.length
+        ) && (
           <TimelineItemContent
             contents={contents}
             tags={tags}

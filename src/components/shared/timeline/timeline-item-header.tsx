@@ -45,12 +45,22 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
         <Typography sx={{ color: "primary.main" }} data-cy="subtitle">
           {subtitle}
         </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+        <Typography
+          variant="body2"
+          sx={{ color: "text.secondary" }}
+          data-cy="period"
+        >
           {period} • {duration}
         </Typography>
       </div>
       {type && (
-        <Chip label={type.name} variant="filled" color={type.id} size="small" />
+        <Chip
+          label={type.name}
+          variant="filled"
+          color={type.id}
+          size="small"
+          data-cy="type"
+        />
       )}
     </Box>
   );

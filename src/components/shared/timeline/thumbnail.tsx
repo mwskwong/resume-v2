@@ -34,6 +34,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
               href={images[0].url}
               target="_blank"
               sx={cx(linkSx, { clipPath: "polygon(0 0, 100% 0, 0 100%)" })}
+              data-cy="thumbnail-0"
             >
               <Image
                 src={images[0].src}
@@ -49,6 +50,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
               sx={cx(linkSx, {
                 clipPath: "polygon(100% 100%, 100% 0, 0 100%)",
               })}
+              data-cy="thumbnail-1"
             >
               <Image
                 src={images[1].src}
@@ -64,6 +66,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
             href={images.url}
             target="_blank"
             sx={linkSx}
+            data-cy="thumbnail"
           >
             <Image
               src={images.src}

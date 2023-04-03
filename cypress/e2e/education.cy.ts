@@ -43,41 +43,30 @@ describe("Education section", () => {
       describe("Education timeline", () => {
         const timelineSelector =
           "[data-cy = 'education'] [data-cy = 'timeline']";
-        it("'s period is responsive", () => {
-          const periodDesktopDataCy = "periodDesktop";
-          const periodMobileDataCy = "periodMobile";
-
-          if (viewportType === "desktop") {
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
-            ).should("be.visible");
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
-            ).should("not.be.visible");
-          } else {
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
-            ).should("not.be.visible");
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
-            ).should("be.visible");
-          }
-        });
 
         for (let i = 0; i < educations.length; i++) {
-          const { from, to, degree, school, supportingDocuments } =
+          const { from, to, degree, school, mode, supportingDocuments } =
             educations[i];
           const period = `${dateTimeFormat.format(from)} — ${
             to === "Present" ? "Present" : dateTimeFormat.format(to)
           }`;
-          const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
-          describe(`${degree} at ${school}`, () => {
-            it(`has period "${period}"`, () => {
-              cy.get(`${timelineSelector} [data-cy = '${periodDataCy}']`)
+          describe(`${degree} at ${school.name}`, () => {
+            it(`has "${school.name}" thumbnail`, () => {
+              cy.get(`${timelineSelector} [data-cy = 'thumbnail']`)
                 .eq(i)
+                .as("thumbnail");
+
+              cy.get("@thumbnail")
+                .find("img")
                 .should("be.visible")
-                .and("contain", period);
+                .and("have.attr", "src")
+                .and("include", school.id);
+
+              cy.get("@thumbnail")
+                .should("be.visible")
+                .and("have.attr", "target", "_blank")
+                .and("have.attr", "href", school.url);
             });
 
             it(`has title "${degree}"`, () => {
@@ -87,12 +76,28 @@ describe("Education section", () => {
                 .and("contain", degree);
             });
 
-            it(`has subtitle "${school}"`, () => {
+            it(`has subtitle "${school.name}"`, () => {
               cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
                 .eq(i)
                 .should("be.visible")
-                .and("contain", school);
+                .and("contain", school.name);
             });
+
+            it(`has period "${period}"`, () => {
+              cy.get(`${timelineSelector} [data-cy = 'period']`)
+                .eq(i)
+                .should("be.visible")
+                .and("contain", period);
+            });
+
+            if (mode) {
+              it(`has mode "${mode.name}"`, () => {
+                cy.get(`${timelineSelector} [data-cy = 'type']`)
+                  .eq(i)
+                  .should("be.visible")
+                  .and("contain", mode.name);
+              });
+            }
 
             describe("Support documents", () => {
               for (const supportingDocument of supportingDocuments) {

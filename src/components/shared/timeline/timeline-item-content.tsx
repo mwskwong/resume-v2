@@ -51,7 +51,7 @@ const TimelineItemContent: FC<TimelineItemContentProps> = ({
                   },
                 }}
               >
-                <ListItem disablePadding>
+                <ListItem disablePadding data-cy={id}>
                   <ListItemButton
                     component="a"
                     sx={{ pl: 0 }}
