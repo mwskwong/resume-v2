@@ -32,6 +32,7 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
           flexDirection: { xs: "column", sm: "row" },
           alignItems: "flex-start",
           justifyContent: { sm: "space-between" },
+          gap: 1,
         },
         sx
       )}
