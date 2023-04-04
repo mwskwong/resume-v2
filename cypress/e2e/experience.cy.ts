@@ -3,7 +3,23 @@ import viewports from "cypress/fixtures/viewports.json";
 
 import experiences from "@/constants/experiences";
 import { EXPERIENCE } from "@/constants/nav";
+import { Experience } from "@/types";
 import dateTimeFormat from "@/utils/date-time-format";
+
+const getSubtitle = (
+  company?: Experience["company"],
+  companyTemplate?: Experience["companyTemplate"]
+) => {
+  if (company) {
+    return Array.isArray(company)
+      ? companyTemplate
+        ? companyTemplate
+            .replace("{0}", company[0].name)
+            .replace("{1}", company[1].name)
+        : `${company[0].name} | ${company[1].name}`
+      : company.name;
+  }
+};
 
 describe("Experience section", () => {
   beforeEach(() => {
@@ -35,33 +51,16 @@ describe("Experience section", () => {
       describe("Experience timeline", () => {
         const timelineSelector =
           "[data-cy = 'experience'] [data-cy = 'timeline']";
-        it("'s period is responsive", () => {
-          const periodDesktopDataCy = "periodDesktop";
-          const periodMobileDataCy = "periodMobile";
 
-          if (viewportType === "desktop") {
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
-            ).should("be.visible");
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
-            ).should("not.be.visible");
-          } else {
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
-            ).should("not.be.visible");
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
-            ).should("be.visible");
-          }
-        });
-
+        let mergedExperience = 0;
         for (let i = 0; i < experiences.length; i++) {
           const {
             from,
             to,
             jobTitle,
             company,
+            companyTemplate,
+            employmentType,
             jobDuties,
             relevantSkills,
             supportingDocuments,
@@ -69,15 +68,71 @@ describe("Experience section", () => {
           const period = `${dateTimeFormat.format(from)} — ${
             to === "Present" ? "Present" : dateTimeFormat.format(to)
           }`;
-          const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
-          describe(`${jobTitle} at ${company}`, () => {
-            it(`has period "${period}"`, () => {
-              cy.get(`${timelineSelector} [data-cy = '${periodDataCy}']`)
-                .eq(i)
-                .should("be.visible")
-                .and("contain", period);
-            });
+          const companyDisplayname = Array.isArray(company)
+            ? company[0].name + " & " + company[1].name
+            : company.name;
+
+          describe(`${jobTitle} at ${companyDisplayname}`, () => {
+            const prevSubtitle = getSubtitle(
+              experiences[i - 1]?.company,
+              experiences[i - 1]?.companyTemplate
+            );
+            const subtitle = getSubtitle(company, companyTemplate);
+            const nextSubtitle = getSubtitle(
+              experiences[i + 1]?.company,
+              experiences[i + 1]?.companyTemplate
+            );
+            console.log(prevSubtitle, subtitle, nextSubtitle);
+
+            const merge =
+              prevSubtitle === subtitle || subtitle === nextSubtitle;
+            const first = prevSubtitle !== subtitle;
+
+            if (merge && !first) {
+              mergedExperience++;
+            } else {
+              it(`has "${companyDisplayname}" thumbnail`, () => {
+                console.log(mergedExperience);
+                if (Array.isArray(company)) {
+                  for (let j = 0; j < company.length; j++) {
+                    cy.get(`${timelineSelector} [data-cy = 'thumbnail']`)
+                      .eq(i - mergedExperience)
+                      .as("thumbnail");
+
+                    cy.get("@thumbnail")
+                      .find("img")
+                      .eq(j)
+                      .should("be.visible")
+                      .and("have.attr", "src")
+                      .and("include", company[j].id);
+
+                    cy.get("@thumbnail")
+                      .find("a")
+                      .eq(j)
+                      .should("be.visible")
+                      .and("have.attr", "target", "_blank")
+                      .and("have.attr", "href", company[j].url);
+                  }
+                } else {
+                  cy.get(`${timelineSelector} [data-cy = 'thumbnail']`)
+                    .eq(i)
+                    .as("thumbnail");
+
+                  cy.get("@thumbnail")
+                    .find("img")
+                    .should("be.visible")
+                    .and("have.attr", "src")
+                    .and("include", company.id);
+
+                  cy.get("@thumbnail")
+                    .find("a")
+                    .should("be.visible")
+                    .and("have.attr", "target", "_blank")
+                    .and("have.attr", "href", company.url);
+                }
+              });
+            }
 
             it(`has title "${jobTitle}"`, () => {
               cy.get(`${timelineSelector} [data-cy = 'title']`)
@@ -86,11 +141,25 @@ describe("Experience section", () => {
                 .and("contain", jobTitle);
             });
 
-            it(`has subtitle "${company}"`, () => {
+            it(`has subtitle "${subtitle ?? ""}"`, () => {
               cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
                 .eq(i)
                 .should("be.visible")
-                .and("contain", company);
+                .and("contain", subtitle);
+            });
+
+            it(`has period "${period}"`, () => {
+              cy.get(`${timelineSelector} [data-cy = 'period']`)
+                .eq(i)
+                .should("be.visible")
+                .and("contain", period);
+            });
+
+            it(`has employment type "${employmentType.name}"`, () => {
+              cy.get(`${timelineSelector} [data-cy = 'type']`)
+                .eq(i)
+                .should("be.visible")
+                .and("contain", employmentType.name);
             });
 
             describe("Job duties", () => {

@@ -64,6 +64,7 @@ describe("Education section", () => {
                 .and("include", school.id);
 
               cy.get("@thumbnail")
+                .find("a")
                 .should("be.visible")
                 .and("have.attr", "target", "_blank")
                 .and("have.attr", "href", school.url);

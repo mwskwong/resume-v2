@@ -23,7 +23,7 @@ const TimelineItemContent: FC<TimelineItemContentProps> = ({
   return (
     <Stack spacing={2} {...props}>
       {Boolean(contents.length) && (
-        <List disablePadding>
+        <List disablePadding data-cy="contents">
           {contents.map((point, index) => (
             <ListItem key={index} disableGutters>
               <ListItemText primary={point} />
