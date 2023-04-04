@@ -1,7 +1,7 @@
+import { BoxProps } from "@mui/material";
+
 import TimelineItemData from "./timeline-item-data";
 
-interface TimelineItemProps {
-  data: TimelineItemData;
-}
+type TimelineItemProps = BoxProps & TimelineItemData;
 
 export default TimelineItemProps;

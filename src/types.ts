@@ -42,7 +42,22 @@ export interface Brand {
     | "mongoDb"
     | "oracle"
     | "stackOverflow"
-    | "udemy";
+    | "udemy"
+    | "hku"
+    | "hkust"
+    | "ubc"
+    | "tecpal"
+    | "edps"
+    | "ha"
+    | "versitech"
+    | "publicHealthHku"
+    | "engineeringHku";
+  name: string;
+  url?: string;
+}
+
+export interface EmploymentType {
+  id: "fullTime" | "partTime" | "internship" | "contract";
   name: string;
 }
 
@@ -57,7 +72,8 @@ export interface Education {
   from: Date;
   to: Date | "Present";
   degree: string;
-  school: string;
+  school: Brand;
+  mode?: EmploymentType;
   supportingDocuments: SupportingDocument["id"][];
 }
 
@@ -65,7 +81,9 @@ export interface Experience {
   from: Date;
   to: Date | "Present";
   jobTitle: string;
-  company: string;
+  company: Brand | [Brand, Brand];
+  employmentType: EmploymentType;
+  companyTemplate?: string;
   jobDuties: string[];
   supportingDocuments: SupportingDocument["id"][];
   relevantSkills: string[];

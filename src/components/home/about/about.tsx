@@ -1,18 +1,16 @@
 "use client";
 
-import { Container, Stack, styled } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import { CircleSlice2 } from "mdi-material-ui";
-import NextImage from "next/image";
 import { FC } from "react";
 
 import personalPhoto from "@/assets/images/personal_photo.jpg";
+import Image from "@/components/shared/image";
 import SectionHeader from "@/components/shared/section-header";
 import { firstName, lastName } from "@/constants/name";
 
 import Message from "./message";
 import Skills from "./skills";
-
-const Image = styled(NextImage)``;
 
 const About: FC = () => (
   <Container>

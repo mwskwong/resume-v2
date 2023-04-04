@@ -7,6 +7,7 @@ import {
   lighten,
   touchRippleClasses,
 } from "@mui/material";
+import { amber, green, lightBlue, purple } from "@mui/material/colors";
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import {
   siDatacamp,
@@ -29,6 +30,10 @@ declare module "@mui/material" {
     mongoDb: Palette["primary"];
     oracle: Palette["primary"];
     udemy: Palette["primary"];
+    fullTime: Palette["primary"];
+    partTime: Palette["primary"];
+    internship: Palette["primary"];
+    contract: Palette["primary"];
   }
 
   interface PaletteOptions {
@@ -39,6 +44,10 @@ declare module "@mui/material" {
     mongoDb: PaletteOptions["primary"];
     oracle: PaletteOptions["primary"];
     udemy: PaletteOptions["primary"];
+    fullTime: PaletteOptions["primary"];
+    partTime: PaletteOptions["primary"];
+    internship: PaletteOptions["primary"];
+    contract: PaletteOptions["primary"];
   }
 
   interface SvgIconPropsColorOverrides {
@@ -49,6 +58,13 @@ declare module "@mui/material" {
     mongoDb: true;
     oracle: true;
     udemy: true;
+  }
+
+  interface ChipPropsColorOverrides {
+    fullTime: true;
+    partTime: true;
+    internship: true;
+    contract: true;
   }
 
   interface TypeBackground {
@@ -91,27 +107,17 @@ const brandingTheme = extendTheme({
         error: { main: "#EB0014" },
         warning: { main: "#DEA500" },
         success: { main: "#1AA251" },
-        enterpriseDb: {
-          main: `#${siEnterprisedb.hex}`,
-        },
-        mongoDb: {
-          main: `#${siMongodb.hex}`,
-        },
-        microsoft: {
-          main: `#${siMicrosoft.hex}`,
-        },
-        oracle: {
-          main: `#${siOracle.hex}`,
-        },
-        udemy: {
-          main: `#${siUdemy.hex}`,
-        },
-        dataCamp: {
-          main: `#${siDatacamp.hex}`,
-        },
-        google: {
-          main: `#${siGoogle.hex}`,
-        },
+        enterpriseDb: { main: `#${siEnterprisedb.hex}` },
+        mongoDb: { main: `#${siMongodb.hex}` },
+        microsoft: { main: `#${siMicrosoft.hex}` },
+        oracle: { main: `#${siOracle.hex}` },
+        udemy: { main: `#${siUdemy.hex}` },
+        dataCamp: { main: `#${siDatacamp.hex}` },
+        google: { main: `#${siGoogle.hex}` },
+        fullTime: { main: green[500] },
+        partTime: { main: amber[500] },
+        internship: { main: lightBlue[500] },
+        contract: { main: purple[500] },
         grey,
         text: {
           primary: grey[900],
@@ -228,10 +234,11 @@ const brandingTheme = extendTheme({
         color: "default",
       },
       styleOverrides: {
-        root: {
-          boxShadow: "none",
-          backdropFilter: "blur(20px)",
-        },
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            boxShadow: 0,
+            backdropFilter: "blur(20px)",
+          }),
       },
     },
     MuiAvatar: {
@@ -239,9 +246,10 @@ const brandingTheme = extendTheme({
         variant: "rounded",
       },
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.vars.palette.text.primary,
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            color: "text.primary",
+          }),
       },
     },
     MuiButton: {
@@ -249,12 +257,13 @@ const brandingTheme = extendTheme({
         disableElevation: true,
       },
       styleOverrides: {
-        sizeLarge: ({ theme }) => ({
-          padding: "1rem 1.25rem",
-          ...theme.typography.body1,
-          lineHeight: 21 / 16,
-          fontWeight: theme.typography.fontWeightBold,
-        }),
+        sizeLarge: ({ theme }) =>
+          theme.unstable_sx({
+            padding: "1rem 1.25rem",
+            typography: "body1",
+            lineHeight: 21 / 16,
+            fontWeight: "bold",
+          }),
       },
     },
     MuiCard: {
@@ -262,18 +271,20 @@ const brandingTheme = extendTheme({
         elevation: 0,
       },
       styleOverrides: {
-        root: ({ theme }) => ({
-          backgroundColor: theme.vars.palette.background.primary,
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            bgcolor: "background.primary",
+          }),
       },
     },
     MuiCardContent: {
       styleOverrides: {
-        root: {
-          "&:last-child": {
-            paddingBottom: 16,
-          },
-        },
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            "&:last-child": {
+              pb: 2,
+            },
+          }),
       },
     },
     MuiChip: {
@@ -282,45 +293,65 @@ const brandingTheme = extendTheme({
         color: "primary",
       },
       styleOverrides: {
-        root: ({ theme }) => ({
-          borderRadius: theme.vars.shape.borderRadius,
-        }),
-        outlinedPrimary: ({ theme }) => ({
-          color: theme.vars.palette.text.primary,
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: 1,
+          }),
+        outlinedPrimary: ({ theme }) =>
+          theme.unstable_sx({
+            color: "text.primary",
+          }),
+
+        filled: ({ theme, ownerState }) =>
+          theme.unstable_sx({
+            color:
+              !ownerState.color || ownerState.color === "default"
+                ? undefined
+                : darken(theme.palette[ownerState.color].main, 0.6),
+            backgroundColor:
+              !ownerState.color || ownerState.color === "default"
+                ? undefined
+                : lighten(theme.palette[ownerState.color].main, 0.9),
+          }),
+        sizeSmall: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: 0.5,
+          }),
       },
     },
     MuiCssBaseline: {
-      styleOverrides: (theme) => ({
-        "::selection": {
-          backgroundColor: theme.vars.palette.grey[800],
-          color: theme.vars.palette.common.white,
-        },
-        html: {
-          scrollBehavior: "smooth",
-          "@media (prefers-reduced-motion)": {
-            scrollBehavior: "auto",
+      styleOverrides: (theme) =>
+        theme.unstable_sx({
+          "::selection": {
+            bgcolor: "grey.800",
+            color: "common.white",
           },
-        },
-        address: {
-          fontStyle: "normal",
-        },
-        img: {
-          objectFit: "cover",
-        },
-      }),
+          html: {
+            scrollBehavior: "smooth",
+            "@media (prefers-reduced-motion)": {
+              scrollBehavior: "auto",
+            },
+          },
+          address: {
+            fontStyle: "normal",
+          },
+          img: {
+            objectFit: "cover",
+          },
+        }),
     },
     MuiFab: {
       defaultProps: {
         color: "primary",
       },
       styleOverrides: {
-        root: ({ theme }) => ({
-          position: "fixed",
-          bottom: theme.spacing(2),
-          right: theme.spacing(2),
-          borderRadius: theme.vars.shape.borderRadius,
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            position: "fixed",
+            bottom: theme.spacing(2),
+            right: theme.spacing(2),
+            borderRadius: 1,
+          }),
       },
     },
     MuiFormControl: {
@@ -330,71 +361,68 @@ const brandingTheme = extendTheme({
     },
     MuiFormHelperText: {
       styleOverrides: {
-        contained: {
-          marginLeft: 12,
-          marginRight: 12,
-        },
+        contained: ({ theme }) =>
+          theme.unstable_sx({
+            mx: "12px",
+          }),
       },
     },
     MuiIconButton: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          borderRadius: theme.vars.shape.borderRadius,
-          [`& .${touchRippleClasses.root} .${touchRippleClasses.child}`]: {
-            borderRadius: theme.vars.shape.borderRadius,
-          },
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: 1,
+            [`& .${touchRippleClasses.root} .${touchRippleClasses.child}`]: {
+              borderRadius: 1,
+            },
+          }),
       },
     },
     MuiInputBase: {
       styleOverrides: {
-        input: ({ theme }) => ({
-          color: theme.vars.palette.text.primary,
-          "&::placeholder": {
-            color: theme.vars.palette.text.secondary,
-            opacity: 1,
-          },
-        }),
+        input: ({ theme }) =>
+          theme.unstable_sx({
+            color: "text.primary",
+            "&::placeholder": {
+              color: "text.secondary",
+              opacity: 1,
+            },
+          }),
       },
     },
     MuiInputAdornment: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.vars.palette.text.secondary,
-        }),
-        positionStart: ({ theme }) => ({
-          marginRight: theme.spacing(2),
-        }),
-        positionEnd: ({ theme }) => ({
-          marginLeft: theme.spacing(2),
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            color: "text.secondary",
+          }),
+        positionStart: ({ theme }) =>
+          theme.unstable_sx({
+            mr: 2,
+          }),
+        positionEnd: ({ theme }) =>
+          theme.unstable_sx({
+            ml: 2,
+          }),
       },
     },
     MuiListItemButton: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          borderRadius: theme.vars.shape.borderRadius,
-        }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: 1,
+          }),
       },
     },
-    MuiTimeline: {
-      styleOverrides: {
-        root: {
-          paddingLeft: 0,
-          paddingRight: 0,
-          marginTop: 0,
-          marginBottom: 0,
-        },
+    MuiTimelineDot: {
+      defaultProps: {
+        color: "primary",
       },
-    },
-    MuiTimelineContent: {
       styleOverrides: {
-        root: {
-          paddingBottom: "16px",
-        },
-        positionRight: {
-          paddingRight: 0,
-        },
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            boxShadow: 0,
+          }),
       },
     },
     MuiTextField: {
@@ -402,25 +430,20 @@ const brandingTheme = extendTheme({
         variant: "filled",
       },
     },
-    MuiTimelineDot: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          boxShadow: theme.vars.shadows[0],
-        }),
-      },
-    },
     MuiTooltip: {
       defaultProps: {
         placement: "bottom-start",
       },
       styleOverrides: {
-        tooltip: {
-          borderRadius: 8,
-          maxWidth: 350,
-        },
-        touch: {
-          borderRadius: 8,
-        },
+        tooltip: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: 0.5,
+            maxWidth: 350,
+          }),
+        touch: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: 0.5,
+          }),
       },
     },
   },

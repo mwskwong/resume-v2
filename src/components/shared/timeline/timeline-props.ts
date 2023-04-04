@@ -1,6 +1,8 @@
+import { StackProps } from "@mui/material";
+
 import TimelineItemData from "./timeline-item-data";
 
-interface TimelineProps {
+interface TimelineProps extends StackProps {
   data?: TimelineItemData[];
 }
 

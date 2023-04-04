@@ -3,7 +3,75 @@ import viewports from "cypress/fixtures/viewports.json";
 
 import experiences from "@/constants/experiences";
 import { EXPERIENCE } from "@/constants/nav";
+import { Experience } from "@/types";
 import dateTimeFormat from "@/utils/date-time-format";
+
+const getCompanyName = (
+  company?: Experience["company"],
+  companyTemplate?: Experience["companyTemplate"]
+) => {
+  if (company) {
+    return Array.isArray(company)
+      ? companyTemplate
+        ? companyTemplate
+            .replace("{0}", company[0].name)
+            .replace("{1}", company[1].name)
+        : `${company[0].name} | ${company[1].name}`
+      : company.name;
+  }
+};
+
+const isMerged = (index: number) => {
+  const prevSubtitle = getCompanyName(
+    experiences[index - 1]?.company,
+    experiences[index - 1]?.companyTemplate
+  );
+  const subtitle = getCompanyName(
+    experiences[index].company,
+    experiences[index].companyTemplate
+  );
+  const nextSubtitle = getCompanyName(
+    experiences[index + 1]?.company,
+    experiences[index + 1]?.companyTemplate
+  );
+
+  return prevSubtitle === subtitle || subtitle === nextSubtitle;
+};
+
+const isFirstMerged = (index: number) => {
+  const prevSubtitle = getCompanyName(
+    experiences[index - 1]?.company,
+    experiences[index - 1]?.companyTemplate
+  );
+  const subtitle = getCompanyName(
+    experiences[index].company,
+    experiences[index].companyTemplate
+  );
+
+  return isMerged(index) && prevSubtitle !== subtitle;
+};
+
+const getNumOfMergedExperiencesBefore = (index: number) => {
+  let numOfMergedExperiences = 0;
+  for (let i = 0; i < index; i++) {
+    if (isMerged(i)) {
+      numOfMergedExperiences++;
+    }
+  }
+
+  return numOfMergedExperiences;
+};
+
+const getNumOfMergedExperienceGroupsBefore = (index: number) => {
+  let numOfMergedExperienceGroups = 0;
+  for (let i = 0; i < index; i++) {
+    if (isFirstMerged(i)) {
+      numOfMergedExperienceGroups++;
+    }
+  }
+
+  return numOfMergedExperienceGroups;
+};
 
 describe("Experience section", () => {
   beforeEach(() => {
@@ -35,26 +103,15 @@ describe("Experience section", () => {
       describe("Experience timeline", () => {
         const timelineSelector =
           "[data-cy = 'experience'] [data-cy = 'timeline']";
-        it("'s period is responsive", () => {
-          const periodDesktopDataCy = "periodDesktop";
-          const periodMobileDataCy = "periodMobile";
 
-          if (viewportType === "desktop") {
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
-            ).should("be.visible");
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
-            ).should("not.be.visible");
-          } else {
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodDesktopDataCy}']`
-            ).should("not.be.visible");
-            cy.get(
-              `${timelineSelector} [data-cy = '${periodMobileDataCy}']`
-            ).should("be.visible");
-          }
-        });
+        const thumbnailUrlKeywords = {
+          tecpal: "tecpal",
+          ha: "ha",
+          edps: "edps",
+          versitech: "versitech",
+          publicHealthHku: "public_health_hku",
+          engineeringHku: "hku",
+        };
 
         for (let i = 0; i < experiences.length; i++) {
           const {
@@ -62,6 +119,8 @@ describe("Experience section", () => {
             to,
             jobTitle,
             company,
+            companyTemplate,
+            employmentType,
             jobDuties,
             relevantSkills,
             supportingDocuments,
@@ -69,28 +128,152 @@ describe("Experience section", () => {
           const period = `${dateTimeFormat.format(from)} — ${
             to === "Present" ? "Present" : dateTimeFormat.format(to)
           }`;
-          const periodDataCy = `period${Cypress._.capitalize(viewportType)}`;
 
-          describe(`${jobTitle} at ${company}`, () => {
-            it(`has period "${period}"`, () => {
-              cy.get(`${timelineSelector} [data-cy = '${periodDataCy}']`)
+          const companyDisplayname = Array.isArray(company)
+            ? company[0].name + " & " + company[1].name
+            : company.name;
+
+          describe(`${jobTitle} at ${companyDisplayname}`, () => {
+            const testThumbnail = () => {
+              it(`has "${companyDisplayname}" thumbnail`, () => {
+                const numOfMergedExperiences =
+                  getNumOfMergedExperiencesBefore(i);
+                cy.get(`${timelineSelector} [data-cy = 'thumbnail']`)
+                  .eq(i - Math.max(0, numOfMergedExperiences - 1))
+                  .as("thumbnail");
+
+                if (Array.isArray(company)) {
+                  for (let j = 0; j < company.length; j++) {
+                    cy.get("@thumbnail")
+                      .find("img")
+                      .eq(j)
+                      .should("be.visible")
+                      .and("have.attr", "src")
+                      .and(
+                        "include",
+                        thumbnailUrlKeywords[
+                          company[j].id as keyof typeof thumbnailUrlKeywords
+                        ]
+                      );
+
+                    cy.get("@thumbnail")
+                      .find("a")
+                      .eq(j)
+                      .should("be.visible")
+                      .and("have.attr", "target", "_blank")
+                      .and("have.attr", "href", company[j].url);
+                  }
+                } else {
+                  cy.get("@thumbnail")
+                    .find("img")
+                    .should("be.visible")
+                    .and("have.attr", "src")
+                    .and(
+                      "include",
+                      thumbnailUrlKeywords[
+                        company.id as keyof typeof thumbnailUrlKeywords
+                      ]
+                    );
+
+                  cy.get("@thumbnail")
+                    .find("a")
+                    .should("be.visible")
+                    .and("have.attr", "target", "_blank")
+                    .and("have.attr", "href", company.url);
+                }
+              });
+            };
+
+            const numOfMergedExperienceGroups =
+              getNumOfMergedExperienceGroupsBefore(i);
+
+            const index = i + numOfMergedExperienceGroups;
+            if (isMerged(i)) {
+              if (isFirstMerged(i)) {
+                testThumbnail();
+
+                const companyName = getCompanyName(company, companyTemplate);
+                it(`has title "${companyName ?? ""}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'title']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", companyName);
+                });
+
+                const earliestFrom = experiences.findLast(
+                  ({ company, companyTemplate }) =>
+                    getCompanyName(company, companyTemplate) === companyName
+                )?.from;
+                const fullPeriod = `${dateTimeFormat.format(earliestFrom)} — ${
+                  to === "Present" ? "Present" : dateTimeFormat.format(to)
+                }`;
+
+                it(`has period "${fullPeriod}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'period']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", fullPeriod);
+                });
+
+                it(`has title "${jobTitle}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'title']`)
+                    .eq(index + 1)
+                    .should("be.visible")
+                    .and("contain", jobTitle);
+                });
+
+                it(`has period "${period}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'period']`)
+                    .eq(index + 1)
+                    .should("be.visible")
+                    .and("contain", period);
+                });
+              } else {
+                it(`has title "${jobTitle}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'title']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", jobTitle);
+                });
+
+                it(`has period "${period}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'period']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", period);
+                });
+              }
+            } else {
+              testThumbnail();
+
+              it(`has title "${jobTitle}"`, () => {
+                cy.get(`${timelineSelector} [data-cy = 'title']`)
+                  .eq(index)
+                  .should("be.visible")
+                  .and("contain", jobTitle);
+              });
+
+              const companyName = getCompanyName(company, companyTemplate);
+              it(`has subtitle "${companyName ?? ""}"`, () => {
+                cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
+                  .eq(index)
+                  .should("be.visible")
+                  .and("contain", companyName);
+              });
+
+              it(`has period "${period}"`, () => {
+                cy.get(`${timelineSelector} [data-cy = 'period']`)
+                  .eq(index)
+                  .should("be.visible")
+                  .and("contain", period);
+              });
+            }
+
+            it(`has employment type "${employmentType.name}"`, () => {
+              cy.get(`${timelineSelector} [data-cy = 'type']`)
                 .eq(i)
                 .should("be.visible")
-                .and("contain", period);
-            });
-
-            it(`has title "${jobTitle}"`, () => {
-              cy.get(`${timelineSelector} [data-cy = 'title']`)
-                .eq(i)
-                .should("be.visible")
-                .and("contain", jobTitle);
-            });
-
-            it(`has subtitle "${company}"`, () => {
-              cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
-                .eq(i)
-                .should("be.visible")
-                .and("contain", company);
+                .and("contain", employmentType.name);
             });
 
             describe("Job duties", () => {
