@@ -3,7 +3,7 @@ import viewports from "cypress/fixtures/viewports.json";
 
 import experiences from "@/constants/experiences";
 import { EXPERIENCE } from "@/constants/nav";
-import { Brand, Experience } from "@/types";
+import { Experience } from "@/types";
 import dateTimeFormat from "@/utils/date-time-format";
 
 const getSubtitle = (
@@ -60,6 +60,17 @@ const getNumOfMergedExperiencesBefore = (index: number) => {
   }
 
   return numOfMergedExperiences;
+};
+
+const getNumOfMergedExperienceGroupsBefore = (index: number) => {
+  let numOfMergedExperienceGroups = 0;
+  for (let i = 0; i < index; i++) {
+    if (isFirstMerged(i)) {
+      numOfMergedExperienceGroups++;
+    }
+  }
+
+  return numOfMergedExperienceGroups;
 };
 
 describe("Experience section", () => {
@@ -179,10 +190,12 @@ describe("Experience section", () => {
               }
             } else {
               testThumbnail();
+              const numOfMergedExperienceGroups =
+                getNumOfMergedExperienceGroupsBefore(i);
 
               it(`has title "${jobTitle}"`, () => {
                 cy.get(`${timelineSelector} [data-cy = 'title']`)
-                  .eq(i)
+                  .eq(i + numOfMergedExperienceGroups)
                   .should("be.visible")
                   .and("contain", jobTitle);
               });
