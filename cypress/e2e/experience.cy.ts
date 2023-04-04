@@ -6,7 +6,7 @@ import { EXPERIENCE } from "@/constants/nav";
 import { Experience } from "@/types";
 import dateTimeFormat from "@/utils/date-time-format";
 
-const getSubtitle = (
+const getCompanyName = (
   company?: Experience["company"],
   companyTemplate?: Experience["companyTemplate"]
 ) => {
@@ -22,15 +22,15 @@ const getSubtitle = (
 };
 
 const isMerged = (index: number) => {
-  const prevSubtitle = getSubtitle(
+  const prevSubtitle = getCompanyName(
     experiences[index - 1]?.company,
     experiences[index - 1]?.companyTemplate
   );
-  const subtitle = getSubtitle(
+  const subtitle = getCompanyName(
     experiences[index].company,
     experiences[index].companyTemplate
   );
-  const nextSubtitle = getSubtitle(
+  const nextSubtitle = getCompanyName(
     experiences[index + 1]?.company,
     experiences[index + 1]?.companyTemplate
   );
@@ -39,11 +39,11 @@ const isMerged = (index: number) => {
 };
 
 const isFirstMerged = (index: number) => {
-  const prevSubtitle = getSubtitle(
+  const prevSubtitle = getCompanyName(
     experiences[index - 1]?.company,
     experiences[index - 1]?.companyTemplate
   );
-  const subtitle = getSubtitle(
+  const subtitle = getCompanyName(
     experiences[index].company,
     experiences[index].companyTemplate
   );
@@ -184,37 +184,90 @@ describe("Experience section", () => {
               });
             };
 
+            const numOfMergedExperienceGroups =
+              getNumOfMergedExperienceGroupsBefore(i);
+
+            const index = i + numOfMergedExperienceGroups;
             if (isMerged(i)) {
               if (isFirstMerged(i)) {
                 testThumbnail();
+
+                const companyName = getCompanyName(company, companyTemplate);
+                it(`has title "${companyName ?? ""}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'title']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", companyName);
+                });
+
+                const earliestFrom = experiences.findLast(
+                  ({ company, companyTemplate }) =>
+                    getCompanyName(company, companyTemplate) === companyName
+                )?.from;
+                const fullPeriod = `${dateTimeFormat.format(earliestFrom)} — ${
+                  to === "Present" ? "Present" : dateTimeFormat.format(to)
+                }`;
+
+                it(`has period "${fullPeriod}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'period']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", fullPeriod);
+                });
+
+                it(`has title "${jobTitle}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'title']`)
+                    .eq(index + 1)
+                    .should("be.visible")
+                    .and("contain", jobTitle);
+                });
+
+                it(`has period "${period}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'period']`)
+                    .eq(index + 1)
+                    .should("be.visible")
+                    .and("contain", period);
+                });
+              } else {
+                it(`has title "${jobTitle}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'title']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", jobTitle);
+                });
+
+                it(`has period "${period}"`, () => {
+                  cy.get(`${timelineSelector} [data-cy = 'period']`)
+                    .eq(index)
+                    .should("be.visible")
+                    .and("contain", period);
+                });
               }
             } else {
               testThumbnail();
-              const numOfMergedExperienceGroups =
-                getNumOfMergedExperienceGroupsBefore(i);
 
               it(`has title "${jobTitle}"`, () => {
                 cy.get(`${timelineSelector} [data-cy = 'title']`)
-                  .eq(i + numOfMergedExperienceGroups)
+                  .eq(index)
                   .should("be.visible")
                   .and("contain", jobTitle);
               });
 
-              const subtitle = getSubtitle(company);
-              it(`has subtitle "${subtitle ?? ""}"`, () => {
+              const companyName = getCompanyName(company, companyTemplate);
+              it(`has subtitle "${companyName ?? ""}"`, () => {
                 cy.get(`${timelineSelector} [data-cy = 'subtitle']`)
-                  .eq(i)
+                  .eq(index)
                   .should("be.visible")
-                  .and("contain", subtitle);
+                  .and("contain", companyName);
+              });
+
+              it(`has period "${period}"`, () => {
+                cy.get(`${timelineSelector} [data-cy = 'period']`)
+                  .eq(index)
+                  .should("be.visible")
+                  .and("contain", period);
               });
             }
-
-            it(`has period "${period}"`, () => {
-              cy.get(`${timelineSelector} [data-cy = 'period']`)
-                .eq(i)
-                .should("be.visible")
-                .and("contain", period);
-            });
 
             it(`has employment type "${employmentType.name}"`, () => {
               cy.get(`${timelineSelector} [data-cy = 'type']`)
