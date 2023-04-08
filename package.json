@@ -37,6 +37,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-hook-form-mui": "^6.0.1",
+    "server-only": "^0.0.1",
     "simple-icons": "^8.9.0",
     "zod": "^3.21.4"
   },
