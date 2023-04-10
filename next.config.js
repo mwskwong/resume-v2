@@ -1,4 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -19,19 +24,18 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  webpack: (config) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  webpack: (config, { isServer }) => {
+    // load PDF files as assets
     config.module.rules.push({
       test: /\.pdf$/i,
       type: "asset/resource",
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    // load SVG files using SVGR
     const fileLoaderRule = config.module.rules.find((rule) =>
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       rule.test?.test?.(".svg")
     );
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+
     config.module.rules.push(
       {
         ...fileLoaderRule,
@@ -46,10 +50,13 @@ const nextConfig = {
       }
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     fileLoaderRule.exclude = /\.svg$/i;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    if (isServer) {
+      // react-pdf needs to use canvas which doesn't support SSR
+      config.resolve.alias.canvas = false;
+    }
+
     return config;
   },
   modularizeImports: {

@@ -19,6 +19,8 @@ import SectionProps from "@/components/shared/section/section-props";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
 import { SectionId } from "@/types";
 
+import TestPdf from "./test-pdf";
+
 const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   home: "default",
   about: "primary",
@@ -48,6 +50,9 @@ export default async function Home() {
           next: sectionVariants.about,
         }}
       />
+      <div style={{ width: 100 }}>
+        <TestPdf />
+      </div>
       <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id}>
         <About skills={skills} />
       </Section>
