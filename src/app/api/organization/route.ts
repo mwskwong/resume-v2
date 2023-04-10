@@ -11,5 +11,10 @@ export const GET = async () => {
       }
     );
 
-  return NextResponse.json(items);
+  return NextResponse.json(
+    items.map((item) => ({
+      id: item.sys.id,
+      name: item.fields.name,
+    }))
+  );
 };

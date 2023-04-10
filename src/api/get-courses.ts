@@ -13,11 +13,13 @@ const getCourses = async () => {
 
   return items.map((item) => ({
     ...item.fields,
-    institution: {
-      id: item.fields.institution?.sys.id,
-      name: item.fields.institution?.fields.name,
+    institution: item.fields.institution && {
+      id: item.fields.institution.sys.id,
+      name: item.fields.institution.fields.name,
     },
-    certificate: (item.fields.certificate?.fields.file as AssetFile).url,
+    certificate:
+      item.fields.certificate &&
+      (item.fields.certificate.fields.file as AssetFile).url,
   }));
 };
 

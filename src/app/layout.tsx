@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { FC, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
+import { getPlatformProfiles } from "@/api";
 import Footer from "@/components/shared/footer";
 import NavBar from "@/components/shared/navbar";
 import ScrollToTopFab from "@/components/shared/scroll-to-top-fab";
@@ -15,23 +16,27 @@ import Analytics from "./analytics";
 import EmotionRegistry from "./emotion-registry";
 import MotionConfig from "./motion-config";
 
-const RootLayout: FC<Required<PropsWithChildren>> = ({ children }) => (
-  <html lang="en" className={font.className}>
-    <body>
-      <EmotionRegistry>
-        <ThemeProvider>
-          <MotionConfig reducedMotion="user">
-            <NavBar />
-            {children}
-            <Footer />
-            <ScrollToTopFab />
-          </MotionConfig>
-        </ThemeProvider>
-      </EmotionRegistry>
-      <Analytics />
-    </body>
-  </html>
-);
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const platformProfiles = await getPlatformProfiles();
+
+  return (
+    <html lang="en" className={font.className}>
+      <body>
+        <EmotionRegistry>
+          <ThemeProvider>
+            <MotionConfig reducedMotion="user">
+              <NavBar />
+              {children}
+              <Footer platformProfiles={platformProfiles} />
+              <ScrollToTopFab />
+            </MotionConfig>
+          </ThemeProvider>
+        </EmotionRegistry>
+        <Analytics />
+      </body>
+    </html>
+  );
+}
 
 const fullName = `${firstName} ${lastName}`;
 const title: Metadata["title"] = {
@@ -100,5 +105,3 @@ export const metadata: Metadata = {
     images: ogImage,
   },
 };
-
-export default RootLayout;

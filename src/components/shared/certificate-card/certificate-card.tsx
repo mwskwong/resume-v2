@@ -1,18 +1,31 @@
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import { FC } from "react";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardProps,
+  Typography,
+} from "@mui/material";
 
-import getBrandIconById from "@/components/shared/icons/get-brand-icon-by-id";
+import { getIconByContentfulId } from "../icons";
 
-import CertificateCardProps from "./certificate-card-props";
+interface Props extends CardProps {
+  name?: string;
+  organization?: {
+    id: string;
+    name: string;
+  };
+  status?: string;
+  certificateUrl?: string;
+}
 
-const CertificateCard: FC<CertificateCardProps> = ({
+export default function CertificateCard({
   name,
   organization,
   status,
   certificateUrl,
   ...props
-}) => {
-  const Icon = getBrandIconById(organization.id);
+}: Props) {
+  const Icon = organization && getIconByContentfulId(organization.id);
 
   return (
     <Card data-cy="certificateCard" {...props}>
@@ -30,7 +43,7 @@ const CertificateCard: FC<CertificateCardProps> = ({
               sx={{ color: "text.secondary" }}
               data-cy="organization"
             >
-              {organization.name}
+              {organization?.name}
             </Typography>
             {status && (
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
@@ -42,6 +55,4 @@ const CertificateCard: FC<CertificateCardProps> = ({
       </CardActionArea>
     </Card>
   );
-};
-
-export default CertificateCard;
+}

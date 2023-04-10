@@ -28,16 +28,21 @@ const getExperiences = async () => {
     ...item.fields,
     from: new Date(item.fields.from),
     to: item.fields.to && new Date(item.fields.to),
-    companies: item.fields.companies.map((company) => ({
-      ...company?.fields,
-      logo: (company?.fields.logo?.fields.file as AssetFile).url,
-    })),
+    companies: item.fields.companies.map(
+      (company) =>
+        company && {
+          ...company.fields,
+          logo:
+            company.fields.logo &&
+            (company.fields.logo.fields.file as AssetFile).url,
+        }
+    ),
     // TODO: generate thumbnail
     supportingDocuments: item.fields.supportingDocuments?.map(
       (supportingDocument) => {
         const file = supportingDocument?.fields.file as AssetFile;
         return {
-          title: supportingDocument?.fields.title,
+          title: supportingDocument?.fields.title as string,
           url: file.url,
         };
       }

@@ -1,5 +1,10 @@
-import { FC } from "react";
-
+import {
+  getCourses,
+  getEducations,
+  getExperiences,
+  getPlatformProfiles,
+  getSkills,
+} from "@/api";
 import About from "@/components/home/about";
 import Contact from "@/components/home/contact";
 import Education from "@/components/home/education";
@@ -22,60 +27,69 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
   contact: "default",
 };
 
-const Home: FC = () => (
-  <>
-    <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-      <Hero />
-    </Section>
-    <WaveSmooth
-      sectionVariants={{
-        previous: sectionVariants.home,
-        next: sectionVariants.about,
-      }}
-    />
-    <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id}>
-      <About />
-    </Section>
-    <WaveRough
-      sectionVariants={{
-        previous: sectionVariants.about,
-        next: sectionVariants.experience,
-      }}
-    />
-    <Section
-      variant={sectionVariants.experience}
-      id={EXPERIENCE.id}
-      data-cy={EXPERIENCE.id}
-    >
-      <Experience />
-    </Section>
-    <WaveSmoothFlat
-      sectionVariants={{
-        previous: sectionVariants.experience,
-        next: sectionVariants.education,
-      }}
-    />
-    <Section
-      variant={sectionVariants.education}
-      id={EDUCATION.id}
-      data-cy={EDUCATION.id}
-    >
-      <Education />
-    </Section>
-    <WaveRoaring
-      sectionVariants={{
-        previous: sectionVariants.education,
-        next: sectionVariants.contact,
-      }}
-    />
-    <Section
-      variant={sectionVariants.contact}
-      id={CONTACT.id}
-      data-cy={CONTACT.id}
-    >
-      <Contact />
-    </Section>
-  </>
-);
+export default async function Home() {
+  const [platformProfiles, skills, experiences, educations, courses] =
+    await Promise.all([
+      getPlatformProfiles(),
+      getSkills(),
+      getExperiences(),
+      getEducations(),
+      getCourses(),
+    ]);
 
-export default Home;
+  return (
+    <>
+      <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
+        <Hero platformProfiles={platformProfiles} />
+      </Section>
+      <WaveSmooth
+        sectionVariants={{
+          previous: sectionVariants.home,
+          next: sectionVariants.about,
+        }}
+      />
+      <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id}>
+        <About skills={skills} />
+      </Section>
+      <WaveRough
+        sectionVariants={{
+          previous: sectionVariants.about,
+          next: sectionVariants.experience,
+        }}
+      />
+      <Section
+        variant={sectionVariants.experience}
+        id={EXPERIENCE.id}
+        data-cy={EXPERIENCE.id}
+      >
+        <Experience />
+      </Section>
+      <WaveSmoothFlat
+        sectionVariants={{
+          previous: sectionVariants.experience,
+          next: sectionVariants.education,
+        }}
+      />
+      <Section
+        variant={sectionVariants.education}
+        id={EDUCATION.id}
+        data-cy={EDUCATION.id}
+      >
+        <Education courses={courses} />
+      </Section>
+      <WaveRoaring
+        sectionVariants={{
+          previous: sectionVariants.education,
+          next: sectionVariants.contact,
+        }}
+      />
+      <Section
+        variant={sectionVariants.contact}
+        id={CONTACT.id}
+        data-cy={CONTACT.id}
+      >
+        <Contact />
+      </Section>
+    </>
+  );
+}

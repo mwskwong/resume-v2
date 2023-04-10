@@ -1,37 +1,51 @@
-import { IconButton, Stack } from "@mui/material";
-import { FC } from "react";
+import { IconButton, Stack, StackProps } from "@mui/material";
 
-import getBrandIconById from "@/components/shared/icons/get-brand-icon-by-id";
 import { firstName } from "@/constants/name";
-import platformProfiles from "@/constants/platform-profiles";
 import cx from "@/utils/cx";
 
-import PlatformProfilesProps from "./platform-profiles-props";
+import { getIconByContentfulId } from "../icons";
 
-const PlatformProfiles: FC<PlatformProfilesProps> = ({ sx, ...props }) => (
-  <Stack
-    spacing={1}
-    direction="row"
-    sx={cx({ justifyContent: "center" }, sx)}
-    {...props}
-  >
-    {platformProfiles.map(({ platform, url }) => {
-      const Icon = getBrandIconById(platform.id);
+interface Props extends StackProps {
+  platformProfiles?: {
+    platform?: {
+      id: string;
+      name: string;
+    };
+    url: string;
+  }[];
+}
 
-      return (
-        <IconButton
-          key={platform.id}
-          color="inherit"
-          href={url}
-          target="_blank"
-          data-cy={`${platform.id}Button`}
-          aria-label={`${platform.name} profile of ${firstName}`}
-        >
-          {Icon && <Icon />}
-        </IconButton>
-      );
-    })}
-  </Stack>
-);
+// TODO: fetch platformProfiles here directly once hitting MUI v6
+export default function PlatformProfiles({
+  platformProfiles = [],
+  sx,
+  ...props
+}: Props) {
+  return (
+    <Stack
+      spacing={1}
+      direction="row"
+      sx={cx({ justifyContent: "center" }, sx)}
+      {...props}
+    >
+      {platformProfiles.map(({ platform, url }) => {
+        if (platform) {
+          const Icon = getIconByContentfulId(platform.id);
 
-export default PlatformProfiles;
+          return (
+            <IconButton
+              key={platform.id}
+              color="inherit"
+              href={url}
+              target="_blank"
+              data-cy={`${platform.id}Button`}
+              aria-label={`${platform.name} profile of ${firstName}`}
+            >
+              {Icon && <Icon />}
+            </IconButton>
+          );
+        }
+      })}
+    </Stack>
+  );
+}

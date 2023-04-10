@@ -1,15 +1,32 @@
 "use client";
 
 import { FavoriteRounded as Favorite } from "@mui/icons-material";
-import { Box, Container, SxProps, Theme, Typography } from "@mui/material";
-import { FC } from "react";
+import {
+  Box,
+  BoxProps,
+  Container,
+  SxProps,
+  Theme,
+  Typography,
+} from "@mui/material";
 
 import FooterDivider from "@/components/shared/dividers/footer";
 import PlatformProfiles from "@/components/shared/platform-profiles";
 import { address } from "@/constants/contact";
 import { firstName, lastName, middleName } from "@/constants/name";
+import cx from "@/utils/cx";
 
-const Footer: FC = () => {
+interface Props extends BoxProps {
+  platformProfiles?: {
+    platform?: {
+      id: string;
+      name: string;
+    };
+    url: string;
+  }[];
+}
+
+export default function Footer({ platformProfiles, sx, ...props }: Props) {
   const year = new Date().getFullYear();
   const textSx: SxProps<Theme> = {
     color: "inherit",
@@ -25,7 +42,11 @@ const Footer: FC = () => {
       <FooterDivider />
       <Box
         component="footer"
-        sx={{ bgcolor: "background.primary", color: "text.secondary", py: 4 }}
+        sx={cx(
+          { bgcolor: "background.primary", color: "text.secondary", py: 4 },
+          sx
+        )}
+        {...props}
       >
         <Container
           sx={{
@@ -52,11 +73,9 @@ const Footer: FC = () => {
               {` in ${address}`}
             </Typography>
           </div>
-          <PlatformProfiles />
+          <PlatformProfiles platformProfiles={platformProfiles} />
         </Container>
       </Box>
     </>
   );
-};
-
-export default Footer;
+}

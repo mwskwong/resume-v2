@@ -10,16 +10,15 @@ const getPlatformProfiles = async () => {
       { content_type: "platformProfile" }
     );
 
-  return orderBy(
-    items.map((item) => ({
-      ...item.fields,
-      platform: {
-        id: item.fields.platform?.sys.id,
-        name: item.fields.platform?.fields.name,
-      },
-    })),
-    "platform.name"
-  );
+  const platformProfiles = items.map((item) => ({
+    ...item.fields,
+    platform: item.fields.platform && {
+      id: item.fields.platform.sys.id,
+      name: item.fields.platform.fields.name,
+    },
+  }));
+
+  return orderBy(platformProfiles, "platform.name") as typeof platformProfiles;
 };
 
 export default getPlatformProfiles;
