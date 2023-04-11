@@ -1,12 +1,15 @@
-import { Box, ButtonBase } from "@mui/material";
-import { FC } from "react";
+import { Box, BoxProps, ButtonBase } from "@mui/material";
 
 import Image from "@/components/shared/image";
 import cx from "@/utils/cx";
 
-import ThumbnailProps from "./thumbnail-props";
+import { Thumbnail } from "./types";
 
-const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
+interface Props extends BoxProps {
+  images?: [Thumbnail] | [Thumbnail, Thumbnail];
+}
+
+export default function OrganizationThumbnail({ images, ...props }: Props) {
   const size = { width: 56, height: 56 };
   const linkSx = { borderRadius: 1, gridColumnStart: 1, gridRowStart: 1 };
   const imgSx = {
@@ -26,9 +29,25 @@ const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
         ...size,
       }}
       data-cy="thumbnail"
+      {...props}
     >
-      {images &&
-        (Array.isArray(images) ? (
+      {images ? (
+        images.length === 1 ? (
+          <ButtonBase
+            component="a"
+            href={images[0].url}
+            target="_blank"
+            sx={linkSx}
+          >
+            <Image
+              src={images[0].src}
+              alt={images[0].alt}
+              // TODO: check if EDPS logo works
+              {...size}
+              sx={imgSx}
+            />
+          </ButtonBase>
+        ) : (
           <>
             <ButtonBase
               component="a"
@@ -39,7 +58,8 @@ const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
               <Image
                 src={images[0].src}
                 alt={images[0].alt}
-                height={size.height}
+                // TODO: check if EDPS logo works
+                {...size}
                 sx={imgSx}
               />
             </ButtonBase>
@@ -54,28 +74,14 @@ const Thumbnail: FC<ThumbnailProps> = ({ images }) => {
               <Image
                 src={images[1].src}
                 alt={images[1].alt}
-                height={size.height}
+                // TODO: check if EDPS logo works
+                {...size}
                 sx={imgSx}
               />
             </ButtonBase>
           </>
-        ) : (
-          <ButtonBase
-            component="a"
-            href={images.url}
-            target="_blank"
-            sx={linkSx}
-          >
-            <Image
-              src={images.src}
-              alt={images.alt}
-              height={size.height}
-              sx={imgSx}
-            />
-          </ButtonBase>
-        ))}
+        )
+      ) : null}
     </Box>
   );
-};
-
-export default Thumbnail;
+}

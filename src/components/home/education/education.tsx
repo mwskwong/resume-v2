@@ -3,31 +3,27 @@
 import { Container, ContainerProps, Stack } from "@mui/material";
 import { CircleSlice6 } from "mdi-material-ui";
 
-import getBrandLogoById from "@/assets/get-brand-logo-by-id";
-import getSupportingDocumentById from "@/assets/get-supporting-document-by-id";
 import SectionHeader from "@/components/shared/section-header";
 import Timeline from "@/components/shared/timeline";
-import educations from "@/constants/educations";
+import { TimelineItemData } from "@/components/shared/timeline/types";
 
 import Courses from "./courses";
 
 interface Props extends ContainerProps {
-  experiences?: {
-    from: Date;
-    to?: Date;
-    companies: {
-      name: string;
+  educations?: {
+    from: string;
+    to?: string;
+    program: string;
+    school?: {
       logo?: string;
+      name: string;
       url?: string;
-    }[];
+    };
+    mode: string;
     supportingDocuments?: {
       title: string;
       url: string;
     }[];
-    skills: (string | undefined)[];
-    jobTitle: string;
-    employmentType: string;
-    jobDuties?: string[];
   }[];
   courses?: {
     name: string;
@@ -39,26 +35,27 @@ interface Props extends ContainerProps {
   }[];
 }
 
-export default function Education({ courses, ...props }: Props) {
-  const data = educations.map(
-    ({ degree, school, mode, supportingDocuments, ...elem }) => {
-      const thumbnailSrc = getBrandLogoById(school.id);
-
-      return {
-        thumbnails: thumbnailSrc && {
-          src: thumbnailSrc,
+export default function Education({
+  educations = [],
+  courses,
+  ...props
+}: Props) {
+  const data: TimelineItemData[] = educations.map(
+    ({ from, to, program, school, mode, ...education }) => ({
+      from: new Date(from),
+      to: to ? new Date(to) : "Present",
+      thumbnails: school && [
+        {
+          src: school.logo ? `https:${school.logo}` : "",
           alt: school.name,
           url: school.url,
         },
-        title: degree,
-        subtitle: school.name,
-        type: mode,
-        supportingDocuments: supportingDocuments.map((id) =>
-          getSupportingDocumentById(id)
-        ),
-        ...elem,
-      };
-    }
+      ],
+      title: program,
+      subtitle: school?.name,
+      type: mode,
+      ...education,
+    })
   );
 
   return (

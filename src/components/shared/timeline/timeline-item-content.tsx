@@ -6,20 +6,19 @@ import {
   ListItemButton,
   ListItemText,
   Stack,
-  Tooltip,
+  StackProps,
 } from "@mui/material";
-import { FC } from "react";
 
-import ListItemThumbnail from "@/components/shared/list-item-thumbnail";
+import PdfThumbnail from "./pdf-thumbnail";
+import { TimelineItemData } from "./types";
 
-import TimelineItemContentProps from "./timeline-item-content-props";
-
-const TimelineItemContent: FC<TimelineItemContentProps> = ({
+export default function TimelineItemContent({
   contents = [],
   tags = [],
   supportingDocuments = [],
   ...props
-}) => {
+}: StackProps &
+  Pick<TimelineItemData, "contents" | "tags" | "supportingDocuments">) {
   return (
     <Stack spacing={2} {...props}>
       {Boolean(contents.length) && (
@@ -40,50 +39,31 @@ const TimelineItemContent: FC<TimelineItemContentProps> = ({
       )}
       {Boolean(supportingDocuments.length) && (
         <List disablePadding>
-          {supportingDocuments.map(
-            ({ id, name, path, thumbnail, private: isPrivate }) => (
-              <Tooltip
-                key={id}
-                title="Private document; Contact me for access"
-                PopperProps={{
-                  sx: {
-                    display: isPrivate ? "unset" : "none",
-                  },
-                }}
+          {supportingDocuments.map(({ title, url }, index) => (
+            <ListItem key={index} disablePadding data-cy={title}>
+              <ListItemButton
+                component="a"
+                sx={{ pl: 0 }}
+                href={url}
+                target="_blank"
               >
-                <ListItem disablePadding data-cy={id}>
-                  <ListItemButton
-                    component="a"
-                    sx={{ pl: 0 }}
-                    href={path}
-                    target="_blank"
-                    disabled={isPrivate}
-                  >
-                    <ListItemThumbnail
-                      src={thumbnail}
-                      alt={`Thumbnail of ${name}`}
-                      sx={{ objectPosition: "top" }}
-                    />
-                    <ListItemText
-                      primary={name}
-                      primaryTypographyProps={{
-                        sx: {
-                          display: "-webkit-box",
-                          WebkitBoxOrient: "vertical",
-                          WebkitLineClamp: 2,
-                          overflow: "hidden",
-                        },
-                      }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              </Tooltip>
-            )
-          )}
+                <PdfThumbnail file={url} />
+                <ListItemText
+                  primary={title}
+                  primaryTypographyProps={{
+                    sx: {
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 2,
+                      overflow: "hidden",
+                    },
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       )}
     </Stack>
   );
-};
-
-export default TimelineItemContent;
+}

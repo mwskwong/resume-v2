@@ -18,22 +18,23 @@ const getEducations = async () => {
 
   return items.map((item) => ({
     ...item.fields,
-    from: new Date(item.fields.from),
-    to: item.fields.to && new Date(item.fields.to),
-    school: {
-      ...item.fields.school?.fields,
-      logo: (item.fields.school?.fields.logo?.fields.file as AssetFile).url,
+    school: item.fields.school && {
+      ...item.fields.school.fields,
+      logo:
+        item.fields.school.fields.logo &&
+        (item.fields.school.fields.logo.fields.file as AssetFile).url,
     },
-    // TODO: generate thumbnail
-    supportingDocuments: item.fields.supportingDocuments?.map(
-      (supportingDocument) => {
-        const file = supportingDocument?.fields.file as AssetFile;
-        return {
-          title: supportingDocument?.fields.title,
-          url: file.url,
-        };
-      }
-    ),
+    supportingDocuments:
+      item.fields.supportingDocuments &&
+      (item.fields.supportingDocuments
+        .map(
+          (supportingDocument) =>
+            supportingDocument && {
+              title: supportingDocument.fields.title as string,
+              url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
+            }
+        )
+        .filter(Boolean) as { title: string; url: string }[]),
   }));
 };
 

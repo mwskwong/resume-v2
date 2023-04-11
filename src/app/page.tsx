@@ -80,7 +80,7 @@ export default async function Home() {
         id={EDUCATION.id}
         data-cy={EDUCATION.id}
       >
-        <Education courses={courses} />
+        <Education educations={educations} courses={courses} />
       </Section>
       <WaveRoaring
         sectionVariants={{

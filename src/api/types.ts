@@ -16,6 +16,7 @@ export interface EducationEntrySkeleton {
     to?: EntryFieldTypes.Date;
     program: EntryFieldTypes.Symbol;
     school: EntryFieldTypes.EntryLink<OrganizationEntrySkeleton>;
+    mode: EntryFieldTypes.Symbol;
     supportingDocuments?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
   };
 }

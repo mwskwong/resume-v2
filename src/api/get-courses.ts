@@ -19,7 +19,7 @@ const getCourses = async () => {
     },
     certificate:
       item.fields.certificate &&
-      (item.fields.certificate.fields.file as AssetFile).url,
+      `https:${(item.fields.certificate.fields.file as AssetFile).url}`,
   }));
 };
 

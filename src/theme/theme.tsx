@@ -97,7 +97,7 @@ const grey = {
   900: "#1A2027",
 };
 
-const brandingTheme = extendTheme({
+const theme = extendTheme({
   unstable_strictMode: true,
   colorSchemes: {
     light: {
@@ -450,6 +450,6 @@ const brandingTheme = extendTheme({
 });
 
 // @ts-expect-error: dark theme is a required field but is not necessary in this case
-delete brandingTheme.colorSchemes.dark;
+delete theme.colorSchemes.dark;
 
-export default brandingTheme;
+export default theme;

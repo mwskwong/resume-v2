@@ -23,6 +23,11 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        hostname: "images.ctfassets.net",
+      },
+    ],
   },
   webpack: (config, { isServer }) => {
     // load PDF files as assets

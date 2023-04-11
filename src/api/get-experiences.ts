@@ -37,16 +37,17 @@ const getExperiences = async () => {
             (company.fields.logo.fields.file as AssetFile).url,
         }
     ),
-    // TODO: generate thumbnail
-    supportingDocuments: item.fields.supportingDocuments?.map(
-      (supportingDocument) => {
-        const file = supportingDocument?.fields.file as AssetFile;
-        return {
-          title: supportingDocument?.fields.title as string,
-          url: file.url,
-        };
-      }
-    ),
+    supportingDocuments:
+      item.fields.supportingDocuments &&
+      (item.fields.supportingDocuments
+        .map(
+          (supportingDocument) =>
+            supportingDocument && {
+              title: supportingDocument.fields.title as string,
+              url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
+            }
+        )
+        .filter(Boolean) as { title: string; url: string }[]),
     skills: item.fields.skills.map((skill) => skill?.fields.name),
   }));
 };

@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import "server-only";
 
 const client = createClient({
   space: process.env.CF_SPACE_ID,
