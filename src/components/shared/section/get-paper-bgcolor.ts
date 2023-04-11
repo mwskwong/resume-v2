@@ -1,9 +1,7 @@
 import { TypeBackground } from "@mui/material";
 
-import SectionProps from "./section-props";
-
 export default function getPaperBgColor(
-  sectionVariant: SectionProps["variant"]
+  sectionVariant: keyof TypeBackground
 ): keyof TypeBackground {
   switch (sectionVariant) {
     case "default":

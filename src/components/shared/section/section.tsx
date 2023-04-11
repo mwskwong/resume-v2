@@ -2,6 +2,8 @@
 
 import {
   Box,
+  BoxProps,
+  TypeBackground,
   avatarClasses,
   cardClasses,
   filledInputClasses,
@@ -13,14 +15,18 @@ import cx from "@/utils/cx";
 
 import getBgColor from "./get-bgcolor";
 import getPaperBgColor from "./get-paper-bgcolor";
-import SectionProps from "./section-props";
+
+interface Props extends BoxProps {
+  variant?: keyof TypeBackground;
+  fullHeight?: boolean;
+}
 
 export default function Section({
   variant = "default",
   fullHeight = false,
   sx,
   ...props
-}: SectionProps) {
+}: Props) {
   return (
     <Box
       component="section"

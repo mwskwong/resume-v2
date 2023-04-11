@@ -2,18 +2,21 @@ import {
   CloseRounded as Close,
   MenuRounded as Menu,
 } from "@mui/icons-material";
-import { IconButton, SxProps, Theme } from "@mui/material";
+import { IconButton, IconButtonProps, SxProps, Theme } from "@mui/material";
 
 import cx from "@/utils/cx";
 
-import MenuButtonProps from "./menu-button-props";
+interface Props extends Omit<IconButtonProps, "onClick"> {
+  menuOpen?: boolean;
+  onToggleMenu?: IconButtonProps["onClick"];
+}
 
 export default function MenuButton({
   sx: sxProps,
   menuOpen,
   onToggleMenu,
   ...props
-}: MenuButtonProps) {
+}: Props) {
   const iconSx: SxProps<Theme> = {
     gridColumnStart: 1,
     gridRowStart: 1,

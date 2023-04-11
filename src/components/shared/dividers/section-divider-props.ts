@@ -1,9 +1,9 @@
-import SectionProps from "@/components/shared/section/section-props";
+import { TypeBackground } from "@mui/material";
 
 interface SectionDividerProps {
-  sectionVariants: {
-    previous?: SectionProps["variant"];
-    next?: SectionProps["variant"];
+  sectionVariants?: {
+    previous?: keyof TypeBackground;
+    next?: keyof TypeBackground;
   };
 }
 

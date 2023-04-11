@@ -5,7 +5,7 @@ import getBgColor from "@/components/shared/section/get-bgcolor";
 import SectionDividerProps from "./section-divider-props";
 
 export default function useSectionDividerSx({
-  sectionVariants,
+  sectionVariants = {},
 }: SectionDividerProps): SxProps<Theme> {
   return {
     bgcolor: `background.${getBgColor(sectionVariants.previous)}`,

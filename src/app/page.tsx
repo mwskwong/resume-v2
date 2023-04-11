@@ -1,3 +1,5 @@
+import { TypeBackground } from "@mui/material";
+
 import {
   getCourses,
   getEducations,
@@ -17,12 +19,11 @@ import WaveRough from "@/components/shared/dividers/wave-rough";
 import WaveSmooth from "@/components/shared/dividers/wave-smooth";
 import WaveSmoothFlat from "@/components/shared/dividers/wave-smooth-flat";
 import Section from "@/components/shared/section";
-import SectionProps from "@/components/shared/section/section-props";
 import { about, contact, education, experience, home } from "@/constants/nav";
 
 const sectionVariants: Record<
   "home" | "about" | "experience" | "education" | "contact",
-  SectionProps["variant"]
+  keyof TypeBackground
 > = {
   home: "default",
   about: "primary",

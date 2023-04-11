@@ -2,17 +2,22 @@ import {
   ClearRounded as Clear,
   SearchRounded as Search,
 } from "@mui/icons-material";
-import { Fade, IconButton, InputAdornment, InputBase } from "@mui/material";
+import {
+  Fade,
+  IconButton,
+  InputAdornment,
+  InputBase,
+  InputBaseProps,
+} from "@mui/material";
+import { MouseEventHandler } from "react";
 
 import cx from "@/utils/cx";
 
-import SearchFieldProps from "./search-field-props";
+interface Props extends InputBaseProps {
+  onClear?: MouseEventHandler<HTMLButtonElement>;
+}
 
-export default function SearchField({
-  sx,
-  onClear,
-  ...props
-}: SearchFieldProps) {
+export default function SearchField({ sx, onClear, ...props }: Props) {
   return (
     <InputBase
       placeholder="Search..."
