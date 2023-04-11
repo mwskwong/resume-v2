@@ -1,8 +1,0 @@
-.document {
-  border-radius: var(--mui-shape-borderRadius);
-  margin-right: calc(8px * 2);
-  width: 100px;
-  height: 56px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
