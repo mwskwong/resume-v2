@@ -1,4 +1,4 @@
-const getRubikMedium = async () => {
+export default async function getRubikMedium() {
   const response = await fetch(
     new URL(
       "@fontsource/rubik/files/rubik-latin-500-normal.woff",
@@ -8,6 +8,4 @@ const getRubikMedium = async () => {
   const rubikMedium = await response.arrayBuffer();
 
   return rubikMedium;
-};
-
-export default getRubikMedium;
+}

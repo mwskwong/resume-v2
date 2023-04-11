@@ -3,7 +3,7 @@ import "server-only";
 import client from "./client";
 import { SkillCategoryEntrySkeleton, SkillEntrySkeleton } from "./types";
 
-const getSkills = async () => {
+export default async function getSkills() {
   const [{ items: skills }, { items: skillCategories }] = await Promise.all([
     client.withoutUnresolvableLinks.getEntries<SkillEntrySkeleton>({
       content_type: "skill",
@@ -23,6 +23,4 @@ const getSkills = async () => {
       .filter((skill) => skill.fields.category?.sys.id === skillCategory.sys.id)
       .map((skill) => skill.fields.name),
   }));
-};
-
-export default getSkills;
+}

@@ -4,7 +4,7 @@ import "server-only";
 import client from "./client";
 import { EducationEntrySkeleton } from "./types";
 
-const getEducations = async () => {
+export default async function getEducations() {
   // Contentful always place undefined fields at the bottom,
   // so we first sort in ASC and then reverse it
   // such that it's in DESC order while undefined values are at the top
@@ -31,6 +31,4 @@ const getEducations = async () => {
         url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
       })),
   }));
-};
-
-export default getEducations;
+}

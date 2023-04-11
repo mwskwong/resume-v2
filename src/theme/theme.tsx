@@ -82,7 +82,9 @@ declare module "@mui/material" {
   }
 }
 
-const pxToRem = (size: number) => `${size / 16}rem`;
+function pxToRem(size: number) {
+  return `${size / 16}rem`;
+}
 
 const grey = {
   50: "#F3F6F9",

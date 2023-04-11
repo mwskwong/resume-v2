@@ -11,7 +11,7 @@ import {
   Toolbar,
   useMediaQuery,
 } from "@mui/material";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import nav from "@/constants/nav";
 import useActiveSectionId from "@/hooks/use-active-section-id";
@@ -21,7 +21,7 @@ import MenuButton from "./menu-button";
 import NavButton from "./nav-button";
 import NavListItem from "./nav-list-item";
 
-const NavBar: FC = () => {
+export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   const preferReducedMotion = useMediaQuery("(prefers-reduced-motion)");
@@ -33,8 +33,13 @@ const NavBar: FC = () => {
     }
   }, [mdUp]);
 
-  const handleMenuToggle = () => setMenuOpen((menuOpen) => !menuOpen);
-  const handleMenuClickAway = () => setMenuOpen(false);
+  function handleMenuToggle() {
+    setMenuOpen((menuOpen) => !menuOpen);
+  }
+
+  function handleMenuClickAway() {
+    setMenuOpen(false);
+  }
 
   return (
     <AppBar>
@@ -95,6 +100,4 @@ const NavBar: FC = () => {
       </Container>
     </AppBar>
   );
-};
-
-export default NavBar;
+}

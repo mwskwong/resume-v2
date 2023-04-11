@@ -3,7 +3,7 @@ import { useEffect, useState, useTransition } from "react";
 
 import nav, { home } from "@/constants/nav";
 
-const useActiveSectionId = () => {
+export default function useActiveSectionId() {
   const [, startTransition] = useTransition();
   const [activeSectionId, setActiveSectionId] = useState(home.id);
 
@@ -40,6 +40,4 @@ const useActiveSectionId = () => {
   }, []);
 
   return activeSectionId;
-};
-
-export default useActiveSectionId;
+}

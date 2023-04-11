@@ -9,8 +9,8 @@ export default defineConfig({
     baseUrl: "http://localhost:3000",
     scrollBehavior: "center",
     ...viewports.desktop,
-    setupNodeEvents: (on) => {
-      on("before:browser:launch", (browser, launchOptions) => {
+    setupNodeEvents(on) {
+      on("before:browser:launch", function (browser, launchOptions) {
         switch (browser.family) {
           case "chromium":
             launchOptions.args.push("--force-prefers-reduced-motion");

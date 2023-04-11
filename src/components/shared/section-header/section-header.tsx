@@ -1,13 +1,9 @@
-import { Box, Divider, SxProps, Theme, Typography } from "@mui/material";
-import { FC } from "react";
+import { Box, Divider, Typography } from "@mui/material";
 
 import SectionHeaderProps from "./section-header-props";
 
-const SectionHeader: FC<SectionHeaderProps> = ({ heading, icon }) => {
-  const dividerSx: SxProps<Theme> = {
-    width: 32,
-    mx: 1,
-  };
+export default function SectionHeader({ heading, icon }: SectionHeaderProps) {
+  const dividerSx = { width: 32, mx: 1 };
 
   return (
     <Box component="header" data-cy="sectionHeader">
@@ -32,6 +28,4 @@ const SectionHeader: FC<SectionHeaderProps> = ({ heading, icon }) => {
       </Box>
     </Box>
   );
-};
-
-export default SectionHeader;
+}

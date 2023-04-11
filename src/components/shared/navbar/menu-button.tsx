@@ -3,18 +3,17 @@ import {
   MenuRounded as Menu,
 } from "@mui/icons-material";
 import { IconButton, SxProps, Theme } from "@mui/material";
-import { FC } from "react";
 
 import cx from "@/utils/cx";
 
 import MenuButtonProps from "./menu-button-props";
 
-const MenuButton: FC<MenuButtonProps> = ({
+export default function MenuButton({
   sx: sxProps,
   menuOpen,
   onToggleMenu,
   ...props
-}) => {
+}: MenuButtonProps) {
   const iconSx: SxProps<Theme> = {
     gridColumnStart: 1,
     gridRowStart: 1,
@@ -70,6 +69,4 @@ const MenuButton: FC<MenuButtonProps> = ({
       />
     </IconButton>
   );
-};
-
-export default MenuButton;
+}

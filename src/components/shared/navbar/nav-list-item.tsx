@@ -1,14 +1,13 @@
 import { Box, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { FC } from "react";
 
 import NavElementProps from "./nav-element-props";
 
-const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
+export default function NavListItem({ label, id, active }: NavElementProps) {
   const dotSize = 8;
-  const handleClick = () => {
+  function handleClick() {
     const section = document.getElementById(id);
     section?.scrollIntoView();
-  };
+  }
 
   return (
     <ListItem disablePadding>
@@ -36,6 +35,4 @@ const NavListItem: FC<NavElementProps> = ({ label, id, active }) => {
       </ListItemButton>
     </ListItem>
   );
-};
-
-export default NavListItem;
+}

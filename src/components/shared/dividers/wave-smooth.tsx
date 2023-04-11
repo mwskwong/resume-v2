@@ -1,10 +1,8 @@
-import { FC } from "react";
-
 import DividerSvg from "./divider-svg";
 import SectionDividerProps from "./section-divider-props";
 import useSectionDividerSx from "./use-section-divider-sx";
 
-const WaveSmooth: FC<SectionDividerProps> = (props) => {
+export default function WaveSmooth(props: SectionDividerProps) {
   const sx = useSectionDividerSx(props);
 
   return (
@@ -15,6 +13,4 @@ const WaveSmooth: FC<SectionDividerProps> = (props) => {
       />
     </DividerSvg>
   );
-};
-
-export default WaveSmooth;
+}

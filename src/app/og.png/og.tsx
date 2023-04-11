@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import Icon from "@/assets/images/icon.svg";
-import { firstName, lastName } from "@/constants/name";
+import { firstName, lastName } from "@/constants/data";
 
 const OG: FC = () => (
   <div

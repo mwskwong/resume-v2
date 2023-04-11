@@ -4,7 +4,7 @@ import "server-only";
 import client from "./client";
 import { CourseEntrySkeleton } from "./types";
 
-const getCourses = async () => {
+export default async function getCourses() {
   const { items } =
     await client.withoutUnresolvableLinks.getEntries<CourseEntrySkeleton>({
       content_type: "course",
@@ -21,6 +21,4 @@ const getCourses = async () => {
       item.fields.certificate &&
       `https:${(item.fields.certificate.fields.file as AssetFile).url}`,
   }));
-};
-
-export default getCourses;
+}
