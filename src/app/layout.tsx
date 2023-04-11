@@ -65,42 +65,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: [
-      {
-        url: "/favicon.svg",
-        type: "image/svg+xml",
-      },
-      {
-        url: "/favicon-32x32.png",
-        type: "image/png",
-        sizes: "32x32",
-      },
-      {
-        url: "/favicon-16x16.png",
-        type: "image/png",
-        sizes: "16x16",
-      },
-      {
-        url: "/favicon-32x32.dark.png",
-        type: "image/png",
-        sizes: "32x32",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/favicon-16x16.dark.png",
-        type: "image/png",
-        sizes: "16x16",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
-    apple: {
-      url: "/apple-touch-icon.png",
-      sizes: "180x180",
-    },
-  },
   themeColor: "#ffffff",
-  manifest: "/manifest.json",
   twitter: {
     card: "summary_large_image",
     title,
