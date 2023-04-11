@@ -12,8 +12,7 @@ import {
 
 import FooterDivider from "@/components/shared/dividers/footer";
 import PlatformProfiles from "@/components/shared/platform-profiles";
-import { address } from "@/constants/contact";
-import { firstName, lastName, middleName } from "@/constants/name";
+import { address, firstName, lastName, middleName } from "@/constants/data";
 import cx from "@/utils/cx";
 
 interface Props extends BoxProps {

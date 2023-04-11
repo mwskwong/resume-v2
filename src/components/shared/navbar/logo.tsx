@@ -2,7 +2,7 @@ import { Button, ButtonProps } from "@mui/material";
 import { FC } from "react";
 
 import LogoSvg from "@/assets/images/icon.svg";
-import { firstName } from "@/constants/name";
+import { firstName } from "@/constants/data";
 import cx from "@/utils/cx";
 
 const Logo: FC<ButtonProps> = ({ sx, ...props }) => {

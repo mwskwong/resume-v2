@@ -1,7 +1,6 @@
-import { Box, BoxProps, ButtonBase } from "@mui/material";
+import { Box, BoxProps, ButtonBase, SxProps, Theme } from "@mui/material";
 
 import Image from "@/components/shared/image";
-import cx from "@/utils/cx";
 
 import { Thumbnail } from "./types";
 
@@ -11,13 +10,23 @@ interface Props extends BoxProps {
 
 export default function OrganizationThumbnail({ images, ...props }: Props) {
   const size = { width: 56, height: 56 };
-  const linkSx = { borderRadius: 1, gridColumnStart: 1, gridRowStart: 1 };
-  const imgSx = {
-    display: "block",
-    borderRadius: 1,
-    objectPosition: "left center",
-    ...size,
-  };
+
+  function getLinkSx(index: number): SxProps<Theme> {
+    return {
+      borderRadius: 1,
+      gridColumnStart: 1,
+      gridRowStart: 1,
+      position: "relative",
+      overflow: "hidden",
+      ...size,
+      clipPath:
+        images?.length === 2
+          ? index === 0
+            ? "polygon(0 0, 100% 0, 0 100%)"
+            : "polygon(100% 100%, 100% 0, 0 100%)"
+          : undefined,
+    };
+  }
 
   return (
     <Box
@@ -31,57 +40,24 @@ export default function OrganizationThumbnail({ images, ...props }: Props) {
       data-cy="thumbnail"
       {...props}
     >
-      {images ? (
-        images.length === 1 ? (
-          <ButtonBase
-            component="a"
-            href={images[0].url}
-            target="_blank"
-            sx={linkSx}
-          >
-            <Image
-              src={images[0].src}
-              alt={images[0].alt}
-              // TODO: check if EDPS logo works
-              {...size}
-              sx={imgSx}
-            />
-          </ButtonBase>
-        ) : (
-          <>
-            <ButtonBase
-              component="a"
-              href={images[0].url}
-              target="_blank"
-              sx={cx(linkSx, { clipPath: "polygon(0 0, 100% 0, 0 100%)" })}
-            >
-              <Image
-                src={images[0].src}
-                alt={images[0].alt}
-                // TODO: check if EDPS logo works
-                {...size}
-                sx={imgSx}
-              />
-            </ButtonBase>
-            <ButtonBase
-              component="a"
-              href={images[1].url}
-              target="_blank"
-              sx={cx(linkSx, {
-                clipPath: "polygon(100% 100%, 100% 0, 0 100%)",
-              })}
-            >
-              <Image
-                src={images[1].src}
-                alt={images[1].alt}
-                // TODO: check if EDPS logo works
-                {...size}
-                sx={imgSx}
-              />
-            </ButtonBase>
-          </>
-        )
-      ) : null}
+      {images?.map(({ src, alt, url }, index) => (
+        <ButtonBase
+          key={index}
+          component="a"
+          href={url}
+          target="_blank"
+          sx={getLinkSx(index)}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            // FIXME: can I do better on dealing with images with aspect ration > 1
+            sizes="217px"
+            sx={{ objectPosition: "left center" }}
+          />
+        </ButtonBase>
+      ))}
     </Box>
   );
 }

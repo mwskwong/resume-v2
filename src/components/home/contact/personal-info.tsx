@@ -5,9 +5,9 @@ import {
 } from "@mui/icons-material";
 import { Box, Unstable_Grid2 as Grid, Link, Typography } from "@mui/material";
 
-import { address, email, phone } from "@/constants/contact";
+import { address, email, phone } from "@/constants/data";
 
-const data = [
+const personalInfo = [
   {
     id: "phone",
     Icon: Mobile,
@@ -41,7 +41,7 @@ const PersonalInfo = () => (
     sx={{ textAlign: "center" }}
     data-cy="personalInfo"
   >
-    {data.map(({ id, Icon, title, value, url }) => (
+    {personalInfo.map(({ id, Icon, title, value, url }) => (
       <Grid key={id} xs={12} sm={4} md={12}>
         <Box
           sx={{

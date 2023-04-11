@@ -8,10 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 
-import resume from "@/assets/documents/resume.pdf";
 import PlatformProfiles from "@/components/shared/platform-profiles";
-import jobTitles from "@/constants/job-titles";
-import { firstName } from "@/constants/name";
+import { firstName, jobTitles } from "@/constants/data";
 import cx from "@/utils/cx";
 
 interface Props extends ContainerProps {
@@ -22,9 +20,15 @@ interface Props extends ContainerProps {
     };
     url: string;
   }[];
+  resume?: string;
 }
 
-export default function Hero({ platformProfiles, sx, ...props }: Props) {
+export default function Hero({
+  platformProfiles,
+  resume,
+  sx,
+  ...props
+}: Props) {
   return (
     <Container
       sx={cx(

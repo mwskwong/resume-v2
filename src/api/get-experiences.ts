@@ -1,9 +1,13 @@
-import { AssetFile } from "contentful";
+import { Asset, AssetFile, Entry } from "contentful";
 import { orderBy } from "lodash-es";
 import "server-only";
 
 import client from "./client";
-import { ExperienceEntrySkeleton } from "./types";
+import {
+  ExperienceEntrySkeleton,
+  OrganizationEntrySkeleton,
+  SkillEntrySkeleton,
+} from "./types";
 
 const getExperiences = async () => {
   // Contentful always place undefined fields at the bottom,
@@ -26,29 +30,35 @@ const getExperiences = async () => {
 
   return items.map((item) => ({
     ...item.fields,
-    from: new Date(item.fields.from),
-    to: item.fields.to && new Date(item.fields.to),
-    companies: item.fields.companies.map(
-      (company) =>
-        company && {
-          ...company.fields,
-          logo:
-            company.fields.logo &&
-            (company.fields.logo.fields.file as AssetFile).url,
-        }
-    ),
-    supportingDocuments:
-      item.fields.supportingDocuments &&
-      (item.fields.supportingDocuments
-        .map(
-          (supportingDocument) =>
-            supportingDocument && {
-              title: supportingDocument.fields.title as string,
-              url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
-            }
-        )
-        .filter(Boolean) as { title: string; url: string }[]),
-    skills: item.fields.skills.map((skill) => skill?.fields.name),
+    companies: item.fields.companies
+      .filter(
+        (
+          elem
+        ): elem is Entry<
+          OrganizationEntrySkeleton,
+          "WITHOUT_UNRESOLVABLE_LINKS"
+        > => Boolean(elem)
+      )
+      .map((company) => ({
+        ...company.fields,
+        logo:
+          company.fields.logo &&
+          (company.fields.logo.fields.file as AssetFile).url,
+      })),
+    supportingDocuments: item.fields.supportingDocuments
+      ?.filter((elem): elem is Asset => Boolean(elem))
+      .map((supportingDocument) => ({
+        title: supportingDocument.fields.title as string,
+        url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
+      })),
+    skills: item.fields.skills
+      .filter(
+        (
+          elem
+        ): elem is Entry<SkillEntrySkeleton, "WITHOUT_UNRESOLVABLE_LINKS"> =>
+          Boolean(elem)
+      )
+      .map((skill) => skill.fields.name),
   }));
 };
 

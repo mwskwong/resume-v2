@@ -2,7 +2,9 @@ import {
   getCourses,
   getEducations,
   getExperiences,
+  getPersonalPhoto,
   getPlatformProfiles,
+  getResume,
   getSkills,
 } from "@/api";
 import About from "@/components/home/about";
@@ -16,12 +18,12 @@ import WaveSmooth from "@/components/shared/dividers/wave-smooth";
 import WaveSmoothFlat from "@/components/shared/dividers/wave-smooth-flat";
 import Section from "@/components/shared/section";
 import SectionProps from "@/components/shared/section/section-props";
-import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, HOME } from "@/constants/nav";
-import { SectionId } from "@/types";
+import { about, contact, education, experience, home } from "@/constants/nav";
 
-import TestPdf from "./test-pdf";
-
-const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
+const sectionVariants: Record<
+  "home" | "about" | "experience" | "education" | "contact",
+  SectionProps["variant"]
+> = {
   home: "default",
   about: "primary",
   experience: "secondary",
@@ -30,19 +32,28 @@ const sectionVariants: Record<SectionId, SectionProps["variant"]> = {
 };
 
 export default async function Home() {
-  const [platformProfiles, skills, experiences, educations, courses] =
-    await Promise.all([
-      getPlatformProfiles(),
-      getSkills(),
-      getExperiences(),
-      getEducations(),
-      getCourses(),
-    ]);
+  const [
+    platformProfiles,
+    skills,
+    experiences,
+    educations,
+    courses,
+    resume,
+    personalPhoto,
+  ] = await Promise.all([
+    getPlatformProfiles(),
+    getSkills(),
+    getExperiences(),
+    getEducations(),
+    getCourses(),
+    getResume(),
+    getPersonalPhoto(),
+  ]);
 
   return (
     <>
-      <Section variant={sectionVariants.home} fullHeight id={HOME.id}>
-        <Hero platformProfiles={platformProfiles} />
+      <Section variant={sectionVariants.home} fullHeight id={home.id}>
+        <Hero platformProfiles={platformProfiles} resume={resume} />
       </Section>
       <WaveSmooth
         sectionVariants={{
@@ -50,11 +61,8 @@ export default async function Home() {
           next: sectionVariants.about,
         }}
       />
-      <div style={{ width: 100 }}>
-        <TestPdf />
-      </div>
-      <Section variant={sectionVariants.about} id={ABOUT.id} data-cy={ABOUT.id}>
-        <About skills={skills} />
+      <Section variant={sectionVariants.about} id={about.id} data-cy={about.id}>
+        <About personalPhoto={personalPhoto} skills={skills} />
       </Section>
       <WaveRough
         sectionVariants={{
@@ -64,10 +72,10 @@ export default async function Home() {
       />
       <Section
         variant={sectionVariants.experience}
-        id={EXPERIENCE.id}
-        data-cy={EXPERIENCE.id}
+        id={experience.id}
+        data-cy={experience.id}
       >
-        <Experience />
+        <Experience experiences={experiences} />
       </Section>
       <WaveSmoothFlat
         sectionVariants={{
@@ -77,8 +85,8 @@ export default async function Home() {
       />
       <Section
         variant={sectionVariants.education}
-        id={EDUCATION.id}
-        data-cy={EDUCATION.id}
+        id={education.id}
+        data-cy={education.id}
       >
         <Education educations={educations} courses={courses} />
       </Section>
@@ -90,8 +98,8 @@ export default async function Home() {
       />
       <Section
         variant={sectionVariants.contact}
-        id={CONTACT.id}
-        data-cy={CONTACT.id}
+        id={contact.id}
+        data-cy={contact.id}
       >
         <Contact />
       </Section>

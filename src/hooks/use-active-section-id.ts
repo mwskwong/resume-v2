@@ -1,12 +1,11 @@
 import { throttle } from "lodash-es";
 import { useEffect, useState, useTransition } from "react";
 
-import nav, { HOME } from "@/constants/nav";
-import { SectionId } from "@/types";
+import nav, { home } from "@/constants/nav";
 
-const useActiveSectionId = (): SectionId => {
+const useActiveSectionId = () => {
   const [, startTransition] = useTransition();
-  const [activeSectionId, setActiveSectionId] = useState(HOME.id);
+  const [activeSectionId, setActiveSectionId] = useState(home.id);
 
   useEffect(() => {
     const sectionIds = Object.values(nav)

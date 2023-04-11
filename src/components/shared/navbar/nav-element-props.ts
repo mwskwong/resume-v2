@@ -1,8 +1,6 @@
-import { SectionId } from "@/types";
-
 interface NavElementProps {
   label: string;
-  id: SectionId;
+  id: string;
   active?: boolean;
 }
 

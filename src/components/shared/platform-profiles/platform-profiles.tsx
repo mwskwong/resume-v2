@@ -1,6 +1,6 @@
 import { IconButton, Stack, StackProps } from "@mui/material";
 
-import { firstName } from "@/constants/name";
+import { firstName } from "@/constants/data";
 import cx from "@/utils/cx";
 
 import { getIconByContentfulId } from "../icons";

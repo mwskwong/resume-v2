@@ -5,9 +5,12 @@ import { getPlatformProfiles } from "@/api";
 import Footer from "@/components/shared/footer";
 import NavBar from "@/components/shared/navbar";
 import ScrollToTopFab from "@/components/shared/scroll-to-top-fab";
-import jobTitles from "@/constants/job-titles";
-import { firstName, lastName } from "@/constants/name";
-import selfIntroduction from "@/constants/self-introduction";
+import {
+  firstName,
+  jobTitles,
+  lastName,
+  selfIntroduction,
+} from "@/constants/data";
 import font from "@/theme/font";
 // Group branding theme import in MUI v6
 import ThemeProvider from "@/theme/theme-provider";

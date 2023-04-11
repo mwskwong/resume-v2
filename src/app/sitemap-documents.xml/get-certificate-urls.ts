@@ -1,16 +1,11 @@
-import { isString } from "lodash-es";
-
-import getCertificatePathById from "@/assets/get-certificate-path-by-id";
-import courses from "@/constants/courses";
-
 const getCertificateUrls = () => {
-  const siteUrl = process.env.NEXT_PUBLIC_URL;
-  const courseCertificateUrls = courses
-    .map(({ id }) => getCertificatePathById(id))
-    .filter(isString)
-    .map((path) => `${siteUrl}${path}`);
+  // const siteUrl = process.env.NEXT_PUBLIC_URL;
+  // const courseCertificateUrls = courses
+  //   .map(({ id }) => getCertificatePathById(id))
+  //   .filter(isString)
+  //   .map((path) => `${siteUrl}${path}`);
 
-  return courseCertificateUrls;
+  return [];
 };
 
 export default getCertificateUrls;

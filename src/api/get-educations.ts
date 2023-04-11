@@ -1,4 +1,4 @@
-import { AssetFile } from "contentful";
+import { Asset, AssetFile } from "contentful";
 import "server-only";
 
 import client from "./client";
@@ -24,17 +24,12 @@ const getEducations = async () => {
         item.fields.school.fields.logo &&
         (item.fields.school.fields.logo.fields.file as AssetFile).url,
     },
-    supportingDocuments:
-      item.fields.supportingDocuments &&
-      (item.fields.supportingDocuments
-        .map(
-          (supportingDocument) =>
-            supportingDocument && {
-              title: supportingDocument.fields.title as string,
-              url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
-            }
-        )
-        .filter(Boolean) as { title: string; url: string }[]),
+    supportingDocuments: item.fields.supportingDocuments
+      ?.filter((elem): elem is Asset => Boolean(elem))
+      .map((supportingDocument) => ({
+        title: supportingDocument.fields.title as string,
+        url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
+      })),
   }));
 };
 

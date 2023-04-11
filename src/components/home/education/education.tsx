@@ -4,8 +4,7 @@ import { Container, ContainerProps, Stack } from "@mui/material";
 import { CircleSlice6 } from "mdi-material-ui";
 
 import SectionHeader from "@/components/shared/section-header";
-import Timeline from "@/components/shared/timeline";
-import { TimelineItemData } from "@/components/shared/timeline/types";
+import Timeline, { TimelineItemData } from "@/components/shared/timeline";
 
 import Courses from "./courses";
 
@@ -15,8 +14,8 @@ interface Props extends ContainerProps {
     to?: string;
     program: string;
     school?: {
-      logo?: string;
       name: string;
+      logo?: string;
       url?: string;
     };
     mode: string;
