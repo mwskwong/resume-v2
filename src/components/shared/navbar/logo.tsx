@@ -1,8 +1,9 @@
 import { Button, ButtonProps } from "@mui/material";
 
-import LogoSvg from "@/assets/images/icon.svg";
 import { firstName } from "@/constants/data";
 import cx from "@/utils/cx";
+
+import Icon from "../icon";
 
 export default function Logo({ sx, ...props }: ButtonProps) {
   function handleClick() {
@@ -25,7 +26,7 @@ export default function Logo({ sx, ...props }: ButtonProps) {
       data-cy="logo"
       {...props}
     >
-      <LogoSvg width={32} />
+      <Icon size={{ width: 32, height: 32 }} disableBackground />
       {firstName}
     </Button>
   );

@@ -25,7 +25,7 @@
     "contentful": "beta-v10",
     "date-fns": "^2.29.3",
     "deep-rename-keys-ts": "^1.0.1",
-    "framer-motion": "^10.11.4",
+    "framer-motion": "^10.11.5",
     "lodash-es": "^4.17.21",
     "mdi-material-ui": "^7.7.0",
     "next": "canary",
