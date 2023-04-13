@@ -12,7 +12,7 @@ import { Suspense, lazy } from "react";
 
 import { TimelineItemData } from "./types";
 
-const PdfThumbnail = lazy(() => import("./pdf-thumbnail"));
+// const PdfThumbnail = lazy(() => import("./pdf-thumbnail"));
 
 export default function TimelineItemContent({
   contents = [],
@@ -49,9 +49,9 @@ export default function TimelineItemContent({
                 href={url}
                 target="_blank"
               >
-                <Suspense>
+                {/* <Suspense>
                   <PdfThumbnail file={url} />
-                </Suspense>
+                </Suspense> */}
                 <ListItemText
                   primary={title}
                   primaryTypographyProps={{
