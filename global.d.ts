@@ -1,5 +1,3 @@
-import { FC, SVGProps } from "react";
-
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -16,14 +14,6 @@ declare global {
     const content: string;
     export default content;
   }
-
-  module "*.svg" {
-    const ReactComponent: FC<SVGProps<SVGSVGElement>>;
-    export default ReactComponent;
-  }
-
-  module "*.svg?url" {
-    const url: string;
-    export default url;
-  }
 }
+
+export {};

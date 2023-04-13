@@ -47,7 +47,6 @@ const title: Metadata["title"] = {
   template: `%s | ${fullName}`,
 };
 const description = selfIntroduction;
-const ogImage = "/og.png";
 
 export const metadata: Metadata = {
   title,
@@ -58,7 +57,6 @@ export const metadata: Metadata = {
     title,
     description,
     url: "/",
-    images: ogImage,
     type: "website",
   },
   robots: {
@@ -66,10 +64,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   themeColor: "#ffffff",
+  manifest: "/manifest.webmanifest",
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ogImage,
   },
 };

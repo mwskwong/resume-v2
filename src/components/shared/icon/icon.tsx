@@ -6,19 +6,21 @@ interface Props extends SVGProps<SVGSVGElement> {
     height: number;
   };
   disableBackground?: boolean;
+  rounded?: boolean;
 }
 
 export default function Icon({
   size,
-  disableBackground = false,
+  disableBackground,
+  rounded,
   ...props
 }: Props) {
   const icon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1024 1024"
-      width={disableBackground ? undefined : "100%"}
-      {...(disableBackground && size)}
+      width={disableBackground ? size.width : "100%"}
+      height={disableBackground ? size.height : "100%"}
       {...props}
     >
       <path
@@ -48,11 +50,12 @@ export default function Icon({
     <div
       style={{
         background: "white",
-        ...size,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: `${size.height * 0.2}px ${size.width * 0.2}px`,
+        padding: "20%",
+        borderRadius: rounded ? "25%" : undefined,
+        ...size,
       }}
     >
       {icon}

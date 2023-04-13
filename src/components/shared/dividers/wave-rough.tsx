@@ -1,5 +1,5 @@
 import DividerSvg from "./divider-svg";
-import SectionDividerProps from "./section-divider-props";
+import { SectionDividerProps } from "./types";
 import useSectionDividerSx from "./use-section-divider-sx";
 
 export default function WaveRough(props: SectionDividerProps) {

@@ -1,6 +1,6 @@
 import { Box, ListItem, ListItemButton, ListItemText } from "@mui/material";
 
-import NavElementProps from "./nav-element-props";
+import { NavElementProps } from "./types";
 
 export default function NavListItem({ label, id, active }: NavElementProps) {
   const dotSize = 8;

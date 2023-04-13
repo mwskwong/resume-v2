@@ -2,7 +2,7 @@ import { SxProps, Theme } from "@mui/material";
 
 import getBgColor from "@/components/shared/section/get-bgcolor";
 
-import SectionDividerProps from "./section-divider-props";
+import { SectionDividerProps } from "./types";
 
 export default function useSectionDividerSx({
   sectionVariants = {},
