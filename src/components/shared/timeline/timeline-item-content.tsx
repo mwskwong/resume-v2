@@ -8,9 +8,11 @@ import {
   Stack,
   StackProps,
 } from "@mui/material";
+import { Suspense, lazy } from "react";
 
-import PdfThumbnail from "./pdf-thumbnail";
 import { TimelineItemData } from "./types";
+
+const PdfThumbnail = lazy(() => import("./pdf-thumbnail"));
 
 export default function TimelineItemContent({
   contents = [],
@@ -47,7 +49,9 @@ export default function TimelineItemContent({
                 href={url}
                 target="_blank"
               >
-                <PdfThumbnail file={url} />
+                <Suspense>
+                  <PdfThumbnail file={url} />
+                </Suspense>
                 <ListItemText
                   primary={title}
                   primaryTypographyProps={{
