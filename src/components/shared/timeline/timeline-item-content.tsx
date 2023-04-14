@@ -8,7 +8,7 @@ import {
   Stack,
   StackProps,
 } from "@mui/material";
-import { Suspense, lazy } from "react";
+// import { Suspense, lazy } from "react";
 
 import { TimelineItemData } from "./types";
 
