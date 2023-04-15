@@ -1,3 +1,5 @@
+import "server-only";
+
 export { default } from "./client";
 export { default as getExperiences } from "./get-experiences";
 export { default as getEducations } from "./get-educations";

@@ -1,5 +1,4 @@
 import { Asset, AssetFile } from "contentful";
-import "server-only";
 
 import client from "./client";
 import { EducationEntrySkeleton } from "./types";
