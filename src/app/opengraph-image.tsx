@@ -19,7 +19,7 @@ async function getRubikMedium() {
   return rubikMedium;
 }
 
-export default async function oneGraphImage() {
+export default async function openGraphImage() {
   const rubikMedium = await getRubikMedium();
   return new ImageResponse(
     (
