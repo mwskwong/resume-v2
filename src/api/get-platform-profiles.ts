@@ -18,5 +18,5 @@ export default async function getPlatformProfiles() {
     },
   }));
 
-  return orderBy(platformProfiles, "platform.name") as typeof platformProfiles;
+  return orderBy(platformProfiles, "platform.name");
 }
