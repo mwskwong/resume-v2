@@ -64,7 +64,6 @@ export const metadata: Metadata = {
     follow: true,
   },
   themeColor: "#ffffff",
-  manifest: "/manifest.webmanifest",
   twitter: {
     card: "summary_large_image",
     title,
