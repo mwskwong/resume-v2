@@ -19,8 +19,8 @@ async function getRubikMedium() {
   return rubikMedium;
 }
 
-export default async function openGraphImage() {
-  const rubikMedium = await getRubikMedium();
+export default function openGraphImage() {
+  // const rubikMedium = await getRubikMedium();
   return new ImageResponse(
     (
       <div
@@ -54,13 +54,13 @@ export default async function openGraphImage() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Rubik",
-          data: rubikMedium,
-          weight: 500,
-        },
-      ],
+      // fonts: [
+      //   {
+      //     name: "Rubik",
+      //     data: rubikMedium,
+      //     weight: 500,
+      //   },
+      // ],
     }
   );
 }
