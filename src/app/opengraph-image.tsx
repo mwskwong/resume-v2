@@ -6,6 +6,7 @@ import { firstName, jobTitles, lastName } from "@/constants/data";
 export const alt = `${firstName} ${lastName} - ${jobTitles.join(" & ")}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const runtime = "edge";
 
 async function getRubikMedium() {
   const response = await fetch(
@@ -19,8 +20,8 @@ async function getRubikMedium() {
   return rubikMedium;
 }
 
-export default function openGraphImage() {
-  // const rubikMedium = await getRubikMedium();
+export default async function openGraphImage() {
+  const rubikMedium = await getRubikMedium();
   return new ImageResponse(
     (
       <div
@@ -54,13 +55,13 @@ export default function openGraphImage() {
     ),
     {
       ...size,
-      // fonts: [
-      //   {
-      //     name: "Rubik",
-      //     data: rubikMedium,
-      //     weight: 500,
-      //   },
-      // ],
+      fonts: [
+        {
+          name: "Rubik",
+          data: rubikMedium,
+          weight: 500,
+        },
+      ],
     }
   );
 }
