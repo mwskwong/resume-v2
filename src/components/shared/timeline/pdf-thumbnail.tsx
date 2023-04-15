@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, SxProps, Theme } from "@mui/material";
 import { DocumentProps } from "react-pdf";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
