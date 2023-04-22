@@ -416,6 +416,11 @@ const theme = extendTheme({
           }),
       },
     },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+      },
+    },
     MuiTimelineDot: {
       defaultProps: {
         color: "primary",
