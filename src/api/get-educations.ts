@@ -1,4 +1,4 @@
-import { Asset, AssetFile } from "contentful";
+import { Asset } from "contentful";
 
 import client from "./client";
 import { EducationEntrySkeleton } from "./types";
@@ -19,15 +19,17 @@ export default async function getEducations() {
     ...item.fields,
     school: item.fields.school && {
       ...item.fields.school.fields,
-      logo:
-        item.fields.school.fields.logo &&
-        (item.fields.school.fields.logo.fields.file as AssetFile).url,
+      logo: item.fields.school.fields.logo?.fields.file?.url,
     },
     supportingDocuments: item.fields.supportingDocuments
-      ?.filter((elem): elem is Asset => Boolean(elem))
+      ?.filter((elem): elem is Asset<"WITHOUT_UNRESOLVABLE_LINKS"> =>
+        Boolean(elem)
+      )
       .map((supportingDocument) => ({
-        title: supportingDocument.fields.title as string,
-        url: `https:${(supportingDocument.fields.file as AssetFile).url}`,
+        title: supportingDocument.fields.title,
+        url:
+          supportingDocument.fields.file &&
+          `https:${supportingDocument.fields.file.url}`,
       })),
   }));
 }
