@@ -1,4 +1,4 @@
-import { Asset } from "contentful";
+import "server-only";
 
 import client from "./client";
 import { EducationEntrySkeleton } from "./types";
@@ -22,14 +22,14 @@ export default async function getEducations() {
       logo: item.fields.school.fields.logo?.fields.file?.url,
     },
     supportingDocuments: item.fields.supportingDocuments
-      ?.filter((elem): elem is Asset<"WITHOUT_UNRESOLVABLE_LINKS"> =>
-        Boolean(elem)
+      ?.map((supportingDocument) =>
+        supportingDocument?.fields.title && supportingDocument.fields.file
+          ? {
+              title: supportingDocument.fields.title,
+              url: `https:${supportingDocument.fields.file.url}`,
+            }
+          : undefined
       )
-      .map((supportingDocument) => ({
-        title: supportingDocument.fields.title,
-        url:
-          supportingDocument.fields.file &&
-          `https:${supportingDocument.fields.file.url}`,
-      })),
+      .filter((elem): elem is { title: string; url: string } => Boolean(elem)),
   }));
 }

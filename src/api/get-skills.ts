@@ -1,3 +1,5 @@
+import "server-only";
+
 import client from "./client";
 import { SkillCategoryEntrySkeleton, SkillEntrySkeleton } from "./types";
 

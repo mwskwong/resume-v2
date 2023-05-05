@@ -1,4 +1,4 @@
-import { Asset, Entry } from "contentful";
+import { Entry } from "contentful";
 import { orderBy } from "lodash-es";
 import "server-only";
 
@@ -44,15 +44,15 @@ export default async function getExperiences() {
         logo: company.fields.logo?.fields.file?.url,
       })),
     supportingDocuments: item.fields.supportingDocuments
-      ?.filter((elem): elem is Asset<"WITHOUT_UNRESOLVABLE_LINKS"> =>
-        Boolean(elem)
+      ?.map((supportingDocument) =>
+        supportingDocument?.fields.title && supportingDocument.fields.file
+          ? {
+              title: supportingDocument.fields.title,
+              url: `https:${supportingDocument.fields.file.url}`,
+            }
+          : undefined
       )
-      .map((supportingDocument) => ({
-        title: supportingDocument.fields.title,
-        url:
-          supportingDocument.fields.file &&
-          `https:${supportingDocument.fields.file.url}`,
-      })),
+      .filter((elem): elem is { title: string; url: string } => Boolean(elem)),
     skills: item.fields.skills
       .filter(
         (

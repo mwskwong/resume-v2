@@ -1,4 +1,5 @@
 import { EntryFields } from "contentful";
+import "server-only";
 
 import client from "./client";
 
