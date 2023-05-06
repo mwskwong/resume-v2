@@ -8,21 +8,22 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "edge";
 
-// TODO: use 3rd party font
-// async function getRubikMedium() {
-//   const response = await fetch(
-//     new URL(
-//       "@fontsource/rubik/files/rubik-latin-500-normal.woff",
-//       import.meta.url
-//     )
-//   );
-//   const rubikMedium = await response.arrayBuffer();
+async function getRubikMedium() {
+  const response = await fetch(
+    new URL(
+      "@fontsource/rubik/files/rubik-latin-500-normal.woff",
+      import.meta.url
+    ),
+    // FIXME: this shouldn't be needed. Wait for Next.js to fix this bug
+    { cache: "no-store" }
+  );
+  const rubikMedium = await response.arrayBuffer();
 
-//   return rubikMedium;
-// }
+  return rubikMedium;
+}
 
-export default function openGraphImage() {
-  // const rubikMedium = await getRubikMedium();
+export default async function openGraphImage() {
+  const rubikMedium = await getRubikMedium();
   return new ImageResponse(
     (
       <div
@@ -56,13 +57,13 @@ export default function openGraphImage() {
     ),
     {
       ...size,
-      // fonts: [
-      //   {
-      //     name: "Rubik",
-      //     data: rubikMedium,
-      //     weight: 500,
-      //   },
-      // ],
+      fonts: [
+        {
+          name: "Rubik",
+          data: rubikMedium,
+          weight: 500,
+        },
+      ],
     }
   );
 }
