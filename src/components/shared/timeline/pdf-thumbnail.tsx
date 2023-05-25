@@ -1,10 +1,14 @@
 "use client";
 
 import { Box, SxProps, Theme } from "@mui/material";
-import { DocumentProps } from "react-pdf";
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
+import { Document, DocumentProps, Page, pdfjs } from "react-pdf";
 
 import cx from "@/utils/cx";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.js",
+  import.meta.url
+).toString();
 
 interface Props extends DocumentProps {
   sx?: SxProps<Theme>;
