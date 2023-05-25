@@ -3,7 +3,6 @@
   "version": "4.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "node ./postinstall.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
