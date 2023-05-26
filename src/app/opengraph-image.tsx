@@ -8,22 +8,15 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "edge";
 
-async function getRubikMedium() {
-  const response = await fetch(
-    new URL(
-      "@fontsource/rubik/files/rubik-latin-500-normal.woff",
-      import.meta.url
-    ),
-    // FIXME: this shouldn't be needed. Wait for Next.js to fix this bug
-    { cache: "no-store" }
-  );
-  const rubikMedium = await response.arrayBuffer();
-
-  return rubikMedium;
-}
+const rubikMedium = fetch(
+  new URL(
+    "@fontsource/rubik/files/rubik-latin-500-normal.woff",
+    import.meta.url
+  )
+).then((res) => res.arrayBuffer());
 
 export default async function openGraphImage() {
-  const rubikMedium = await getRubikMedium();
+  const iconSize = { width: 170, height: 170 };
   return new ImageResponse(
     (
       <div
@@ -39,15 +32,15 @@ export default async function openGraphImage() {
           color: "#1a2027",
         }}
       >
-        <Icon size={{ width: 170, height: 170 }} disableBackground />
+        <Icon size={iconSize} disableBackground />
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: (170 / 2) * 1.16,
-            lineHeight: "100%",
+            fontSize: (iconSize.width / 2) * 1.15,
+            lineHeight: 1,
             textTransform: "uppercase",
-            marginLeft: 15,
+            marginLeft: 16,
           }}
         >
           <span>{firstName}</span>
@@ -60,7 +53,7 @@ export default async function openGraphImage() {
       fonts: [
         {
           name: "Rubik",
-          data: rubikMedium,
+          data: await rubikMedium,
           weight: 500,
         },
       ],

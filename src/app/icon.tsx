@@ -2,6 +2,7 @@ import { ImageResponse } from "next/server";
 
 import Icon from "@/components/shared/icon";
 
+export const runtime = "edge";
 export function generateImageMetadata() {
   return [
     {
