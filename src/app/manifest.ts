@@ -11,12 +11,12 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     icons: [
       {
-        src: "/icon2",
+        src: "/icon/192",
         type: "image/png",
         sizes: "192x192",
       },
       {
-        src: "/icon3",
+        src: "/icon/512",
         type: "image/png",
         sizes: "512x512",
       },
