@@ -53,7 +53,7 @@ export default function Icon({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "15%",
+        padding: "20%",
         borderRadius: rounded ? "25%" : undefined,
         ...size,
       }}
