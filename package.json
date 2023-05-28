@@ -33,7 +33,6 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.1",
     "react-hook-form-mui": "^6.1.1",
-    "react-pdf": "^7.0.1",
     "server-only": "^0.0.1",
     "simple-icons": "^9.0.0",
     "zod": "^3.21.4"

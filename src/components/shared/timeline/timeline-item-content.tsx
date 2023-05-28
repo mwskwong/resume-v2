@@ -10,11 +10,10 @@ import {
   Stack,
   StackProps,
 } from "@mui/material";
-import { Suspense, lazy } from "react";
+
+import Image from "@/components/shared/image";
 
 import { TimelineItemData } from "./types";
-
-const PdfThumbnail = lazy(() => import("./pdf-thumbnail"));
 
 export default function TimelineItemContent({
   contents = [],
@@ -47,13 +46,21 @@ export default function TimelineItemContent({
             <ListItem key={index} disablePadding data-cy={title}>
               <ListItemButton
                 component="a"
-                sx={{ pl: 0 }}
+                sx={{ pl: 0, gap: 2 }}
                 href={url}
                 target="_blank"
               >
-                <Suspense>
-                  <PdfThumbnail file={url} />
-                </Suspense>
+                <Image
+                  src={`https://image.thum.io/get/pdfSource/width/100/page/1/${url}`}
+                  alt={title}
+                  width={100}
+                  height={56}
+                  sx={{
+                    borderRadius: 1,
+                    flexShrink: 0,
+                    objectPosition: "top center",
+                  }}
+                />
                 <ListItemText
                   primary={title}
                   primaryTypographyProps={{

@@ -24,9 +24,8 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      {
-        hostname: "images.ctfassets.net",
-      },
+      { hostname: "images.ctfassets.net" },
+      { hostname: "image.thum.io" },
     ],
   },
   webpack(config, { isServer }) {
