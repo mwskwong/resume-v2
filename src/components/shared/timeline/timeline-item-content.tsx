@@ -10,10 +10,14 @@ import {
   Stack,
   StackProps,
 } from "@mui/material";
+import { ImageLoader } from "next/image";
 
 import Image from "@/components/shared/image";
 
 import { TimelineItemData } from "./types";
+
+const imageLoader: ImageLoader = ({ src, width }) =>
+  `https://image.thum.io/get/pdfSource/width/${width}/page/1/${src}`;
 
 export default function TimelineItemContent({
   contents = [],
@@ -51,7 +55,8 @@ export default function TimelineItemContent({
                 target="_blank"
               >
                 <Image
-                  src={`https://image.thum.io/get/pdfSource/width/100/page/1/${url}`}
+                  loader={imageLoader}
+                  src={url}
                   alt={title}
                   width={100}
                   height={56}
