@@ -9,6 +9,7 @@ import { ChangeEventHandler, useDeferredValue, useMemo, useState } from "react";
 
 import CertificateCard from "@/components/shared/certificate-card";
 import SearchField from "@/components/shared/search-field";
+import cx from "@/utils/cx";
 import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
 
 interface Props extends StackProps {
@@ -25,7 +26,7 @@ interface Props extends StackProps {
 const MotionGrid = m(Grid);
 
 // TODO: fetch courses here directly once hitting MUI v6
-export default function Courses({ courses = [], ...props }: Props) {
+export default function Courses({ courses = [], sx, ...props }: Props) {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const filteredCourses = useMemo(
@@ -49,12 +50,11 @@ export default function Courses({ courses = [], ...props }: Props) {
   const handleSearchClear = () => setQuery("");
 
   return (
-    <Stack spacing={2} data-cy="courses" alignItems="stretch" {...props}>
+    <Stack spacing={2} sx={cx({ alignItems: "stretch" }, sx)} {...props}>
       <Typography
         variant="subtitle2"
         component="h3"
         sx={{ color: "primary.main", textAlign: "center" }}
-        data-cy="title"
       >
         Courses & Training
       </Typography>

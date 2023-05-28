@@ -10,7 +10,7 @@ export default function SectionHeader({ heading, icon, ...props }: Props) {
   const dividerSx = { width: 32, mx: 1 };
 
   return (
-    <Box component="header" data-cy="sectionHeader" {...props}>
+    <Box component="header" {...props}>
       <Typography
         variant="h2"
         sx={{ textAlign: "center", textTransform: "capitalize" }}

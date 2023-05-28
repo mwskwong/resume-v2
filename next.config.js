@@ -17,9 +17,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === "production" && {
       exclude: ["error"],
     },
-    reactRemoveProperties: process.env.VERCEL_ENV === "production" && {
-      properties: ["^data-cy$"],
-    },
   },
   images: {
     formats: ["image/avif", "image/webp"],

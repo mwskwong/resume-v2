@@ -62,7 +62,7 @@ export default async function Home() {
           next: sectionVariants.about,
         }}
       />
-      <Section variant={sectionVariants.about} id={about.id} data-cy={about.id}>
+      <Section variant={sectionVariants.about} id={about.id}>
         <About personalPhoto={personalPhoto} skills={skills} />
       </Section>
       <WaveRough
@@ -71,11 +71,7 @@ export default async function Home() {
           next: sectionVariants.experience,
         }}
       />
-      <Section
-        variant={sectionVariants.experience}
-        id={experience.id}
-        data-cy={experience.id}
-      >
+      <Section variant={sectionVariants.experience} id={experience.id}>
         <Experience experiences={experiences} />
       </Section>
       <WaveSmoothFlat
@@ -84,11 +80,7 @@ export default async function Home() {
           next: sectionVariants.education,
         }}
       />
-      <Section
-        variant={sectionVariants.education}
-        id={education.id}
-        data-cy={education.id}
-      >
+      <Section variant={sectionVariants.education} id={education.id}>
         <Education educations={educations} courses={courses} />
       </Section>
       <WaveRoaring
@@ -97,11 +89,7 @@ export default async function Home() {
           next: sectionVariants.contact,
         }}
       />
-      <Section
-        variant={sectionVariants.contact}
-        id={contact.id}
-        data-cy={contact.id}
-      >
+      <Section variant={sectionVariants.contact} id={contact.id}>
         <Contact />
       </Section>
     </>

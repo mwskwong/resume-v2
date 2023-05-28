@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function Microsoft({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="microsoft"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="microsoftIcon"
-      {...props}
-    >
+    <SvgIcon color="microsoft" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siMicrosoft.path} />
     </SvgIcon>
   );

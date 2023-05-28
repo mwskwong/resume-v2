@@ -47,13 +47,13 @@ export default function Hero({
       <Typography variant="subtitle1" component="p">
         Hello,
       </Typography>
-      <Typography variant="h1" data-cy="title">
+      <Typography variant="h1">
         {"I'm "}
         <Box component="span" sx={{ color: "primary.main" }}>
           {firstName}
         </Box>
       </Typography>
-      <Typography variant="h6" component="p" data-cy="subtitle">
+      <Typography variant="h6" component="p">
         {jobTitles.join(" & ")}
       </Typography>
       <PlatformProfiles platformProfiles={platformProfiles} my={4} />
@@ -63,7 +63,6 @@ export default function Hero({
         component="a"
         href={resume}
         target="_blank"
-        data-cy="downloadResume"
       >
         Download Resume
       </Button>

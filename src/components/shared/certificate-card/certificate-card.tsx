@@ -28,7 +28,7 @@ export default function CertificateCard({
   const Icon = organization && getIconByContentfulId(organization.id);
 
   return (
-    <Card data-cy="certificateCard" {...props}>
+    <Card {...props}>
       <CardActionArea
         disabled={!certificateUrl}
         href={certificateUrl ?? ""}
@@ -37,12 +37,8 @@ export default function CertificateCard({
         <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           {Icon && <Icon fontSize="large" />}
           <div>
-            <Typography data-cy="name">{name}</Typography>
-            <Typography
-              variant="body2"
-              sx={{ color: "text.secondary" }}
-              data-cy="organization"
-            >
+            <Typography>{name}</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
               {organization?.name}
             </Typography>
             {status && (

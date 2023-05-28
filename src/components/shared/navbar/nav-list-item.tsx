@@ -24,7 +24,7 @@ export default function NavListItem({ label, id, active }: NavElementProps) {
           }}
         />
       )}
-      <ListItemButton onClick={handleClick} data-cy={id}>
+      <ListItemButton onClick={handleClick}>
         <ListItemText
           primary={label}
           primaryTypographyProps={{

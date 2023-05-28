@@ -37,7 +37,6 @@ export default function OrganizationThumbnail({ images, ...props }: Props) {
         bgcolor: "white",
         ...size,
       }}
-      data-cy="thumbnail"
       {...props}
     >
       {images?.map(({ src, alt, url }, index) => (

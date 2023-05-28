@@ -22,7 +22,7 @@ interface Props extends ContainerProps {
 export default function About({ skills, personalPhoto, ...props }: Props) {
   return (
     <Container {...props}>
-      <Stack spacing={6} alignItems="center">
+      <Stack spacing={6} sx={{ alignItems: "center" }}>
         <SectionHeader heading="About" icon={<CircleSlice2 />} />
         {personalPhoto && (
           <Image
@@ -31,7 +31,6 @@ export default function About({ skills, personalPhoto, ...props }: Props) {
             width={200}
             height={200}
             sx={{ borderRadius: 3.5 }}
-            data-cy="profilePicture"
           />
         )}
         <Message />

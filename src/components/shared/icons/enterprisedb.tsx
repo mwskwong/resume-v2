@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function EnterpriseDB({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="enterpriseDb"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="enterpriseDbIcon"
-      {...props}
-    >
+    <SvgIcon color="enterpriseDb" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siEnterprisedb.path} />
     </SvgIcon>
   );

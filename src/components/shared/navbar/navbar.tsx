@@ -56,7 +56,6 @@ export default function NavBar() {
             component="nav"
             spacing={1}
             direction="row"
-            data-cy="navButtons"
           >
             {Object.values(nav).map(({ id, name }) => (
               <NavButton
@@ -85,7 +84,7 @@ export default function NavBar() {
           sx={{ mx: -2 }}
         >
           <ClickAwayListener onClickAway={handleMenuClickAway}>
-            <List dense component="nav" aria-label="nav list" data-cy="navList">
+            <List dense component="nav" aria-label="nav list">
               {Object.values(nav).map(({ id, name }) => (
                 <NavListItem
                   key={id}

@@ -23,7 +23,6 @@ export default function Logo({ sx, ...props }: ButtonProps) {
       color="inherit"
       aria-label="to home"
       onClick={handleClick}
-      data-cy="logo"
       {...props}
     >
       <Icon size={{ width: 32, height: 32 }} disableBackground />
