@@ -2,8 +2,6 @@
 import "cypress-downloadfile/lib/downloadFileCommand";
 import viewports from "cypress/fixtures/viewports.json";
 
-import { Section } from "@/types";
-
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -41,6 +39,11 @@ import { Section } from "@/types";
 //   }
 // }
 
+interface Section {
+  id: string;
+  name: string;
+}
+
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
@@ -54,7 +57,7 @@ declare global {
   }
 }
 
-Cypress.Commands.add("navigateToSection", (section, viewport) => {
+Cypress.Commands.add("navigateToSection", function (section, viewport) {
   const container = viewport === "desktop" ? "navButtons" : "navList";
 
   if (viewport === "mobile") {

@@ -1,2 +1,2 @@
 export { default } from "./timeline";
-export type { default as TimelineProps } from "./timeline-props";
+export * from "./types";

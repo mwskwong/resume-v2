@@ -1,86 +1,76 @@
 "use client";
 
-import { Container, Stack } from "@mui/material";
+import { Container, ContainerProps, Stack } from "@mui/material";
 import { CircleSlice4 } from "mdi-material-ui";
-import { FC } from "react";
 
-import getBrandLogoById from "@/assets/get-brand-logo-by-id";
-import getSupportingDocumentById from "@/assets/get-supporting-document-by-id";
 import SectionHeader from "@/components/shared/section-header";
-import Timeline from "@/components/shared/timeline";
-import IThumbnail from "@/components/shared/timeline/i-thumbnail";
-import experiences from "@/constants/experiences";
-import { Brand } from "@/types";
+import Timeline, { TimelineItemData } from "@/components/shared/timeline";
 
-const getThumbnails = (company: Brand | [Brand, Brand]) => {
-  if (Array.isArray(company)) {
-    const thumbnailSrcs = company.map(({ id }) => getBrandLogoById(id));
-    const allThumbnailExist = thumbnailSrcs.every(Boolean);
-    if (allThumbnailExist) {
-      return [
-        {
-          src: thumbnailSrcs[0],
-          alt: company[0].name,
-          url: company[0].url,
-        },
-        {
-          src: thumbnailSrcs[1],
-          alt: company[1].name,
-          url: company[1].url,
-        },
-      ] as [IThumbnail, IThumbnail];
-    }
-  } else {
-    const thumbnailSrc = getBrandLogoById(company.id);
-    return (
-      thumbnailSrc && {
-        src: thumbnailSrc,
-        alt: company.name,
-        url: company.url,
-      }
-    );
-  }
-};
+interface Props extends ContainerProps {
+  experiences?: {
+    from: string;
+    to?: string;
+    jobTitle: string;
+    companies: {
+      name: string;
+      logo?: string;
+      url?: string;
+    }[];
+    companyTemplate?: string;
+    employmentType: string;
+    jobDuties?: string[];
+    skills: string[];
+    supportingDocuments?: {
+      title: string;
+      url: string;
+    }[];
+  }[];
+}
 
-const Experience: FC = () => {
-  const data = experiences.map(
+export default function Experience({ experiences = [], ...props }: Props) {
+  const data: TimelineItemData[] = experiences.map(
     ({
+      from,
+      to,
       jobTitle,
-      company,
+      companies,
       companyTemplate,
       employmentType,
       jobDuties,
-      supportingDocuments,
-      relevantSkills: relevantSkills,
-      ...elem
+      skills,
+      ...experience
     }) => ({
-      thumbnails: getThumbnails(company),
+      from: new Date(from),
+      to: to ? new Date(to) : "Present",
+      thumbnails:
+        companies.length === 0
+          ? undefined
+          : (companies
+              .map(({ logo, name, url }) => ({
+                src: logo ? `https:${logo}` : "",
+                alt: name,
+                url: url,
+              }))
+              .slice(0, 2) as TimelineItemData["thumbnails"]),
       title: jobTitle,
-      subtitle: Array.isArray(company)
+      subtitle: companyTemplate
         ? companyTemplate
-          ? companyTemplate
-              .replace("{0}", company[0].name)
-              .replace("{1}", company[1].name)
-          : `${company[0].name} | ${company[1].name}`
-        : company.name,
+            .replace("[1]", companies[0].name)
+            .replace("[2]", companies[1].name)
+        : companies[0].name,
       type: employmentType,
       contents: jobDuties,
-      supportingDocuments: supportingDocuments.map((id) =>
-        getSupportingDocumentById(id)
-      ),
-      tags: relevantSkills,
-      ...elem,
+      tags: skills,
+      ...experience,
     })
   );
 
   return (
-    <Container>
+    <Container {...props}>
       <Stack spacing={6}>
         <SectionHeader heading="Experience" icon={<CircleSlice4 />} />
         <Timeline data={data} />
       </Stack>
     </Container>
   );
-};
-
-export default Experience;
+}

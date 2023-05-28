@@ -5,9 +5,9 @@ import {
 } from "@mui/icons-material";
 import { Box, Unstable_Grid2 as Grid, Link, Typography } from "@mui/material";
 
-import { address, email, phone } from "@/constants/contact";
+import { address, email, phone } from "@/constants/data";
 
-const data = [
+const personalInfo = [
   {
     id: "phone",
     Icon: Mobile,
@@ -31,49 +31,49 @@ const data = [
   },
 ];
 
-const PersonalInfo = () => (
-  <Grid
-    component="address"
-    container
-    spacing={3}
-    xs={12}
-    md={4}
-    sx={{ textAlign: "center" }}
-    data-cy="personalInfo"
-  >
-    {data.map(({ id, Icon, title, value, url }) => (
-      <Grid key={id} xs={12} sm={4} md={12}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          data-cy={id}
-        >
-          <Icon fontSize="large" />
-          <Typography
+export default function PersonalInfo() {
+  return (
+    <Grid
+      component="address"
+      container
+      spacing={3}
+      xs={12}
+      md={4}
+      sx={{ textAlign: "center" }}
+      data-cy="personalInfo"
+    >
+      {personalInfo.map(({ id, Icon, title, value, url }) => (
+        <Grid key={id} xs={12} sm={4} md={12}>
+          <Box
             sx={{
-              color: "primary.main",
-              mt: 2,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
-            gutterBottom
+            data-cy={id}
           >
-            {title}
-          </Typography>
-          <Link
-            color="inherit"
-            underline="hover"
-            sx={{ zIndex: 1 }}
-            href={url}
-            target={url.startsWith("http") ? "_blank" : undefined}
-          >
-            {value}
-          </Link>
-        </Box>
-      </Grid>
-    ))}
-  </Grid>
-);
-
-export default PersonalInfo;
+            <Icon fontSize="large" />
+            <Typography
+              sx={{
+                color: "primary.main",
+                mt: 2,
+              }}
+              gutterBottom
+            >
+              {title}
+            </Typography>
+            <Link
+              color="inherit"
+              underline="hover"
+              sx={{ zIndex: 1 }}
+              href={url}
+              target={url.startsWith("http") ? "_blank" : undefined}
+            >
+              {value}
+            </Link>
+          </Box>
+        </Grid>
+      ))}
+    </Grid>
+  );
+}

@@ -1,13 +1,13 @@
-import { Box, Chip, Typography } from "@mui/material";
+import { Box, BoxProps, Chip, ChipProps, Typography } from "@mui/material";
 import { formatDistanceStrict } from "date-fns";
-import { FC } from "react";
+import { camelCase } from "lodash-es";
 
 import cx from "@/utils/cx";
 import dateTimeFormat from "@/utils/date-time-format";
 
-import TimelineItemHeaderProps from "./timeline-item-header-props";
+import { TimelineItemData } from "./types";
 
-const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
+export default function TimelineItemHeader({
   from,
   to,
   title,
@@ -15,7 +15,8 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
   type,
   sx,
   ...props
-}) => {
+}: BoxProps &
+  Pick<TimelineItemData, "from" | "to" | "title" | "subtitle" | "type">) {
   const period = `${dateTimeFormat.format(from)} — ${
     to === "Present" ? "Present" : dateTimeFormat.format(to)
   }`;
@@ -55,15 +56,13 @@ const TimelineItemHeader: FC<TimelineItemHeaderProps> = ({
       </div>
       {type && (
         <Chip
-          label={type.name}
+          label={type}
           variant="filled"
-          color={type.id}
+          color={camelCase(type) as ChipProps["color"]}
           size="small"
           data-cy="type"
         />
       )}
     </Box>
   );
-};
-
-export default TimelineItemHeader;
+}

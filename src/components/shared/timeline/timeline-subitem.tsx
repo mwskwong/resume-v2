@@ -1,14 +1,17 @@
 import { TimelineConnector, TimelineDot, TimelineSeparator } from "@mui/lab";
-import { Box, Stack } from "@mui/material";
-import { FC } from "react";
+import { Box, BoxProps, Stack } from "@mui/material";
 
 import cx from "@/utils/cx";
 
 import TimelineItemContent from "./timeline-item-content";
 import TimelineItemHeader from "./timeline-item-header";
-import TimelineSubitemProps from "./timeline-subitem-props";
+import { TimelineItemData } from "./types";
 
-const TimelineSubitem: FC<TimelineSubitemProps> = ({
+interface Props extends BoxProps, Omit<TimelineItemData, "subtitle"> {
+  disableConnector?: boolean;
+}
+
+export default function TimelineSubitem({
   from,
   to,
   title,
@@ -19,7 +22,7 @@ const TimelineSubitem: FC<TimelineSubitemProps> = ({
   disableConnector,
   sx,
   ...props
-}) => {
+}: Props) {
   return (
     <Box sx={cx({ display: "flex", gap: 2 }, sx)} {...props}>
       <Box sx={{ display: "flex", justifyContent: "center", width: 56 }}>
@@ -38,6 +41,4 @@ const TimelineSubitem: FC<TimelineSubitemProps> = ({
       </Stack>
     </Box>
   );
-};
-
-export default TimelineSubitem;
+}

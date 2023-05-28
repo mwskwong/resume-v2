@@ -82,7 +82,9 @@ declare module "@mui/material" {
   }
 }
 
-const pxToRem = (size: number) => `${size / 16}rem`;
+function pxToRem(size: number) {
+  return `${size / 16}rem`;
+}
 
 const grey = {
   50: "#F3F6F9",
@@ -97,7 +99,7 @@ const grey = {
   900: "#1A2027",
 };
 
-const brandingTheme = extendTheme({
+const theme = extendTheme({
   unstable_strictMode: true,
   colorSchemes: {
     light: {
@@ -414,6 +416,11 @@ const brandingTheme = extendTheme({
           }),
       },
     },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+      },
+    },
     MuiTimelineDot: {
       defaultProps: {
         color: "primary",
@@ -450,6 +457,6 @@ const brandingTheme = extendTheme({
 });
 
 // @ts-expect-error: dark theme is a required field but is not necessary in this case
-delete brandingTheme.colorSchemes.dark;
+delete theme.colorSchemes.dark;
 
-export default brandingTheme;
+export default theme;

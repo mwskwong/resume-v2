@@ -1,10 +1,8 @@
-import { FC } from "react";
-
 import DividerSvg from "./divider-svg";
-import SectionDividerProps from "./section-divider-props";
+import { SectionDividerProps } from "./types";
 import useSectionDividerSx from "./use-section-divider-sx";
 
-const WaveRough: FC<SectionDividerProps> = (props) => {
+export default function WaveRough(props: SectionDividerProps) {
   const sx = useSectionDividerSx(props);
 
   return (
@@ -15,6 +13,4 @@ const WaveRough: FC<SectionDividerProps> = (props) => {
       />
     </DividerSvg>
   );
-};
-
-export default WaveRough;
+}
