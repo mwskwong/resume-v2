@@ -16,6 +16,7 @@ interface Props extends ContainerProps {
       logo?: string;
       url?: string;
     }[];
+    companyTemplate?: string;
     employmentType: string;
     jobDuties?: string[];
     skills: string[];
@@ -33,6 +34,7 @@ export default function Experience({ experiences = [], ...props }: Props) {
       to,
       jobTitle,
       companies,
+      companyTemplate,
       employmentType,
       jobDuties,
       skills,
@@ -51,8 +53,11 @@ export default function Experience({ experiences = [], ...props }: Props) {
               }))
               .slice(0, 2) as TimelineItemData["thumbnails"]),
       title: jobTitle,
-      // TODO: company template
-      subtitle: companies[0].name,
+      subtitle: companyTemplate
+        ? companyTemplate
+            .replace("[1]", companies[0].name)
+            .replace("[2]", companies[1].name)
+        : companies[0].name,
       type: employmentType,
       contents: jobDuties,
       tags: skills,

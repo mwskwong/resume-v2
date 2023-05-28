@@ -30,6 +30,7 @@ export interface ExperienceEntrySkeleton {
     companies: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<OrganizationEntrySkeleton>
     >;
+    companyTemplate?: EntryFieldTypes.Symbol;
     employmentType: EntryFieldTypes.Symbol;
     jobDuties?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     supportingDocuments?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
