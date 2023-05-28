@@ -9,7 +9,7 @@ import { LoadingButton } from "@mui/lab";
 import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
 import { CircleSlice8 } from "mdi-material-ui";
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import {
   FormContainer,
   TextFieldElement,
@@ -25,7 +25,7 @@ import useFormspree from "./use-formspree";
 
 const MotionAlert = m(Alert);
 
-const Contact: FC = () => {
+export default function Contact() {
   const hookFormContext = useHookForm({
     resolver: zodResolver(FormSchema),
     mode: "onChange",
@@ -141,6 +141,4 @@ const Contact: FC = () => {
       </Stack>
     </Container>
   );
-};
-
-export default Contact;
+}

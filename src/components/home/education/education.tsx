@@ -1,48 +1,69 @@
 "use client";
 
-import { Container, Stack } from "@mui/material";
+import { Container, ContainerProps, Stack } from "@mui/material";
 import { CircleSlice6 } from "mdi-material-ui";
-import { FC } from "react";
 
-import getBrandLogoById from "@/assets/get-brand-logo-by-id";
-import getSupportingDocumentById from "@/assets/get-supporting-document-by-id";
 import SectionHeader from "@/components/shared/section-header";
-import Timeline from "@/components/shared/timeline";
-import educations from "@/constants/educations";
+import Timeline, { TimelineItemData } from "@/components/shared/timeline";
 
 import Courses from "./courses";
 
-const Education: FC = () => {
-  const data = educations.map(
-    ({ degree, school, mode, supportingDocuments, ...elem }) => {
-      const thumbnailSrc = getBrandLogoById(school.id);
+interface Props extends ContainerProps {
+  educations?: {
+    from: string;
+    to?: string;
+    program: string;
+    school?: {
+      name: string;
+      logo?: string;
+      url?: string;
+    };
+    mode: string;
+    supportingDocuments?: {
+      title: string;
+      url: string;
+    }[];
+  }[];
+  courses?: {
+    name: string;
+    institution?: {
+      id: string;
+      name: string;
+    };
+    certificate?: string;
+  }[];
+}
 
-      return {
-        thumbnails: thumbnailSrc && {
-          src: thumbnailSrc,
+export default function Education({
+  educations = [],
+  courses,
+  ...props
+}: Props) {
+  const data: TimelineItemData[] = educations.map(
+    ({ from, to, program, school, mode, ...education }) => ({
+      from: new Date(from),
+      to: to ? new Date(to) : "Present",
+      thumbnails: school && [
+        {
+          src: school.logo ? `https:${school.logo}` : "",
           alt: school.name,
           url: school.url,
         },
-        title: degree,
-        subtitle: school.name,
-        type: mode,
-        supportingDocuments: supportingDocuments.map((id) =>
-          getSupportingDocumentById(id)
-        ),
-        ...elem,
-      };
-    }
+      ],
+      title: program,
+      subtitle: school?.name,
+      type: mode,
+      ...education,
+    })
   );
 
   return (
-    <Container>
+    <Container {...props}>
       <Stack spacing={6}>
         <SectionHeader heading="Education" icon={<CircleSlice6 />} />
         <Timeline data={data} />
-        <Courses />
+        <Courses courses={courses} />
       </Stack>
     </Container>
   );
-};
-
-export default Education;
+}

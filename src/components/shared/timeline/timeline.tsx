@@ -1,11 +1,15 @@
-import { Stack } from "@mui/material";
-import { FC, Fragment } from "react";
+import { Stack, StackProps } from "@mui/material";
+import { Fragment } from "react";
 
 import TimelineItem from "./timeline-item";
-import TimelineProps from "./timeline-props";
 import TimelineSubitem from "./timeline-subitem";
+import { TimelineItemData } from "./types";
 
-const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
+interface Props extends StackProps {
+  data?: TimelineItemData[];
+}
+
+export default function Timeline({ data = [], ...props }: Props) {
   return (
     <Stack data-cy="timeline" {...props}>
       {data.map(
@@ -77,6 +81,4 @@ const Timeline: FC<TimelineProps> = ({ data = [], ...props }) => {
       )}
     </Stack>
   );
-};
-
-export default Timeline;
+}

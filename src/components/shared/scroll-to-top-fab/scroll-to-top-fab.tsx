@@ -2,13 +2,14 @@
 
 import { KeyboardArrowUpRounded as ArrowUp } from "@mui/icons-material";
 import { Fab, Zoom, useMediaQuery, useScrollTrigger } from "@mui/material";
-import { FC } from "react";
 
-const ScrollToTopFab: FC = () => {
+export default function ScrollToTopFab() {
   const show = useScrollTrigger({ disableHysteresis: true });
   const preferReducedMotion = useMediaQuery("(prefers-reduced-motion)");
 
-  const handleClick = () => window.scrollTo(0, 0);
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
 
   return (
     <Zoom
@@ -27,6 +28,4 @@ const ScrollToTopFab: FC = () => {
       </Fab>
     </Zoom>
   );
-};
-
-export default ScrollToTopFab;
+}

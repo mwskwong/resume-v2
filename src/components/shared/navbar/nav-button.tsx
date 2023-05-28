@@ -1,14 +1,13 @@
 import { Box, Button } from "@mui/material";
-import { FC } from "react";
 
-import NavElementProps from "./nav-element-props";
+import { NavElementProps } from "./types";
 
-const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
+export default function NavButton({ label, id, active }: NavElementProps) {
   const dotSize = 6;
-  const handleClick = () => {
+  function handleClick() {
     const section = document.getElementById(id);
     section?.scrollIntoView();
-  };
+  }
 
   return (
     <Button
@@ -33,6 +32,4 @@ const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
       )}
     </Button>
   );
-};
-
-export default NavButton;
+}

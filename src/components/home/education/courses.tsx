@@ -1,27 +1,36 @@
-import { Unstable_Grid2 as Grid, Stack, Typography } from "@mui/material";
-import { LazyMotion, m } from "framer-motion";
 import {
-  ChangeEventHandler,
-  FC,
-  useDeferredValue,
-  useMemo,
-  useState,
-} from "react";
+  Unstable_Grid2 as Grid,
+  Stack,
+  StackProps,
+  Typography,
+} from "@mui/material";
+import { LazyMotion, m } from "framer-motion";
+import { ChangeEventHandler, useDeferredValue, useMemo, useState } from "react";
 
-import getCertificatePathById from "@/assets/get-certificate-path-by-id";
 import CertificateCard from "@/components/shared/certificate-card";
 import SearchField from "@/components/shared/search-field";
-import courses from "@/constants/courses";
 import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
+
+interface Props extends StackProps {
+  courses?: {
+    name: string;
+    institution?: {
+      id: string;
+      name: string;
+    };
+    certificate?: string;
+  }[];
+}
 
 const MotionGrid = m(Grid);
 
-const Courses: FC = () => {
+// TODO: fetch courses here directly once hitting MUI v6
+export default function Courses({ courses = [], ...props }: Props) {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const filteredCourses = useMemo(
     () =>
-      courses.filter(({ name, category, institution }) => {
+      courses.filter(({ name, institution }) => {
         const queryRegex = new RegExp(
           deferredQuery.replace(/[#-.]|[[-^]|[?|{}]/g, "\\$&"),
           "i"
@@ -29,11 +38,10 @@ const Courses: FC = () => {
 
         return (
           queryRegex.test(name) ||
-          queryRegex.test(category.name) ||
-          queryRegex.test(institution.name)
+          (institution && queryRegex.test(institution.name))
         );
       }),
-    [deferredQuery]
+    [courses, deferredQuery]
   );
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) =>
@@ -41,7 +49,7 @@ const Courses: FC = () => {
   const handleSearchClear = () => setQuery("");
 
   return (
-    <Stack spacing={2} data-cy="courses" alignItems="stretch">
+    <Stack spacing={2} data-cy="courses" alignItems="stretch" {...props}>
       <Typography
         variant="subtitle2"
         component="h3"
@@ -60,15 +68,13 @@ const Courses: FC = () => {
       <div>
         <Grid container spacing={2}>
           <LazyMotion strict features={loadFramerMotionFeatures}>
-            {filteredCourses.map(({ id, name, institution }) => {
-              const certificateUrl = getCertificatePathById(id);
-
+            {filteredCourses.map(({ name, institution, certificate }) => {
               return (
                 <MotionGrid key={name} xs={12} md={6} layout>
                   <CertificateCard
                     name={name}
                     organization={institution}
-                    certificateUrl={certificateUrl}
+                    certificateUrl={certificate}
                   />
                 </MotionGrid>
               );
@@ -78,6 +84,4 @@ const Courses: FC = () => {
       </div>
     </Stack>
   );
-};
-
-export default Courses;
+}

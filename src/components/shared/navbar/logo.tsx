@@ -1,12 +1,14 @@
 import { Button, ButtonProps } from "@mui/material";
-import { FC } from "react";
 
-import LogoSvg from "@/assets/images/icon.svg";
-import { firstName } from "@/constants/name";
+import { firstName } from "@/constants/data";
 import cx from "@/utils/cx";
 
-const Logo: FC<ButtonProps> = ({ sx, ...props }) => {
-  const handleClick = () => window.scrollTo(0, 0);
+import Icon from "../icon";
+
+export default function Logo({ sx, ...props }: ButtonProps) {
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
 
   return (
     <Button
@@ -24,10 +26,8 @@ const Logo: FC<ButtonProps> = ({ sx, ...props }) => {
       data-cy="logo"
       {...props}
     >
-      <LogoSvg width={32} />
+      <Icon size={{ width: 32, height: 32 }} disableBackground />
       {firstName}
     </Button>
   );
-};
-
-export default Logo;
+}

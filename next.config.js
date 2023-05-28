@@ -1,4 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -18,38 +23,23 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      { hostname: "images.ctfassets.net" },
+      { hostname: "image.thum.io" },
+    ],
   },
-  webpack: (config) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  webpack(config, { isServer }) {
+    // load PDF files as assets
     config.module.rules.push({
       test: /\.pdf$/i,
       type: "asset/resource",
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-      rule.test?.test?.(".svg")
-    );
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    config.module.rules.push(
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/,
-      },
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: /url/ },
-        use: ["@svgr/webpack"],
-      }
-    );
+    if (isServer) {
+      // react-pdf needs to use canvas which doesn't support SSR
+      config.resolve.alias.canvas = false;
+    }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    fileLoaderRule.exclude = /\.svg$/i;
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return config;
   },
   modularizeImports: {
@@ -66,37 +56,39 @@ const nextConfig = {
       preventFullImport: true,
     },
   },
-  headers: () => [
-    {
-      source: "/:path*",
-      headers: [
-        {
-          key: "X-DNS-Prefetch-Control",
-          value: "on",
-        },
-        {
-          key: "Strict-Transport-Security",
-          value: "max-age=63072000; includeSubDomains; preload",
-        },
-        {
-          key: "X-XSS-Protection",
-          value: "1; mode=block",
-        },
-        {
-          key: "X-Frame-Options",
-          value: "SAMEORIGIN",
-        },
-        {
-          key: "X-Content-Type-Options",
-          value: "nosniff",
-        },
-        {
-          key: "Referrer-Policy",
-          value: "no-referrer-when-downgrade",
-        },
-      ],
-    },
-  ],
+  headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "no-referrer-when-downgrade",
+          },
+        ],
+      },
+    ];
+  },
   experimental: {
     appDir: true,
     typedRoutes: true,

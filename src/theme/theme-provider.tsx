@@ -5,26 +5,26 @@ import {
   Experimental_CssVarsProvider as CssVarsProvider,
   getInitColorSchemeScript,
 } from "@mui/material";
-import { ComponentProps, FC } from "react";
+import { ComponentProps } from "react";
 
 import theme from "./theme";
 
-const ThemeProvider: FC<ComponentProps<typeof CssVarsProvider>> = ({
+export default function ThemeProvider({
   children,
   ...props
-}) => (
-  <>
-    {getInitColorSchemeScript()}
-    <CssVarsProvider
-      theme={theme}
-      defaultMode="light"
-      disableTransitionOnChange
-      {...props}
-    >
-      <CssBaseline />
-      {children}
-    </CssVarsProvider>
-  </>
-);
-
-export default ThemeProvider;
+}: ComponentProps<typeof CssVarsProvider>) {
+  return (
+    <>
+      {getInitColorSchemeScript()}
+      <CssVarsProvider
+        theme={theme}
+        defaultMode="light"
+        disableTransitionOnChange
+        {...props}
+      >
+        <CssBaseline />
+        {children}
+      </CssVarsProvider>
+    </>
+  );
+}

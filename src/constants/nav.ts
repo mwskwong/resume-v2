@@ -1,17 +1,15 @@
-import { Section } from "@/types";
-
-export const HOME: Section = { id: "home", name: "Home" };
-export const ABOUT: Section = { id: "about", name: "About" };
-export const EXPERIENCE: Section = { id: "experience", name: "Experience" };
-export const EDUCATION: Section = { id: "education", name: "Education" };
-export const CONTACT: Section = { id: "contact", name: "Contact" };
+export const home = { id: "home", name: "Home" };
+export const about = { id: "about", name: "About" };
+export const experience = { id: "experience", name: "Experience" };
+export const education = { id: "education", name: "Education" };
+export const contact = { id: "contact", name: "Contact" };
 
 const nav = {
-  HOME,
-  ABOUT,
-  EXPERIENCE,
-  EDUCATION,
-  CONTACT,
+  home,
+  about,
+  experience,
+  education,
+  contact,
 };
 
 export default nav;

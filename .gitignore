@@ -36,8 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 # auto generated when buidling PROD build
-/public/sitemap.xml
-/public/robots.txt
 /static
 
 # cypress

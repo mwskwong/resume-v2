@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://mwskwong.com" rel="noopener" target="_blank">
-    <img src="https://mwskwong.com/favicon.svg" alt="mwskwomg.com logo" width="150"/>
+    <img src="https://mwskwong.com/icon" alt="mwskwomg.com logo" width="150"/>
   </a>
 </p>
 
