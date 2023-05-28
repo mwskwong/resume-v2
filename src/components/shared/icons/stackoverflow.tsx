@@ -7,11 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function StackOverflow({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="stackOverflowIcon"
-      {...props}
-    >
+    <SvgIcon sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siStackoverflow.path} />
     </SvgIcon>
   );

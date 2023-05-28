@@ -11,7 +11,7 @@ interface Props extends StackProps {
 
 export default function Timeline({ data = [], ...props }: Props) {
   return (
-    <Stack data-cy="timeline" {...props}>
+    <Stack {...props}>
       {data.map(
         (
           {

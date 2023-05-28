@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function Google({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="google"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="googleIcon"
-      {...props}
-    >
+    <SvgIcon color="google" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siGoogle.path} />
     </SvgIcon>
   );

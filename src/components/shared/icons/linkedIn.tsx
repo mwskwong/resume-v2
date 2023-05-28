@@ -7,7 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function LinkedIn({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon sx={cx(thirdPartyIconSx, sx)} data-cy="linkedInIcon" {...props}>
+    <SvgIcon sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siLinkedin.path} />
     </SvgIcon>
   );

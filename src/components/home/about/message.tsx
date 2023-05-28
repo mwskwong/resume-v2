@@ -10,21 +10,16 @@ import {
 export default function Message() {
   return (
     <Box sx={{ textAlign: "center" }}>
-      <Typography variant="h3" data-cy="greeting">
+      <Typography variant="h3">
         {"Hello again! "}
         <Box sx={{ color: "primary.main" }} component="span">
           {`I'm ${firstName} ${lastName}.`}
         </Box>
       </Typography>
-      <Typography
-        variant="subtitle1"
-        component="div"
-        sx={{ my: 2 }}
-        data-cy="jobTitles"
-      >
+      <Typography variant="subtitle1" component="div" sx={{ my: 2 }}>
         {jobTitles.join(" & ")}
       </Typography>
-      <Typography data-cy="selfIntroduction">{selfIntroduction}</Typography>
+      <Typography>{selfIntroduction}</Typography>
     </Box>
   );
 }

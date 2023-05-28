@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function MongoDB({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="mongoDb"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="mongoDbIcon"
-      {...props}
-    >
+    <SvgIcon color="mongoDb" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siMongodb.path} />
     </SvgIcon>
   );

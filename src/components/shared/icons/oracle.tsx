@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function Oracle({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="oracle"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="oracleIcon"
-      {...props}
-    >
+    <SvgIcon color="oracle" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siOracle.path} />
     </SvgIcon>
   );

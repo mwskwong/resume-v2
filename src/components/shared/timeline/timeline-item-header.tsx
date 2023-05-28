@@ -37,17 +37,11 @@ export default function TimelineItemHeader({
       {...props}
     >
       <div>
-        <Typography variant="subtitle1" component="h2" data-cy="title">
+        <Typography variant="subtitle1" component="h2">
           {title}
         </Typography>
-        <Typography sx={{ color: "primary.main" }} data-cy="subtitle">
-          {subtitle}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: "text.secondary" }}
-          data-cy="period"
-        >
+        <Typography sx={{ color: "primary.main" }}>{subtitle}</Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {period} • {duration}
         </Typography>
       </div>
@@ -57,7 +51,6 @@ export default function TimelineItemHeader({
           variant="filled"
           color={camelCase(type) as ChipProps["color"]}
           size="small"
-          data-cy="type"
         />
       )}
     </Box>

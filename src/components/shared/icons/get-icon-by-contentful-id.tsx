@@ -22,27 +22,27 @@ import StackOverflow from "./stackoverflow";
 import Udemy from "./udemy";
 
 function Backend(props: SvgIconProps) {
-  return <Terminal data-cy="beIcon" {...props} />;
+  return <Terminal {...props} />;
 }
 
 function Cloud(props: SvgIconProps) {
-  return <MuiCloud data-cy="cloudIcon" {...props} />;
+  return <MuiCloud {...props} />;
 }
 
 function DataOps(props: SvgIconProps) {
-  return <AllInclusive data-cy="dataOpsIcon" {...props} />;
+  return <AllInclusive {...props} />;
 }
 
 function Frontend(props: SvgIconProps) {
-  return <Dashboard data-cy="feIcon" {...props} />;
+  return <Dashboard {...props} />;
 }
 
 function QualityAssurance(props: SvgIconProps) {
-  return <BugReport data-cy="qaIcon" {...props} />;
+  return <BugReport {...props} />;
 }
 
 function Mobile(props: SvgIconProps) {
-  return <DevicesOther data-cy="mobileIcon" {...props} />;
+  return <DevicesOther {...props} />;
 }
 
 const Icons = {

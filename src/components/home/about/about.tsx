@@ -31,7 +31,6 @@ export default function About({ skills, personalPhoto, ...props }: Props) {
             width={200}
             height={200}
             sx={{ borderRadius: 3.5 }}
-            data-cy="profilePicture"
           />
         )}
         <Message />

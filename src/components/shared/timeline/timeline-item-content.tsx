@@ -29,7 +29,7 @@ export default function TimelineItemContent({
   return (
     <Stack spacing={2} {...props}>
       {Boolean(contents.length) && (
-        <List disablePadding data-cy="contents">
+        <List disablePadding>
           {contents.map((point, index) => (
             <ListItem key={index} disableGutters>
               <ListItemText primary={point} />
@@ -38,16 +38,16 @@ export default function TimelineItemContent({
         </List>
       )}
       {Boolean(tags.length) && (
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }} data-cy="tags">
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {tags.map((tag) => (
-            <Chip key={tag} label={tag} data-cy={tag} />
+            <Chip key={tag} label={tag} />
           ))}
         </Box>
       )}
       {Boolean(supportingDocuments.length) && (
         <List disablePadding>
           {supportingDocuments.map(({ title, url }, index) => (
-            <ListItem key={index} disablePadding data-cy={title}>
+            <ListItem key={index} disablePadding>
               <ListItemButton
                 component="a"
                 sx={{ pl: 0, gap: 2 }}

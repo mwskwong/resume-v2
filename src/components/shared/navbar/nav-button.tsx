@@ -10,11 +10,7 @@ export default function NavButton({ label, id, active }: NavElementProps) {
   }
 
   return (
-    <Button
-      color={active ? "primary" : "inherit"}
-      onClick={handleClick}
-      data-cy={id}
-    >
+    <Button color={active ? "primary" : "inherit"} onClick={handleClick}>
       {label}
       {active && (
         <Box

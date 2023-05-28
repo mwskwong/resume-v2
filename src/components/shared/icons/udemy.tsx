@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function Udemy({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="udemy"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="udemyIcon"
-      {...props}
-    >
+    <SvgIcon color="udemy" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siUdemy.path} />
     </SvgIcon>
   );

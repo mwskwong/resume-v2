@@ -50,17 +50,11 @@ export default function Courses({ courses = [], sx, ...props }: Props) {
   const handleSearchClear = () => setQuery("");
 
   return (
-    <Stack
-      spacing={2}
-      data-cy="courses"
-      sx={cx({ alignItems: "stretch" }, sx)}
-      {...props}
-    >
+    <Stack spacing={2} sx={cx({ alignItems: "stretch" }, sx)} {...props}>
       <Typography
         variant="subtitle2"
         component="h3"
         sx={{ color: "primary.main", textAlign: "center" }}
-        data-cy="title"
       >
         Courses & Training
       </Typography>

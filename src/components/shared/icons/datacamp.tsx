@@ -7,12 +7,7 @@ import thirdPartyIconSx from "./third-party-icon-sx";
 
 export default function DataCamp({ sx, ...props }: SvgIconProps) {
   return (
-    <SvgIcon
-      color="dataCamp"
-      sx={cx(thirdPartyIconSx, sx)}
-      data-cy="dataCampIcon"
-      {...props}
-    >
+    <SvgIcon color="dataCamp" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siDatacamp.path} />
     </SvgIcon>
   );

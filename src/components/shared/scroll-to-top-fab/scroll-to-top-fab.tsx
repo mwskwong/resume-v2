@@ -19,11 +19,7 @@ export default function ScrollToTopFab() {
       mountOnEnter
       unmountOnExit
     >
-      <Fab
-        aria-label="scroll to top"
-        onClick={handleClick}
-        data-cy="scrollToTop"
-      >
+      <Fab aria-label="scroll to top" onClick={handleClick}>
         <ArrowUp />
       </Fab>
     </Zoom>

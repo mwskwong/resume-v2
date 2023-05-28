@@ -91,14 +91,7 @@ export default function Contact() {
             sx={{ alignItems: "center" }}
             disableEqualOverflow
           >
-            <Grid
-              component="address"
-              container
-              xs={12}
-              md={4}
-              spacing={3}
-              data-cy="personalInfo"
-            >
+            <Grid component="address" container xs={12} md={4} spacing={3}>
               {personalInfo.map((info) => (
                 <Grid key={info.title} xs={12} sm={4} md={12}>
                   <PersonalInfo {...info} />
@@ -113,7 +106,6 @@ export default function Contact() {
                   fullWidth={true}
                   helperText={"\u200B"}
                   disabled={state.submitting}
-                  data-cy="name"
                 />
               </Grid>
               <Grid xs={12} sm={6}>
@@ -123,7 +115,6 @@ export default function Contact() {
                   fullWidth={true}
                   helperText={"\u200B"}
                   disabled={state.submitting}
-                  data-cy="email"
                 />
               </Grid>
               <Grid xs={12}>
@@ -133,7 +124,6 @@ export default function Contact() {
                   fullWidth={true}
                   helperText={"\u200B"}
                   disabled={state.submitting}
-                  data-cy="subject"
                 />
               </Grid>
               <Grid xs={12}>
@@ -145,12 +135,11 @@ export default function Contact() {
                   rows={9}
                   helperText={"\u200B"}
                   disabled={state.submitting}
-                  data-cy="message"
                 />
               </Grid>
             </Grid>
             <Grid xs={12} md={8} mdOffset="auto" pt={2}>
-              <Stack spacing={1} data-cy="alerts">
+              <Stack spacing={1}>
                 <LazyMotion features={loadFramerMotionFeatures}>
                   {state.errors.map(({ message }, index) => (
                     <MotionAlert
