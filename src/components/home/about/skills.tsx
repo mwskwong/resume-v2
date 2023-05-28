@@ -36,13 +36,8 @@ export default function Skills({ skills = [], ...props }: Props) {
 
           return (
             <Grid key={id} xs={12} sm={6} lg={4} data-cy={id}>
-              <Stack spacing={2} alignItems="center">
-                <Avatar
-                  sx={{
-                    width: 60,
-                    height: 60,
-                  }}
-                >
+              <Stack spacing={2} sx={{ alignItems: "center" }}>
+                <Avatar sx={{ width: 60, height: 60 }}>
                   {Icon && <Icon fontSize="large" />}
                 </Avatar>
                 <Typography
