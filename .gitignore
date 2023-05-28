@@ -38,7 +38,3 @@ next-env.d.ts
 # auto generated when buidling PROD build
 /static
 
-# cypress
-/cypress/screenshots
-/cypress/videos
-/cypress/downloads
