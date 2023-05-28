@@ -26,5 +26,6 @@ Welcome to the source code of [mwskwong.com](https://mwskwong.com). You can see 
 ## Platforms
 
 - Vercel: Web hosting
+- Contentful: Headless CMS
 - ImprovMX: Email forwarding
 - Formspree: Form backend
