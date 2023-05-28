@@ -48,14 +48,7 @@ export default function OrganizationThumbnail({ images, ...props }: Props) {
           target="_blank"
           sx={getLinkSx(index)}
         >
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            // FIXME: can I do better on dealing with images with aspect ration > 1
-            sizes="217px"
-            sx={{ objectPosition: "left center" }}
-          />
+          <Image src={src} alt={alt} width={56} height={56} />
         </ButtonBase>
       ))}
     </Box>
