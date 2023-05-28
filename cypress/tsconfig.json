@@ -1,9 +1,0 @@
-{
-  "extends": "../tsconfig",
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["esnext", "dom"],
-    "types": ["cypress", "node"]
-  },
-  "include": ["**/*.ts"]
-}

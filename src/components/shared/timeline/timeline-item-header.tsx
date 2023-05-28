@@ -1,5 +1,5 @@
 import { Box, BoxProps, Chip, ChipProps, Typography } from "@mui/material";
-import { formatDistanceStrict } from "date-fns";
+import { formatDistance } from "date-fns";
 import { camelCase } from "lodash-es";
 
 import cx from "@/utils/cx";
@@ -20,10 +20,7 @@ export default function TimelineItemHeader({
   const period = `${dateTimeFormat.format(from)} — ${
     to === "Present" ? "Present" : dateTimeFormat.format(to)
   }`;
-  const duration = formatDistanceStrict(
-    to === "Present" ? Date.now() : to,
-    from
-  );
+  const duration = formatDistance(to === "Present" ? Date.now() : to, from);
 
   return (
     <Box
