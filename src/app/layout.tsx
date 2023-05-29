@@ -19,7 +19,7 @@ import Analytics from "./analytics";
 import EmotionRegistry from "./emotion-registry";
 import MotionConfig from "./motion-config";
 
-export default async function RootLayout({ children }: PropsWithChildren) {
+const RootLayout = async ({ children }: PropsWithChildren) => {
   const platformProfiles = await getPlatformProfiles();
 
   return (
@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       </body>
     </html>
   );
-}
+};
 
 const fullName = `${firstName} ${lastName}`;
 const title: Metadata["title"] = {
@@ -70,3 +70,5 @@ export const metadata: Metadata = {
     description,
   },
 };
+
+export default RootLayout;

@@ -7,6 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { FC } from "react";
 
 import { getIconByContentfulId } from "@/components/shared/icons";
 
@@ -19,7 +20,7 @@ interface Props extends BoxProps {
 }
 
 // TODO: fetch skills here directly once hitting MUI v6
-export default function Skills({ skills = [], ...props }: Props) {
+const Skills: FC<Props> = ({ skills = [], ...props }) => {
   return (
     <Box {...props}>
       <Typography
@@ -65,4 +66,6 @@ export default function Skills({ skills = [], ...props }: Props) {
       </Grid>
     </Box>
   );
-}
+};
+
+export default Skills;

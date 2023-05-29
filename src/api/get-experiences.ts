@@ -9,7 +9,8 @@ import {
   SkillEntrySkeleton,
 } from "./types";
 
-export default async function getExperiences() {
+const getExperiences = async () => {
+  // TODO: Can I do better?
   // Contentful always place undefined fields at the bottom,
   // so we first sort in ASC and then reverse it
   // such that it's in DESC order while undefined values are at the top
@@ -41,7 +42,9 @@ export default async function getExperiences() {
       )
       .map((company) => ({
         ...company.fields,
-        logo: company.fields.logo?.fields.file?.url,
+        logo:
+          company.fields.logo?.fields.file &&
+          `https:${company.fields.logo.fields.file.url}`,
       })),
     supportingDocuments: item.fields.supportingDocuments
       ?.map((supportingDocument) =>
@@ -62,4 +65,6 @@ export default async function getExperiences() {
       )
       .map((skill) => skill.fields.name),
   }));
-}
+};
+
+export default getExperiences;

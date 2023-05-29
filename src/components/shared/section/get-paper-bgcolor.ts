@@ -1,8 +1,8 @@
 import { TypeBackground } from "@mui/material";
 
-export default function getPaperBgColor(
-  sectionVariant: keyof TypeBackground
-): keyof TypeBackground {
+type BgColor = keyof TypeBackground;
+
+const getPaperBgColor = (sectionVariant: BgColor): BgColor => {
   switch (sectionVariant) {
     case "default":
       return "primary";
@@ -13,4 +13,6 @@ export default function getPaperBgColor(
     default:
       return "paper";
   }
-}
+};
+
+export default getPaperBgColor;

@@ -1,9 +1,8 @@
 "use client";
 
-import { Container, ContainerProps, Stack } from "@mui/material";
-import { CircleSlice6 } from "mdi-material-ui";
+import { Container, ContainerProps, Stack, Typography } from "@mui/material";
+import { FC } from "react";
 
-import SectionHeader from "@/components/shared/section-header";
 import Timeline, { TimelineItemData } from "@/components/shared/timeline";
 
 import Courses from "./courses";
@@ -34,18 +33,14 @@ interface Props extends ContainerProps {
   }[];
 }
 
-export default function Education({
-  educations = [],
-  courses,
-  ...props
-}: Props) {
+const Education: FC<Props> = ({ educations = [], courses, ...props }) => {
   const data: TimelineItemData[] = educations.map(
     ({ from, to, program, school, mode, ...education }) => ({
       from: new Date(from),
       to: to ? new Date(to) : "Present",
       thumbnails: school && [
         {
-          src: school.logo ? `https:${school.logo}` : "",
+          src: school.logo ?? "",
           alt: school.name,
           url: school.url,
         },
@@ -60,10 +55,14 @@ export default function Education({
   return (
     <Container {...props}>
       <Stack spacing={6}>
-        <SectionHeader heading="Education" icon={<CircleSlice6 />} />
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
+          Education
+        </Typography>
         <Timeline data={data} />
         <Courses courses={courses} />
       </Stack>
     </Container>
   );
-}
+};
+
+export default Education;

@@ -5,7 +5,7 @@ import {
   Typography,
 } from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
-import { ChangeEventHandler, useDeferredValue, useMemo, useState } from "react";
+import { FC, useDeferredValue, useMemo, useState } from "react";
 
 import CertificateCard from "@/components/shared/certificate-card";
 import SearchField from "@/components/shared/search-field";
@@ -26,7 +26,7 @@ interface Props extends StackProps {
 const MotionGrid = m(Grid);
 
 // TODO: fetch courses here directly once hitting MUI v6
-export default function Courses({ courses = [], sx, ...props }: Props) {
+const Courses: FC<Props> = ({ courses = [], sx, ...props }) => {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const filteredCourses = useMemo(
@@ -45,10 +45,6 @@ export default function Courses({ courses = [], sx, ...props }: Props) {
     [courses, deferredQuery]
   );
 
-  const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) =>
-    setQuery(event.target.value);
-  const handleSearchClear = () => setQuery("");
-
   return (
     <Stack spacing={2} sx={cx({ alignItems: "stretch" }, sx)} {...props}>
       <Typography
@@ -61,8 +57,8 @@ export default function Courses({ courses = [], sx, ...props }: Props) {
       <SearchField
         sx={{ alignSelf: "center", width: "100%" }}
         value={query}
-        onChange={handleSearch}
-        onClear={handleSearchClear}
+        onChange={(event) => setQuery(event.target.value)}
+        onClear={() => setQuery("")}
         inputProps={{ "aria-label": "search courses and training" }}
       />
       <div>
@@ -84,4 +80,6 @@ export default function Courses({ courses = [], sx, ...props }: Props) {
       </div>
     </Stack>
   );
-}
+};
+
+export default Courses;

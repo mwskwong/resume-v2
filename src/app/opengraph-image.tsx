@@ -8,7 +8,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "edge";
 
-async function getRubikMedium() {
+const getRubikMedium = async () => {
   const response = await fetch(
     new URL(
       "@fontsource/rubik/files/rubik-latin-500-normal.woff",
@@ -18,11 +18,10 @@ async function getRubikMedium() {
   const rubikMedium = await response.arrayBuffer();
 
   return rubikMedium;
-}
+};
 
-export default async function openGraphImage() {
-  const iconSize = { width: 170, height: 170 };
-  return new ImageResponse(
+const openGraphImage = async () =>
+  new ImageResponse(
     (
       <div
         style={{
@@ -37,12 +36,12 @@ export default async function openGraphImage() {
           color: "#1a2027",
         }}
       >
-        <Icon size={iconSize} disableBackground />
+        <Icon width={170} />
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: (iconSize.width / 2) * 1.15,
+            fontSize: 98.54,
             lineHeight: 1,
             textTransform: "uppercase",
             marginLeft: 16,
@@ -64,4 +63,5 @@ export default async function openGraphImage() {
       ],
     }
   );
-}
+
+export default openGraphImage;

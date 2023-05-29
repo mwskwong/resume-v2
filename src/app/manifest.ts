@@ -2,9 +2,7 @@ import { MetadataRoute } from "next";
 
 import { firstName, lastName, selfIntroduction } from "@/constants/data";
 
-export const runtime = "edge";
-
-export default function manifest(): MetadataRoute.Manifest {
+const manifest = (): MetadataRoute.Manifest => {
   return {
     background_color: "#ffffff",
     description: selfIntroduction,
@@ -26,4 +24,8 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     theme_color: "#ffffff",
   };
-}
+};
+
+export const runtime = "edge";
+
+export default manifest;

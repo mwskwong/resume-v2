@@ -1,5 +1,5 @@
 import { Box, BoxProps, Link, SvgIconProps, Typography } from "@mui/material";
-import { ElementType } from "react";
+import { ElementType, FC } from "react";
 
 import cx from "@/utils/cx";
 
@@ -10,14 +10,7 @@ interface Props extends BoxProps {
   url?: string;
 }
 
-export default function PersonalInfo({
-  Icon,
-  title,
-  value,
-  url,
-  sx,
-  ...props
-}: Props) {
+const PersonalInfo: FC<Props> = ({ Icon, title, value, url, sx, ...props }) => {
   return (
     <Box
       sx={cx(
@@ -51,4 +44,6 @@ export default function PersonalInfo({
       </Link>
     </Box>
   );
-}
+};
+
+export default PersonalInfo;

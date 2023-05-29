@@ -1,4 +1,5 @@
 import { IconButton, Stack, StackProps } from "@mui/material";
+import { FC } from "react";
 
 import { firstName } from "@/constants/data";
 import cx from "@/utils/cx";
@@ -16,11 +17,11 @@ interface Props extends StackProps {
 }
 
 // TODO: fetch platformProfiles here directly once hitting MUI v6
-export default function PlatformProfiles({
+const PlatformProfiles: FC<Props> = ({
   platformProfiles = [],
   sx,
   ...props
-}: Props) {
+}) => {
   return (
     <Stack
       spacing={1}
@@ -47,4 +48,6 @@ export default function PlatformProfiles({
       })}
     </Stack>
   );
-}
+};
+
+export default PlatformProfiles;

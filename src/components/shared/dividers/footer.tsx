@@ -1,8 +1,9 @@
 import { useTheme } from "@mui/material";
+import { FC } from "react";
 
 import DividerSvg from "./divider-svg";
 
-export default function Footer() {
+const Footer: FC = () => {
   const theme = useTheme();
 
   return (
@@ -21,4 +22,6 @@ export default function Footer() {
       />
     </DividerSvg>
   );
-}
+};
+
+export default Footer;

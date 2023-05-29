@@ -11,17 +11,21 @@ import {
   SmartphoneRounded as Mobile,
 } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
+import {
+  Alert,
+  Container,
+  Unstable_Grid2 as Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
-import { CircleSlice8 } from "mdi-material-ui";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import {
   FormContainer,
   TextFieldElement,
   useForm as useHookForm,
 } from "react-hook-form-mui";
 
-import SectionHeader from "@/components/shared/section-header";
 import { address, email, phone } from "@/constants/data";
 import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
 
@@ -52,7 +56,7 @@ const personalInfo = [
 
 const MotionAlert = m(Alert);
 
-export default function Contact() {
+const Contact: FC = () => {
   const hookFormContext = useHookForm({
     resolver: zodResolver(FormSchema),
     mode: "onChange",
@@ -80,7 +84,9 @@ export default function Contact() {
   return (
     <Container>
       <Stack spacing={6}>
-        <SectionHeader heading="Contact" icon={<CircleSlice8 />} />
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
+          Contact
+        </Typography>
         <FormContainer
           formContext={hookFormContext}
           onSuccess={handleFormspreeSubmit}
@@ -143,7 +149,7 @@ export default function Contact() {
                 <LazyMotion features={loadFramerMotionFeatures}>
                   {state.errors.map(({ message }, index) => (
                     <MotionAlert
-                      key={message}
+                      key={index}
                       severity="error"
                       initial={{ y: -10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -175,4 +181,6 @@ export default function Contact() {
       </Stack>
     </Container>
   );
-}
+};
+
+export default Contact;

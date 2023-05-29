@@ -1,16 +1,19 @@
 import { Box, Button } from "@mui/material";
+import { FC } from "react";
 
 import { NavElementProps } from "./types";
 
-export default function NavButton({ label, id, active }: NavElementProps) {
+const NavButton: FC<NavElementProps> = ({ label, id, active }) => {
   const dotSize = 6;
-  function handleClick() {
-    const section = document.getElementById(id);
-    section?.scrollIntoView();
-  }
 
   return (
-    <Button color={active ? "primary" : "inherit"} onClick={handleClick}>
+    <Button
+      color={active ? "primary" : "inherit"}
+      onClick={() => {
+        const section = document.getElementById(id);
+        section?.scrollIntoView();
+      }}
+    >
       {label}
       {active && (
         <Box
@@ -28,4 +31,6 @@ export default function NavButton({ label, id, active }: NavElementProps) {
       )}
     </Button>
   );
-}
+};
+
+export default NavButton;

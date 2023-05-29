@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { FC } from "react";
 
 import {
   firstName,
@@ -7,7 +8,7 @@ import {
   selfIntroduction,
 } from "@/constants/data";
 
-export default function Message() {
+const Message: FC = () => {
   return (
     <Box sx={{ textAlign: "center" }}>
       <Typography variant="h3">
@@ -22,4 +23,6 @@ export default function Message() {
       <Typography>{selfIntroduction}</Typography>
     </Box>
   );
-}
+};
+
+export default Message;

@@ -3,7 +3,7 @@ import "server-only";
 import client from "./client";
 import { EducationEntrySkeleton } from "./types";
 
-export default async function getEducations() {
+const getEducations = async () => {
   // Contentful always place undefined fields at the bottom,
   // so we first sort in ASC and then reverse it
   // such that it's in DESC order while undefined values are at the top
@@ -19,7 +19,9 @@ export default async function getEducations() {
     ...item.fields,
     school: item.fields.school && {
       ...item.fields.school.fields,
-      logo: item.fields.school.fields.logo?.fields.file?.url,
+      logo:
+        item.fields.school.fields.logo?.fields.file &&
+        `https:${item.fields.school.fields.logo.fields.file.url}`,
     },
     supportingDocuments: item.fields.supportingDocuments
       ?.map((supportingDocument) =>
@@ -32,4 +34,6 @@ export default async function getEducations() {
       )
       .filter((elem): elem is { title: string; url: string } => Boolean(elem)),
   }));
-}
+};
+
+export default getEducations;

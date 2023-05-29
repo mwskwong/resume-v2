@@ -32,7 +32,7 @@ const sectionVariants: Record<
   contact: "default",
 };
 
-export default async function Home() {
+const Home = async () => {
   const [
     platformProfiles,
     skills,
@@ -94,4 +94,6 @@ export default async function Home() {
       </Section>
     </>
   );
-}
+};
+
+export default Home;

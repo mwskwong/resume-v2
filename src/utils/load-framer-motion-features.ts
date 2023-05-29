@@ -1,3 +1,4 @@
-export default function loadFramerMotionFeatures() {
-  return import("./framer-motion-features").then((res) => res.default);
-}
+const loadFramerMotionFeatures = () =>
+  import("./framer-motion-features").then((res) => res.default);
+
+export default loadFramerMotionFeatures;

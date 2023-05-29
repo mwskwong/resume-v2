@@ -9,6 +9,7 @@ import {
   Theme,
   Typography,
 } from "@mui/material";
+import { FC } from "react";
 
 import FooterDivider from "@/components/shared/dividers/footer";
 import PlatformProfiles from "@/components/shared/platform-profiles";
@@ -25,7 +26,7 @@ interface Props extends BoxProps {
   }[];
 }
 
-export default function Footer({ platformProfiles, sx, ...props }: Props) {
+const Footer: FC<Props> = ({ platformProfiles, sx, ...props }) => {
   const year = new Date().getFullYear();
   const textSx: SxProps<Theme> = {
     color: "inherit",
@@ -77,4 +78,6 @@ export default function Footer({ platformProfiles, sx, ...props }: Props) {
       </Box>
     </>
   );
-}
+};
+
+export default Footer;

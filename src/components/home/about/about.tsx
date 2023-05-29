@@ -1,11 +1,11 @@
 "use client";
 
-import { Container, ContainerProps, Stack } from "@mui/material";
-import { CircleSlice2 } from "mdi-material-ui";
+import { Container, ContainerProps, Stack, Typography } from "@mui/material";
+import { FC } from "react";
 
 import Image from "@/components/shared/image";
-import SectionHeader from "@/components/shared/section-header";
 import { firstName, lastName } from "@/constants/data";
+import { contentfulLoader } from "@/utils/image-loaders";
 
 import Message from "./message";
 import Skills from "./skills";
@@ -19,13 +19,14 @@ interface Props extends ContainerProps {
   }[];
 }
 
-export default function About({ skills, personalPhoto, ...props }: Props) {
+const About: FC<Props> = ({ skills, personalPhoto, ...props }) => {
   return (
     <Container {...props}>
       <Stack spacing={6} sx={{ alignItems: "center" }}>
-        <SectionHeader heading="About" icon={<CircleSlice2 />} />
+        <Typography variant="h2">About</Typography>
         {personalPhoto && (
           <Image
+            loader={contentfulLoader}
             src={personalPhoto}
             alt={`Picture of ${firstName} ${lastName}`}
             width={200}
@@ -38,4 +39,6 @@ export default function About({ skills, personalPhoto, ...props }: Props) {
       </Stack>
     </Container>
   );
-}
+};
+
+export default About;

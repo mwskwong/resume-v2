@@ -3,7 +3,7 @@ import "server-only";
 
 import client from "./client";
 
-export default async function getSupportingDocuments() {
+const getSupportingDocuments = async () => {
   const { items } = await client.getAssets({
     "metadata.tags.sys.id[in]": ["supportingDocument"],
   });
@@ -24,4 +24,6 @@ export default async function getSupportingDocuments() {
         lastModified: EntryFields.Date;
       } => Boolean(supportingDocument)
     );
-}
+};
+
+export default getSupportingDocuments;

@@ -1,14 +1,17 @@
 import { SvgIcon, SvgIconProps } from "@mui/material";
+import { FC } from "react";
 import { siUdemy } from "simple-icons";
 
 import cx from "@/utils/cx";
 
 import thirdPartyIconSx from "./third-party-icon-sx";
 
-export default function Udemy({ sx, ...props }: SvgIconProps) {
+const Udemy: FC<SvgIconProps> = ({ sx, ...props }) => {
   return (
     <SvgIcon color="udemy" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siUdemy.path} />
     </SvgIcon>
   );
-}
+};
+
+export default Udemy;

@@ -1,8 +1,6 @@
 import { MetadataRoute } from "next";
 
-export const runtime = "edge";
-
-export default function robots(): MetadataRoute.Robots {
+const robots = (): MetadataRoute.Robots => {
   return {
     rules: {
       userAgent: "*",
@@ -11,4 +9,8 @@ export default function robots(): MetadataRoute.Robots {
     host: process.env.NEXT_PUBLIC_URL,
     sitemap: `${process.env.NEXT_PUBLIC_URL}/sitemap.xml`,
   };
-}
+};
+
+export const runtime = "edge";
+
+export default robots;
