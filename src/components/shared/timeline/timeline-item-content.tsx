@@ -16,7 +16,7 @@ import Image from "@/components/shared/image";
 
 import { TimelineItemData } from "./types";
 
-const imageLoader: ImageLoader = ({ src, width }) =>
+const thumIoLoader: ImageLoader = ({ src, width }) =>
   `https://image.thum.io/get/pdfSource/width/${width}/page/1/${src}`;
 
 export default function TimelineItemContent({
@@ -55,7 +55,7 @@ export default function TimelineItemContent({
                 target="_blank"
               >
                 <Image
-                  loader={imageLoader}
+                  loader={thumIoLoader}
                   src={url}
                   alt={title}
                   width={100}
