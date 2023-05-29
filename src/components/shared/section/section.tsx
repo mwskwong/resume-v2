@@ -10,6 +10,7 @@ import {
   inputBaseClasses,
 } from "@mui/material";
 import deepRenameKeys from "deep-rename-keys-ts";
+import { FC } from "react";
 
 import cx from "@/utils/cx";
 
@@ -21,12 +22,12 @@ interface Props extends BoxProps {
   fullHeight?: boolean;
 }
 
-export default function Section({
+const Section: FC<Props> = ({
   variant = "default",
   fullHeight = false,
   sx,
   ...props
-}: Props) {
+}) => {
   return (
     <Box
       component="section"
@@ -68,4 +69,6 @@ export default function Section({
       {...props}
     />
   );
-}
+};
+
+export default Section;

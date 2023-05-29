@@ -1,14 +1,17 @@
 import { SvgIcon, SvgIconProps } from "@mui/material";
+import { FC } from "react";
 import { siMicrosoft } from "simple-icons";
 
 import cx from "@/utils/cx";
 
 import thirdPartyIconSx from "./third-party-icon-sx";
 
-export default function Microsoft({ sx, ...props }: SvgIconProps) {
+const Microsoft: FC<SvgIconProps> = ({ sx, ...props }) => {
   return (
     <SvgIcon color="microsoft" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siMicrosoft.path} />
     </SvgIcon>
   );
-}
+};
+
+export default Microsoft;

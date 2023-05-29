@@ -2,10 +2,24 @@ import { ImageResponse } from "next/server";
 
 import Icon from "@/components/shared/icon";
 
-const icon = ({ id }: { id: string }) => {
-  const size = { width: parseInt(id), height: parseInt(id) };
-  return new ImageResponse(<Icon size={size} rounded />, size);
-};
+const icon = ({ id }: { id: string }) =>
+  new ImageResponse(
+    (
+      <div
+        style={{
+          background: "white",
+          display: "flex",
+          padding: "20%",
+          borderRadius: "25%",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <Icon width="100%" />
+      </div>
+    ),
+    { width: parseInt(id), height: parseInt(id) }
+  );
 
 export const runtime = "edge";
 export const generateImageMetadata = () => {

@@ -1,12 +1,11 @@
 import {
-  AllInclusiveRounded as AllInclusive,
-  BugReportRounded as BugReport,
-  DashboardRounded as Dashboard,
-  DevicesOtherRounded as DevicesOther,
-  CloudRounded as MuiCloud,
-  TerminalRounded as Terminal,
+  TerminalRounded as Backend,
+  CloudRounded as Cloud,
+  AllInclusiveRounded as DataOps,
+  DashboardRounded as Frontend,
+  DevicesOtherRounded as Mobile,
+  BugReportRounded as QualityAssurance,
 } from "@mui/icons-material";
-import { SvgIconProps } from "@mui/material";
 
 import Database from "./database";
 import DataCamp from "./datacamp";
@@ -20,30 +19,6 @@ import MongoDB from "./mongodb";
 import Oracle from "./oracle";
 import StackOverflow from "./stackoverflow";
 import Udemy from "./udemy";
-
-function Backend(props: SvgIconProps) {
-  return <Terminal {...props} />;
-}
-
-function Cloud(props: SvgIconProps) {
-  return <MuiCloud {...props} />;
-}
-
-function DataOps(props: SvgIconProps) {
-  return <AllInclusive {...props} />;
-}
-
-function Frontend(props: SvgIconProps) {
-  return <Dashboard {...props} />;
-}
-
-function QualityAssurance(props: SvgIconProps) {
-  return <BugReport {...props} />;
-}
-
-function Mobile(props: SvgIconProps) {
-  return <DevicesOther {...props} />;
-}
 
 const Icons = {
   "39xxsgQxQ8QkkLanehShwM": DataCamp,
@@ -66,8 +41,10 @@ const Icons = {
   "119H1LBXMmT8xLTdnAq1PS": QualityAssurance,
 };
 
-export default function getIconByContentfulId(id: string) {
+const getIconByContentfulId = (id: string) => {
   if (Object.hasOwn(Icons, id)) {
     return Icons[id as keyof typeof Icons];
   }
-}
+};
+
+export default getIconByContentfulId;

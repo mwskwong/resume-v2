@@ -1,14 +1,17 @@
 import { SvgIcon, SvgIconProps } from "@mui/material";
+import { FC } from "react";
 import { siOracle } from "simple-icons";
 
 import cx from "@/utils/cx";
 
 import thirdPartyIconSx from "./third-party-icon-sx";
 
-export default function Oracle({ sx, ...props }: SvgIconProps) {
+const Oracle: FC<SvgIconProps> = ({ sx, ...props }) => {
   return (
     <SvgIcon color="oracle" sx={cx(thirdPartyIconSx, sx)} {...props}>
       <path d={siOracle.path} />
     </SvgIcon>
   );
-}
+};
+
+export default Oracle;

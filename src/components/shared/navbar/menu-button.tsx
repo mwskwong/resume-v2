@@ -3,6 +3,7 @@ import {
   MenuRounded as Menu,
 } from "@mui/icons-material";
 import { IconButton, IconButtonProps, SxProps, Theme } from "@mui/material";
+import { FC } from "react";
 
 import cx from "@/utils/cx";
 
@@ -11,12 +12,12 @@ interface Props extends Omit<IconButtonProps, "onClick"> {
   onToggleMenu?: IconButtonProps["onClick"];
 }
 
-export default function MenuButton({
+const MenuButton: FC<Props> = ({
   sx: sxProps,
   menuOpen,
   onToggleMenu,
   ...props
-}: Props) {
+}) => {
   const iconSx: SxProps<Theme> = {
     gridColumnStart: 1,
     gridRowStart: 1,
@@ -71,4 +72,6 @@ export default function MenuButton({
       />
     </IconButton>
   );
-}
+};
+
+export default MenuButton;

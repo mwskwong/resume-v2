@@ -1,4 +1,5 @@
 import { Box, BoxProps, Stack } from "@mui/material";
+import { FC } from "react";
 
 import cx from "@/utils/cx";
 
@@ -7,7 +8,7 @@ import TimelineItemContent from "./timeline-item-content";
 import TimelineItemHeader from "./timeline-item-header";
 import { TimelineItemData } from "./types";
 
-export default function TimelineItem({
+const TimelineItem: FC<BoxProps & TimelineItemData> = ({
   thumbnails,
   title,
   subtitle,
@@ -19,7 +20,7 @@ export default function TimelineItem({
   supportingDocuments,
   sx,
   ...props
-}: BoxProps & TimelineItemData) {
+}) => {
   return (
     <Box sx={cx({ display: "flex", gap: 2, pb: 6 }, sx)} {...props}>
       <OrganizationThumbnail images={thumbnails} />
@@ -43,4 +44,6 @@ export default function TimelineItem({
       </Stack>
     </Box>
   );
-}
+};
+
+export default TimelineItem;

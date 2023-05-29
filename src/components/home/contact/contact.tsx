@@ -11,9 +11,14 @@ import {
   SmartphoneRounded as Mobile,
 } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Alert, Container, Unstable_Grid2 as Grid, Stack } from "@mui/material";
+import {
+  Alert,
+  Container,
+  Unstable_Grid2 as Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
-import { CircleSlice8 } from "mdi-material-ui";
 import { FC, useEffect } from "react";
 import {
   FormContainer,
@@ -21,7 +26,6 @@ import {
   useForm as useHookForm,
 } from "react-hook-form-mui";
 
-import SectionHeader from "@/components/shared/section-header";
 import { address, email, phone } from "@/constants/data";
 import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
 
@@ -80,7 +84,9 @@ const Contact: FC = () => {
   return (
     <Container>
       <Stack spacing={6}>
-        <SectionHeader heading="Contact" icon={<CircleSlice8 />} />
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
+          Contact
+        </Typography>
         <FormContainer
           formContext={hookFormContext}
           onSuccess={handleFormspreeSubmit}
@@ -143,7 +149,7 @@ const Contact: FC = () => {
                 <LazyMotion features={loadFramerMotionFeatures}>
                   {state.errors.map(({ message }, index) => (
                     <MotionAlert
-                      key={message}
+                      key={index}
                       severity="error"
                       initial={{ y: -10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}

@@ -20,9 +20,8 @@ const getRubikMedium = async () => {
   return rubikMedium;
 };
 
-const openGraphImage = async () => {
-  const iconSize = { width: 170, height: 170 };
-  return new ImageResponse(
+const openGraphImage = async () =>
+  new ImageResponse(
     (
       <div
         style={{
@@ -37,12 +36,12 @@ const openGraphImage = async () => {
           color: "#1a2027",
         }}
       >
-        <Icon size={iconSize} disableBackground />
+        <Icon width={170} />
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: (iconSize.width / 2) * 1.15,
+            fontSize: 98.54,
             lineHeight: 1,
             textTransform: "uppercase",
             marginLeft: 16,
@@ -64,6 +63,5 @@ const openGraphImage = async () => {
       ],
     }
   );
-};
 
 export default openGraphImage;

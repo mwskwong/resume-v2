@@ -25,7 +25,6 @@
     "deep-rename-keys-ts": "^1.0.1",
     "framer-motion": "^10.12.16",
     "lodash-es": "^4.17.21",
-    "mdi-material-ui": "^7.7.0",
     "next": "^13.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

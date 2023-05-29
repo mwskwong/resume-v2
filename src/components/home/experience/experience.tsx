@@ -1,10 +1,8 @@
 "use client";
 
-import { Container, ContainerProps, Stack } from "@mui/material";
-import { CircleSlice4 } from "mdi-material-ui";
+import { Container, ContainerProps, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 
-import SectionHeader from "@/components/shared/section-header";
 import Timeline, { TimelineItemData } from "@/components/shared/timeline";
 
 interface Props extends ContainerProps {
@@ -69,7 +67,9 @@ const Experience: FC<Props> = ({ experiences = [], ...props }) => {
   return (
     <Container {...props}>
       <Stack spacing={6}>
-        <SectionHeader heading="Experience" icon={<CircleSlice4 />} />
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
+          Experience
+        </Typography>
         <Timeline data={data} />
       </Stack>
     </Container>

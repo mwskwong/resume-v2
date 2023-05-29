@@ -1,4 +1,5 @@
 import { Box, BoxProps, ButtonBase, SxProps, Theme } from "@mui/material";
+import { FC } from "react";
 
 import Image from "@/components/shared/image";
 import { contentfulLoader } from "@/utils/image-loaders";
@@ -9,25 +10,8 @@ interface Props extends BoxProps {
   images?: [Thumbnail] | [Thumbnail, Thumbnail];
 }
 
-export default function OrganizationThumbnail({ images, ...props }: Props) {
+const OrganizationThumbnail: FC<Props> = ({ images, ...props }) => {
   const size = { width: 56, height: 56 };
-
-  function getLinkSx(index: number): SxProps<Theme> {
-    return {
-      borderRadius: 1,
-      gridColumnStart: 1,
-      gridRowStart: 1,
-      position: "relative",
-      overflow: "hidden",
-      ...size,
-      clipPath:
-        images?.length === 2
-          ? index === 0
-            ? "polygon(0 0, 100% 0, 0 100%)"
-            : "polygon(100% 100%, 100% 0, 0 100%)"
-          : undefined,
-    };
-  }
 
   return (
     <Box
@@ -46,7 +30,20 @@ export default function OrganizationThumbnail({ images, ...props }: Props) {
           component="a"
           href={url}
           target="_blank"
-          sx={getLinkSx(index)}
+          sx={{
+            borderRadius: 1,
+            gridColumnStart: 1,
+            gridRowStart: 1,
+            position: "relative",
+            overflow: "hidden",
+            ...size,
+            clipPath:
+              images.length === 2
+                ? index === 0
+                  ? "polygon(0 0, 100% 0, 0 100%)"
+                  : "polygon(100% 100%, 100% 0, 0 100%)"
+                : undefined,
+          }}
         >
           <Image
             loader={contentfulLoader}
@@ -59,4 +56,6 @@ export default function OrganizationThumbnail({ images, ...props }: Props) {
       ))}
     </Box>
   );
-}
+};
+
+export default OrganizationThumbnail;

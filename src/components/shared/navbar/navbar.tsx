@@ -11,7 +11,7 @@ import {
   Toolbar,
   useMediaQuery,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import nav from "@/constants/nav";
 import useActiveSectionId from "@/hooks/use-active-section-id";
@@ -21,7 +21,7 @@ import MenuButton from "./menu-button";
 import NavButton from "./nav-button";
 import NavListItem from "./nav-list-item";
 
-export default function NavBar() {
+const NavBar: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   const preferReducedMotion = useMediaQuery("(prefers-reduced-motion)");
@@ -32,14 +32,6 @@ export default function NavBar() {
       setMenuOpen(false);
     }
   }, [mdUp]);
-
-  function handleMenuToggle() {
-    setMenuOpen((menuOpen) => !menuOpen);
-  }
-
-  function handleMenuClickAway() {
-    setMenuOpen(false);
-  }
 
   return (
     <AppBar>
@@ -73,7 +65,7 @@ export default function NavBar() {
               },
             }}
             menuOpen={menuOpen}
-            onToggleMenu={handleMenuToggle}
+            onToggleMenu={() => setMenuOpen((menuOpen) => !menuOpen)}
             edge="end"
           />
         </Toolbar>
@@ -83,7 +75,7 @@ export default function NavBar() {
           unmountOnExit
           sx={{ mx: -2 }}
         >
-          <ClickAwayListener onClickAway={handleMenuClickAway}>
+          <ClickAwayListener onClickAway={() => setMenuOpen(false)}>
             <List dense component="nav" aria-label="nav list">
               {Object.values(nav).map(({ id, name }) => (
                 <NavListItem
@@ -99,4 +91,6 @@ export default function NavBar() {
       </Container>
     </AppBar>
   );
-}
+};
+
+export default NavBar;
