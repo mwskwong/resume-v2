@@ -5,13 +5,7 @@ import {
   Typography,
 } from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
-import {
-  ChangeEventHandler,
-  FC,
-  useDeferredValue,
-  useMemo,
-  useState,
-} from "react";
+import { FC, useDeferredValue, useMemo, useState } from "react";
 
 import CertificateCard from "@/components/shared/certificate-card";
 import SearchField from "@/components/shared/search-field";
@@ -51,10 +45,6 @@ const Courses: FC<Props> = ({ courses = [], sx, ...props }) => {
     [courses, deferredQuery]
   );
 
-  const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) =>
-    setQuery(event.target.value);
-  const handleSearchClear = () => setQuery("");
-
   return (
     <Stack spacing={2} sx={cx({ alignItems: "stretch" }, sx)} {...props}>
       <Typography
@@ -67,8 +57,8 @@ const Courses: FC<Props> = ({ courses = [], sx, ...props }) => {
       <SearchField
         sx={{ alignSelf: "center", width: "100%" }}
         value={query}
-        onChange={handleSearch}
-        onClear={handleSearchClear}
+        onChange={(event) => setQuery(event.target.value)}
+        onClear={() => setQuery("")}
         inputProps={{ "aria-label": "search courses and training" }}
       />
       <div>
