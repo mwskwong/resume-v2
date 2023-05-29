@@ -1,4 +1,4 @@
-import { Box, BoxProps, ButtonBase, SxProps, Theme } from "@mui/material";
+import { Box, BoxProps, ButtonBase } from "@mui/material";
 import { FC } from "react";
 
 import Image from "@/components/shared/image";
