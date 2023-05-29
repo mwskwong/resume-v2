@@ -10,7 +10,6 @@ import {
   Stack,
   StackProps,
 } from "@mui/material";
-import { ImageLoader } from "next/image";
 
 import Image from "@/components/shared/image";
 import { thumIoLoader } from "@/utils/image-loaders";
