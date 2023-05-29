@@ -13,11 +13,9 @@ import {
 import { ImageLoader } from "next/image";
 
 import Image from "@/components/shared/image";
+import { thumIoLoader } from "@/utils/image-loaders";
 
 import { TimelineItemData } from "./types";
-
-const thumIoLoader: ImageLoader = ({ src, width }) =>
-  `https://image.thum.io/get/pdfSource/width/${width}/page/1/${src}`;
 
 export default function TimelineItemContent({
   contents = [],

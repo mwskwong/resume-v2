@@ -6,6 +6,7 @@ import { CircleSlice2 } from "mdi-material-ui";
 import Image from "@/components/shared/image";
 import SectionHeader from "@/components/shared/section-header";
 import { firstName, lastName } from "@/constants/data";
+import { contentfulLoader } from "@/utils/image-loaders";
 
 import Message from "./message";
 import Skills from "./skills";
@@ -26,6 +27,7 @@ export default function About({ skills, personalPhoto, ...props }: Props) {
         <SectionHeader heading="About" icon={<CircleSlice2 />} />
         {personalPhoto && (
           <Image
+            loader={contentfulLoader}
             src={personalPhoto}
             alt={`Picture of ${firstName} ${lastName}`}
             width={200}

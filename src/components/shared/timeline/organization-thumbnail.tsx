@@ -1,6 +1,7 @@
 import { Box, BoxProps, ButtonBase, SxProps, Theme } from "@mui/material";
 
 import Image from "@/components/shared/image";
+import { contentfulLoader } from "@/utils/image-loaders";
 
 import { Thumbnail } from "./types";
 
@@ -47,7 +48,13 @@ export default function OrganizationThumbnail({ images, ...props }: Props) {
           target="_blank"
           sx={getLinkSx(index)}
         >
-          <Image src={src} alt={alt} width={56} height={56} />
+          <Image
+            loader={contentfulLoader}
+            src={src}
+            alt={alt}
+            width={56}
+            height={56}
+          />
         </ButtonBase>
       ))}
     </Box>
