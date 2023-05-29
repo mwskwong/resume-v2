@@ -1,8 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -25,18 +21,15 @@ const nextConfig = {
       { hostname: "image.thum.io" },
     ],
   },
-  webpack(config, { isServer }) {
+  webpack(config) {
     // load PDF files as assets
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     config.module.rules.push({
       test: /\.pdf$/i,
       type: "asset/resource",
     });
 
-    if (isServer) {
-      // react-pdf needs to use canvas which doesn't support SSR
-      config.resolve.alias.canvas = false;
-    }
-
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return config;
   },
   modularizeImports: {
@@ -80,7 +73,7 @@ const nextConfig = {
           },
           {
             key: "Referrer-Policy",
-            value: "no-referrer-when-downgrade",
+            value: "origin-when-cross-origin",
           },
         ],
       },
