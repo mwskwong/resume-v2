@@ -19,7 +19,9 @@ const getEducations = async () => {
     ...item.fields,
     school: item.fields.school && {
       ...item.fields.school.fields,
-      logo: item.fields.school.fields.logo?.fields.file?.url,
+      logo:
+        item.fields.school.fields.logo?.fields.file &&
+        `https:${item.fields.school.fields.logo.fields.file.url}`,
     },
     supportingDocuments: item.fields.supportingDocuments
       ?.map((supportingDocument) =>

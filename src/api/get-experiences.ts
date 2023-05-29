@@ -42,7 +42,9 @@ const getExperiences = async () => {
       )
       .map((company) => ({
         ...company.fields,
-        logo: company.fields.logo?.fields.file?.url,
+        logo:
+          company.fields.logo?.fields.file &&
+          `https:${company.fields.logo.fields.file.url}`,
       })),
     supportingDocuments: item.fields.supportingDocuments
       ?.map((supportingDocument) =>
