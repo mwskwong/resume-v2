@@ -8,7 +8,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "edge";
 
-async function getRubikMedium() {
+const getRubikMedium = async () => {
   const response = await fetch(
     new URL(
       "@fontsource/rubik/files/rubik-latin-500-normal.woff",
@@ -18,9 +18,9 @@ async function getRubikMedium() {
   const rubikMedium = await response.arrayBuffer();
 
   return rubikMedium;
-}
+};
 
-export default async function openGraphImage() {
+const openGraphImage = async () => {
   const iconSize = { width: 170, height: 170 };
   return new ImageResponse(
     (
@@ -64,4 +64,6 @@ export default async function openGraphImage() {
       ],
     }
   );
-}
+};
+
+export default openGraphImage;

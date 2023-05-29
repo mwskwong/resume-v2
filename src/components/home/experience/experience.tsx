@@ -2,6 +2,7 @@
 
 import { Container, ContainerProps, Stack } from "@mui/material";
 import { CircleSlice4 } from "mdi-material-ui";
+import { FC } from "react";
 
 import SectionHeader from "@/components/shared/section-header";
 import Timeline, { TimelineItemData } from "@/components/shared/timeline";
@@ -27,7 +28,7 @@ interface Props extends ContainerProps {
   }[];
 }
 
-export default function Experience({ experiences = [], ...props }: Props) {
+const Experience: FC<Props> = ({ experiences = [], ...props }) => {
   const data: TimelineItemData[] = experiences.map(
     ({
       from,
@@ -47,7 +48,7 @@ export default function Experience({ experiences = [], ...props }: Props) {
           ? undefined
           : (companies
               .map(({ logo, name, url }) => ({
-                src: logo ? `https:${logo}` : "",
+                src: logo,
                 alt: name,
                 url: url,
               }))
@@ -73,4 +74,6 @@ export default function Experience({ experiences = [], ...props }: Props) {
       </Stack>
     </Container>
   );
-}
+};
+
+export default Experience;

@@ -5,7 +5,13 @@ import {
   Typography,
 } from "@mui/material";
 import { LazyMotion, m } from "framer-motion";
-import { ChangeEventHandler, useDeferredValue, useMemo, useState } from "react";
+import {
+  ChangeEventHandler,
+  FC,
+  useDeferredValue,
+  useMemo,
+  useState,
+} from "react";
 
 import CertificateCard from "@/components/shared/certificate-card";
 import SearchField from "@/components/shared/search-field";
@@ -26,7 +32,7 @@ interface Props extends StackProps {
 const MotionGrid = m(Grid);
 
 // TODO: fetch courses here directly once hitting MUI v6
-export default function Courses({ courses = [], sx, ...props }: Props) {
+const Courses: FC<Props> = ({ courses = [], sx, ...props }) => {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const filteredCourses = useMemo(
@@ -84,4 +90,6 @@ export default function Courses({ courses = [], sx, ...props }: Props) {
       </div>
     </Stack>
   );
-}
+};
+
+export default Courses;

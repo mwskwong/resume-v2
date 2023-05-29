@@ -2,8 +2,13 @@ import { ImageResponse } from "next/server";
 
 import Icon from "@/components/shared/icon";
 
+const icon = ({ id }: { id: string }) => {
+  const size = { width: parseInt(id), height: parseInt(id) };
+  return new ImageResponse(<Icon size={size} rounded />, size);
+};
+
 export const runtime = "edge";
-export function generateImageMetadata() {
+export const generateImageMetadata = () => {
   return [
     {
       id: "32",
@@ -21,9 +26,6 @@ export function generateImageMetadata() {
       size: { width: 512, height: 512 },
     },
   ];
-}
+};
 
-export default function icon({ id }: { id: string }) {
-  const size = { width: parseInt(id), height: parseInt(id) };
-  return new ImageResponse(<Icon size={size} rounded />, size);
-}
+export default icon;

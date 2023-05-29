@@ -7,6 +7,7 @@ import {
   ContainerProps,
   Typography,
 } from "@mui/material";
+import { FC } from "react";
 
 import PlatformProfiles from "@/components/shared/platform-profiles";
 import { firstName, jobTitles } from "@/constants/data";
@@ -23,12 +24,7 @@ interface Props extends ContainerProps {
   resume?: string;
 }
 
-export default function Hero({
-  platformProfiles,
-  resume,
-  sx,
-  ...props
-}: Props) {
+const Hero: FC<Props> = ({ platformProfiles, resume, sx, ...props }) => {
   return (
     <Container
       sx={cx(
@@ -68,4 +64,6 @@ export default function Hero({
       </Button>
     </Container>
   );
-}
+};
+
+export default Hero;

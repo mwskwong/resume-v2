@@ -3,15 +3,11 @@
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { useServerInsertedHTML } from "next/navigation";
-import { PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useState } from "react";
 
 // Workaround until Emotion supports Next.js /app dir properly
-export default function EmotionRegistry({ children }: PropsWithChildren) {
-  const [cache] = useState(() => {
-    const cache = createCache({ key: "css" });
-    // cache.compat = true;
-    return cache;
-  });
+const EmotionRegistry: FC<PropsWithChildren> = ({ children }) => {
+  const [cache] = useState(createCache({ key: "css" }));
 
   useServerInsertedHTML(() => (
     <style
@@ -23,4 +19,6 @@ export default function EmotionRegistry({ children }: PropsWithChildren) {
   ));
 
   return <CacheProvider value={cache}>{children}</CacheProvider>;
-}
+};
+
+export default EmotionRegistry;

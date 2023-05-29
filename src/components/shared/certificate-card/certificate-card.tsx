@@ -5,6 +5,7 @@ import {
   CardProps,
   Typography,
 } from "@mui/material";
+import { FC } from "react";
 
 import { getIconByContentfulId } from "../icons";
 
@@ -18,13 +19,13 @@ interface Props extends CardProps {
   certificateUrl?: string;
 }
 
-export default function CertificateCard({
+const CertificateCard: FC<Props> = ({
   name,
   organization,
   status,
   certificateUrl,
   ...props
-}: Props) {
+}) => {
   const Icon = organization && getIconByContentfulId(organization.id);
 
   return (
@@ -51,4 +52,6 @@ export default function CertificateCard({
       </CardActionArea>
     </Card>
   );
-}
+};
+
+export default CertificateCard;

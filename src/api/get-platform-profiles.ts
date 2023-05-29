@@ -4,7 +4,7 @@ import "server-only";
 import client from "./client";
 import { PlatformProfileEntrySkeleton } from "./types";
 
-export default async function getPlatformProfiles() {
+const getPlatformProfiles = async () => {
   const { items } =
     await client.withoutUnresolvableLinks.getEntries<PlatformProfileEntrySkeleton>(
       { content_type: "platformProfile" }
@@ -19,4 +19,6 @@ export default async function getPlatformProfiles() {
   }));
 
   return orderBy(platformProfiles, "platform.name");
-}
+};
+
+export default getPlatformProfiles;

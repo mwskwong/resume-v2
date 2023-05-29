@@ -2,6 +2,7 @@
 
 import { Container, ContainerProps, Stack } from "@mui/material";
 import { CircleSlice2 } from "mdi-material-ui";
+import { FC } from "react";
 
 import Image from "@/components/shared/image";
 import SectionHeader from "@/components/shared/section-header";
@@ -20,7 +21,7 @@ interface Props extends ContainerProps {
   }[];
 }
 
-export default function About({ skills, personalPhoto, ...props }: Props) {
+const About: FC<Props> = ({ skills, personalPhoto, ...props }) => {
   return (
     <Container {...props}>
       <Stack spacing={6} sx={{ alignItems: "center" }}>
@@ -40,4 +41,6 @@ export default function About({ skills, personalPhoto, ...props }: Props) {
       </Stack>
     </Container>
   );
-}
+};
+
+export default About;

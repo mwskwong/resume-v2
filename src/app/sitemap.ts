@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 import { getSupportingDocuments } from "@/api";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const siteUrl = process.env.NEXT_PUBLIC_URL;
   const supportingDocuments = await getSupportingDocuments();
 
@@ -13,4 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...supportingDocuments,
   ];
-}
+};
+
+export default sitemap;

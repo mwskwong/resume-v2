@@ -4,11 +4,13 @@ import getBgColor from "@/components/shared/section/get-bgcolor";
 
 import { SectionDividerProps } from "./types";
 
-export default function useSectionDividerSx({
-  sectionVariants = {},
-}: SectionDividerProps): SxProps<Theme> {
+type UseSectionDividerSx = (props: SectionDividerProps) => SxProps<Theme>;
+
+const useSectionDividerSx: UseSectionDividerSx = ({ sectionVariants = {} }) => {
   return {
     bgcolor: `background.${getBgColor(sectionVariants.previous)}`,
     color: `background.${getBgColor(sectionVariants.next)}`,
   };
-}
+};
+
+export default useSectionDividerSx;
