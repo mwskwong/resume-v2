@@ -39,7 +39,7 @@ export default function Timeline({ data = [], ...props }: Props) {
                 from={from}
                 to={to}
                 {...rest}
-                hideConnector={last}
+                disableConnector={last}
               />
             </Fragment>
           );
