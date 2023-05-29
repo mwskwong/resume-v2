@@ -8,7 +8,7 @@ import TimelineItemHeader from "./timeline-item-header";
 import { TimelineItemData } from "./types";
 
 interface Props extends BoxProps, Omit<TimelineItemData, "subtitle"> {
-  disableConnector?: boolean;
+  hideConnector?: boolean;
 }
 
 export default function TimelineSubitem({
@@ -19,7 +19,7 @@ export default function TimelineSubitem({
   contents,
   tags,
   supportingDocuments,
-  disableConnector,
+  hideConnector,
   sx,
   ...props
 }: Props) {
@@ -28,7 +28,7 @@ export default function TimelineSubitem({
       <Box sx={{ display: "flex", justifyContent: "center", width: 56 }}>
         <TimelineSeparator>
           <TimelineDot />
-          {!disableConnector && <TimelineConnector />}
+          {!hideConnector && <TimelineConnector />}
         </TimelineSeparator>
       </Box>
       <Stack spacing={2} sx={{ flex: 1, pt: "5px", pb: 6 }}>
