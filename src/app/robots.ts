@@ -6,7 +6,6 @@ const robots = (): MetadataRoute.Robots => ({
     allow: "/",
   },
   host: process.env.NEXT_PUBLIC_URL,
-  sitemap: `${process.env.NEXT_PUBLIC_URL}/sitemap.xml`,
 });
 
 export const runtime = "edge";
