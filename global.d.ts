@@ -9,11 +9,6 @@ declare global {
       CF_DELIVERY_ACCESS_TOKEN: string;
     }
   }
-
-  module "*.pdf" {
-    const content: string;
-    export default content;
-  }
 }
 
 export {};

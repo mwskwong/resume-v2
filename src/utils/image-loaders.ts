@@ -10,4 +10,4 @@ export const contentfulLoader: ImageLoader = ({ src, quality, width }) => {
 };
 
 export const thumIoLoader: ImageLoader = ({ src, width }) =>
-  `https://image.thum.io/get/pdfSource/width/${width}/page/1/${src}`;
+  `https://image.thum.io/get/pdfSource/width/${width}/${src}`;
