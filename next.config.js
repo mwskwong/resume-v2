@@ -14,24 +14,6 @@ const nextConfig = {
       exclude: ["error"],
     },
   },
-  images: {
-    formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      { hostname: "images.ctfassets.net" },
-      { hostname: "image.thum.io" },
-    ],
-  },
-  webpack: (config) => {
-    // load PDF files as assets
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    config.module.rules.push({
-      test: /\.pdf$/i,
-      type: "asset/resource",
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return config;
-  },
   modularizeImports: {
     "@mui/icons-material": {
       transform: "@mui/icons-material/{{member}}",
@@ -39,10 +21,6 @@ const nextConfig = {
     },
     "date-fns": {
       transform: "date-fns/{{member}}",
-      preventFullImport: true,
-    },
-    "mdi-material-ui": {
-      transform: "mdi-material-ui/{{member}}",
       preventFullImport: true,
     },
   },
@@ -78,7 +56,6 @@ const nextConfig = {
     },
   ],
   experimental: {
-    appDir: true,
     typedRoutes: true,
   },
 };
