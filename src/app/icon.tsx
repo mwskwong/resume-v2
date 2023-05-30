@@ -9,8 +9,8 @@ const icon = ({ id }: { id: string }) =>
         style={{
           background: "white",
           display: "flex",
-          padding: "20%",
-          borderRadius: "25%",
+          padding: "15%",
+          borderRadius: "15%",
           width: "100%",
           height: "100%",
         }}
@@ -22,24 +22,22 @@ const icon = ({ id }: { id: string }) =>
   );
 
 export const runtime = "edge";
-export const generateImageMetadata = () => {
-  return [
-    {
-      id: "32",
-      contentType: "image/png",
-      size: { width: 32, height: 32 },
-    },
-    {
-      id: "192",
-      contentType: "image/png",
-      size: { width: 192, height: 192 },
-    },
-    {
-      id: "512",
-      contentType: "image/png",
-      size: { width: 512, height: 512 },
-    },
-  ];
-};
+export const generateImageMetadata = () => [
+  {
+    id: "32",
+    contentType: "image/png",
+    size: { width: 32, height: 32 },
+  },
+  {
+    id: "192",
+    contentType: "image/png",
+    size: { width: 192, height: 192 },
+  },
+  {
+    id: "512",
+    contentType: "image/png",
+    size: { width: 512, height: 512 },
+  },
+];
 
 export default icon;

@@ -24,46 +24,44 @@ interface Props extends ContainerProps {
   resume?: string;
 }
 
-const Hero: FC<Props> = ({ platformProfiles, resume, sx, ...props }) => {
-  return (
-    <Container
-      sx={cx(
-        {
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          flex: 1,
-          textAlign: "center",
-        },
-        sx
-      )}
-      {...props}
+const Hero: FC<Props> = ({ platformProfiles, resume, sx, ...props }) => (
+  <Container
+    sx={cx(
+      {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        flex: 1,
+        textAlign: "center",
+      },
+      sx
+    )}
+    {...props}
+  >
+    <Typography variant="subtitle1" component="p">
+      Hello,
+    </Typography>
+    <Typography variant="h1">
+      {"I'm "}
+      <Box component="span" sx={{ color: "primary.main" }}>
+        {firstName}
+      </Box>
+    </Typography>
+    <Typography variant="h6" component="p">
+      {jobTitles.join(" & ")}
+    </Typography>
+    <PlatformProfiles platformProfiles={platformProfiles} my={4} />
+    <Button
+      variant="contained"
+      size="large"
+      component="a"
+      href={resume}
+      target="_blank"
     >
-      <Typography variant="subtitle1" component="p">
-        Hello,
-      </Typography>
-      <Typography variant="h1">
-        {"I'm "}
-        <Box component="span" sx={{ color: "primary.main" }}>
-          {firstName}
-        </Box>
-      </Typography>
-      <Typography variant="h6" component="p">
-        {jobTitles.join(" & ")}
-      </Typography>
-      <PlatformProfiles platformProfiles={platformProfiles} my={4} />
-      <Button
-        variant="contained"
-        size="large"
-        component="a"
-        href={resume}
-        target="_blank"
-      >
-        Download Resume
-      </Button>
-    </Container>
-  );
-};
+      Download Resume
+    </Button>
+  </Container>
+);
 
 export default Hero;

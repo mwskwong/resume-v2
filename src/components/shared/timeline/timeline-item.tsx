@@ -20,30 +20,28 @@ const TimelineItem: FC<BoxProps & TimelineItemData> = ({
   supportingDocuments,
   sx,
   ...props
-}) => {
-  return (
-    <Box sx={cx({ display: "flex", gap: 2, pb: 6 }, sx)} {...props}>
-      <OrganizationThumbnail images={thumbnails} />
-      <Stack spacing={2} sx={{ flex: 1 }}>
-        <TimelineItemHeader
-          title={title}
-          subtitle={subtitle}
-          from={from}
-          to={to}
-          type={type}
+}) => (
+  <Box sx={cx({ display: "flex", gap: 2, pb: 6 }, sx)} {...props}>
+    <OrganizationThumbnail images={thumbnails} />
+    <Stack spacing={2} sx={{ flex: 1 }}>
+      <TimelineItemHeader
+        title={title}
+        subtitle={subtitle}
+        from={from}
+        to={to}
+        type={type}
+      />
+      {Boolean(
+        contents?.length ?? tags?.length ?? supportingDocuments?.length
+      ) && (
+        <TimelineItemContent
+          contents={contents}
+          tags={tags}
+          supportingDocuments={supportingDocuments}
         />
-        {Boolean(
-          contents?.length ?? tags?.length ?? supportingDocuments?.length
-        ) && (
-          <TimelineItemContent
-            contents={contents}
-            tags={tags}
-            supportingDocuments={supportingDocuments}
-          />
-        )}
-      </Stack>
-    </Box>
-  );
-};
+      )}
+    </Stack>
+  </Box>
+);
 
 export default TimelineItem;
