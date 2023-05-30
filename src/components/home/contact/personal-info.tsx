@@ -10,40 +10,38 @@ interface Props extends BoxProps {
   url?: string;
 }
 
-const PersonalInfo: FC<Props> = ({ Icon, title, value, url, sx, ...props }) => {
-  return (
-    <Box
-      sx={cx(
-        {
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        },
-        sx
-      )}
-      {...props}
+const PersonalInfo: FC<Props> = ({ Icon, title, value, url, sx, ...props }) => (
+  <Box
+    sx={cx(
+      {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      sx
+    )}
+    {...props}
+  >
+    {Icon && <Icon fontSize="large" />}
+    <Typography
+      sx={{
+        color: "primary.main",
+        mt: 2,
+      }}
+      gutterBottom
     >
-      {Icon && <Icon fontSize="large" />}
-      <Typography
-        sx={{
-          color: "primary.main",
-          mt: 2,
-        }}
-        gutterBottom
-      >
-        {title}
-      </Typography>
-      <Link
-        color="inherit"
-        underline="hover"
-        sx={{ zIndex: 1 }}
-        href={url}
-        target={url?.startsWith("http") ? "_blank" : undefined}
-      >
-        {value}
-      </Link>
-    </Box>
-  );
-};
+      {title}
+    </Typography>
+    <Link
+      color="inherit"
+      underline="hover"
+      sx={{ zIndex: 1 }}
+      href={url}
+      target={url?.startsWith("http") ? "_blank" : undefined}
+    >
+      {value}
+    </Link>
+  </Box>
+);
 
 export default PersonalInfo;

@@ -21,33 +21,31 @@ const PlatformProfiles: FC<Props> = ({
   platformProfiles = [],
   sx,
   ...props
-}) => {
-  return (
-    <Stack
-      spacing={1}
-      direction="row"
-      sx={cx({ justifyContent: "center" }, sx)}
-      {...props}
-    >
-      {platformProfiles.map(({ platform, url }) => {
-        if (platform) {
-          const Icon = getIconByContentfulId(platform.id);
+}) => (
+  <Stack
+    spacing={1}
+    direction="row"
+    sx={cx({ justifyContent: "center" }, sx)}
+    {...props}
+  >
+    {platformProfiles.map(({ platform, url }) => {
+      if (platform) {
+        const Icon = getIconByContentfulId(platform.id);
 
-          return (
-            <IconButton
-              key={platform.id}
-              color="inherit"
-              href={url}
-              target="_blank"
-              aria-label={`${platform.name} profile of ${firstName}`}
-            >
-              {Icon && <Icon />}
-            </IconButton>
-          );
-        }
-      })}
-    </Stack>
-  );
-};
+        return (
+          <IconButton
+            key={platform.id}
+            color="inherit"
+            href={url}
+            target="_blank"
+            aria-label={`${platform.name} profile of ${firstName}`}
+          >
+            {Icon && <Icon />}
+          </IconButton>
+        );
+      }
+    })}
+  </Stack>
+);
 
 export default PlatformProfiles;

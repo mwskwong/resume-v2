@@ -6,12 +6,10 @@ import cx from "@/utils/cx";
 
 import thirdPartyIconSx from "./third-party-icon-sx";
 
-const LinkedIn: FC<SvgIconProps> = ({ sx, ...props }) => {
-  return (
-    <SvgIcon sx={cx(thirdPartyIconSx, sx)} {...props}>
-      <path d={siLinkedin.path} />
-    </SvgIcon>
-  );
-};
+const LinkedIn: FC<SvgIconProps> = ({ sx, ...props }) => (
+  <SvgIcon sx={cx(thirdPartyIconSx, sx)} {...props}>
+    <path d={siLinkedin.path} />
+  </SvgIcon>
+);
 
 export default LinkedIn;

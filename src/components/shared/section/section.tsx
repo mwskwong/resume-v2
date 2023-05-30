@@ -27,48 +27,46 @@ const Section: FC<Props> = ({
   fullHeight = false,
   sx,
   ...props
-}) => {
-  return (
-    <Box
-      component="section"
-      sx={cx(
-        (theme) => ({
-          display: "flex",
-          flexDirection: "column",
-          bgcolor: `background.${getBgColor(variant)}`,
-          ...(deepRenameKeys(theme.mixins.toolbar, (key) => {
-            if (key === "minHeight") {
-              return "scrollPaddingTop";
-            }
+}) => (
+  <Box
+    component="section"
+    sx={cx(
+      (theme) => ({
+        display: "flex",
+        flexDirection: "column",
+        bgcolor: `background.${getBgColor(variant)}`,
+        ...(deepRenameKeys(theme.mixins.toolbar, (key) => {
+          if (key === "minHeight") {
+            return "scrollPaddingTop";
+          }
 
-            return key;
-          }) as typeof theme.mixins.toolbar),
-          py: 10,
-          minHeight: fullHeight ? "100vh" : undefined,
-          [`& .${avatarClasses.root}`]: {
+          return key;
+        }) as typeof theme.mixins.toolbar),
+        py: 10,
+        minHeight: fullHeight ? "100vh" : undefined,
+        [`& .${avatarClasses.root}`]: {
+          bgcolor: `background.${getPaperBgColor(variant)}`,
+        },
+        [`& .${cardClasses.root}`]: {
+          bgcolor: `background.${getPaperBgColor(variant)}`,
+        },
+        [`& .${filledInputClasses.root}`]: {
+          bgcolor: `background.${getPaperBgColor(variant)}`,
+          [`&:hover, &.${filledInputClasses.focused}`]: {
             bgcolor: `background.${getPaperBgColor(variant)}`,
           },
-          [`& .${cardClasses.root}`]: {
-            bgcolor: `background.${getPaperBgColor(variant)}`,
+          [`&.${filledInputClasses.disabled}`]: {
+            bgcolor: "action.disabledBackground",
           },
-          [`& .${filledInputClasses.root}`]: {
-            bgcolor: `background.${getPaperBgColor(variant)}`,
-            [`&:hover, &.${filledInputClasses.focused}`]: {
-              bgcolor: `background.${getPaperBgColor(variant)}`,
-            },
-            [`&.${filledInputClasses.disabled}`]: {
-              bgcolor: "action.disabledBackground",
-            },
-          },
-          [`& .${inputBaseClasses.root}`]: {
-            bgcolor: `background.${getPaperBgColor(variant)}`,
-          },
-        }),
-        sx
-      )}
-      {...props}
-    />
-  );
-};
+        },
+        [`& .${inputBaseClasses.root}`]: {
+          bgcolor: `background.${getPaperBgColor(variant)}`,
+        },
+      }),
+      sx
+    )}
+    {...props}
+  />
+);
 
 export default Section;

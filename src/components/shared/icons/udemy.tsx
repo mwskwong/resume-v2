@@ -6,12 +6,10 @@ import cx from "@/utils/cx";
 
 import thirdPartyIconSx from "./third-party-icon-sx";
 
-const Udemy: FC<SvgIconProps> = ({ sx, ...props }) => {
-  return (
-    <SvgIcon color="udemy" sx={cx(thirdPartyIconSx, sx)} {...props}>
-      <path d={siUdemy.path} />
-    </SvgIcon>
-  );
-};
+const Udemy: FC<SvgIconProps> = ({ sx, ...props }) => (
+  <SvgIcon color="udemy" sx={cx(thirdPartyIconSx, sx)} {...props}>
+    <path d={siUdemy.path} />
+  </SvgIcon>
+);
 
 export default Udemy;
