@@ -20,7 +20,7 @@
     "@mui/material": "^5.13.3",
     "@mui/x-date-pickers": "^6.5.0",
     "@vercel/analytics": "^1.0.1",
-    "contentful": "^10.2.2",
+    "contentful": "^10.2.3",
     "date-fns": "^2.30.0",
     "deep-rename-keys-ts": "^1.0.1",
     "framer-motion": "^10.12.16",
