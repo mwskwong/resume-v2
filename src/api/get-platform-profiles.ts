@@ -1,5 +1,4 @@
 import { orderBy } from "lodash-es";
-import "server-only";
 
 import client from "./client";
 import { PlatformProfileEntrySkeleton } from "./types";

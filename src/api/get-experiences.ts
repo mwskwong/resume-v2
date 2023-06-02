@@ -1,6 +1,5 @@
 import { Entry } from "contentful";
 import { orderBy } from "lodash-es";
-import "server-only";
 
 import client from "./client";
 import {
