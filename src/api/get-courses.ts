@@ -1,14 +1,11 @@
-import "server-only";
-
 import client from "./client";
 import { CourseEntrySkeleton } from "./types";
 
 const getCourses = async () => {
-  const { items } =
-    await client.withoutUnresolvableLinks.getEntries<CourseEntrySkeleton>({
-      content_type: "course",
-      order: ["fields.name"],
-    });
+  const { items } = await client.getEntries<CourseEntrySkeleton>({
+    content_type: "course",
+    order: ["fields.name"],
+  });
 
   return items.map((item) => ({
     ...item.fields,

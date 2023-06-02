@@ -1,5 +1,3 @@
-import "server-only";
-
 import client from "./client";
 
 const getPersonalPhoto = async () => {
