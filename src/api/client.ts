@@ -6,4 +6,4 @@ const client = createClient({
   environment: process.env.VERCEL_ENV === "production" ? "master" : "develop",
 });
 
-export default client;
+export default client.withoutUnresolvableLinks;

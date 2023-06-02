@@ -5,7 +5,7 @@ import { SkillCategoryEntrySkeleton, SkillEntrySkeleton } from "./types";
 
 const getSkills = async () => {
   const [{ items: skills }, { items: skillCategories }] = await Promise.all([
-    client.withoutUnresolvableLinks.getEntries<SkillEntrySkeleton>({
+    client.getEntries<SkillEntrySkeleton>({
       content_type: "skill",
       "fields.category[exists]": true,
       order: ["-fields.proficiency", "fields.name"],

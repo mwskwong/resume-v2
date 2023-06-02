@@ -13,11 +13,10 @@ const getExperiences = async () => {
   // Contentful always place undefined fields at the bottom,
   // so we first sort in ASC and then reverse it
   // such that it's in DESC order while undefined values are at the top
-  const { items } =
-    await client.withoutUnresolvableLinks.getEntries<ExperienceEntrySkeleton>({
-      content_type: "experience",
-      order: ["fields.to"],
-    });
+  const { items } = await client.getEntries<ExperienceEntrySkeleton>({
+    content_type: "experience",
+    order: ["fields.to"],
+  });
 
   items.reverse();
   for (const item of items) {
