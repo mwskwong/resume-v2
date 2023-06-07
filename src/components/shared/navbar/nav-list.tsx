@@ -1,4 +1,5 @@
 import { Box, BoxProps, Button } from "@mui/material";
+import Link from "next/link";
 import { FC } from "react";
 
 import nav from "@/constants/nav";
@@ -11,14 +12,12 @@ const NavList: FC<BoxProps> = (props) => {
   return (
     <Box component="nav" {...props}>
       <Box component="ul" sx={{ display: "flex" }}>
-        {nav.map(({ id, name }) => (
+        {nav.map(({ id, name, href }) => (
           <Button
             key={id}
+            component={Link}
+            href={href}
             color={activeSection.id === id ? "primary" : "inherit"}
-            onClick={() => {
-              const section = document.getElementById(id);
-              section?.scrollIntoView();
-            }}
           >
             {name}
             {activeSection.id === id && (
