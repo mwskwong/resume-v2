@@ -1,77 +1,57 @@
-import {
-  CloseRounded as Close,
-  MenuRounded as Menu,
-} from "@mui/icons-material";
-import { IconButton, IconButtonProps, SxProps, Theme } from "@mui/material";
-import { FC } from "react";
+import { CloseRounded, MenuRounded } from "@mui/icons-material";
+import { Box, IconButton, IconButtonProps } from "@mui/material";
+import { LazyMotion, m } from "framer-motion";
+import { ComponentProps, FC, forwardRef } from "react";
 
-import cx from "@/utils/cx";
+import loadFramerMotionFeatures from "@/utils/load-framer-motion-features";
 
-interface Props extends Omit<IconButtonProps, "onClick"> {
+const MotionBox = m(Box);
+const MotionClose = m(CloseRounded);
+const MotionMenu = m(MenuRounded);
+
+interface Props extends IconButtonProps {
   menuOpen?: boolean;
-  onToggleMenu?: IconButtonProps["onClick"];
+  slotProps?: {
+    closeIcon?: ComponentProps<typeof MotionClose>;
+    menuIcon?: ComponentProps<typeof MotionMenu>;
+  };
 }
 
-const MenuButton: FC<Props> = ({
-  sx: sxProps,
-  menuOpen,
-  onToggleMenu,
-  ...props
-}) => {
-  const iconSx: SxProps<Theme> = {
-    gridColumnStart: 1,
-    gridRowStart: 1,
-    transition: (theme) => theme.transitions.create(["rotate", "opacity"]),
-    rotate: "0deg",
-    opacity: 1,
-    "@media (prefers-reduced-motion)": {
-      transition: "none",
-    },
-  };
-
-  return (
+const MenuButton: FC<Props> = forwardRef(
+  ({ menuOpen, slotProps, ...props }, ref) => (
     <IconButton
-      sx={cx(
-        {
-          display: "inline-grid",
-          position: "relative",
-        },
-        sxProps
-      )}
+      ref={ref}
       aria-label={menuOpen ? "close menu" : "open menu"}
-      onClick={onToggleMenu}
       {...props}
     >
-      <Close
-        sx={cx(
-          iconSx,
-          menuOpen
-            ? undefined
-            : {
-                rotate: "45deg",
-                opacity: 0,
-                "@media (prefers-reduced-motion)": {
-                  rotate: "0deg",
-                },
-              }
-        )}
-      />
-      <Menu
-        sx={cx(
-          iconSx,
-          menuOpen
-            ? {
-                rotate: "-45deg",
-                opacity: 0,
-                "@media (prefers-reduced-motion)": {
-                  rotate: "0deg",
-                },
-              }
-            : undefined
-        )}
-      />
+      <LazyMotion features={loadFramerMotionFeatures} strict>
+        <MotionBox
+          sx={{ display: "inline-grid", position: "relative" }}
+          initial="close"
+          animate={menuOpen ? "open" : "close"}
+        >
+          <MotionClose
+            sx={{ gridColumnStart: 1, gridRowStart: 1 }}
+            variants={{
+              open: { rotate: 0, opacity: 1 },
+              close: { rotate: 45, opacity: 0 },
+            }}
+            {...slotProps?.closeIcon}
+          />
+          <MotionMenu
+            sx={{ gridColumnStart: 1, gridRowStart: 1 }}
+            variants={{
+              open: { rotate: -45, opacity: 0 },
+              close: { rotate: 0, opacity: 1 },
+            }}
+            {...slotProps?.menuIcon}
+          />
+        </MotionBox>
+      </LazyMotion>
     </IconButton>
-  );
-};
+  )
+);
+
+MenuButton.displayName = "MenuButton";
 
 export default MenuButton;

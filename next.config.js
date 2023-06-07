@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/** @typedef {import("next").NextConfig} NextConfig */
 
+/** @type {(config?: NextConfig) => NextConfig} */
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-/** @type {import('next').NextConfig} */
+/** @type {NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    // FIXME: until emotion option supports /app dir
-    // emotion: true,
     removeConsole: process.env.NODE_ENV === "production" && {
       exclude: ["error"],
     },
@@ -55,10 +54,6 @@ const nextConfig = {
       ],
     },
   ],
-  experimental: {
-    typedRoutes: true,
-  },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 module.exports = withBundleAnalyzer(nextConfig);

@@ -1,4 +1,6 @@
 const loadFramerMotionFeatures = () =>
-  import("./framer-motion-features").then((res) => res.default);
+  import(/* webpackExports: ["domMax"] */ "framer-motion").then(
+    (res) => res.domMax
+  );
 
 export default loadFramerMotionFeatures;

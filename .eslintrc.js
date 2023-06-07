@@ -1,5 +1,4 @@
 module.exports = {
-  root: true,
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -13,13 +12,14 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-  },
   plugins: ["@typescript-eslint"],
-  rules: {
-    "@next/next/no-html-link-for-pages": ["error", "src/app/"],
-  },
+  root: true,
+  overrides: [
+    {
+      files: ["**/*.*js"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+      },
+    },
+  ],
 };
