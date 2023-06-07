@@ -3,29 +3,22 @@
 import {
   AppBar,
   ClickAwayListener,
-  Collapse,
   Container,
-  List,
-  Stack,
   Theme,
   Toolbar,
   useMediaQuery,
 } from "@mui/material";
-import { FC, useEffect, useState } from "react";
-
-import nav from "@/constants/nav";
-import useActiveSectionId from "@/hooks/use-active-section-id";
+import { FC, useEffect, useRef, useState } from "react";
 
 import Logo from "./logo";
 import MenuButton from "./menu-button";
-import NavButton from "./nav-button";
-import NavListItem from "./nav-list-item";
+import NavDropdown from "./nav-dropdown";
+import NavList from "./nav-list";
 
 const NavBar: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
-  const preferReducedMotion = useMediaQuery("(prefers-reduced-motion)");
-  const activeSectionId = useActiveSectionId();
 
   useEffect(() => {
     if (mdUp) {
@@ -38,56 +31,30 @@ const NavBar: FC = () => {
       <Container>
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           <Logo sx={{ ml: -1 }} />
-          <Stack
-            sx={{
-              display: {
-                xs: "none",
-                md: "flex",
-              },
-            }}
-            component="nav"
-            spacing={1}
-            direction="row"
-          >
-            {Object.values(nav).map(({ id, name }) => (
-              <NavButton
-                key={id}
-                id={id}
-                label={name}
-                active={activeSectionId === id}
-              />
-            ))}
-          </Stack>
+          <NavList sx={{ display: { xs: "none", sm: "unset" } }} />
           <MenuButton
-            sx={{
-              display: {
-                md: "none",
-              },
-            }}
+            ref={menuButtonRef}
+            sx={{ display: { sm: "none" } }}
             menuOpen={menuOpen}
-            onToggleMenu={() => setMenuOpen((menuOpen) => !menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             edge="end"
           />
         </Toolbar>
-        <Collapse
-          in={menuOpen}
-          timeout={preferReducedMotion ? 0 : "auto"}
-          unmountOnExit
-          sx={{ mx: -2 }}
+        <ClickAwayListener
+          onClickAway={(event) => {
+            if (
+              menuButtonRef.current &&
+              !menuButtonRef.current.contains(event.target as Node)
+            ) {
+              setMenuOpen(false);
+            }
+          }}
         >
-          <ClickAwayListener onClickAway={() => setMenuOpen(false)}>
-            <List dense component="nav" aria-label="nav list">
-              {Object.values(nav).map(({ id, name }) => (
-                <NavListItem
-                  key={id}
-                  id={id}
-                  label={name}
-                  active={activeSectionId === id}
-                />
-              ))}
-            </List>
-          </ClickAwayListener>
-        </Collapse>
+          <NavDropdown
+            open={menuOpen}
+            sx={{ display: { sm: "none" }, mx: -2 }}
+          />
+        </ClickAwayListener>
       </Container>
     </AppBar>
   );

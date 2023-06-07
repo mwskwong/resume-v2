@@ -1,3 +1,5 @@
+"use client";
+
 import { ErrorOutlineRounded as ErrorOutline } from "@mui/icons-material";
 import type {} from "@mui/lab/themeAugmentation";
 import {
@@ -257,9 +259,14 @@ const theme = extendTheme({
         disableElevation: true,
       },
       styleOverrides: {
+        sizeMedium: ({ theme }) =>
+          theme.unstable_sx({
+            p: 1,
+          }),
         sizeLarge: ({ theme }) =>
           theme.unstable_sx({
-            padding: "1rem 1.25rem",
+            px: 2.5,
+            py: 2,
             typography: "body1",
             lineHeight: 21 / 16,
             fontWeight: "bold",
@@ -403,14 +410,6 @@ const theme = extendTheme({
         positionEnd: ({ theme }) =>
           theme.unstable_sx({
             ml: 2,
-          }),
-      },
-    },
-    MuiListItemButton: {
-      styleOverrides: {
-        root: ({ theme }) =>
-          theme.unstable_sx({
-            borderRadius: 1,
           }),
       },
     },

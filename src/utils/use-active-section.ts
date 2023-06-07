@@ -1,34 +1,32 @@
 import { throttle } from "lodash-es";
-import { useEffect, useState, useTransition } from "react";
+import { startTransition, useEffect, useState } from "react";
 
 import nav, { home } from "@/constants/nav";
 
-const useActiveSectionId = () => {
-  const [, startTransition] = useTransition();
-  const [activeSectionId, setActiveSectionId] = useState(home.id);
+const useActiveSection = () => {
+  const [activeSection, setActiveSection] = useState(home);
 
   useEffect(() => {
-    const sectionIds = Object.values(nav)
-      .map(({ id }) => id)
-      .reverse();
-
     const handleScroll = throttle(() => {
       const scrolledToBottom =
         window.innerHeight + window.scrollY >= document.body.offsetHeight;
 
       if (scrolledToBottom) {
-        startTransition(() => setActiveSectionId(sectionIds[0]));
+        const lastSection = nav.at(-1);
+        if (lastSection) {
+          startTransition(() => setActiveSection(lastSection));
+        }
       } else {
-        for (const sectionId of sectionIds) {
-          const section = document.getElementById(sectionId);
+        for (const section of nav.slice().reverse()) {
+          const sectionElem = document.getElementById(section.id);
           const sectionActive =
-            section &&
-            section.offsetTop <
+            sectionElem &&
+            sectionElem.offsetTop <
               document.documentElement.scrollTop +
                 document.documentElement.clientHeight / 8;
 
           if (sectionActive) {
-            startTransition(() => setActiveSectionId(sectionId));
+            startTransition(() => setActiveSection(section));
             break;
           }
         }
@@ -39,7 +37,7 @@ const useActiveSectionId = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return activeSectionId;
+  return activeSection;
 };
 
-export default useActiveSectionId;
+export default useActiveSection;

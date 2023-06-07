@@ -11,12 +11,13 @@ import {
   lastName,
   selfIntroduction,
 } from "@/constants/data";
-import font from "@/theme/font";
 // Group branding theme import in MUI v6
-import ThemeProvider from "@/theme/theme-provider";
+import theme, { font } from "@/theme";
 
 import Analytics from "./analytics";
-import EmotionRegistry from "./emotion-registry";
+import CssBaseline from "./css-baseline";
+import CssVarsProvider from "./css-vars-provider";
+// import EmotionRegistry from "./emotion-registry";
 import MotionConfig from "./motion-config";
 
 const RootLayout = async ({ children }: PropsWithChildren) => {
@@ -25,16 +26,15 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
   return (
     <html lang="en" className={font.className}>
       <body>
-        <EmotionRegistry>
-          <ThemeProvider>
-            <MotionConfig reducedMotion="user">
-              <NavBar />
-              {children}
-              <Footer platformProfiles={platformProfiles} />
-              <ScrollToTopFab />
-            </MotionConfig>
-          </ThemeProvider>
-        </EmotionRegistry>
+        <MotionConfig reducedMotion="user">
+          <CssVarsProvider theme={theme}>
+            <CssBaseline />
+            <NavBar />
+            {children}
+            <Footer platformProfiles={platformProfiles} />
+            <ScrollToTopFab />
+          </CssVarsProvider>
+        </MotionConfig>
         <Analytics />
       </body>
     </html>
