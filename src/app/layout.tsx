@@ -11,13 +11,11 @@ import {
   lastName,
   selfIntroduction,
 } from "@/constants/data";
-// Group branding theme import in MUI v6
 import theme, { font } from "@/theme";
 
 import Analytics from "./analytics";
 import CssBaseline from "./css-baseline";
 import CssVarsProvider from "./css-vars-provider";
-// import EmotionRegistry from "./emotion-registry";
 import MotionConfig from "./motion-config";
 
 const RootLayout = async ({ children }: PropsWithChildren) => {
