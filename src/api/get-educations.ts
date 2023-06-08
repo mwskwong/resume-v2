@@ -21,13 +21,13 @@ const getEducations = async () => {
         `https:${item.fields.school.fields.logo.fields.file.url}`,
     },
     supportingDocuments: item.fields.supportingDocuments
-      ?.map((supportingDocument) =>
-        supportingDocument?.fields.title && supportingDocument.fields.file
-          ? {
-              title: supportingDocument.fields.title,
-              url: `https:${supportingDocument.fields.file.url}`,
-            }
-          : undefined
+      ?.map(
+        (supportingDocument) =>
+          supportingDocument?.fields.title &&
+          supportingDocument.fields.file && {
+            title: supportingDocument.fields.title,
+            url: `https:${supportingDocument.fields.file.url}`,
+          }
       )
       .filter((elem): elem is { title: string; url: string } => Boolean(elem)),
   }));
