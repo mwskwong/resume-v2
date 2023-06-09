@@ -18,7 +18,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { LazyMotion, m } from "framer-motion";
+import { AnimatePresence, LazyMotion, m } from "framer-motion";
 import { FC, useEffect } from "react";
 import {
   FormContainer,
@@ -54,6 +54,7 @@ const personalInfo = [
   },
 ];
 
+const MotionStack = m(Stack);
 const MotionAlert = m(Alert);
 
 const Contact: FC = () => {
@@ -144,23 +145,37 @@ const Contact: FC = () => {
                 />
               </Grid>
             </Grid>
-            <Grid xs={12} md={8} mdOffset="auto" pt={2}>
-              <Stack spacing={1}>
-                <LazyMotion features={loadFramerMotionFeatures}>
-                  {state.errors.map(({ message }, index) => (
-                    <MotionAlert
-                      key={index}
-                      severity="error"
-                      initial={{ y: -10, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -10, opacity: 0 }}
-                      transition={{ delay: 0.1 * index }}
-                    >
-                      {message}
-                    </MotionAlert>
-                  ))}
-                </LazyMotion>
-              </Stack>
+            <Grid xs={12} md={8} mdOffset={12 - 8}>
+              <LazyMotion features={loadFramerMotionFeatures}>
+                <MotionStack
+                  spacing={1}
+                  sx={{ overflowY: "hidden" }}
+                  initial={false}
+                  animate={state.errors.length ? "show" : "hide"}
+                  variants={{
+                    show: { height: "auto" },
+                    hide: { height: 0 },
+                  }}
+                >
+                  <AnimatePresence>
+                    {state.errors.map(({ message }, index) => (
+                      <MotionAlert
+                        key={index}
+                        severity="error"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                          transition: { delay: 0.1 + 0.05 * index },
+                        }}
+                        exit={{ opacity: 0, y: 16 }}
+                      >
+                        {message}
+                      </MotionAlert>
+                    ))}
+                  </AnimatePresence>
+                </MotionStack>
+              </LazyMotion>
             </Grid>
             <Grid xs={12} sm="auto" smOffset="auto">
               <LoadingButton
