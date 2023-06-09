@@ -146,7 +146,7 @@ const Contact: FC = () => {
               </Grid>
             </Grid>
             <Grid xs={12} md={8} mdOffset={12 - 8}>
-              <LazyMotion features={loadFramerMotionFeatures}>
+              <LazyMotion strict features={loadFramerMotionFeatures}>
                 <MotionStack
                   spacing={1}
                   sx={{ overflowY: "hidden" }}

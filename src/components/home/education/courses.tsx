@@ -61,23 +61,21 @@ const Courses: FC<Props> = ({ courses = [], sx, ...props }) => {
         onClear={() => setQuery("")}
         inputProps={{ "aria-label": "search courses and training" }}
       />
-      <div>
-        <Grid container spacing={2}>
-          <LazyMotion strict features={loadFramerMotionFeatures}>
-            {filteredCourses.map(({ name, institution, certificate }) => {
-              return (
-                <MotionGrid key={name} xs={12} md={6} layout>
-                  <CertificateCard
-                    name={name}
-                    organization={institution}
-                    certificateUrl={certificate}
-                  />
-                </MotionGrid>
-              );
-            })}
-          </LazyMotion>
-        </Grid>
-      </div>
+      <Grid container spacing={2}>
+        <LazyMotion strict features={loadFramerMotionFeatures}>
+          {filteredCourses.map(({ name, institution, certificate }) => {
+            return (
+              <MotionGrid key={name} xs={12} md={6} layout>
+                <CertificateCard
+                  name={name}
+                  organization={institution}
+                  certificateUrl={certificate}
+                />
+              </MotionGrid>
+            );
+          })}
+        </LazyMotion>
+      </Grid>
     </Stack>
   );
 };

@@ -27,7 +27,7 @@ const NavDropdown = forwardRef<HTMLElement, Props>(
     const dotSize = 8;
 
     return (
-      <LazyMotion features={loadFramerMotionFeatures} strict>
+      <LazyMotion strict features={loadFramerMotionFeatures}>
         <MotionBox
           ref={ref}
           component="nav"
