@@ -24,7 +24,7 @@ const MenuButton: FC<Props> = forwardRef(
       aria-label={menuOpen ? "close menu" : "open menu"}
       {...props}
     >
-      <LazyMotion features={loadFramerMotionFeatures} strict>
+      <LazyMotion strict features={loadFramerMotionFeatures}>
         <MotionBox
           sx={{ display: "inline-grid", position: "relative" }}
           initial="close"
